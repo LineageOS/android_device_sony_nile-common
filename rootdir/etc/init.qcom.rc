@@ -626,6 +626,12 @@ service loc_launcher /vendor/bin/loc_launcher
     user gps
     group gps
 
+service mlid /vendor/bin/mlid
+    class late_start
+    user gps
+    group gps
+    socket mlid stream 0666 gps gps
+
 service mlog_qmi_service /vendor/bin/mlog_qmi_service
     user root
     disabled
