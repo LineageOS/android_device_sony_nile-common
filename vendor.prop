@@ -104,3 +104,7 @@ sys.usb.controller=a800000.dwc3
 # Wifi
 ro.wifi.addr_path=/data/misc/wifi/wlan_mac.bin
 wifi.interface=wlan0
+
+# Wireless display
+persist.debug.wfd.enable=1
+persist.sys.wfd.virtual=0
