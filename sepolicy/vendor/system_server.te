@@ -1,0 +1,5 @@
+# Allow system_server to read idc_file
+r_dir_file(system_server, idc_file)
+
+# Allow system_server to read keylayout_file
+r_dir_file(system_server, keylayout_file)

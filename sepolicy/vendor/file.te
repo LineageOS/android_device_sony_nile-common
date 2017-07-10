@@ -1,5 +1,7 @@
+type idc_file, file_type, vendor_file_type;
 type idd_data_file, file_type;
 type idd_rca_file, file_type;
+type keylayout_file, file_type, vendor_file_type;
 type qns_socket, file_type;
 type secd_credmgr_socket, file_type;
 type secd_devsec_socket, file_type;
