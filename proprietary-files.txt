@@ -380,7 +380,6 @@ vendor/lib/libsmwrapper.so
 vendor/lib64/hw/sound_trigger.primary.sdm660.so
 
 # Media
-vendor/lib/libI420colorconvert.so
 vendor/lib/libOmxVideoDSMode.so
 vendor/lib/libOmxVpp.so
 vendor/lib/libgpustats.so
@@ -395,7 +394,6 @@ vendor/lib/libvpplibrary.so
 vendor/lib/libvqzip.so
 vendor/lib/libwfdcommonutils_proprietary.so
 vendor/lib/libwfdmmservice.so
-vendor/lib64/libI420colorconvert.so
 vendor/lib64/libgpustats.so
 vendor/lib64/libmm-color-convertor.so
 vendor/lib64/libmmosal_proprietary.so
