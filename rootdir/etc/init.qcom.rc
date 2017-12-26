@@ -789,10 +789,10 @@ service vendor-sensor-sh /vendor/bin/init.qcom.sensors.sh
     user root
     oneshot
 
-service vendor.sensors /vendor/bin/sensors.qcom
+service vendor.sensors.qti /vendor/bin/sensors.qti
     class core
-    user root
-    group root
+    user system
+    group system
     disabled
 
 service tad /vendor/bin/tad /dev/block/bootdevice/by-name/TA 0,16
