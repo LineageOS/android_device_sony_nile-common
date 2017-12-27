@@ -175,13 +175,13 @@ PRODUCT_PACKAGES += \
     init.class_main.sh \
     init.qcom.class_core.sh \
     init.qcom.crashdata.sh \
+    init.qcom.devstart.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.sensors.sh \
     init.qcom.sh \
     init.qcom.usb.rc \
-    init.qti.qseecomd.sh \
     ueventd.qcom.rc
 
 # Display
