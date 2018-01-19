@@ -640,7 +640,7 @@ vendor/lib64/vendor.display.color@1.2.so
 vendor/lib64/vendor.display.postproc@1.0.so
 
 # QMI
-etc/permissions/qti_libpermissions.xml
+etc/permissions/qti_libpermissions.xml|92e5814133dbc1f82fce898374d042a42c9ecf9d
 etc/permissions/qti_permissions.xml
 lib/libdiag_system.so
 lib/libqmi_cci_system.so
