@@ -129,6 +129,9 @@ on post-fs-data
     # Create directory for radio
     mkdir /data/vendor/radio 0770 system radio
 
+    # Create directory for modem_config
+    mkdir /data/vendor/modem_config 0550 system radio
+
     # Change lm related dirs
     mkdir /data/vendor/lm 0700 root root
 
@@ -750,6 +753,9 @@ service qcom-sh /vendor/bin/init.qcom.sh
     class late_start
     user root
     oneshot
+
+on property:ro.runtime.mbn_copy_completed=1
+    write /data/vendor/radio/copy_complete 1
 
 service qns /vendor/bin/qns -d /mnt/qns -l /mnt/qns
     user oem_2985
