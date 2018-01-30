@@ -331,6 +331,8 @@ on early-boot
     write /sys/kernel/boot_cdsp/boot 1
     write /sys/kernel/boot_slpi/boot 1
 
+    chown system system /persist/sensors
+
     setprop ro.alarm_boot false
 
 on boot
