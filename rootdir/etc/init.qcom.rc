@@ -695,7 +695,7 @@ on property:sys.shutdown.requested=*
 
 service port-bridge /vendor/bin/port-bridge
     class main
-    user radio system
+    user radio
     group radio system inet
     disabled
     oneshot
