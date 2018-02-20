@@ -635,9 +635,9 @@ service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     oneshot
 
 service loc_launcher /vendor/bin/loc_launcher
-    # loc_launcher will start as root and set its uid to gps
     class late_start
-    group gps inet diag wifi
+    user gps
+    group gps
 
 service mlog_qmi_service /vendor/bin/mlog_qmi_service
     user root
