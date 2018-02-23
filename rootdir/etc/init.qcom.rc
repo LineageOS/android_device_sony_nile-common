@@ -337,8 +337,8 @@ on post-fs-data
     chown oem_2985 oem_2985 /sys/class/qns/battery_type
 
     start vendor.qti
-    start netmgrd
-    start port-bridge
+    start vendor.netmgrd
+    start vendor.port-bridge
     start qns
 
 on early-boot
@@ -657,7 +657,7 @@ service vendor.msm_irqbl_sdm630 /vendor/bin/msm_irqbalance -f /vendor/etc/msm_ir
     user root
     group root
 
-service netmgrd /vendor/bin/netmgrd
+service vendor.netmgrd /vendor/bin/netmgrd
     class main
     disabled
 
@@ -686,7 +686,7 @@ on property:init.svc.per_mgr=running
 on property:sys.shutdown.requested=*
     stop per_proxy
 
-service port-bridge /vendor/bin/port-bridge
+service vendor.port-bridge /vendor/bin/port-bridge
     class main
     user radio
     group radio system inet
@@ -867,5 +867,5 @@ on property:sys.boot_completed=1
 on property:vold.decrypt=trigger_restart_framework
     start vendor.ipacm-diag
     start vendor.qti
-    start netmgrd
-    start port-bridge
+    start vendor.netmgrd
+    start vendor.port-bridge
