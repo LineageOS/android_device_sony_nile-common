@@ -588,14 +588,14 @@ service hvdcp_opti /vendor/bin/hvdcp_opti
     user root
     group system wakelock
 
-service ipacm-diag /vendor/bin/ipacm-diag
+service vendor.ipacm-diag /vendor/bin/ipacm-diag
     class main
     user radio
     socket ipacm_log_file dgram 660 radio radio
     group radio diag
     disabled
 
-service ipacm /vendor/bin/ipacm
+service vendor.ipacm /vendor/bin/ipacm
     class main
     user radio
     group radio inet
@@ -865,7 +865,7 @@ on property:sys.boot_completed=1
     start qcom-post-boot
 
 on property:vold.decrypt=trigger_restart_framework
-    start ipacm-diag
+    start vendor.ipacm-diag
     start qti
     start netmgrd
     start port-bridge
