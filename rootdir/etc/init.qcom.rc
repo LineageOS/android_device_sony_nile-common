@@ -531,7 +531,7 @@ service charge-mode-sh /vendor/bin/init.charge.mode.sh
     user root
     oneshot
 
-service cnd /vendor/bin/cnd
+service vendor.cnd /vendor/bin/cnd
     class main
     user system
     group system wifi inet radio wakelock net_admin
@@ -597,7 +597,7 @@ service hvdcp_opti /vendor/bin/hvdcp_opti
     user root
     group system wakelock
 
-service ipacm-diag /vendor/bin/ipacm-diag
+service vendor.ipacm-diag /vendor/bin/ipacm-diag
     class main
     user radio
     socket ipacm_log_file dgram 660 radio radio
@@ -869,7 +869,7 @@ on property:sys.boot_completed=1
     start qcom-post-boot
 
 on property:vold.decrypt=trigger_restart_framework
-    start ipacm-diag
+    start vendor.ipacm-diag
     start vendor.dataqti
     start vendor.netmgrd
     start port-bridge
