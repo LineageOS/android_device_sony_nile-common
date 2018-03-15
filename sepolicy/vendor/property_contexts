@@ -8,3 +8,4 @@ ro.vendor.cei_project_id         u:object_r:cei_prop:s0
 ro.vendor.cei_sku_id             u:object_r:cei_prop:s0
 semc.version.                    u:object_r:semc_version_prop:s0
 vendor.hw.fingerprint            u:object_r:cei_prop:s0
+vendor.qcom.devup                u:object_r:vendor_device_prop:s0
