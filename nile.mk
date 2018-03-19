@@ -28,6 +28,9 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
 
+# Properties
+-include $(LOCAL_PATH)/vendor_prop.mk
+
 # A/B
 AB_OTA_UPDATER := true
 
