@@ -781,12 +781,12 @@ service rmt_storage /vendor/bin/rmt_storage
     shutdown critical
     ioprio rt 0
 
-service sensor-sh /vendor/bin/init.qcom.sensors.sh
+service vendor-sensor-sh /vendor/bin/init.qcom.sensors.sh
     class core
     user root
     oneshot
 
-service sensors /vendor/bin/sensors.qcom
+service vendor.sensors /vendor/bin/sensors.qcom
     class core
     user root
     group root
