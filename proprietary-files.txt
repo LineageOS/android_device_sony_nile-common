@@ -262,6 +262,14 @@ vendor/firmware/a508_zap.b01
 vendor/firmware/a508_zap.b02
 vendor/firmware/a508_zap.elf
 vendor/firmware/a508_zap.mdt
+vendor/firmware/a530_gpmu.fw2
+vendor/firmware/a530_pfp.fw
+vendor/firmware/a530_pm4.fw
+vendor/firmware/a530v1_pfp.fw
+vendor/firmware/a530v1_pm4.fw
+vendor/firmware/a530v2_seq.fw2
+vendor/firmware/a530v3_gpmu.fw2
+vendor/firmware/a530v3_seq.fw2
 
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
