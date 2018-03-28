@@ -1,3 +1,6 @@
 # idd
 /rca(/.*)?                            u:object_r:idd_rca_file:s0
 /idd(/.*)?                            u:object_r:idd_data_file:s0
+
+# HALs
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service.nile    u:object_r:hal_light_default_exec:s0
