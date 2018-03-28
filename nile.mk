@@ -180,7 +180,6 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.charge.mode.sh \
     init.class_main.sh \
-    init.msm.usb.configfs.rc \
     init.qcom.class_core.sh \
     init.qcom.crashdata.sh \
     init.qcom.early_boot.sh \
@@ -190,7 +189,6 @@ PRODUCT_PACKAGES += \
     init.qcom.sensors.sh \
     init.qcom.sh \
     init.qcom.usb.rc \
-    init.qcom.usb.sh \
     init.qti.qseecomd.sh \
     init.target.rc \
     ueventd.qcom.rc
