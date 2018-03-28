@@ -764,6 +764,13 @@ vendor/lib64/libmiscta.so
 vendor/lib64/libtpm.so
 vendor/lib64/vendor.somc.hardware.miscta@1.0_vendor.so
 
+# Thermal
+vendor/bin/thermal-engine
+vendor/etc/thermal-engine.conf
+-vendor/lib/libthermalclient.so
+-vendor/lib64/libthermalclient.so
+vendor/lib64/libthermalioctl.so
+
 # Time services
 -vendor/app/TimeService/TimeService.apk
 vendor/bin/time_daemon
