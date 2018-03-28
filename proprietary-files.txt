@@ -139,6 +139,10 @@ vendor/lib64/libcneqmiutils.so
 vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
 
+# Display calibration data
+vendor/etc/qdcm_calib_data_td4322_innolux_fhd_command_mode_dsi_panel.xml
+vendor/etc/qdcm_calib_data_td4322_truly_fhd_command_mode_dsi_panel.xml
+
 # DPM
 vendor/bin/dpmQmiMgr
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0_vendor.so
