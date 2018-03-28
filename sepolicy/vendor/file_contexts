@@ -1,0 +1,3 @@
+# idd
+/rca(/.*)?                            u:object_r:idd_rca_file:s0
+/idd(/.*)?                            u:object_r:idd_data_file:s0
