@@ -336,7 +336,7 @@ on post-fs-data
     chown oem_2985 oem_2985 /sys/class/qns/voltage
     chown oem_2985 oem_2985 /sys/class/qns/battery_type
 
-    start qti
+    start vendor.qti
     start netmgrd
     start port-bridge
     start qns
@@ -763,7 +763,7 @@ service qseecomd /vendor/bin/qseecomd
     user root
     group root
 
-service qti /vendor/bin/qti
+service vendor.qti /vendor/bin/qti
     class main
     user radio
     group radio net_raw diag usb net_admin
@@ -866,6 +866,6 @@ on property:sys.boot_completed=1
 
 on property:vold.decrypt=trigger_restart_framework
     start vendor.ipacm-diag
-    start qti
+    start vendor.qti
     start netmgrd
     start port-bridge
