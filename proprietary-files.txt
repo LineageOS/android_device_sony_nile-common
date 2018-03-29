@@ -777,8 +777,16 @@ vendor/bin/time_daemon
 vendor/lib64/libtime_genoff.so
 
 # Widevine DRM
+lib64/libstagefright_wfd.so
 vendor/bin/hw/android.hardware.drm@1.0-service.widevine
+vendor/bin/wvnitzd
+vendor/etc/init/init.sony-drm.rc
+vendor/lib/libwvhidl.so
+vendor/lib64/libhdcprx_module.so
+vendor/lib64/libhdcptx_module.so
+vendor/lib64/libstagefright_hdcp.so
 vendor/lib64/libwvhidl.so
+vendor/lib64/libwvtee.so
 
 # WiFi
 vendor/bin/cnss-daemon
