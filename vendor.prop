@@ -64,6 +64,7 @@ sdm.perf_hint_window=50
 # Media
 vendor.vidc.enc.disable.pq=false
 vidc.enc.dcvs.extra-buff-count=2
+video.disable.ubwc=1
 
 # NFC
 ro.nfc.port=I2C
