@@ -327,6 +327,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
+# Recovery
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/root/init.recovery.qcom.rc:root/init.recovery.qcom.rc
+
 # RIL
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
