@@ -572,12 +572,6 @@ service ipacm-diag /vendor/bin/ipacm-diag
     group radio diag
     disabled
 
-service ipacm /vendor/bin/ipacm
-    class main
-    user radio
-    group radio inet
-    disabled
-
 service ims_rtp_daemon /vendor/bin/ims_rtp_daemon
     class main
     user system
