@@ -101,5 +101,5 @@ persist.timed.enable=true
 sys.usb.controller=a800000.dwc3
 
 # Wifi
-ro.wifi.addr_path=/data/etc/wlan_mac.bin
+ro.wifi.addr_path=/data/misc/wifi/wlan_mac.bin
 wifi.interface=wlan0
