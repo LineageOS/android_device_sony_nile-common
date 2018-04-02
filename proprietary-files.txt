@@ -343,8 +343,6 @@ vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 # Fingerprint
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service_et516
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service_fpc
-vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service_et516.rc
-vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service_fpc.rc
 vendor/etc/permissions/com.fingerprints.extension.xml
 -vendor/framework/com.fingerprints.extension.jar
 vendor/lib64/com.fingerprints.extension@1.0.so
