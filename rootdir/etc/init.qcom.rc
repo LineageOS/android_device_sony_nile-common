@@ -620,11 +620,6 @@ service loc_launcher /vendor/bin/loc_launcher
     class late_start
     group gps inet diag wifi
 
-service mdtpd /vendor/bin/mdtpd
-    class late_start
-    user root
-    group system radio drmrpc
-
 service mlog_qmi_service /vendor/bin/mlog_qmi_service
     user root
     disabled
