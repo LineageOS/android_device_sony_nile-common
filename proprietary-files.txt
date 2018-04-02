@@ -797,7 +797,6 @@ lib64/vendor.somc.hardware.miscta@1.0.so
 vendor/bin/hw/vendor.somc.hardware.miscta@1.0-service
 vendor/bin/ta_qmi_service
 vendor/bin/tad_static
-vendor/bin/taimport
 vendor/bin/updatemiscta
 vendor/bin/wait4tad_static
 vendor/etc/init/init.sony-trimarea-tad.rc

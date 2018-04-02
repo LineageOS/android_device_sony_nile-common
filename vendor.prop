@@ -27,6 +27,7 @@ vendor.voice.path.for.pcm.voip=true
 # Bluetooth
 bt.max.hfpclient.connections=1
 qcom.bluetooth.soc=cherokee
+ro.bt.bdaddr_path=/data/misc/bluetooth/bluetooth_bdaddr
 
 # CNE
 persist.cne.feature=1
@@ -100,4 +101,5 @@ persist.timed.enable=true
 sys.usb.controller=a800000.dwc3
 
 # Wifi
+ro.wifi.addr_path=/data/etc/wlan_mac.bin
 wifi.interface=wlan0
