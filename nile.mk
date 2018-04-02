@@ -182,7 +182,6 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.qti.qseecomd.sh \
-    init.target.rc \
     ueventd.qcom.rc
 
 # Display
