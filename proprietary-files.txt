@@ -861,7 +861,6 @@ vendor/bin/updatemiscta
 vendor/bin/wait4tad_static
 vendor/etc/init/init.sony-trimarea-tad.rc
 vendor/etc/init/init.taqmi.rc
-vendor/etc/init/taimport.rc
 vendor/etc/init/updatemiscta.rc
 vendor/etc/init/vendor.somc.hardware.miscta@1.0-service.rc
 vendor/firmware/tztpm.b00
