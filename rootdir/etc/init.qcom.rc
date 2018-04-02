@@ -88,12 +88,6 @@ on fs
     # Change permission for IUSB suspend node
     chmod 0666 /sys/class/power_supply/battery/input_suspend
 
-    # Wait for trimarea
-    wait /dev/block/mmcblk0p1
-    chown oem_2997 oem_2997 /dev/block/mmcblk0p1
-    chmod 0770 /dev/block/mmcblk0p1
-    start tad_static
-
     # Start HW service manager early
     start hwservicemanager
 
