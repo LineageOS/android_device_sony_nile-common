@@ -1,0 +1,20 @@
+# HALs
+attribute hal_idd;
+attribute hal_idd_client;
+attribute hal_idd_server;
+
+attribute hal_idd_fallback;
+attribute hal_idd_fallback_client;
+attribute hal_idd_fallback_server;
+
+attribute hal_miscta;
+attribute hal_miscta_client;
+attribute hal_miscta_server;
+
+attribute hal_secd;
+attribute hal_secd_client;
+attribute hal_secd_server;
+
+attribute hal_wifi_hostapd;
+attribute hal_wifi_hostapd_client;
+attribute hal_wifi_hostapd_server;
