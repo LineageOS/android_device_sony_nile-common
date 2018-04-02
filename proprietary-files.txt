@@ -757,15 +757,17 @@ vendor/firmware/tzsuntory.b05
 vendor/firmware/tzsuntory.b06
 vendor/firmware/tzsuntory.b07
 vendor/firmware/tzsuntory.mdt
-vendor/etc/init/init.secd.rc
+vendor/etc/init/init.secd.rc|f8565da79d5fec15e6b0509d3eeb389226479113
 vendor/etc/init/vendor.semc.hardware.secd@1.0-service.rc
 vendor/lib/libcredential-manager-service.so
 vendor/lib/libdevice_security.so
 vendor/lib/libsuntory.so
+vendor/lib/libta_drm_ext.so|def802a5eef691a9b48a191f56116c8da900fdd3
 vendor/lib64/libcredential-manager-service.so
 vendor/lib64/libdevice_security.so
 vendor/lib64/libstartup-reason.so
 vendor/lib64/libsuntory.so
+vendor/lib64/libta_drm_ext.so|5e180b417ae93862862219d2a1be0a4f708a5394
 vendor/lib64/vendor.semc.hardware.secd@1.0_vendor.so
 
 # Sensors
