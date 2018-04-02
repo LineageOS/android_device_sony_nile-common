@@ -801,11 +801,6 @@ service tftp_server /vendor/bin/tftp_server
     class core
     user root
 
-service vppservice /vendor/bin/vppservice
-    class main
-    user media
-    group camera
-
 service wifi-sdio-on /vendor/bin/init.qcom.sdio.sh
     class late_start
     group wifi inet
