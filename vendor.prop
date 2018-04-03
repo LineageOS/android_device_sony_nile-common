@@ -68,6 +68,7 @@ vidc.enc.dcvs.extra-buff-count=2
 video.disable.ubwc=1
 
 # NFC
+ro.hardware.nfc_nci=nqx.default
 ro.nfc.port=I2C
 
 # Perf
