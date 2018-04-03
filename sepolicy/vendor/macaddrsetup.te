@@ -2,3 +2,11 @@ type macaddrsetup, domain;
 type macaddrsetup_exec, exec_type, vendor_file_type, file_type;
 
 init_daemon_domain(macaddrsetup)
+
+unix_socket_connect(macaddrsetup, tad, tad)
+
+allow macaddrsetup bluetooth_data_file:dir rw_dir_perms;
+allow macaddrsetup bluetooth_data_file:file create_file_perms;
+
+allow macaddrsetup wifi_data_file:dir rw_dir_perms;
+allow macaddrsetup wifi_data_file:file create_file_perms;

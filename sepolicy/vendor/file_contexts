@@ -1,4 +1,7 @@
-# idd
+# Devices
+/dev/socket/tad                       u:object_r:tad_socket:s0
+
+# Data files
 /rca(/.*)?                            u:object_r:idd_rca_file:s0
 /idd(/.*)?                            u:object_r:idd_data_file:s0
 
