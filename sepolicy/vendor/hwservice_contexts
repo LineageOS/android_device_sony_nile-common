@@ -1,0 +1,7 @@
+vendor.cei.ets.inline_hal.hardware.fingerprint::IBiometricsFingerprintEts         u:object_r:ets_inline_service:s0
+vendor.cei.ets.inline_hal.hardware.fingerprint::IBiometricsFingerprintCallback    u:object_r:ets_inline_service:s0
+vendor.semc.hardware.secd::IDeviceSecurity                                        u:object_r:hal_secd_hwservice:s0
+vendor.semc.system.idd.fallback::IIddFallback                                     u:object_r:hal_idd_fallback_hwservice:s0
+vendor.semc.system.idd::IIdd                                                      u:object_r:hal_idd_hwservice:s0
+vendor.somc.hardware.miscta::IMisctaGlobal                                        u:object_r:hal_miscta_hwservice:s0
+vendor.somc.hardware.wifi::ISomcWifi                                              u:object_r:hal_wifi_hostapd_hwservice:s0

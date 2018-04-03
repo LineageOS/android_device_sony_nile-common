@@ -1,6 +1,9 @@
 # Allow binder communication with hal_idd_default
 binder_call(hal_fingerprint_default, hal_idd_default)
 
+# Allow hal_fingerprint_default to add and find ets_inline_service
+allow hal_fingerprint_default ets_inline_service:hwservice_manager { add find };
+
 # Allow hal_fingerprint_default to read and write to etsd_device
 allow hal_fingerprint_default etsd_device:chr_file rw_file_perms;
 
