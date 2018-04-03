@@ -1,1 +1,2 @@
-persist.audio.gain.version    u:object_r:audio_gain_prop:s0
+persist.audio.gain.version       u:object_r:audio_gain_prop:s0
+persist.keyprovd.suntory.prov    u:object_r:secd_prop:s0
