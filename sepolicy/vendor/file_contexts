@@ -11,6 +11,7 @@
 # Sys files
 /sys/devices(/platform)?/soc/[a-z0-9]+.qcom,jpeg/video4linux/video[0-33]/name       u:object_r:sysfs_graphics:s0
 /sys/devices(/platform)?/soc/[a-z0-9]+.qcom,msm-cam/video4linux/video[0-33]/name    u:object_r:sysfs_graphics:s0
+/sys/kernel/boot_wlan(/.*)?                                                         u:object_r:sysfs_wifi:s0
 
 # Data files
 /rca(/.*)?                            u:object_r:idd_rca_file:s0
