@@ -1,0 +1,2 @@
+# Allow hvdcp to read sysfs
+allow hvdcp sysfs:file r_file_perms;
