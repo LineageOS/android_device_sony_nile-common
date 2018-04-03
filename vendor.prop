@@ -95,6 +95,15 @@ persist.data.df.mux_count=8
 persist.data.df.iwlan_mux=9
 persist.data.df.dev_name=rmnet_usb0
 
+# Sensors
+ro.vendor.sdk.sensors.gestures=false
+ro.vendor.sensors.cmc=false
+ro.vendor.sensors.dev_ori=true
+ro.vendor.sensors.facing=false
+ro.vendor.sensors.mot_detect=true
+ro.vendor.sensors.pmd=true
+ro.vendor.sensors.sta_detect=true
+
 # TimeService
 persist.timed.enable=true
 
