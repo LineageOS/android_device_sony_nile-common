@@ -1,5 +1,9 @@
 # Devices
-/dev/socket/tad                       u:object_r:tad_socket:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/TA    u:object_r:ta_block_device:s0
+/dev/socket/qnsbsd                                   u:object_r:qns_socket:s0
+/dev/socket/secd_credmgr_sock                        u:object_r:secd_credmgr_socket:s0
+/dev/socket/secd_devsec_sock                         u:object_r:secd_devsec_socket:s0
+/dev/socket/tad                                      u:object_r:tad_socket:s0
 
 # Data files
 /rca(/.*)?                            u:object_r:idd_rca_file:s0
@@ -11,6 +15,10 @@
 /(vendor|system/vendor)/bin/mlog_qmi_service    u:object_r:mlog_qmi_service_exec:s0
 /(vendor|system/vendor)/bin/qns                 u:object_r:qns_exec:s0
 /(vendor|system/vendor)/bin/secd                u:object_r:secd_exec:s0
+/(vendor|system/vendor)/bin/ta_qmi_service      u:object_r:ta_qmi_service_exec:s0
+/(vendor|system/vendor)/bin/tad_static          u:object_r:tad_exec:s0
+/(vendor|system/vendor)/bin/updatemiscta        u:object_r:updatemiscta_exec:s0
+/(vendor|system/vendor)/bin/wait4tad_static     u:object_r:tad_exec:s0
 /(vendor|system/vendor)/bin/wvkbd               u:object_r:wvkbd_exec:s0
 
 # HALs

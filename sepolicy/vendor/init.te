@@ -1,0 +1,3 @@
+allow init { idd_data_file idd_rca_file }:dir mounton;
+
+allow init ta_block_device:blk_file setattr;
