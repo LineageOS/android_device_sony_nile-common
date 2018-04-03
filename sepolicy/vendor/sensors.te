@@ -1,0 +1,2 @@
+# Allow sensors to read /proc/cei_project_id
+r_dir_file(sensors, proc)
