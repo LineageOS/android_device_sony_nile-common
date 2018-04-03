@@ -1,0 +1,6 @@
+# Allow binder communication with hal_idd_default
+binder_call(rild, hal_idd_default)
+
+# Allow rild to read, write and create files in radio_data_file
+allow rild radio_data_file:dir rw_dir_perms;
+allow rild radio_data_file:file create_file_perms;
