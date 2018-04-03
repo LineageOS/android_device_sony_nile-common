@@ -10,3 +10,6 @@ allow rild hal_secd_hwservice:hwservice_manager find;
 # Allow rild to read, write and create files in radio_data_file
 allow rild radio_data_file:dir rw_dir_perms;
 allow rild radio_data_file:file create_file_perms;
+
+# Allow rild to read files in /persist
+r_dir_file(rild, persist_file)
