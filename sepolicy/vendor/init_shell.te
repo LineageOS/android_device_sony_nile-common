@@ -1,0 +1,2 @@
+# Allow qti_init_shell to chmod /proc/cei_simslot_id
+allow qti_init_shell proc:file setattr;
