@@ -1,3 +1,4 @@
 type appslog_block_device, dev_type;
 type diag_block_device, dev_type;
+type etsd_device, dev_type;
 type ta_block_device, dev_type;

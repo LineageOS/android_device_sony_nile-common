@@ -2,6 +2,7 @@
 /dev/block/platform/soc/c0c4000\.sdhci/by-name/appslog    u:object_r:appslog_block_device:s0
 /dev/block/platform/soc/c0c4000\.sdhci/by-name/diag       u:object_r:diag_block_device:s0
 /dev/block/platform/soc/c0c4000\.sdhci/by-name/TA         u:object_r:ta_block_device:s0
+/dev/esfp0                                                u:object_r:etsd_device:s0
 /dev/socket/qnsbsd                                        u:object_r:qns_socket:s0
 /dev/socket/secd_credmgr_sock                             u:object_r:secd_credmgr_socket:s0
 /dev/socket/secd_devsec_sock                              u:object_r:secd_devsec_socket:s0
