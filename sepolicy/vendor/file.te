@@ -1,3 +1,4 @@
+type etsd_data_file, file_type, data_file_type;
 type idc_file, file_type, vendor_file_type;
 type idd_data_file, file_type;
 type idd_rca_file, file_type;
