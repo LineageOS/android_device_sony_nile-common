@@ -17,7 +17,14 @@
 # Data files
 /data/misc/egistec(/.*)?              u:object_r:etsd_data_file:s0
 /data/vendor/nfc(/.*)?                u:object_r:nfc_data_file:s0
+/idd                                  u:object_r:idd_root_dir:s0
 /idd(/.*)?                            u:object_r:idd_data_file:s0
+/idd/crashdata(/.*)?                  u:object_r:idd_crashdata_file:s0
+/idd/fsck(/.*)?                       u:object_r:idd_fsck_file:s0
+/idd/lost\+found(/.*)?                u:object_r:idd_lostfound_file:s0
+/idd/output(/.*)?                     u:object_r:idd_output_file:s0
+/idd/socket(/.*)?                     u:object_r:idd_socket_file:s0
+/idd/startup-prober(/.*)?             u:object_r:startupprober_file:s0
 /mnt/qns(/.*)?                        u:object_r:qns_file:s0
 /rca(/.*)?                            u:object_r:idd_rca_file:s0
 
