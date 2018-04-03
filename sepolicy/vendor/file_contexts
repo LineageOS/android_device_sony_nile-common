@@ -9,6 +9,7 @@
 /dev/socket/tad                                           u:object_r:tad_socket:s0
 
 # Sys files
+/sys/class/qns(/.*)?                                                                u:object_r:qns_sysfs:s0
 /sys/devices(/platform)?/soc/[a-z0-9]+.qcom,jpeg/video4linux/video[0-33]/name       u:object_r:sysfs_graphics:s0
 /sys/devices(/platform)?/soc/[a-z0-9]+.qcom,msm-cam/video4linux/video[0-33]/name    u:object_r:sysfs_graphics:s0
 /sys/kernel/boot_wlan(/.*)?                                                         u:object_r:sysfs_wifi:s0
@@ -17,6 +18,7 @@
 /data/misc/egistec(/.*)?              u:object_r:etsd_data_file:s0
 /data/vendor/nfc(/.*)?                u:object_r:nfc_data_file:s0
 /idd(/.*)?                            u:object_r:idd_data_file:s0
+/mnt/qns(/.*)?                        u:object_r:qns_file:s0
 /rca(/.*)?                            u:object_r:idd_rca_file:s0
 
 # Configuration files
