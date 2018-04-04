@@ -337,6 +337,9 @@ on post-fs-data
     chown oem_2985 oem_2985 /sys/class/qns/voltage
     chown oem_2985 oem_2985 /sys/class/qns/battery_type
 
+    start qti
+    start netmgrd
+    start port-bridge
     start qns
 
 on early-boot
@@ -727,13 +730,11 @@ service ril-daemon2 /vendor/bin/hw/rild -c 2
     group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log drmrpc oem_2993
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
+on property:persist.radio.multisim.config=dsds
+    enable ril-daemon2
+
 service qcom-c_core-sh  /vendor/bin/init.qcom.class_core.sh
     class core
-    user root
-    oneshot
-
-service qcom-c_main-sh /vendor/bin/init.class_main.sh
-    class main
     user root
     oneshot
 

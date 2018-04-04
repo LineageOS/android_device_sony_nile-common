@@ -172,7 +172,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.charge.mode.sh \
-    init.class_main.sh \
     init.qcom.class_core.sh \
     init.qcom.crashdata.sh \
     init.qcom.devstart.sh \
