@@ -221,6 +221,10 @@ include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy/vendor
 
+# Vendor Unification Init
+TARGET_INIT_VENDOR_LIB := libinit_sdm660
+TARGET_RECOVERY_DEVICE_MODULES := libinit_sdm660
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true

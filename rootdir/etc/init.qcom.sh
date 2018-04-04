@@ -126,102 +126,6 @@ start_msm_irqbalance()
 	fi
 }
 
-start_import_hwid_info_from_proc()
-{
-
-	#chmod 0440 /proc/cei_phase_id
-	#chmod 0440 /proc/cei_project_id
-	#chmod 0440 /proc/cei_sku_id
-	#chmod 0440 /proc/cei_simslot_id
-	#chmod 0440 /proc/cei_mainboard_id
-	#chmod 0440 /proc/cei_fp_id
-
-	cei_project_id=`cat /proc/cei_project_id`
-	cei_phase_id=`cat /proc/cei_phase_id`
-	cei_sku_id=`cat /proc/cei_sku_id`
-	cei_simslot_id=`cat /proc/cei_simslot_id`
-	cei_mainboard_id=`cat /proc/cei_mainboard_id`
-	cei_fp_id=`cat /proc/cei_fp_id`
-
-	if [ -n $cei_project_id ]; then
-		setprop ro.cei_project_id $cei_project_id
-		case "$cei_project_id" in
-			"BY12")
-					setprop ro.product.device H3113
-					setprop ro.product.name H3113
-					;;
-			"BY13")
-					setprop ro.product.device H4113
-					setprop ro.product.name H4113
-					;;
-			"BY14")
-					setprop ro.product.device H3133
-					setprop ro.product.name H3133
-					;;
-			"BY15")
-					setprop ro.product.device H4133
-					setprop ro.product.name H4133
-					;;
-			"BY16")
-					setprop ro.product.device H3123
-					setprop ro.product.name H3123
-					;;
-			"BY22")
-					setprop ro.product.device H3213
-					setprop ro.product.name H3213
-					;;
-			"BY23")
-					setprop ro.product.device H4213
-					setprop ro.product.name H4213
-					;;
-			"BY24")
-					setprop ro.product.device H4233
-					setprop ro.product.name H4233
-					;;
-			"BY25")
-					setprop ro.product.device H3223
-					setprop ro.product.name H3223
-					;;
-			*)
-					setprop ro.product.device Unknown
-					setprop ro.product.name Unknown
-					;;
-		esac
-	else
-		setprop ro.cei_project_id PROJ_ID_INVALID
-	fi
-
-	if [ -n $cei_phase_id ]; then
-		setprop ro.cei_phase_id $cei_phase_id
-	else
-		setprop ro.cei_project_id HW_ID_INVALID
-	fi
-
-	if [ -n $cei_sku_id ]; then
-		setprop ro.cei_sku_id $cei_sku_id
-	else
-		setprop ro.cei_sku_id_id Unknown
-	fi
-
-	if [ -n $cei_simslot_id ]; then
-		setprop persist.radio.multisim.config $cei_simslot_id
-	else
-		setprop persist.radio.multisim.config Unknown
-	fi
-
-	if [ -n $cei_mainboard_id ]; then
-		setprop ro.cei_mainboard_id $cei_mainboard_id
-	else
-		setprop ro.cei_mainboard_id Unknown
-	fi
-
-	if [ -n $cei_fp_id ]; then
-		setprop ro.hardware.fingerprint $cei_fp_id
-	else
-		setprop ro.hardware.fingerprint Unknown
-	fi
-}
-
 start_copying_prebuilt_qcril_db()
 {
 #SONY_BEGIN
@@ -333,7 +237,6 @@ case "$target" in
                   ;;
        esac
         start_msm_irqbalance660
-		start_import_hwid_info_from_proc
         ;;
     "apq8084")
         platformvalue=`cat /sys/devices/soc0/hw_platform`
