@@ -66,7 +66,7 @@ void property_override(char const prop[], char const value[])
 }
 
 template <typename T>
-bool read_proc_fs(const std::string &path, T &out)
+bool read_file_contents(const std::string &path, T &out)
 {
     std::ifstream stream(path);
 
@@ -87,7 +87,7 @@ void vendor_load_properties()
     std::string cei_mainboard_id{};
     std::string cei_fp_id{};
 
-    if (read_proc_fs("/proc/cei_project_id", cei_project_id)) {
+    if (read_file_contents("/proc/cei_project_id", cei_project_id)) {
         auto device = devices_map.find(cei_project_id);
 
         if (device != devices_map.end()) {
@@ -102,19 +102,19 @@ void vendor_load_properties()
         property_set("ro.cei_project_id", cei_project_id.c_str());
     }
 
-    if (read_proc_fs("/proc/cei_phase_id", cei_phase_id)) {
+    if (read_file_contents("/proc/cei_phase_id", cei_phase_id)) {
         property_set("ro.cei_phase_id", cei_phase_id.c_str());
     }
 
-    if (read_proc_fs("/proc/cei_simslot_id", cei_simslot_id)) {
+    if (read_file_contents("/proc/cei_simslot_id", cei_simslot_id)) {
         property_set("persist.radio.multisim.config", cei_simslot_id.c_str());
     }
 
-    if (read_proc_fs("/proc/cei_mainboard_id", cei_mainboard_id)) {
+    if (read_file_contents("/proc/cei_mainboard_id", cei_mainboard_id)) {
         property_set("ro.cei_mainboard_id", cei_mainboard_id.c_str());
     }
 
-    if (read_proc_fs("/proc/cei_fp_id", cei_fp_id)) {
+    if (read_file_contents("/proc/cei_fp_id", cei_fp_id)) {
         property_set("ro.hardware.fingerprint", cei_fp_id.c_str());
     }
 }
