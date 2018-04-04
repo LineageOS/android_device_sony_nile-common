@@ -94,6 +94,9 @@ void vendor_load_properties()
             property_override("ro.product.device", device->second.c_str());
             property_override("ro.product.model", device->second.c_str());
             property_override("ro.product.name", device->second.c_str());
+            property_override("ro.vendor.product.device", device->second.c_str());
+            property_override("ro.vendor.product.model", device->second.c_str());
+            property_override("ro.vendor.product.name", device->second.c_str());
         }
 
         property_set("ro.cei_project_id", cei_project_id.c_str());
