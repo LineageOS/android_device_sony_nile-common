@@ -6,4 +6,3 @@ ro.cei_mainboard_id              u:object_r:cei_prop:s0
 ro.cei_phase_id                  u:object_r:cei_prop:s0
 ro.cei_project_id                u:object_r:cei_prop:s0
 ro.cei_sku_id                    u:object_r:cei_prop:s0
-ro.hardware.fingerprint          u:object_r:cei_prop:s0
