@@ -92,6 +92,7 @@ void vendor_load_properties()
 
         if (device != devices_map.end()) {
             property_override("ro.product.device", device->second.c_str());
+            property_override("ro.product.model", device->second.c_str());
             property_override("ro.product.name", device->second.c_str());
         }
 
