@@ -1,1 +1,2 @@
+# Allow hal_audio_default to set audio_gain_prop
 set_prop(hal_audio_default, audio_gain_prop)
