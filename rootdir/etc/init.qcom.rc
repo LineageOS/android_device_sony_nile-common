@@ -842,6 +842,9 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     oneshot
 
 on property:sys.boot_completed=1
+    # Set IO scheduler to BFQ
+    setprop sys.io.scheduler bfq
+
     # Enable ZRAM
     swapon_all /vendor/etc/fstab.qcom
 
