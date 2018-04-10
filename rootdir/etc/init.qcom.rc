@@ -96,7 +96,7 @@ on fs
 
     # qseecomd needs /dev/block/bootdevice
     # vold needs keymaster that needs qseecomd
-    start qseecomd
+    start vendor.qseecomd
 
 on late-fs
     # Start devices by sysfs trigger
@@ -743,7 +743,7 @@ service qns /vendor/bin/qns -d /mnt/qns -l /mnt/qns
     socket qnsbsd stream 660 oem_2985 system
     disabled
 
-service qseecomd /vendor/bin/qseecomd
+service vendor.qseecomd /vendor/bin/qseecomd
     class core
     user root
     group root
