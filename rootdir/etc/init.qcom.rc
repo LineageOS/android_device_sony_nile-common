@@ -130,7 +130,7 @@ on post-fs-data
     mkdir /data/vendor/radio 0770 system radio
 
     # Create directory for modem_config
-    mkdir /data/vendor/modem_config 0550 system radio
+    mkdir /data/vendor/modem_config 0570 radio root
 
     # Change lm related dirs
     mkdir /data/vendor/lm 0700 root root
