@@ -81,6 +81,10 @@ bool read_file_contents(const std::string &path, T &out)
 
 void vendor_load_properties()
 {
+    if (access("/sbin/recovery", F_OK) == 0) {
+        return;
+    }
+
     std::string cei_project_id{};
     std::string cei_phase_id{};
     std::string cei_simslot_id{};
