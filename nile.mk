@@ -303,7 +303,7 @@ PRODUCT_PACKAGES += \
     com.nxp.nfc.nq \
     com.nxp.nfc.nq.xml \
     libnqnfc-nci \
-    libp61-jcop-kit \
+    libnqp61-jcop-kit \
     nfc_nci.nqx.default \
     NQNfcNci \
     Tag \
