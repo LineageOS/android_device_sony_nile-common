@@ -62,6 +62,10 @@ sdm.debug.disable_rotator_split=1
 sdm.debug.disable_skip_validate=1
 sdm.perf_hint_window=50
 
+# IMS
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+
 # Media
 vendor.vidc.enc.disable.pq=false
 vidc.enc.dcvs.extra-buff-count=2
