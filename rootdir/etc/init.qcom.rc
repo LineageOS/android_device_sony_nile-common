@@ -766,7 +766,7 @@ service vendor.dataqti /vendor/bin/qti
     group radio net_raw diag usb net_admin
     disabled
 
-service rmt_storage /vendor/bin/rmt_storage
+service vendor.rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     shutdown critical
@@ -803,7 +803,7 @@ service time_daemon /vendor/bin/time_daemon
     user root
     group root
 
-service tftp_server /vendor/bin/tftp_server
+service vendor.tftp_server /vendor/bin/tftp_server
     class core
     user root
 
