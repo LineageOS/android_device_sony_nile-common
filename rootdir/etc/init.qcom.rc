@@ -460,7 +460,7 @@ on charger
     load_system_props
 
     start qcom-post-boot
-    start hvdcp_opti
+    start vendor.hvdcp_opti
 
     setprop sys.usb.configfs 1
 
@@ -567,7 +567,7 @@ service fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-servi
 on property:vendor.hw.fingerprint=fpc1035
     enable fps_hal
 
-service hvdcp_opti /vendor/bin/hvdcp_opti
+service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
     class main
     user root
     group system wakelock
