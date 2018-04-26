@@ -1,2 +1,0 @@
-# Allow nfc to read and execute vendor_file
-allow nfc vendor_file:file rx_file_perms;
