@@ -313,6 +313,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libjson
 
+# QNS
+PRODUCT_PACKAGES += \
+    libstdc++.vendor
+
 # RCS
 PRODUCT_PACKAGES += \
     rcs_service_aidl \
