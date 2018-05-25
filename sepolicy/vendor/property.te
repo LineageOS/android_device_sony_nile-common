@@ -1,3 +1,4 @@
 type audio_gain_prop, property_type;
 type cei_prop, property_type, log_property_type;
 type secd_prop, property_type;
+type sony_modemswitcher_prop, property_type;
