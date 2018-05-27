@@ -149,6 +149,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config.extra=none \
     sys.usb.controller=a800000.dwc3
 
 # Wifi
