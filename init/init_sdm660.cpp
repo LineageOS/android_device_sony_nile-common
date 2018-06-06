@@ -34,12 +34,15 @@
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
+#include <android-base/file.h>
 #include <android-base/logging.h>
 #include <android-base/properties.h>
+
 #include "vendor_init.h"
 #include "property_service.h"
 
 using android::base::GetProperty;
+using android::base::ReadFileToString;
 using android::init::property_set;
 
 std::map<std::string, std::string> devices_map = {
@@ -65,20 +68,6 @@ void property_override(char const prop[], char const value[])
     }
 }
 
-template <typename T>
-bool read_file_contents(const std::string &path, T &out)
-{
-    std::ifstream stream(path);
-
-    if (!stream) {
-        LOG(ERROR) << "Unable to read: " << path;
-        return false;
-    }
-
-    stream >> out;
-    return true;
-}
-
 void vendor_load_properties()
 {
     if (access("/sbin/recovery", F_OK) == 0) {
@@ -91,7 +80,7 @@ void vendor_load_properties()
     std::string cei_mainboard_id{};
     std::string cei_fp_id{};
 
-    if (read_file_contents("/proc/cei_project_id", cei_project_id)) {
+    if (ReadFileToString("/proc/cei_project_id", &cei_project_id)) {
         auto device = devices_map.find(cei_project_id);
 
         if (device != devices_map.end()) {
@@ -106,19 +95,19 @@ void vendor_load_properties()
         property_set("ro.cei_project_id", cei_project_id.c_str());
     }
 
-    if (read_file_contents("/proc/cei_phase_id", cei_phase_id)) {
+    if (ReadFileToString("/proc/cei_phase_id", &cei_phase_id)) {
         property_set("ro.cei_phase_id", cei_phase_id.c_str());
     }
 
-    if (read_file_contents("/proc/cei_simslot_id", cei_simslot_id)) {
+    if (ReadFileToString("/proc/cei_simslot_id", &cei_simslot_id)) {
         property_set("persist.radio.multisim.config", cei_simslot_id.c_str());
     }
 
-    if (read_file_contents("/proc/cei_mainboard_id", cei_mainboard_id)) {
+    if (ReadFileToString("/proc/cei_mainboard_id", &cei_mainboard_id)) {
         property_set("ro.cei_mainboard_id", cei_mainboard_id.c_str());
     }
 
-    if (read_file_contents("/proc/cei_fp_id", cei_fp_id)) {
+    if (ReadFileToString("/proc/cei_fp_id", &cei_fp_id)) {
         property_set("ro.hardware.fingerprint", cei_fp_id.c_str());
     }
 }
