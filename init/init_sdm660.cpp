@@ -37,12 +37,14 @@
 #include <android-base/file.h>
 #include <android-base/logging.h>
 #include <android-base/properties.h>
+#include <android-base/strings.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
 
 using android::base::GetProperty;
 using android::base::ReadFileToString;
+using android::base::Trim;
 using android::init::property_set;
 
 std::map<std::string, std::string> devices_map = {
@@ -81,7 +83,7 @@ void vendor_load_properties()
     std::string cei_fp_id{};
 
     if (ReadFileToString("/proc/cei_project_id", &cei_project_id)) {
-        auto device = devices_map.find(cei_project_id);
+        auto device = devices_map.find(Trim(cei_project_id));
 
         if (device != devices_map.end()) {
             property_override("ro.product.device", device->second.c_str());
@@ -92,22 +94,22 @@ void vendor_load_properties()
             property_override("ro.vendor.product.name", device->second.c_str());
         }
 
-        property_set("ro.cei_project_id", cei_project_id.c_str());
+        property_set("ro.cei_project_id", Trim(cei_project_id).c_str());
     }
 
     if (ReadFileToString("/proc/cei_phase_id", &cei_phase_id)) {
-        property_set("ro.cei_phase_id", cei_phase_id.c_str());
+        property_set("ro.cei_phase_id", Trim(cei_phase_id).c_str());
     }
 
     if (ReadFileToString("/proc/cei_simslot_id", &cei_simslot_id)) {
-        property_set("persist.radio.multisim.config", cei_simslot_id.c_str());
+        property_set("persist.radio.multisim.config", Trim(cei_simslot_id).c_str());
     }
 
     if (ReadFileToString("/proc/cei_mainboard_id", &cei_mainboard_id)) {
-        property_set("ro.cei_mainboard_id", cei_mainboard_id.c_str());
+        property_set("ro.cei_mainboard_id", Trim(cei_mainboard_id).c_str());
     }
 
     if (ReadFileToString("/proc/cei_fp_id", &cei_fp_id)) {
-        property_set("ro.hardware.fingerprint", cei_fp_id.c_str());
+        property_set("ro.hardware.fingerprint", Trim(cei_fp_id).c_str());
     }
 }
