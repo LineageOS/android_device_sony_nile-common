@@ -3,6 +3,9 @@ type secd_exec, exec_type, vendor_file_type, file_type;
 
 init_daemon_domain(secd)
 
+# Allow secd to access tad
+unix_socket_connect(secd, tad, tad)
+
 # Allow secd to read ion_device
 allow secd ion_device:chr_file r_file_perms;
 
