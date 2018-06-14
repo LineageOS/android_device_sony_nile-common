@@ -8,3 +8,6 @@ unix_socket_connect(updatemiscta, tad, tad)
 
 # Allow updatemiscta to set tareset_notfirstboot_prop
 set_prop(updatemiscta, tareset_notfirstboot_prop)
+
+# Allow updatemiscta to get semc_version_prop
+set_prop(updatemiscta, semc_version_prop)
