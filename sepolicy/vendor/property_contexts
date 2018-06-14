@@ -1,6 +1,7 @@
 persist.audio.gain.version       u:object_r:audio_gain_prop:s0
 persist.keyprovd.suntory.prov    u:object_r:secd_prop:s0
 persist.radio.multisim.config    u:object_r:cei_prop:s0
+persist.tareset.notfirstboot     u:object_r:tareset_notfirstboot_prop:s0
 ro.cei_fp_id                     u:object_r:cei_prop:s0
 ro.cei_mainboard_id              u:object_r:cei_prop:s0
 ro.cei_phase_id                  u:object_r:cei_prop:s0

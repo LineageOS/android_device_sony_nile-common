@@ -5,3 +5,6 @@ init_daemon_domain(updatemiscta)
 
 # Allow updatemiscta to access tad
 unix_socket_connect(updatemiscta, tad, tad)
+
+# Allow updatemiscta to set tareset_notfirstboot_prop
+set_prop(updatemiscta, tareset_notfirstboot_prop)
