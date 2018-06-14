@@ -2,3 +2,6 @@ type updatemiscta, domain;
 type updatemiscta_exec, exec_type, vendor_file_type, file_type;
 
 init_daemon_domain(updatemiscta)
+
+# Allow updatemiscta to access tad
+unix_socket_connect(updatemiscta, tad, tad)
