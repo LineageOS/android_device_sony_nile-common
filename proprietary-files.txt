@@ -910,7 +910,6 @@ vendor/bin/time_daemon
 vendor/lib64/libtime_genoff.so
 
 # Widevine DRM
-lib64/libstagefright_wfd.so
 vendor/bin/wvkbd
 vendor/bin/wvnitzd
 vendor/bin/hw/android.hardware.drm@1.0-service.widevine
