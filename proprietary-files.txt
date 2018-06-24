@@ -833,7 +833,7 @@ vendor/firmware/tzsuntory.b05
 vendor/firmware/tzsuntory.b06
 vendor/firmware/tzsuntory.b07
 vendor/firmware/tzsuntory.mdt
-vendor/etc/init/init.secd.rc|f8565da79d5fec15e6b0509d3eeb389226479113
+vendor/etc/init/init.secd.rc|3d5386e1d0edfd9e28f7edb57fbb8a76d8f36310
 vendor/etc/init/vendor.semc.hardware.secd@1.0-service.rc
 vendor/lib/libcredential-manager-service.so
 vendor/lib/libdevice_security.so
