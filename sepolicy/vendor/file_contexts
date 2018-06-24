@@ -9,10 +9,9 @@
 /dev/socket/tad                                           u:object_r:tad_socket:s0
 
 # Sys files
-/sys/class/qns(/.*)?                                                                u:object_r:qns_sysfs:s0
-/sys/devices(/platform)?/soc/[a-z0-9]+.qcom,jpeg/video4linux/video[0-33]/name       u:object_r:sysfs_graphics:s0
-/sys/devices(/platform)?/soc/[a-z0-9]+.qcom,msm-cam/video4linux/video[0-33]/name    u:object_r:sysfs_graphics:s0
-/sys/kernel/boot_wlan(/.*)?                                                         u:object_r:sysfs_wifi:s0
+/sys/class/qns(/.*)?                                                                    u:object_r:qns_sysfs:s0
+/sys/devices(/platform)?/soc/[a-z0-9]+\.qcom,jpeg/video4linux/video[0-9]+/name(/.*)?    u:object_r:sysfs_graphics:s0
+/sys/kernel/boot_wlan(/.*)?                                                             u:object_r:sysfs_wifi:s0
 
 # Data files
 /data/misc/egistec(/.*)?              u:object_r:etsd_data_file:s0
