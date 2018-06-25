@@ -17,6 +17,7 @@ type qns_sysfs, sysfs_type, fs_type;
 type secd_credmgr_socket, file_type;
 type secd_devsec_socket, file_type;
 type startupprober_file, file_type;
+type sysfs_fpc, sysfs_type, fs_type;
 type sysfs_msm_subsys, sysfs_type, fs_type;
 type sysfs_wifi, sysfs_type, fs_type;
 type tad_socket, file_type;
