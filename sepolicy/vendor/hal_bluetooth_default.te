@@ -1,0 +1,2 @@
+# Allow hal_bluetooth_default to connect to wcnss_filter
+allow hal_bluetooth_default wcnss_filter:unix_stream_socket connectto;
