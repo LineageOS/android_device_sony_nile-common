@@ -6,6 +6,7 @@ BDROID_DIR:= system/bt
 LOCAL_SRC_FILES := bthost_ipc.c
 LOCAL_C_INCLUDES += \
         $(LOCAL_PATH)/bthost_ipc.h
+LOCAL_HEADER_LIBRARIES += libhardware_headers libutils_headers
 
 LOCAL_MODULE := libbthost_if
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
