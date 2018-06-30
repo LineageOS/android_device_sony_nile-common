@@ -824,7 +824,7 @@ vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so
 lib/vendor.semc.hardware.secd@1.0.so
 lib64/vendor.semc.hardware.secd@1.0.so
 vendor/bin/hw/vendor.semc.hardware.secd@1.0-service
-vendor/bin/secd|53594b45d88b1c419d95aa1287d1993fa5668c6b
+vendor/bin/secd|ea1c199c225e70cdb4452afaa0c8fdf344ee892e
 vendor/firmware/tzsuntory.b00
 vendor/firmware/tzsuntory.b01
 vendor/firmware/tzsuntory.b02
