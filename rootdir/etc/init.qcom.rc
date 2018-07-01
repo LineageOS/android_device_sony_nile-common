@@ -733,11 +733,6 @@ service ril-daemon2 /vendor/bin/hw/rild -c 2
 on property:persist.radio.multisim.config=dsds
     enable ril-daemon2
 
-service qcom-c_core-sh  /vendor/bin/init.qcom.class_core.sh
-    class core
-    user root
-    oneshot
-
 service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     class late_start
     user root
