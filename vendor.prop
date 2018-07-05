@@ -171,7 +171,7 @@ ro.vendor.sensors.sta_detect=true
 
 # USB
 persist.sys.usb.config.extra=none
-sys.usb.controller=a800000.dwc3
+vendor.usb.controller=a800000.dwc3
 
 # Wifi
 ro.vendor.wifi.addr_path=/data/vendor/wifi/wlan_mac.bin
