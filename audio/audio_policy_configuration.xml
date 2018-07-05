@@ -304,7 +304,7 @@
             <!-- route declaration, i.e. list all available sources for a given sink -->
             <routes>
                 <route type="mix" sink="Earpiece"
-                       sources="primary output,raw,deep_buffer,direct_pcm,compressed_offload,voip_rx"/>
+                       sources="primary output,deep_buffer,direct_pcm,compressed_offload,voip_rx"/>
                 <route type="mix" sink="Speaker"
                        sources="primary output,raw,deep_buffer,direct_pcm,compressed_offload,voip_rx"/>
                 <route type="mix" sink="Wired Headset"
