@@ -705,9 +705,9 @@ vendor/lib64/vendor.qti.hardware.qteeconnector@1.0_vendor.so
 -app/QtiTelephonyService/QtiTelephonyService.apk
 etc/permissions/qcrilhook.xml
 etc/permissions/telephonyservice.xml
--framework/QtiTelephonyServicelibrary.jar
--framework/qcrilhook.jar
--framework/qti-telephony-common.jar|e080a3e800bf43c894c6653954e2f4e1415e645c
+framework/QtiTelephonyServicelibrary.jar
+framework/qcrilhook.jar
+framework/qti-telephony-common.jar|e080a3e800bf43c894c6653954e2f4e1415e645c
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/ATFWD-daemon
 vendor/bin/ipacm-diag
