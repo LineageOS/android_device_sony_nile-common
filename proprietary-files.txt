@@ -430,6 +430,10 @@ vendor/lib64/libsdm-diag.so
 vendor/lib64/libsdmextension.so
 vendor/lib64/libtinyxml2_1.so
 
+# Graphics (Vulkan)
+vendor/lib/hw/vulkan.sdm660.so
+vendor/lib64/hw/vulkan.sdm660.so
+
 # Graphics firmware
 vendor/firmware/a508_zap.b00
 vendor/firmware/a508_zap.b01
