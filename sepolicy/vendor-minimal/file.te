@@ -1,0 +1,2 @@
+type bt_firmware_file, fs_type, contextmount_type;
+type firmware_file, fs_type, contextmount_type;
