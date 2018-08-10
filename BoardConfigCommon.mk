@@ -210,9 +210,9 @@ BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware idd persist rca
 VENDOR_SECURITY_PATCH := 2018-07-01
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
+# include device/qcom/sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy/vendor
+BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy/vendor-minimal
 
 # Vendor Unification Init
 TARGET_INIT_VENDOR_LIB := libinit_sdm660
