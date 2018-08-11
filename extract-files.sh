@@ -63,4 +63,12 @@ if [ -s "$MY_DIR"/../$DEVICE/proprietary-files.txt ]; then
     extract "$MY_DIR"/../$DEVICE/proprietary-files.txt "$SRC" "$SECTION"
 fi
 
+COMMON_BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE_COMMON"/proprietary
+
+patchelf --replace-needed libbinder.so libbinder-v27.so $COMMON_BLOB_ROOT/vendor/lib/hw/camera.sdm660.so
+patchelf --replace-needed libcutils.so libcutils-v27.so $COMMON_BLOB_ROOT/vendor/lib/hw/camera.sdm660.so
+patchelf --replace-needed android.hardware.gnss@1.0.so android.hardware.gnss@1.0-v27.so $COMMON_BLOB_ROOT/vendor/lib64/vendor.qti.gnss@1.0_vendor.so
+patchelf --remove-needed libstagefright_wfd.so $COMMON_BLOB_ROOT/vendor/lib64/libstagefright_hdcp.so
+patchelf --add-needed libbinder-v27.so $COMMON_BLOB_ROOT/vendor/bin/wvkbd
+
 "$MY_DIR"/setup-makefiles.sh
