@@ -308,7 +308,6 @@ PRODUCT_PACKAGES += \
     libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
-    libstagefright_wfd \
     libstagefrighthw
 
 # Power
@@ -380,6 +379,12 @@ PRODUCT_PACKAGES += \
 # VNDK
 PRODUCT_PACKAGES += \
     vndk_package
+
+PRODUCT_COPY_FILES += \
+    prebuilts/vndk/v27/arm64/arch-arm-armv7-a-neon/shared/vndk-core/libbinder.so:system/lib/libbinder-v27.so \
+    prebuilts/vndk/v27/arm64/arch-arm-armv7-a-neon/shared/vndk-sp/libcutils.so:system/lib/libcutils-v27.so \
+    prebuilts/vndk/v27/arm64/arch-arm64-armv8-a/shared/vndk-core/android.hardware.gnss@1.0.so:system/lib64/android.hardware.gnss@1.0-v27.so \
+    prebuilts/vndk/v27/arm64/arch-arm64-armv8-a/shared/vndk-core/libbinder.so:system/lib64/libbinder-v27.so
 
 # Verity
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/c0c4000.sdhci/by-name/system
