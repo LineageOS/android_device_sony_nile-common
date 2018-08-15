@@ -857,4 +857,3 @@ on property:vold.decrypt=trigger_restart_framework
     start qti
     start netmgrd
     start port-bridge
-    start wcnss-service
