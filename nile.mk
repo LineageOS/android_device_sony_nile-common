@@ -143,7 +143,7 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     bootctrl.sdm660 \
     libcutils \
-    libgptutils \
+    libgptutils.sony_nile.recovery \
     libz
 
 # Bluetooth
