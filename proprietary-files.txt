@@ -591,7 +591,7 @@ vendor/bin/sony-modem-switcher
 vendor/etc/init/init.sony-modem-switcher.rc
 
 # NFC
-vendor/firmware/libpn553_fw.so
+vendor/firmware/libpn553_fw.so:vendor/lib/libpn553_fw.so
 
 # Idd
 lib/vendor.semc.system.idd@1.0.so
