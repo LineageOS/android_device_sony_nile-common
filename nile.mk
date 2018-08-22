@@ -134,16 +134,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl:64 \
     android.hardware.boot@1.0-service \
+    android.hardware.boot@1.0-impl.recovery \
     bootctrl.sdm660 \
+    bootctrl.sdm660.recovery
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
-
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.sdm660 \
-    libcutils \
-    libgptutils.sony_nile.recovery \
-    libz
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -347,6 +343,10 @@ PRODUCT_PACKAGES += \
 # SimDetect
 PRODUCT_PACKAGES += \
     SimDetect
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
 
 # Telephony
 PRODUCT_PACKAGES += \
