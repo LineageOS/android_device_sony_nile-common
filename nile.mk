@@ -33,6 +33,8 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(LOCAL_PATH)/overlay-lineage/lineage-s
 # Properties
 -include $(LOCAL_PATH)/vendor_prop.mk
 
+PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
+
 # A/B
 AB_OTA_UPDATER := true
 
