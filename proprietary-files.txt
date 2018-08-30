@@ -752,7 +752,7 @@ vendor/lib64/libpdnotifier.so
 vendor/lib64/libpin-cache.so
 vendor/lib64/libqcmaputils.so
 -vendor/lib64/libril.so
-vendor/lib64/libril-qc-ltedirectdisc.so
+vendor/lib64/libril-qc-ltedirectdisc.so|37f5383a6bb126149f6cf3d7701164cf2a7ebe90
 vendor/lib64/libril-qc-qmi-1.so
 vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/librilqmiservices.so
