@@ -882,7 +882,7 @@ vendor/bin/hw/vendor.somc.hardware.miscta@1.0-service
 vendor/bin/ta_qmi_service
 vendor/bin/tad_static
 vendor/bin/updatemiscta
-vendor/etc/init/init.sony-trimarea-tad.rc|d352bff420f80ece93a0746ac797cf6faacf5786
+vendor/etc/init/init.sony-trimarea-tad.rc|6cee7392b8a9e4f149532692766c34838590c8c5
 vendor/etc/init/init.taqmi.rc
 vendor/etc/init/updatemiscta.rc
 vendor/etc/init/vendor.somc.hardware.miscta@1.0-service.rc
