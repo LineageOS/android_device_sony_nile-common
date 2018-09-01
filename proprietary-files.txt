@@ -886,7 +886,7 @@ vendor/bin/tad_static
 vendor/bin/updatemiscta
 vendor/etc/init/init.sony-trimarea-tad.rc|d352bff420f80ece93a0746ac797cf6faacf5786
 vendor/etc/init/init.taqmi.rc
-vendor/etc/init/updatemiscta.rc
+vendor/etc/init/updatemiscta.rc|57ea359710caf5651257d0c20f20952486131991
 vendor/etc/init/vendor.somc.hardware.miscta@1.0-service.rc
 vendor/firmware/tztpm.b00
 vendor/firmware/tztpm.b01
