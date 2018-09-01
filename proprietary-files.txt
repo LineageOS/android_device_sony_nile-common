@@ -917,6 +917,12 @@ vendor/lib64/libthermalioctl.so
 vendor/bin/time_daemon
 vendor/lib64/libtime_genoff.so
 
+# VNDK
+vendor/lib/libbinder.so|d70bc1da76d3a514c2f90a1258ad5c304e5dd7c5
+vendor/lib/libcutils.so|465a68dbc2a942abdb5f61bf64314753b399448c
+vendor/lib64/libbinder.so|163d4d9d4b2b194b8c88acedec981d9c1e2f0e9d
+vendor/lib64/libcutils.so|b1c95d69d2410fd833c1652a5d447463625a5c97
+
 # Widevine DRM
 vendor/bin/wvkbd
 vendor/bin/wvnitzd
