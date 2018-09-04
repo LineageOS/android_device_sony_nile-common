@@ -1,3 +1,6 @@
+# Allow tee to read system_data_file
+allow tee system_data_file:dir r_dir_perms;
+
 # Allow tee to read, write and create files in fingerprintd_data_file
 allow tee fingerprintd_data_file:dir rw_dir_perms;
 allow tee fingerprintd_data_file:file create_file_perms;
