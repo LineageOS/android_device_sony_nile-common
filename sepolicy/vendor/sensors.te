@@ -1,2 +1,2 @@
-# Allow sensors to read /proc/cei_project_id
-r_dir_file(sensors, proc)
+# Allow sensors to read proc_cei
+r_dir_file(sensors, proc_cei)
