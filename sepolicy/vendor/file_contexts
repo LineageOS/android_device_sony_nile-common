@@ -15,6 +15,7 @@
 /sys/kernel/boot_wlan(/.*)?                                                             u:object_r:sysfs_wifi:s0
 
 # Data files
+/data/connectivity(/.*)?              u:object_r:cnd_data_file:s0
 /data/misc/egistec(/.*)?              u:object_r:etsd_data_file:s0
 /idd                                  u:object_r:idd_root_dir:s0
 /idd(/.*)?                            u:object_r:idd_data_file:s0
