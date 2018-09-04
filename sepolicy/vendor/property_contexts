@@ -5,3 +5,4 @@ persist.net.doxlat               u:object_r:vendor_net_radio_prop:s0
 persist.tareset.notfirstboot     u:object_r:tareset_notfirstboot_prop:s0
 semc.version.                    u:object_r:semc_version_prop:s0
 sony.modemswitcher               u:object_r:sony_modemswitcher_prop:s0
+sys.listeners.registered         u:object_r:vendor_tee_listener_prop:s0
