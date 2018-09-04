@@ -1,0 +1,2 @@
+# Allow netmgrd to set vendor_net_radio_prop
+set_prop(netmgrd, vendor_net_radio_prop)
