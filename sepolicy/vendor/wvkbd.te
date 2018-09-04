@@ -11,3 +11,6 @@ allow wvkbd tee_device:chr_file rw_file_perms;
 
 # Allow wvkbd to read files in /firmware
 r_dir_file(wvkbd, firmware_file)
+
+# Allow wvkbd to get vendor_tee_listener_prop
+get_prop(wvkbd, vendor_tee_listener_prop)
