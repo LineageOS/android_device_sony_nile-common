@@ -10,6 +10,7 @@
 
 # Sys files
 /sys/class/qns(/.*)?                                                                    u:object_r:qns_sysfs:s0
+/sys/devices/soc/soc:egistec(/.*)?                                                      u:object_r:sysfs_fpc:s0
 /sys/devices/soc/soc:fpc1020(/.*)?                                                      u:object_r:sysfs_fpc:s0
 /sys/devices(/platform)?/soc/[a-z0-9]+\.qcom,jpeg/video4linux/video[0-9]+/name(/.*)?    u:object_r:sysfs_graphics:s0
 /sys/kernel/boot_wlan(/.*)?                                                             u:object_r:sysfs_wifi:s0
