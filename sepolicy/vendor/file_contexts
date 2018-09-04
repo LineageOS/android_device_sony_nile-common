@@ -17,6 +17,7 @@
 
 # Data files
 /data/misc/egistec(/.*)?              u:object_r:etsd_data_file:s0
+/data/vendor/misc/audio(/.*)?         u:object_r:vendor_audio_data_file:s0
 /idd                                  u:object_r:idd_root_dir:s0
 /idd(/.*)?                            u:object_r:idd_data_file:s0
 /idd/crashdata(/.*)?                  u:object_r:idd_crashdata_file:s0
