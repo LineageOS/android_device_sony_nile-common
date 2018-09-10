@@ -10,6 +10,6 @@ unix_socket_connect(macaddrsetup, tad, tad)
 allow macaddrsetup vendor_bt_data_file:dir rw_dir_perms;
 allow macaddrsetup vendor_bt_data_file:file create_file_perms;
 
-# Allow macaddrsetup to read, write and create files in wifi_data_file
-allow macaddrsetup wifi_data_file:dir rw_dir_perms;
-allow macaddrsetup wifi_data_file:file create_file_perms;
+# Allow macaddrsetup to read, write and create files in wifi_vendor_data_file
+allow macaddrsetup wifi_vendor_data_file:dir rw_dir_perms;
+allow macaddrsetup wifi_vendor_data_file:file create_file_perms;
