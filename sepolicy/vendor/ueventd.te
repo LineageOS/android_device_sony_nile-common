@@ -1,0 +1,2 @@
+# Allow ueventd to read files in wifi_vendor_data_file
+r_dir_file(ueventd, wifi_vendor_data_file)
