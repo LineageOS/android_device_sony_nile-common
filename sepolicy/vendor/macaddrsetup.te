@@ -6,9 +6,9 @@ init_daemon_domain(macaddrsetup)
 # Allow macaddrsetup to access tad
 unix_socket_connect(macaddrsetup, tad, tad)
 
-# Allow macaddrsetup to read, write and create files in bluetooth_data_file
-allow macaddrsetup bluetooth_data_file:dir rw_dir_perms;
-allow macaddrsetup bluetooth_data_file:file create_file_perms;
+# Allow macaddrsetup to read, write and create files in vendor_bt_data_file
+allow macaddrsetup vendor_bt_data_file:dir rw_dir_perms;
+allow macaddrsetup vendor_bt_data_file:file create_file_perms;
 
 # Allow macaddrsetup to read, write and create files in wifi_data_file
 allow macaddrsetup wifi_data_file:dir rw_dir_perms;
