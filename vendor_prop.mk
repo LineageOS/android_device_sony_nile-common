@@ -45,7 +45,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     bt.max.hfpclient.connections=1 \
     qcom.bluetooth.soc=cherokee \
-    ro.bt.bdaddr_path=/data/misc/bluetooth/bluetooth_bdaddr
+    ro.bt.bdaddr_path=/data/misc/bluetooth/bluetooth_bdaddr \
+    vendor.bluetooth.soc=cherokee
 
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
