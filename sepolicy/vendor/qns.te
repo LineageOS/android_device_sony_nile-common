@@ -7,9 +7,9 @@ init_daemon_domain(qns)
 allow qns qns_file:dir create_dir_perms;
 allow qns qns_file:file create_file_perms;
 
-# Allow qns to search in sysfs_battery_supply
-allow qns sysfs_battery_supply:dir search;
-
 # Allow qns to read and write to qns_sysfs
 allow qns qns_sysfs:dir search;
 allow qns qns_sysfs:file rw_file_perms;
+
+# Allow qns to read sysfs_battery_supply
+r_dir_file(qns, sysfs_battery_supply)
