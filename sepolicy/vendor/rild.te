@@ -1,3 +1,5 @@
+typeattribute rild data_between_core_and_vendor_violators;
+
 # Allow binder communication with hal_idd_default
 binder_call(rild, hal_idd_default)
 
