@@ -1,0 +1,37 @@
+From e05048c827ceb08e79c292ff0ab9224f70521de7 Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Tue, 4 Sep 2018 20:58:57 +0200
+Subject: [PATCH 22/35] nile-common: sepolicy: Address hal_audio_default
+ denials
+
+Change-Id: I5e00577988a60879b5b66cb150539049eb56a4dc
+---
+ sepolicy/vendor/file_contexts        | 1 +
+ sepolicy/vendor/hal_audio_default.te | 3 +++
+ 2 files changed, 4 insertions(+)
+
+diff --git a/sepolicy/vendor/file_contexts b/sepolicy/vendor/file_contexts
+index d54d716..9e1f735 100644
+--- a/sepolicy/vendor/file_contexts
++++ b/sepolicy/vendor/file_contexts
+@@ -17,6 +17,7 @@
+ 
+ # Data files
+ /data/misc/egistec(/.*)?              u:object_r:etsd_data_file:s0
++/data/vendor/misc/audio(/.*)?         u:object_r:vendor_audio_data_file:s0
+ /idd                                  u:object_r:idd_root_dir:s0
+ /idd(/.*)?                            u:object_r:idd_data_file:s0
+ /idd/crashdata(/.*)?                  u:object_r:idd_crashdata_file:s0
+diff --git a/sepolicy/vendor/hal_audio_default.te b/sepolicy/vendor/hal_audio_default.te
+index c5c689a..ca89494 100644
+--- a/sepolicy/vendor/hal_audio_default.te
++++ b/sepolicy/vendor/hal_audio_default.te
+@@ -1,2 +1,5 @@
++# Allow hal_audio_default to read proc_cei
++r_dir_file(hal_audio_default, proc_cei)
++
+ # Allow hal_audio_default to set audio_gain_prop
+ set_prop(hal_audio_default, audio_gain_prop)
+-- 
+2.17.1
+

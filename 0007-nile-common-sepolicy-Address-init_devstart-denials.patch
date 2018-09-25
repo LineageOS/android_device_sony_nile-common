@@ -1,0 +1,29 @@
+From 6136ebc6372a92ec083a4ab028a50e5031d33287 Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Tue, 4 Sep 2018 16:05:55 +0200
+Subject: [PATCH 07/35] nile-common: sepolicy: Address init_devstart denials
+
+Change-Id: Id90b309874b019326dab5cc6050a6de49e9dbad3
+---
+ sepolicy/vendor/init_devstart.te | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/sepolicy/vendor/init_devstart.te b/sepolicy/vendor/init_devstart.te
+index 9929cf6..d5f4110 100644
+--- a/sepolicy/vendor/init_devstart.te
++++ b/sepolicy/vendor/init_devstart.te
+@@ -9,5 +9,9 @@ allow init-qcom-devstart-sh vendor_toolbox_exec:file rx_file_perms;
+ # Set the sys.qcom.devup property
+ set_prop(init-qcom-devstart-sh, system_prop)
+ 
+-# Set boot_adsp and boot_slpi to 1
+-allow init-qcom-devstart-sh sysfs_msm_subsys:file w_file_perms;
++# Set boot_adsp to 1
++allow init-qcom-devstart-sh sysfs_boot_adsp:file w_file_perms;
++
++# Set boot_slpi to 1
++allow init-qcom-devstart-sh sysfs_slpi:dir search;
++allow init-qcom-devstart-sh sysfs_slpi:file w_file_perms;
+-- 
+2.17.1
+

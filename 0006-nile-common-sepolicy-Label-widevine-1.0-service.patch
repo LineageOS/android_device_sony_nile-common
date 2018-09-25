@@ -1,0 +1,25 @@
+From 41a7fa54eba15b09b7fe03010bd7f421bfd38b08 Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Tue, 4 Sep 2018 15:52:19 +0200
+Subject: [PATCH 06/35] nile-common: sepolicy: Label widevine 1.0 service
+
+Change-Id: I3011c06e4291a4a0e9b3e38119b057703873a219
+---
+ sepolicy/vendor/file_contexts | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/sepolicy/vendor/file_contexts b/sepolicy/vendor/file_contexts
+index 48f3adb..6462c5b 100644
+--- a/sepolicy/vendor/file_contexts
++++ b/sepolicy/vendor/file_contexts
+@@ -46,6 +46,7 @@
+ # HALs
+ /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service_et516    u:object_r:hal_fingerprint_default_exec:s0
+ /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service_fpc      u:object_r:hal_fingerprint_default_exec:s0
++/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.0-service\.widevine                    u:object_r:hal_drm_widevine_exec:s0
+ /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.nile                      u:object_r:hal_light_default_exec:s0
+ /(vendor|system/vendor)/bin/hw/vendor\.semc\.hardware\.secd@1\.0-service                        u:object_r:hal_secd_default_exec:s0
+ /(vendor|system/vendor)/bin/hw/vendor\.semc\.system\.idd@1\.0-service                           u:object_r:hal_idd_default_exec:s0
+-- 
+2.17.1
+

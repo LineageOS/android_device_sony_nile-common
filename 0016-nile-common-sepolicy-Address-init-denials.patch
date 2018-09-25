@@ -1,0 +1,65 @@
+From ceceb2e68b8265a02f85767bc9c6d6f27467dabc Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Tue, 4 Sep 2018 17:23:34 +0200
+Subject: [PATCH 16/35] nile-common: sepolicy: Address init denials
+
+Change-Id: I4651662ffeb1f25c5936e9619c884ede78263c8c
+---
+ sepolicy/vendor/file.te        | 1 +
+ sepolicy/vendor/genfs_contexts | 7 +++++++
+ sepolicy/vendor/init.te        | 3 +++
+ sepolicy/vendor/sensors.te     | 4 ++--
+ 4 files changed, 13 insertions(+), 2 deletions(-)
+
+diff --git a/sepolicy/vendor/file.te b/sepolicy/vendor/file.te
+index 53a401f..bdaaf19 100644
+--- a/sepolicy/vendor/file.te
++++ b/sepolicy/vendor/file.te
+@@ -11,6 +11,7 @@ type idd_rca_file, file_type;
+ type idd_root_dir, file_type;
+ type idd_socket_file, file_type;
+ type keylayout_file, file_type, vendor_file_type;
++type proc_cei, proc_type, fs_type;
+ type qns_file, file_type;
+ type qns_socket, file_type;
+ type qns_sysfs, sysfs_type, fs_type;
+diff --git a/sepolicy/vendor/genfs_contexts b/sepolicy/vendor/genfs_contexts
+index fe54a97..ca31d53 100644
+--- a/sepolicy/vendor/genfs_contexts
++++ b/sepolicy/vendor/genfs_contexts
+@@ -1,3 +1,10 @@
++genfscon proc /cei_fp_id           u:object_r:proc_cei:s0
++genfscon proc /cei_mainboard_id    u:object_r:proc_cei:s0
++genfscon proc /cei_phase_id        u:object_r:proc_cei:s0
++genfscon proc /cei_project_id      u:object_r:proc_cei:s0
++genfscon proc /cei_simslot_id      u:object_r:proc_cei:s0
++genfscon proc /cei_sku_id          u:object_r:proc_cei:s0
++
+ genfscon sysfs /devices/soc/800f000.qcom,spmi/spmi-0/spmi0-03/800f000.qcom,spmi:qcom,pm660l@3:qcom,leds@d000/leds/rgb    u:object_r:sysfs_graphics:s0
+ 
+ genfscon sysfs /kernel/boot_adsp/boot    u:object_r:sysfs_msm_subsys:s0
+diff --git a/sepolicy/vendor/init.te b/sepolicy/vendor/init.te
+index c53a2bd..4a70a5f 100644
+--- a/sepolicy/vendor/init.te
++++ b/sepolicy/vendor/init.te
+@@ -1,5 +1,8 @@
+ # Allow init to mount on idd_data_file, idd_root_dir, idd_rca_file, qns_file
+ allow init { idd_data_file idd_root_dir idd_rca_file qns_file }:dir mounton;
+ 
++# Allow init to read proc_cei
++allow init proc_cei:file r_file_perms;
++
+ # Allow init to check LD_PRELOAD for secd process
+ allow init secd:process noatsecure;
+diff --git a/sepolicy/vendor/sensors.te b/sepolicy/vendor/sensors.te
+index e32b0f2..58e5c80 100644
+--- a/sepolicy/vendor/sensors.te
++++ b/sepolicy/vendor/sensors.te
+@@ -1,2 +1,2 @@
+-# Allow sensors to read /proc/cei_project_id
+-r_dir_file(sensors, proc)
++# Allow sensors to read proc_cei
++r_dir_file(sensors, proc_cei)
+-- 
+2.17.1
+

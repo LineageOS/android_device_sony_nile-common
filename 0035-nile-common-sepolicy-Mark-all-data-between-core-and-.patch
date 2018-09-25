@@ -1,0 +1,68 @@
+From 76922f38237aeccfc2bffb16a10b79bcbefcf6b1 Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Wed, 19 Sep 2018 10:34:02 +0200
+Subject: [PATCH 35/35] nile-common: sepolicy: Mark all data between core and
+ vendor violators
+
+Change-Id: I34e71b5318861ff3ae67512eb25c719d7ad2dd77
+---
+ sepolicy/vendor/hal_fingerprint_default.te | 2 ++
+ sepolicy/vendor/rild.te                    | 2 ++
+ sepolicy/vendor/tee.te                     | 2 ++
+ sepolicy/vendor/time_daemon.te             | 2 ++
+ sepolicy/vendor/vendor_init.te             | 2 ++
+ 5 files changed, 10 insertions(+)
+
+diff --git a/sepolicy/vendor/hal_fingerprint_default.te b/sepolicy/vendor/hal_fingerprint_default.te
+index ae60e04..274e54a 100644
+--- a/sepolicy/vendor/hal_fingerprint_default.te
++++ b/sepolicy/vendor/hal_fingerprint_default.te
+@@ -1,3 +1,5 @@
++typeattribute hal_fingerprint_default data_between_core_and_vendor_violators;
++
+ # Allow binder communication with hal_idd_default
+ binder_call(hal_fingerprint_default, hal_idd_default)
+ 
+diff --git a/sepolicy/vendor/rild.te b/sepolicy/vendor/rild.te
+index 2006d2d..8dcae14 100644
+--- a/sepolicy/vendor/rild.te
++++ b/sepolicy/vendor/rild.te
+@@ -1,3 +1,5 @@
++typeattribute rild data_between_core_and_vendor_violators;
++
+ # Allow binder communication with hal_idd_default
+ binder_call(rild, hal_idd_default)
+ 
+diff --git a/sepolicy/vendor/tee.te b/sepolicy/vendor/tee.te
+index 4ca9c4c..622b5cd 100644
+--- a/sepolicy/vendor/tee.te
++++ b/sepolicy/vendor/tee.te
+@@ -1,3 +1,5 @@
++typeattribute tee data_between_core_and_vendor_violators;
++
+ # Allow tee to read system_data_file
+ allow tee system_data_file:dir r_dir_perms;
+ 
+diff --git a/sepolicy/vendor/time_daemon.te b/sepolicy/vendor/time_daemon.te
+index 5821601..3d76fc9 100644
+--- a/sepolicy/vendor/time_daemon.te
++++ b/sepolicy/vendor/time_daemon.te
+@@ -1,3 +1,5 @@
++typeattribute time_daemon data_between_core_and_vendor_violators;
++
+ # Allow time_daemon to read, write and create files in time_data_file
+ allow time_daemon time_data_file:file create_file_perms;
+ allow time_daemon time_data_file:dir w_dir_perms;
+diff --git a/sepolicy/vendor/vendor_init.te b/sepolicy/vendor/vendor_init.te
+index 9445090..bc95e91 100644
+--- a/sepolicy/vendor/vendor_init.te
++++ b/sepolicy/vendor/vendor_init.te
+@@ -1,3 +1,5 @@
++typeattribute vendor_init data_between_core_and_vendor_violators;
++
+ allow vendor_init {
+   camera_data_file
+   dhcp_data_file
+-- 
+2.17.1
+

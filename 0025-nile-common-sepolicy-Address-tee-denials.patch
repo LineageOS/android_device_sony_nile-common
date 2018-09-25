@@ -1,0 +1,24 @@
+From 8d10e7fa94ffef06a8451bf453e13d419159c2f4 Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Tue, 4 Sep 2018 21:48:03 +0200
+Subject: [PATCH 25/35] nile-common: sepolicy: Address tee denials
+
+Change-Id: I66e9e5ee26244279b8da128052252d60e31bc5aa
+---
+ sepolicy/vendor/tee.te | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/sepolicy/vendor/tee.te b/sepolicy/vendor/tee.te
+index b2c2f13..4ca9c4c 100644
+--- a/sepolicy/vendor/tee.te
++++ b/sepolicy/vendor/tee.te
+@@ -1,3 +1,6 @@
++# Allow tee to read system_data_file
++allow tee system_data_file:dir r_dir_perms;
++
+ # Allow tee to read, write and create files in fingerprintd_data_file
+ allow tee fingerprintd_data_file:dir rw_dir_perms;
+ allow tee fingerprintd_data_file:file create_file_perms;
+-- 
+2.17.1
+

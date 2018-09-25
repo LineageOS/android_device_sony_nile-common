@@ -1,0 +1,29 @@
+From 357ff7255664daab2ebcb4c7d2d5bb54860f1b29 Mon Sep 17 00:00:00 2001
+From: Sridhar Parasuram <sridhar@codeaurora.org>
+Date: Fri, 23 Feb 2018 09:47:38 -0800
+Subject: [PATCH 20/35] nile-common: Address dac_override and dac_read_search
+ issues in init.qcom.sh
+
+init.qcom.sh accesses files owned by groups radio, system and hence
+the groups have been added.
+
+Change-Id: I535eeaf42f38532ec6de46eb57f3cc0e1d959a47
+---
+ rootdir/etc/init.qcom.rc | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/rootdir/etc/init.qcom.rc b/rootdir/etc/init.qcom.rc
+index 6515dd4..1e50c82 100644
+--- a/rootdir/etc/init.qcom.rc
++++ b/rootdir/etc/init.qcom.rc
+@@ -752,6 +752,7 @@ service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
+ service qcom-sh /vendor/bin/init.qcom.sh
+     class late_start
+     user root
++    group root system radio
+     oneshot
+ 
+ on property:ro.vendor.ril.mbn_copy_completed=1
+-- 
+2.17.1
+

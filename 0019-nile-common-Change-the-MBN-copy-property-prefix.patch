@@ -1,0 +1,45 @@
+From 3e0a889b421dc6d77bb71e82fdae2043b8e68c75 Mon Sep 17 00:00:00 2001
+From: Sai Kousik Swarna <sswarna@codeaurora.org>
+Date: Wed, 13 Jun 2018 19:47:51 +0530
+Subject: [PATCH 19/35] nile-common: Change the MBN copy property prefix
+
+Changes the prefix of mbn_copy_completed to ro.vendor.ril
+as there a permission error with current prefix. and due
+to this MBN OTA is failed.
+
+Change-Id: I31a0032aba79177680b7b91363d1d9be97dd9c90
+CRs-Fixed: 2261501
+---
+ rootdir/etc/init.qcom.rc | 2 +-
+ rootdir/etc/init.qcom.sh | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/rootdir/etc/init.qcom.rc b/rootdir/etc/init.qcom.rc
+index 97c6c93..6515dd4 100644
+--- a/rootdir/etc/init.qcom.rc
++++ b/rootdir/etc/init.qcom.rc
+@@ -754,7 +754,7 @@ service qcom-sh /vendor/bin/init.qcom.sh
+     user root
+     oneshot
+ 
+-on property:ro.runtime.mbn_copy_completed=1
++on property:ro.vendor.ril.mbn_copy_completed=1
+     write /data/vendor/radio/copy_complete 1
+ 
+ service qns /vendor/bin/qns -d /mnt/qns -l /mnt/qns
+diff --git a/rootdir/etc/init.qcom.sh b/rootdir/etc/init.qcom.sh
+index 865f6c4..7dd0b2f 100755
+--- a/rootdir/etc/init.qcom.sh
++++ b/rootdir/etc/init.qcom.sh
+@@ -444,7 +444,7 @@ if [ ! -f /firmware/verinfo/ver_info.txt -o "$prev_version_info" != "$cur_versio
+     chown -hR radio.root /data/vendor/modem_config/*
+ fi
+ chmod g-w /data/vendor/modem_config
+-setprop ro.runtime.mbn_copy_completed 1
++setprop ro.vendor.ril.mbn_copy_completed 1
+ 
+ #check build variant for printk logging
+ #current default minimum boot-time-default
+-- 
+2.17.1
+

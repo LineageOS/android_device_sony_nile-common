@@ -1,0 +1,58 @@
+From 664ed830e1ac84a95fef3de99403c3c5032dbfa6 Mon Sep 17 00:00:00 2001
+From: Hua Liu <richardl@codeaurora.org>
+Date: Fri, 13 Apr 2018 19:19:09 -0700
+Subject: [PATCH 18/35] nile-common: Fix MBN copy issue
+
+DAC_OVERRIDE is disabled for all the vendor init scripts
+in Android P. This change will grant "group root" the write
+permission temporarily for deleting/copying operations.
+
+System user could not access the MBN files in data partition
+no longer. Only radio user and root group have read permission
+after boot up.
+
+Change-Id: I9f184da2253dc5896b145c0e52fc3b42da15d9f7
+---
+ rootdir/etc/init.qcom.rc | 2 +-
+ rootdir/etc/init.qcom.sh | 6 +++++-
+ 2 files changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/rootdir/etc/init.qcom.rc b/rootdir/etc/init.qcom.rc
+index 37594a0..97c6c93 100644
+--- a/rootdir/etc/init.qcom.rc
++++ b/rootdir/etc/init.qcom.rc
+@@ -130,7 +130,7 @@ on post-fs-data
+     mkdir /data/vendor/radio 0770 system radio
+ 
+     # Create directory for modem_config
+-    mkdir /data/vendor/modem_config 0550 system radio
++    mkdir /data/vendor/modem_config 0570 radio root
+ 
+     # Change lm related dirs
+     mkdir /data/vendor/lm 0700 root root
+diff --git a/rootdir/etc/init.qcom.sh b/rootdir/etc/init.qcom.sh
+index a8f7400..865f6c4 100755
+--- a/rootdir/etc/init.qcom.sh
++++ b/rootdir/etc/init.qcom.sh
+@@ -433,13 +433,17 @@ fi
+ 
+ cur_version_info=`cat /firmware/verinfo/ver_info.txt`
+ if [ ! -f /firmware/verinfo/ver_info.txt -o "$prev_version_info" != "$cur_version_info" ]; then
++    # add W for group recursively before delete
++    chmod g+w -R /data/vendor/modem_config/*
+     rm -rf /data/vendor/modem_config/*
+     # preserve the read only mode for all subdir and files
+     cp --preserve=m -dr /firmware/image/modem_pr/mcfg/configs/* /data/vendor/modem_config
+     cp --preserve=m -d /firmware/verinfo/ver_info.txt /data/vendor/modem_config/
+     cp --preserve=m -d /firmware/image/modem_pr/mbn_ota.txt /data/vendor/modem_config/
+-    chown -hR radio.radio /data/vendor/modem_config/*
++    # the group must be root, otherwise this script could not add "W" for group recursively
++    chown -hR radio.root /data/vendor/modem_config/*
+ fi
++chmod g-w /data/vendor/modem_config
+ setprop ro.runtime.mbn_copy_completed 1
+ 
+ #check build variant for printk logging
+-- 
+2.17.1
+

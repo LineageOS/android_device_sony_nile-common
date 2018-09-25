@@ -1,0 +1,29 @@
+From bcfbd6df1c6f88649c3f550a2ff159c1ae098c75 Mon Sep 17 00:00:00 2001
+From: Sridhar Parasuram <sridhar@codeaurora.org>
+Date: Wed, 21 Feb 2018 09:43:56 -0800
+Subject: [PATCH 30/35] nile-common: Add system/wakelock groups to post_boot.sh
+ script
+
+The post_boot script writes to scaling_(min/max)_feq and
+wake_lock nodes which are owned by system and wakelock groups.
+
+Change-Id: Ief83a152f8433976082aaa129bdb193dd3adb320
+---
+ rootdir/etc/init.qcom.rc | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/rootdir/etc/init.qcom.rc b/rootdir/etc/init.qcom.rc
+index 05c1f14..b0eaf25 100644
+--- a/rootdir/etc/init.qcom.rc
++++ b/rootdir/etc/init.qcom.rc
+@@ -746,6 +746,7 @@ on property:persist.radio.multisim.config=dsds
+ service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
+     class late_start
+     user root
++    group root system wakelock
+     disabled
+     oneshot
+ 
+-- 
+2.17.1
+

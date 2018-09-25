@@ -1,0 +1,44 @@
+From e1a69b35cbd62bf8f6c2d19e39ba04ffc4c8c952 Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Sat, 11 Aug 2018 10:51:05 +0200
+Subject: [PATCH 03/35] nile-common: Treble sucks
+
+Change-Id: Ib5df8bc6181158505bbfa7197945f57390013426
+---
+ extract-files.sh | 6 ++++++
+ nile.mk          | 4 ++++
+ 2 files changed, 10 insertions(+)
+
+diff --git a/extract-files.sh b/extract-files.sh
+index f9a3716..9aa9e04 100755
+--- a/extract-files.sh
++++ b/extract-files.sh
+@@ -63,4 +63,10 @@ if [ -s "$MY_DIR"/../$DEVICE/proprietary-files.txt ]; then
+     extract "$MY_DIR"/../$DEVICE/proprietary-files.txt "$SRC" "$SECTION"
+ fi
+ 
++COMMON_BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE_COMMON"/proprietary
++
++patchelf --replace-needed android.hardware.gnss@1.0.so android.hardware.gnss@1.0-v27.so $COMMON_BLOB_ROOT/lib64/vendor.qti.gnss@1.0.so
++patchelf --replace-needed android.hardware.gnss@1.0.so android.hardware.gnss@1.0-v27.so $COMMON_BLOB_ROOT/vendor/lib64/vendor.qti.gnss@1.0_vendor.so
++patchelf --remove-needed libstagefright_wfd.so $COMMON_BLOB_ROOT/vendor/lib64/libstagefright_hdcp.so
++
+ "$MY_DIR"/setup-makefiles.sh
+diff --git a/nile.mk b/nile.mk
+index 3e34017..ae8f959 100644
+--- a/nile.mk
++++ b/nile.mk
+@@ -372,6 +372,10 @@ PRODUCT_PACKAGES += \
+ PRODUCT_PACKAGES += \
+     vndk-sp
+ 
++PRODUCT_COPY_FILES += \
++    prebuilts/vndk/v27/arm64/arch-arm64-armv8-a/shared/vndk-core/android.hardware.gnss@1.0.so:system/lib64/android.hardware.gnss@1.0-v27.so \
++    prebuilts/vndk/v27/arm64/arch-arm64-armv8-a/shared/vndk-core/android.hardware.gnss@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64/android.hardware.gnss@1.0-v27.so
++
+ # Verity
+ PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/c0c4000.sdhci/by-name/system
+ PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/soc/c0c4000.sdhci/by-name/vendor
+-- 
+2.17.1
+

@@ -1,0 +1,23 @@
+From c3d35f35cac70b8449dba878bc0a28c461ef4103 Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Tue, 4 Sep 2018 17:14:55 +0200
+Subject: [PATCH 15/35] nile-common: sepolicy: Address nfc denials
+
+Change-Id: I5651683a5ab187012f3da45344c248ad95093ca7
+---
+ sepolicy/vendor/nfc.te | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 sepolicy/vendor/nfc.te
+
+diff --git a/sepolicy/vendor/nfc.te b/sepolicy/vendor/nfc.te
+new file mode 100644
+index 0000000..8679c98
+--- /dev/null
++++ b/sepolicy/vendor/nfc.te
+@@ -0,0 +1,3 @@
++# Allow nfc to read and write in nfc_vendor_data_file
++allow nfc nfc_vendor_data_file:dir search;
++allow nfc nfc_vendor_data_file:file rw_file_perms;
+-- 
+2.17.1
+

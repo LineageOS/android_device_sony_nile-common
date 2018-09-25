@@ -1,0 +1,30 @@
+From 6261e6f3e3e4cc3e2ec6620ee085c9f8786830b1 Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Wed, 19 Sep 2018 10:20:03 +0200
+Subject: [PATCH 32/35] nile-common: sepolicy: Address qns denials
+
+Change-Id: I32cec1132b4a1c87dc08d7c3af2913e56d393afd
+---
+ sepolicy/vendor/qns.te | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/sepolicy/vendor/qns.te b/sepolicy/vendor/qns.te
+index d438ab3..39258d9 100644
+--- a/sepolicy/vendor/qns.te
++++ b/sepolicy/vendor/qns.te
+@@ -7,9 +7,9 @@ init_daemon_domain(qns)
+ allow qns qns_file:dir create_dir_perms;
+ allow qns qns_file:file create_file_perms;
+ 
+-# Allow qns to search in sysfs_battery_supply
+-allow qns sysfs_battery_supply:dir search;
+-
+ # Allow qns to read and write to qns_sysfs
+ allow qns qns_sysfs:dir search;
+ allow qns qns_sysfs:file rw_file_perms;
++
++# Allow qns to read sysfs_battery_supply
++r_dir_file(qns, sysfs_battery_supply)
+-- 
+2.17.1
+

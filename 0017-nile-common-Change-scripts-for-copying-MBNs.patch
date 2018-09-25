@@ -1,0 +1,139 @@
+From 073743a5d5858cc7f5ccf87d501c50a2f3f4cff1 Mon Sep 17 00:00:00 2001
+From: Hua Liu <richardl@codeaurora.org>
+Date: Fri, 19 Jan 2018 18:34:36 -0800
+Subject: [PATCH 17/35] nile-common: Change scripts for copying MBNs
+
+1) Using "chmod -h" instead of "chmod"
+2) Using "mkdir -m" instread of 2 seperate commands
+for creating directory and change permission
+3) Using "write" command in RC file instead of "echo ...>"
+in bash
+4) Create "data/vendor/modem_config" for storing MBNs, which
+is read only
+5) Remove qcril.db copying in sh file, since this logic is
+not used anymore
+
+Change-Id: Ib9a9e0d32ae529dab3dc0c164062d2887dff4439
+---
+ rootdir/etc/init.qcom.rc |  6 ++++
+ rootdir/etc/init.qcom.sh | 63 +++++++---------------------------------
+ 2 files changed, 16 insertions(+), 53 deletions(-)
+
+diff --git a/rootdir/etc/init.qcom.rc b/rootdir/etc/init.qcom.rc
+index d397b18..37594a0 100644
+--- a/rootdir/etc/init.qcom.rc
++++ b/rootdir/etc/init.qcom.rc
+@@ -129,6 +129,9 @@ on post-fs-data
+     # Create directory for radio
+     mkdir /data/vendor/radio 0770 system radio
+ 
++    # Create directory for modem_config
++    mkdir /data/vendor/modem_config 0550 system radio
++
+     # Change lm related dirs
+     mkdir /data/vendor/lm 0700 root root
+ 
+@@ -751,6 +754,9 @@ service qcom-sh /vendor/bin/init.qcom.sh
+     user root
+     oneshot
+ 
++on property:ro.runtime.mbn_copy_completed=1
++    write /data/vendor/radio/copy_complete 1
++
+ service qns /vendor/bin/qns -d /mnt/qns -l /mnt/qns
+     user oem_2985
+     group oem_2985
+diff --git a/rootdir/etc/init.qcom.sh b/rootdir/etc/init.qcom.sh
+index 8656159..a8f7400 100755
+--- a/rootdir/etc/init.qcom.sh
++++ b/rootdir/etc/init.qcom.sh
+@@ -126,20 +126,6 @@ start_msm_irqbalance()
+ 	fi
+ }
+ 
+-start_copying_prebuilt_qcril_db()
+-{
+-#SONY_BEGIN
+-    #if [ -f /system/vendor/qcril.db -a ! -f /data/misc/radio/qcril.db ]; then
+-    #   cp /system/vendor/qcril.db /data/misc/radio/qcril.db
+-    #   chown -h radio.radio /data/misc/radio/qcril.db
+-    #fi
+-    if [ -f /vendor/radio/qcril_database/qcril.db -a ! -f /data/vendor/radio/qcril.db ]; then
+-        cp /vendor/radio/qcril_database/qcril.db /data/vendor/radio/qcril.db
+-        chown -h radio.radio /data/vendor/radio/qcril.db
+-    fi
+-#SONY_END
+-}
+-
+ baseband=`getprop ro.baseband`
+ echo 1 > /proc/sys/net/ipv6/conf/default/accept_ra_defrtr
+ 
+@@ -436,55 +422,26 @@ case "$target" in
+         ;;
+ esac
+ 
+-#
+-# Copy qcril.db if needed for RIL
+-#
+-start_copying_prebuilt_qcril_db
+-#SONY_BEGIN
+-#echo 1 > /data/misc/radio/db_check_done
+-echo 1 > /data/vendor/radio/db_check_done
+-#SONY_END
+ #
+ # Make modem config folder and copy firmware config to that folder for RIL
+ #
+-
+-#SONY_BEGIN
+-#if [ -f /data/misc/radio/ver_info.txt ]; then
+-    #prev_version_info=`cat /data/misc/radio/ver_info.txt`
+-if [ -f /data/vendor/radio/ver_info.txt ]; then
+-    prev_version_info=`cat /data/vendor/radio/ver_info.txt`
+-#SONY_END
++if [ -f /data/vendor/modem_config/ver_info.txt ]; then
++    prev_version_info=`cat /data/vendor/modem_config/ver_info.txt`
+ else
+     prev_version_info=""
+ fi
+ 
+ cur_version_info=`cat /firmware/verinfo/ver_info.txt`
+ if [ ! -f /firmware/verinfo/ver_info.txt -o "$prev_version_info" != "$cur_version_info" ]; then
+-#SONY_BEGIN
+-    #rm -rf /data/misc/radio/modem_config
+-    #mkdir /data/misc/radio/modem_config
+-    #chmod 770 /data/misc/radio/modem_config
+-    #cp -r /firmware/image/modem_pr/mcfg/configs/* /data/misc/radio/modem_config
+-    #chown -hR radio.radio /data/misc/radio/modem_config
+-    #cp /firmware/verinfo/ver_info.txt /data/misc/radio/ver_info.txt
+-    #chown radio.radio /data/misc/radio/ver_info.txt
+-    rm -rf /data/vendor/radio/modem_config
+-    mkdir /data/vendor/radio/modem_config
+-    chmod 770 /data/vendor/radio/modem_config
+-    cp -r /firmware/image/modem_pr/mcfg/configs/* /data/vendor/radio/modem_config
+-    chown -hR radio.radio /data/vendor/radio/modem_config
+-    cp /firmware/verinfo/ver_info.txt /data/vendor/radio/ver_info.txt
+-    chown radio.radio /data/vendor/radio/ver_info.txt
+-#SONY_END
++    rm -rf /data/vendor/modem_config/*
++    # preserve the read only mode for all subdir and files
++    cp --preserve=m -dr /firmware/image/modem_pr/mcfg/configs/* /data/vendor/modem_config
++    cp --preserve=m -d /firmware/verinfo/ver_info.txt /data/vendor/modem_config/
++    cp --preserve=m -d /firmware/image/modem_pr/mbn_ota.txt /data/vendor/modem_config/
++    chown -hR radio.radio /data/vendor/modem_config/*
+ fi
+-#SONY_BEGIN
+-#cp /firmware/image/modem_pr/mbn_ota.txt /data/misc/radio/modem_config
+-#chown radio.radio /data/misc/radio/modem_config/mbn_ota.txt
+-#echo 1 > /data/misc/radio/copy_complete
+-cp /firmware/image/modem_pr/mbn_ota.txt /data/vendor/radio/modem_config
+-chown radio.radio /data/vendor/radio/modem_config/mbn_ota.txt
+-echo 1 > /data/vendor/radio/copy_complete
+-#SONY_END
++setprop ro.runtime.mbn_copy_completed 1
++
+ #check build variant for printk logging
+ #current default minimum boot-time-default
+ buildvariant=`getprop ro.build.type`
+-- 
+2.17.1
+

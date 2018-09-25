@@ -1,0 +1,22 @@
+From 52f1d277d981d7e97807ae0a3d7e0210dbb305cb Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Wed, 19 Sep 2018 10:48:09 +0200
+Subject: [PATCH 34/35] nile-common: sepolicy: Address hal_nfc_default denials
+
+Change-Id: Ibf9cc461a121d54c6e6c9696e982ed23bec16f3f
+---
+ sepolicy/vendor/hal_nfc_default.te | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 sepolicy/vendor/hal_nfc_default.te
+
+diff --git a/sepolicy/vendor/hal_nfc_default.te b/sepolicy/vendor/hal_nfc_default.te
+new file mode 100644
+index 0000000..755b4fc
+--- /dev/null
++++ b/sepolicy/vendor/hal_nfc_default.te
+@@ -0,0 +1,2 @@
++# Allow hal_nfc_default to search in nfc_vendor_data_file
++allow hal_nfc_default nfc_vendor_data_file:dir search;
+-- 
+2.17.1
+

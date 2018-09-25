@@ -1,0 +1,27 @@
+From cf30074d161b9556ca3120e6b7e6407b41ee29a4 Mon Sep 17 00:00:00 2001
+From: Naseer Ahmed <naseer@codeaurora.org>
+Date: Mon, 12 Mar 2018 18:33:53 -0400
+Subject: [PATCH 02/35] nile-common: Add Mapper 2.1 to VNDK SP list
+
+Change-Id: I24cbc517877e4e7f5827556061dcb5874918fc35
+---
+ vndk/vndk-sp-libs.mk | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/vndk/vndk-sp-libs.mk b/vndk/vndk-sp-libs.mk
+index b34355e..eb589ca 100644
+--- a/vndk/vndk-sp-libs.mk
++++ b/vndk/vndk-sp-libs.mk
+@@ -1,7 +1,9 @@
+ VNDK_SP_LIBRARIES := \
+     android.hardware.graphics.allocator@2.0 \
+     android.hardware.graphics.mapper@2.0 \
++    android.hardware.graphics.mapper@2.1 \
+     android.hardware.graphics.common@1.0 \
++    android.hardware.graphics.common@1.1 \
+     android.hardware.renderscript@1.0 \
+     android.hidl.memory@1.0 \
+     libRSCpuRef \
+-- 
+2.17.1
+

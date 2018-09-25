@@ -1,0 +1,50 @@
+From 2287bbb02c8548db687343003bbc8f119874fbc9 Mon Sep 17 00:00:00 2001
+From: Ananda Kishore <kananda@codeaurora.org>
+Date: Wed, 21 Mar 2018 17:11:45 +0530
+Subject: [PATCH 27/35] nile-common: Rename sensor service names by prefixing
+ vendor.
+
+- sensors --> vendor.sensors
+- sensor-sh --> vendor-sensor-sh.
+
+Change-Id: Id0213c33d13b3104bf4dd6d993a7bba164d5ac26
+---
+ rootdir/etc/init.qcom.rc         | 4 ++--
+ rootdir/etc/init.qcom.sensors.sh | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/rootdir/etc/init.qcom.rc b/rootdir/etc/init.qcom.rc
+index 1e50c82..1da9878 100644
+--- a/rootdir/etc/init.qcom.rc
++++ b/rootdir/etc/init.qcom.rc
+@@ -781,12 +781,12 @@ service rmt_storage /vendor/bin/rmt_storage
+     shutdown critical
+     ioprio rt 0
+ 
+-service sensor-sh /vendor/bin/init.qcom.sensors.sh
++service vendor-sensor-sh /vendor/bin/init.qcom.sensors.sh
+     class core
+     user root
+     oneshot
+ 
+-service sensors /vendor/bin/sensors.qcom
++service vendor.sensors /vendor/bin/sensors.qcom
+     class core
+     user root
+     group root
+diff --git a/rootdir/etc/init.qcom.sensors.sh b/rootdir/etc/init.qcom.sensors.sh
+index fd193e2..8b240b3 100755
+--- a/rootdir/etc/init.qcom.sensors.sh
++++ b/rootdir/etc/init.qcom.sensors.sh
+@@ -36,7 +36,7 @@ start_sensors()
+         chmod -h 664 /persist/sensors/sensors_settings
+         mkdir -p /persist/sensors/registry/registry
+         chown -h system.root /persist/sensors/sensors_settings
+-        start sensors
++        start vendor.sensors
+     fi
+ }
+ 
+-- 
+2.17.1
+

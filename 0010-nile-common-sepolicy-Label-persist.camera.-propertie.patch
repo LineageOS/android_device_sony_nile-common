@@ -1,0 +1,23 @@
+From 97de9b716939dbf25f8794e557e270d426344341 Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Tue, 4 Sep 2018 16:44:21 +0200
+Subject: [PATCH 10/35] nile-common: sepolicy: Label persist.camera. properties
+
+Change-Id: I3e3668d77a7b65fd3572248ba98c980537ad1e25
+---
+ sepolicy/vendor/property_contexts | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/sepolicy/vendor/property_contexts b/sepolicy/vendor/property_contexts
+index 11147a4..0ffeecf 100644
+--- a/sepolicy/vendor/property_contexts
++++ b/sepolicy/vendor/property_contexts
+@@ -1,4 +1,5 @@
+ persist.audio.gain.version       u:object_r:audio_gain_prop:s0
++persist.camera.                  u:object_r:camera_prop:s0
+ persist.keyprovd.suntory.prov    u:object_r:secd_prop:s0
+ persist.net.doxlat               u:object_r:vendor_net_radio_prop:s0
+ persist.tareset.notfirstboot     u:object_r:tareset_notfirstboot_prop:s0
+-- 
+2.17.1
+

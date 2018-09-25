@@ -1,0 +1,53 @@
+From dc2750779c853a8cb6265e829d7599e97a5f3a4e Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Wed, 19 Sep 2018 10:43:24 +0200
+Subject: [PATCH 33/35] nile-common: sepolicy: Address hal_gnss_qti and
+ location denials
+
+Change-Id: Ice12372f9776949ff5d85864018c1f26a99cb72b
+---
+ sepolicy/vendor/file_contexts | 28 +++++++++++++++-------------
+ 1 file changed, 15 insertions(+), 13 deletions(-)
+
+diff --git a/sepolicy/vendor/file_contexts b/sepolicy/vendor/file_contexts
+index 88a301b..5225d56 100644
+--- a/sepolicy/vendor/file_contexts
++++ b/sepolicy/vendor/file_contexts
+@@ -16,19 +16,21 @@
+ /sys/kernel/boot_wlan(/.*)?                                                             u:object_r:sysfs_wifi:s0
+ 
+ # Data files
+-/data/connectivity(/.*)?              u:object_r:cnd_data_file:s0
+-/data/misc/egistec(/.*)?              u:object_r:etsd_data_file:s0
+-/data/vendor/misc/audio(/.*)?         u:object_r:vendor_audio_data_file:s0
+-/idd                                  u:object_r:idd_root_dir:s0
+-/idd(/.*)?                            u:object_r:idd_data_file:s0
+-/idd/crashdata(/.*)?                  u:object_r:idd_crashdata_file:s0
+-/idd/fsck(/.*)?                       u:object_r:idd_fsck_file:s0
+-/idd/lost\+found(/.*)?                u:object_r:idd_lostfound_file:s0
+-/idd/output(/.*)?                     u:object_r:idd_output_file:s0
+-/idd/socket(/.*)?                     u:object_r:idd_socket_file:s0
+-/idd/startup-prober(/.*)?             u:object_r:startupprober_file:s0
+-/mnt/qns(/.*)?                        u:object_r:qns_file:s0
+-/rca(/.*)?                            u:object_r:idd_rca_file:s0
++/data/connectivity(/.*)?                      u:object_r:cnd_data_file:s0
++/data/misc/egistec(/.*)?                      u:object_r:etsd_data_file:s0
++/data/vendor/misc/audio(/.*)?                 u:object_r:vendor_audio_data_file:s0
++/data/vendor/location/xtra/socket_xtra        u:object_r:location_socket:s0
++/data/vendor/location/xtra/socket_hal_xtra    u:object_r:location_socket:s0
++/idd                                          u:object_r:idd_root_dir:s0
++/idd(/.*)?                                    u:object_r:idd_data_file:s0
++/idd/crashdata(/.*)?                          u:object_r:idd_crashdata_file:s0
++/idd/fsck(/.*)?                               u:object_r:idd_fsck_file:s0
++/idd/lost\+found(/.*)?                        u:object_r:idd_lostfound_file:s0
++/idd/output(/.*)?                             u:object_r:idd_output_file:s0
++/idd/socket(/.*)?                             u:object_r:idd_socket_file:s0
++/idd/startup-prober(/.*)?                     u:object_r:startupprober_file:s0
++/mnt/qns(/.*)?                                u:object_r:qns_file:s0
++/rca(/.*)?                                    u:object_r:idd_rca_file:s0
+ 
+ # Configuration files
+ /vendor/usr/idc(/.*)?                 u:object_r:idc_file:s0
+-- 
+2.17.1
+

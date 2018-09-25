@@ -1,0 +1,30 @@
+From d0021e2eb6ceb9b99fb4695de6638c254b1f800e Mon Sep 17 00:00:00 2001
+From: Sridhar Parasuram <sridhar@codeaurora.org>
+Date: Wed, 21 Feb 2018 09:43:56 -0800
+Subject: [PATCH 31/35] nile-common: Add graphics group for post_boot.sh
+ execution
+
+post_boot.sh reads from /sys/class/graphics/fb0/modes which is owned by
+graphics group.
+
+Change-Id: I0b0a8b1f333a1385f72e9aff1ca11836b6e5800e
+---
+ rootdir/etc/init.qcom.rc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rootdir/etc/init.qcom.rc b/rootdir/etc/init.qcom.rc
+index b0eaf25..5f823a8 100644
+--- a/rootdir/etc/init.qcom.rc
++++ b/rootdir/etc/init.qcom.rc
+@@ -746,7 +746,7 @@ on property:persist.radio.multisim.config=dsds
+ service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
+     class late_start
+     user root
+-    group root system wakelock
++    group root system wakelock graphics
+     disabled
+     oneshot
+ 
+-- 
+2.17.1
+

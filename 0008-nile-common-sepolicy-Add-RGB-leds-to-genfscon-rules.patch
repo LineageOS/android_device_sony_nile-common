@@ -1,0 +1,23 @@
+From 761492960f3ad27e3fa4b5c094be6e4c063945c3 Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Tue, 4 Sep 2018 16:11:22 +0200
+Subject: [PATCH 08/35] nile-common: sepolicy: Add RGB leds to genfscon rules
+
+Change-Id: I6a5bf3e0e978b679177be65f587fe462999bc541
+---
+ sepolicy/vendor/genfs_contexts | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/sepolicy/vendor/genfs_contexts b/sepolicy/vendor/genfs_contexts
+index 3c9e363..fe54a97 100644
+--- a/sepolicy/vendor/genfs_contexts
++++ b/sepolicy/vendor/genfs_contexts
+@@ -1,3 +1,5 @@
++genfscon sysfs /devices/soc/800f000.qcom,spmi/spmi-0/spmi0-03/800f000.qcom,spmi:qcom,pm660l@3:qcom,leds@d000/leds/rgb    u:object_r:sysfs_graphics:s0
++
+ genfscon sysfs /kernel/boot_adsp/boot    u:object_r:sysfs_msm_subsys:s0
+ genfscon sysfs /kernel/boot_cdsp/boot    u:object_r:sysfs_msm_subsys:s0
+ genfscon sysfs /kernel/boot_slpi/boot    u:object_r:sysfs_msm_subsys:s0
+-- 
+2.17.1
+

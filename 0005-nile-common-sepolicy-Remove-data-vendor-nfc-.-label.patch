@@ -1,0 +1,28 @@
+From 49c1c1991a9281bae35c474550203151135b9980 Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Tue, 4 Sep 2018 13:17:35 +0200
+Subject: [PATCH 05/35] nile-common: sepolicy: Remove /data/vendor/nfc(/.*)?
+ label
+
+* Already labeled in device/qcom/sepolicy.
+
+Change-Id: I323b83c90376f4873b77bc2daaf13531c67fdd3a
+---
+ sepolicy/vendor/file_contexts | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/sepolicy/vendor/file_contexts b/sepolicy/vendor/file_contexts
+index effd892..48f3adb 100644
+--- a/sepolicy/vendor/file_contexts
++++ b/sepolicy/vendor/file_contexts
+@@ -16,7 +16,6 @@
+ 
+ # Data files
+ /data/misc/egistec(/.*)?              u:object_r:etsd_data_file:s0
+-/data/vendor/nfc(/.*)?                u:object_r:nfc_data_file:s0
+ /idd                                  u:object_r:idd_root_dir:s0
+ /idd(/.*)?                            u:object_r:idd_data_file:s0
+ /idd/crashdata(/.*)?                  u:object_r:idd_crashdata_file:s0
+-- 
+2.17.1
+

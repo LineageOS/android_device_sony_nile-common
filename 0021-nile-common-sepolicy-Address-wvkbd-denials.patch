@@ -1,0 +1,24 @@
+From d08cf9df4994c480c895a6575f20ddec44730f17 Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Tue, 4 Sep 2018 20:55:40 +0200
+Subject: [PATCH 21/35] nile-common: sepolicy: Address wvkbd denials
+
+Change-Id: I74bc2a2574b041fd4faca6d5d6b1d90cea763465
+---
+ sepolicy/vendor/wvkbd.te | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/sepolicy/vendor/wvkbd.te b/sepolicy/vendor/wvkbd.te
+index 6e11779..66f86ef 100644
+--- a/sepolicy/vendor/wvkbd.te
++++ b/sepolicy/vendor/wvkbd.te
+@@ -11,3 +11,6 @@ allow wvkbd tee_device:chr_file rw_file_perms;
+ 
+ # Allow wvkbd to read files in /firmware
+ r_dir_file(wvkbd, firmware_file)
++
++# Allow wvkbd to get vendor_tee_listener_prop
++get_prop(wvkbd, vendor_tee_listener_prop)
+-- 
+2.17.1
+

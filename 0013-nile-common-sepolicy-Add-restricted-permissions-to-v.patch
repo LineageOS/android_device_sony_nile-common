@@ -1,0 +1,55 @@
+From c0f60c4db0859c1c87efb0fe18f8e16e84979592 Mon Sep 17 00:00:00 2001
+From: Tom Cherry <tomcherry@google.com>
+Date: Tue, 23 Jan 2018 14:15:24 -0800
+Subject: [PATCH 13/35] nile-common: sepolicy: Add restricted permissions to
+ vendor_init
+
+The core SEPolicy for vendor_init is being restricted to the proper
+Treble restrictions.  Since this is a legacy device, it is tagged as a
+data_between_core_and_vendor_violators and the needed permissions are
+added to its device specific vendor_init.te
+
+Bug: 62875318
+Test: boot walleye without audits
+Change-Id: I13aaa2278e71092d740216d3978dc720afafe8ea
+---
+ sepolicy/vendor/init.te        |  3 ---
+ sepolicy/vendor/vendor_init.te | 13 +++++++++++++
+ 2 files changed, 13 insertions(+), 3 deletions(-)
+ create mode 100644 sepolicy/vendor/vendor_init.te
+
+diff --git a/sepolicy/vendor/init.te b/sepolicy/vendor/init.te
+index dc42e79..c53a2bd 100644
+--- a/sepolicy/vendor/init.te
++++ b/sepolicy/vendor/init.te
+@@ -1,8 +1,5 @@
+ # Allow init to mount on idd_data_file, idd_root_dir, idd_rca_file, qns_file
+ allow init { idd_data_file idd_root_dir idd_rca_file qns_file }:dir mounton;
+ 
+-# Allow init to setattr on ta_block_device
+-allow init ta_block_device:blk_file setattr;
+-
+ # Allow init to check LD_PRELOAD for secd process
+ allow init secd:process noatsecure;
+diff --git a/sepolicy/vendor/vendor_init.te b/sepolicy/vendor/vendor_init.te
+new file mode 100644
+index 0000000..9445090
+--- /dev/null
++++ b/sepolicy/vendor/vendor_init.te
+@@ -0,0 +1,13 @@
++allow vendor_init {
++  camera_data_file
++  dhcp_data_file
++  media_rw_data_file
++  preloads_data_file
++  system_data_file
++  time_data_file
++  wifi_data_file
++  wpa_socket
++}:dir { create search getattr open read setattr ioctl write add_name remove_name rmdir relabelfrom };
++
++# Allow init to setattr on ta_block_device
++allow vendor_init ta_block_device:blk_file setattr;
+-- 
+2.17.1
+

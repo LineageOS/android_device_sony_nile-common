@@ -1,0 +1,26 @@
+From 14fee09a18898059fcf90d09f361387b6be26154 Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Tue, 4 Sep 2018 21:25:14 +0200
+Subject: [PATCH 24/35] nile-common: sepolicy: Address modem ssr name related
+ denials
+
+Change-Id: I6014e02d5a631d42f3a4a93552720716c5b8b9e9
+---
+ sepolicy/vendor/genfs_contexts | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/sepolicy/vendor/genfs_contexts b/sepolicy/vendor/genfs_contexts
+index ca31d53..5e3a2f3 100644
+--- a/sepolicy/vendor/genfs_contexts
++++ b/sepolicy/vendor/genfs_contexts
+@@ -5,6 +5,7 @@ genfscon proc /cei_project_id      u:object_r:proc_cei:s0
+ genfscon proc /cei_simslot_id      u:object_r:proc_cei:s0
+ genfscon proc /cei_sku_id          u:object_r:proc_cei:s0
+ 
++genfscon sysfs /devices/soc/4080000.qcom,mss/subsys3/name    u:object_r:sysfs_ssr:s0
+ genfscon sysfs /devices/soc/800f000.qcom,spmi/spmi-0/spmi0-03/800f000.qcom,spmi:qcom,pm660l@3:qcom,leds@d000/leds/rgb    u:object_r:sysfs_graphics:s0
+ 
+ genfscon sysfs /kernel/boot_adsp/boot    u:object_r:sysfs_msm_subsys:s0
+-- 
+2.17.1
+

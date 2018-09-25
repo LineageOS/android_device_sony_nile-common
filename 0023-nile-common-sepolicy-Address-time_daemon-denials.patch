@@ -1,0 +1,23 @@
+From 8c99fcb93d1dc88f0180f95f3656fc3117a2d611 Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Tue, 4 Sep 2018 21:14:01 +0200
+Subject: [PATCH 23/35] nile-common: sepolicy: Address time_daemon denials
+
+Change-Id: Ib15481dd57e697576fbc129179ca8c96b6f41125
+---
+ sepolicy/vendor/time_daemon.te | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 sepolicy/vendor/time_daemon.te
+
+diff --git a/sepolicy/vendor/time_daemon.te b/sepolicy/vendor/time_daemon.te
+new file mode 100644
+index 0000000..5821601
+--- /dev/null
++++ b/sepolicy/vendor/time_daemon.te
+@@ -0,0 +1,3 @@
++# Allow time_daemon to read, write and create files in time_data_file
++allow time_daemon time_data_file:file create_file_perms;
++allow time_daemon time_data_file:dir w_dir_perms;
+-- 
+2.17.1
+

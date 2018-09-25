@@ -1,0 +1,28 @@
+From bd58554dce7b0b9f6e90a53b487e807137f784d2 Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Tue, 4 Sep 2018 22:04:54 +0200
+Subject: [PATCH 29/35] nile-common: sepolicy: Label /data/connectivity(/.*)?
+
+* QCOM has moved to `/data/vendor/connectivity` but our
+  blobs still expect old location.
+
+Change-Id: I5b79ba54107b42a942638c6d12bfe52f90ba0eb7
+---
+ sepolicy/vendor/file_contexts | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/sepolicy/vendor/file_contexts b/sepolicy/vendor/file_contexts
+index 9e1f735..88a301b 100644
+--- a/sepolicy/vendor/file_contexts
++++ b/sepolicy/vendor/file_contexts
+@@ -16,6 +16,7 @@
+ /sys/kernel/boot_wlan(/.*)?                                                             u:object_r:sysfs_wifi:s0
+ 
+ # Data files
++/data/connectivity(/.*)?              u:object_r:cnd_data_file:s0
+ /data/misc/egistec(/.*)?              u:object_r:etsd_data_file:s0
+ /data/vendor/misc/audio(/.*)?         u:object_r:vendor_audio_data_file:s0
+ /idd                                  u:object_r:idd_root_dir:s0
+-- 
+2.17.1
+

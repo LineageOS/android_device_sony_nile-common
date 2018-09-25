@@ -1,0 +1,35 @@
+From e8da4480755cddc910e0191250e08b47b5b9fd42 Mon Sep 17 00:00:00 2001
+From: Nivedita Sarkar <nsarkar@codeaurora.org>
+Date: Mon, 26 Feb 2018 09:53:30 -0800
+Subject: [PATCH 01/35] nile-common: Add libsutilscallstack to the vndk
+ libraries
+
+- libutilscallstack is being dynamically loaded by
+  a vndk enabled library that is available to vendor
+  but lisutilscallstack is not
+
+- To fix this, we need to add libutilscallstack to vndk libraries
+
+- Also add any dependent libraries (libdexfile)
+
+Change-Id: Iefb26b9d50f2cef3902a035c78fbd58b418db116
+CRs-Fixed: 2191124
+---
+ vndk/vndk-sp-libs.mk | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/vndk/vndk-sp-libs.mk b/vndk/vndk-sp-libs.mk
+index ae6ac4d..b34355e 100644
+--- a/vndk/vndk-sp-libs.mk
++++ b/vndk/vndk-sp-libs.mk
+@@ -25,4 +25,6 @@ VNDK_SP_LIBRARIES := \
+     libpng \
+     libunwind \
+     libunwindstack \
+-    libutils
++    libutils \
++    libutilscallstack \
++    libdexfile
+-- 
+2.17.1
+

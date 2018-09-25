@@ -1,0 +1,25 @@
+From abc42b253082f7384b780a890781d07de0dc4e5f Mon Sep 17 00:00:00 2001
+From: LuK1337 <priv.luk@gmail.com>
+Date: Tue, 4 Sep 2018 16:45:21 +0200
+Subject: [PATCH 12/35] nile-common: sepolicy: Label sys.post_boot.parsed
+
+* QCOM has moved to `vendor.post_boot.parsed` but our
+  blobs still use `sys.post_boot.parsed`.
+
+Change-Id: I881f459aa10f1c55f8a7c3de87f36d42e000f47e
+---
+ sepolicy/vendor/property_contexts | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/sepolicy/vendor/property_contexts b/sepolicy/vendor/property_contexts
+index e4e7519..d515a80 100644
+--- a/sepolicy/vendor/property_contexts
++++ b/sepolicy/vendor/property_contexts
+@@ -6,3 +6,4 @@ persist.tareset.notfirstboot     u:object_r:tareset_notfirstboot_prop:s0
+ semc.version.                    u:object_r:semc_version_prop:s0
+ sony.modemswitcher               u:object_r:sony_modemswitcher_prop:s0
+ sys.listeners.registered         u:object_r:vendor_tee_listener_prop:s0
++sys.post_boot.parsed             u:object_r:vendor_mpctl_prop:s0
+-- 
+2.17.1
+

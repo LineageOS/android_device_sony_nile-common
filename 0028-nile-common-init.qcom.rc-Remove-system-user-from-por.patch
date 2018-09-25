@@ -1,0 +1,31 @@
+From a1ed993d0512ff8d3d8a642546c06cd1b85e6b32 Mon Sep 17 00:00:00 2001
+From: Subash Abhinov Kasiviswanathan <subashab@codeaurora.org>
+Date: Wed, 14 Feb 2018 11:24:34 -0700
+Subject: [PATCH 28/35] nile-common: init.qcom.rc: Remove system user from
+ port-bridge
+
+This gets rid of the dac_override denial and as a result we do not
+need to add a policy for it.
+
+CRs-Fixed: 2190039
+Change-Id: If4b825014345bb8885032ea54ed3fdcd14c08004
+---
+ rootdir/etc/init.qcom.rc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rootdir/etc/init.qcom.rc b/rootdir/etc/init.qcom.rc
+index 1da9878..05c1f14 100644
+--- a/rootdir/etc/init.qcom.rc
++++ b/rootdir/etc/init.qcom.rc
+@@ -695,7 +695,7 @@ on property:sys.shutdown.requested=*
+ 
+ service port-bridge /vendor/bin/port-bridge
+     class main
+-    user radio system
++    user radio
+     group radio system inet
+     disabled
+     oneshot
+-- 
+2.17.1
+
