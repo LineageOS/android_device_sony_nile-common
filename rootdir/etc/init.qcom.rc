@@ -198,9 +198,6 @@ on post-fs-data
     # Create directory for radio
     mkdir /data/vendor/radio 0770 system radio
 
-    # Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
-    mkdir /data/system 0775 system system
-
     # Create directory for cta
     mkdir /data/system/cta 0700 root root
 
