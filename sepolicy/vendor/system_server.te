@@ -1,9 +1,3 @@
-# Allow system_server to read idc_file
-r_dir_file(system_server, idc_file)
-
-# Allow system_server to read keylayout_file
-r_dir_file(system_server, keylayout_file)
-
 # TODO(b/30675296): Remove following dontaudit's upon resolution of this bug
 # The timerslack_ns denials spam the system really horribly
 dontaudit system_server audioserver:file write;
