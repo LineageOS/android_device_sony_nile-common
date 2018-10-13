@@ -1,7 +1,6 @@
 type debugfs_rmt, debugfs_type, fs_type;
 type debugfs_wlan, debugfs_type, fs_type;
 type egistec_data_file, file_type, data_file_type;
-type idc_file, file_type, vendor_file_type;
 type idd_crashdata_file, file_type;
 type idd_data_file, file_type;
 type idd_fsck_file, file_type;
@@ -11,7 +10,6 @@ type idd_rca_dir, file_type;
 type idd_rca_file, file_type;
 type idd_root_dir, file_type;
 type idd_socket_file, file_type;
-type keylayout_file, file_type, vendor_file_type;
 type proc_cei, proc_type, fs_type;
 type qns_file, file_type;
 type qns_socket, file_type;
