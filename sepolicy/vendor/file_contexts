@@ -32,10 +32,6 @@
 /mnt/rca                                      u:object_r:idd_rca_dir:s0
 /mnt/rca(/.*)?                                u:object_r:idd_rca_file:s0
 
-# Configuration files
-/vendor/usr/idc(/.*)?                 u:object_r:idc_file:s0
-/vendor/usr/keylayout(/.*)?           u:object_r:keylayout_file:s0
-
 # Binaries
 /(vendor|system/vendor)/bin/keyprovd               u:object_r:keyprovd_exec:s0
 /(vendor|system/vendor)/bin/macaddrsetup           u:object_r:macaddrsetup_exec:s0
