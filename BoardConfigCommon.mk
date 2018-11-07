@@ -130,14 +130,6 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 # CNE and DPM
 BOARD_USES_QCNE := true
 
-# Dex
-ifeq ($(HOST_OS),linux)
-  ifneq ($(TARGET_BUILD_VARIANT),eng)
-    WITH_DEXPREOPT ?= true
-  endif
-endif
-WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
-
 # Display
 TARGET_SCREEN_DENSITY ?= 420
 TARGET_USES_OVERLAY := true
