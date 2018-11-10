@@ -196,7 +196,12 @@ TARGET_RIL_VARIANT := caf
 TARGET_USES_OLD_MNC_FORMAT := true
 
 # Root
-BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware idd persist rca
+BOARD_ROOT_EXTRA_FOLDERS := idd rca
+BOARD_ROOT_EXTRA_SYMLINKS := \
+    /mnt/vendor/persist:/persist \
+    /vendor/bt_firmware:/bt_firmware \
+    /vendor/dsp:/dsp \
+    /vendor/firmware_mnt:/firmware
 
 # Security patch level
 VENDOR_SECURITY_PATCH := 2018-12-01
