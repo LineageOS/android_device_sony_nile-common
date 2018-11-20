@@ -815,6 +815,12 @@ service tftp_server /vendor/bin/tftp_server
     class core
     user root
 
+service wvkbd_installer /vendor/bin/wvkbd
+    class late_start
+    user system
+    group system
+    oneshot
+
 service wifi-sdio-on /vendor/bin/init.qcom.sdio.sh
     class late_start
     group wifi inet

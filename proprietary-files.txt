@@ -917,11 +917,18 @@ vendor/lib64/libthermalioctl.so
 vendor/bin/time_daemon
 vendor/lib64/libtime_genoff.so
 
-# Widevine DRM
-vendor/bin/wvkbd
-vendor/bin/wvnitzd
-vendor/bin/hw/android.hardware.drm@1.0-service.widevine
-vendor/etc/init/init.sony-drm.rc
+# Widevine DRM - from poplar
+vendor/bin/wvkbd|63b4ba40fc7e85cf6aed9627f9390ca0c3ce75d1
+vendor/bin/hw/android.hardware.drm@1.1-service.widevine|62000c39e78a2118a0c9be04f430099c2f1022c9
+vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc|366f63ab5c5e296f81ad357c77f5973563115801
+vendor/lib/libwvhidl.so|47c19c7949c5ebfe7adbac5171cefc2439c76ffa
+vendor/lib64/libhdcprx_module.so|42e7b37c159a9f7386187e384537d20e736fab11
+vendor/lib64/libhdcptx_module.so|05afde81b863f49f39eeaa4cefaade8d8225e537
+vendor/lib64/libstagefright_hdcp.so|63ee0295296cd9f30d43851d71a7098e399981af
+vendor/lib64/libwvhidl.so|6ac70d854f0228afb24e450b454e2dc8b527aa13
+vendor/lib64/libwvtee.so|05dc08678b9bd24d746495eb8470a5e0e870a92a
+
+# Widevine DRM firmware
 vendor/firmware/tzwidevine.b00
 vendor/firmware/tzwidevine.b01
 vendor/firmware/tzwidevine.b02
@@ -940,12 +947,6 @@ vendor/firmware/tzwvcpybuf.b05
 vendor/firmware/tzwvcpybuf.b06
 vendor/firmware/tzwvcpybuf.b07
 vendor/firmware/tzwvcpybuf.mdt
-vendor/lib/libwvhidl.so
-vendor/lib64/libhdcprx_module.so
-vendor/lib64/libhdcptx_module.so
-vendor/lib64/libstagefright_hdcp.so
-vendor/lib64/libwvhidl.so
-vendor/lib64/libwvtee.so
 
 # WiFi
 vendor/bin/cnss-daemon
