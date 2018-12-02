@@ -705,7 +705,7 @@ etc/permissions/qcrilhook.xml
 etc/permissions/telephonyservice.xml
 framework/QtiTelephonyServicelibrary.jar
 framework/qcrilhook.jar
-framework/qti-telephony-common.jar|e080a3e800bf43c894c6653954e2f4e1415e645c
+framework/qti-telephony-common.jar|b1953a3599255f08f1785c677d22810f65e0167b
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/ATFWD-daemon
 vendor/bin/ipacm-diag
@@ -758,7 +758,6 @@ vendor/lib64/vendor.somc.hardware.radio@1.0.so
 vendor/radio/qcril_database/qcril.db
 
 # RIL (IMS)
--app/ims/ims.apk
 -app/uceShimService/uceShimService.apk
 etc/permissions/qti-vzw-ims-internal.xml
 lib/com.qualcomm.qti.imscmservice@1.0.so
@@ -782,6 +781,7 @@ lib64/libimscamera_jni.so
 lib64/libimsmedia_jni.so
 lib64/librcc.so
 lib64/vendor.qti.imsrtpservice@1.0.so
+-priv-app/ims/ims.apk|eef47c0b6f250e7f96e7155d84274b1c83940d8f
 vendor/bin/ims_rtp_daemon
 vendor/bin/imsdatadaemon
 vendor/bin/imsqmidaemon
