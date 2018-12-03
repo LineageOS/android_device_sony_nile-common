@@ -547,7 +547,7 @@ service energy-awareness /vendor/bin/energy-awareness
 service ets_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service_et512
     class late_start
     user system
-    group system input
+    group system input uhid
     disabled
 
 on property:vendor.hw.fingerprint=et516
@@ -556,7 +556,7 @@ on property:vendor.hw.fingerprint=et516
 service fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service_fpc
     class late_start
     user system
-    group system input
+    group system input uhid
     disabled
 
 on property:vendor.hw.fingerprint=fpc1035
