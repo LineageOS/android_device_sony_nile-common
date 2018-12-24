@@ -72,6 +72,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.gralloc.gfx_ubwc_disable=0 \
     ro.qualcomm.cabl=0
 
 # DRM
@@ -86,6 +87,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.hw=1 \
     debug.gralloc.enable_fb_ubwc=1 \
+    debug.sf.enable_hwc_vds=1 \
     debug.sf.hw=1 \
     debug.sf.latch_unsignaled=1 \
     dev.pm.dyn_samplingrate=1 \
@@ -107,6 +109,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.vidc.enc.disable.pq=false \
+    vendor.video.disable.ubwc=1 \
     vidc.enc.dcvs.extra-buff-count=2 \
     video.disable.ubwc=1
 
