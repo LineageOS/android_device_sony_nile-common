@@ -942,3 +942,27 @@ vendor/bin/cnss-daemon
 vendor/bin/hw/vendor.somc.hardware.wifi@1.0-service
 vendor/etc/init/vendor.somc.hardware.wifi@1.0-service.rc
 vendor/lib64/vendor.somc.hardware.wifi@1.0_vendor.so
+
+# WiFi Display
+bin/wfdservice
+etc/init/wfdservice.rc
+etc/wfdconfig.xml
+etc/wfdconfigsink.xml
+-framework/WfdCommon.jar
+lib/com.qualcomm.qti.wifidisplayhal@1.0.so
+lib64/extractors/libmmparser.so
+lib64/libFileMux.so
+lib64/libmmparser_lite.so
+lib/extractors/libmmparser.so
+lib/libFileMux.so
+lib/libmmparser_lite.so
+-app/WfdService/WfdService.apk
+vendor/bin/wifidisplayhalservice
+vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
+vendor/lib64/libwfdhdcpcp.so
+vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so
+vendor/lib/libwfdcommonutils_proprietary.so
+vendor/lib/libwfdhaldsmanager.so
+vendor/lib/libwfdhdcpcp.so
+vendor/lib/libwfdmmservice.so
+vendor/lib/libwfdmodulehdcpsession.so
