@@ -38,7 +38,6 @@
 /(vendor|system/vendor)/bin/mlog_qmi_service       u:object_r:mlog_qmi_service_exec:s0
 /(vendor|system/vendor)/bin/qns                    u:object_r:qns_exec:s0
 /(vendor|system/vendor)/bin/secd                   u:object_r:secd_exec:s0
-/(vendor|system/vendor)/bin/sony-modem-switcher    u:object_r:modem-switcher_exec:s0
 /(vendor|system/vendor)/bin/ta_qmi_service         u:object_r:ta_qmi_service_exec:s0
 /(vendor|system/vendor)/bin/tad_static             u:object_r:tad_exec:s0
 /(vendor|system/vendor)/bin/updatemiscta           u:object_r:updatemiscta_exec:s0

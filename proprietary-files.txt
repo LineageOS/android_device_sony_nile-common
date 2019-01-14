@@ -586,10 +586,6 @@ vendor/lib64/libmm-color-convertor.so
 vendor/lib64/libvpphvx.so
 vendor/lib64/libvpplibrary.so
 
-# Modem switcher
-vendor/bin/sony-modem-switcher
-vendor/etc/init/init.sony-modem-switcher.rc
-
 # NFC
 vendor/firmware/libpn553_fw.so
 
