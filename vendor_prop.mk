@@ -130,7 +130,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dev.pm.dyn_samplingrate=1 \
     persist.sys.wfd.virtual=0 \
     ro.opengles.version=196610 \
-    ro.sf.lcd_density=480 \
     vendor.display.disable_rotator_split=1 \
     vendor.display.disable_skip_validate=1 \
     vendor.display.enable_default_color_mode=1 \
