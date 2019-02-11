@@ -102,6 +102,7 @@ vendor/lib/libarcsoft_dro.so
 vendor/lib/libarcsoft_face_detection.so
 vendor/lib/libarcsoft_face_tracking.so
 vendor/lib/libarcsoft_hdr.so
+vendor/lib/libarcsoft_high_dynamic_range.so
 vendor/lib/libarcsoft_low_light_shot.so
 vendor/lib/libarcsoft_motiondetection.so
 vendor/lib/libarcsoft_nighthawk.so
