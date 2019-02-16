@@ -1,2 +1,4 @@
+typeattribute ueventd data_between_core_and_vendor_violators;
+
 # Allow ueventd to read files in wifi_vendor_data_file
 r_dir_file(ueventd, wifi_vendor_data_file)
