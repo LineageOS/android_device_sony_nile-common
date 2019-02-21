@@ -85,6 +85,12 @@ user: AID_SYSTEM
 group: AID_RADIO
 caps: WAKE_ALARM
 
+[vendor/bin/loc_launcher]
+mode: 0755
+user: AID_GPS
+group: AID_GPS
+caps: SETGID SETUID
+
 [vendor/bin/pm-service]
 mode: 0755
 user: AID_SYSTEM
@@ -92,6 +98,12 @@ group: AID_SYSTEM
 caps: NET_BIND_SERVICE
 
 [vendor/bin/pm-proxy]
+mode: 0755
+user: AID_SYSTEM
+group: AID_SYSTEM
+caps: NET_BIND_SERVICE
+
+[vendor/bin/sensors.qti]
 mode: 0755
 user: AID_SYSTEM
 group: AID_SYSTEM
