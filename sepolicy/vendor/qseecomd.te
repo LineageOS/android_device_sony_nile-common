@@ -1,3 +1,3 @@
-# Allow tee to create, read and write to etsd_data_file
-allow tee etsd_data_file:dir create_dir_perms;
-allow tee etsd_data_file:file create_file_perms;
+# Allow tee to create, read and write to egistec_data_file
+allow tee egistec_data_file:dir create_dir_perms;
+allow tee egistec_data_file:file create_file_perms;
