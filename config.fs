@@ -1,11 +1,23 @@
-[AID_VENDOR_QCOM_DIAG]
-value: 2950
+[AID_VENDOR_QTI_DIAG]
+value: 2901
+
+[AID_VENDOR_QDSS]
+value: 2902
 
 [AID_VENDOR_RFS]
-value: 2951
+value: 2903
 
 [AID_VENDOR_RFS_SHARED]
-value: 2952
+value: 2904
+
+[AID_VENDOR_ADPL_ODL]
+value: 2905
+
+[AID_VENDOR_QRTR]
+value: 2906
+
+[AID_VENDOR_ILLUMINATION]
+value: 2929
 
 [AID_VENDOR_QNS]
 value: 2985
@@ -13,14 +25,11 @@ value: 2985
 [AID_VENDOR_IDD]
 value: 2987
 
-[AID_VENDOR_UPDATEMISCTA]
-value: 2991
+[AID_VENDOR_SMIME_KEYSTORE]
+value: 2992
 
 [AID_VENDOR_TRIMAREA]
 value: 2993
-
-[AID_VENDOR_PERSIST_RW]
-value: 2995
 
 [AID_VENDOR_CREDMGR_CLIENT]
 value: 2996
@@ -85,6 +94,12 @@ user: AID_SYSTEM
 group: AID_RADIO
 caps: WAKE_ALARM
 
+[vendor/bin/loc_launcher]
+mode: 0755
+user: AID_GPS
+group: AID_GPS
+caps: SETUID SETGID
+
 [vendor/bin/pm-service]
 mode: 0755
 user: AID_SYSTEM
@@ -92,6 +107,12 @@ group: AID_SYSTEM
 caps: NET_BIND_SERVICE
 
 [vendor/bin/pm-proxy]
+mode: 0755
+user: AID_SYSTEM
+group: AID_SYSTEM
+caps: NET_BIND_SERVICE
+
+[vendor/bin/sensors.qti]
 mode: 0755
 user: AID_SYSTEM
 group: AID_SYSTEM
