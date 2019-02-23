@@ -2,7 +2,7 @@
 /dev/block/platform/soc/c0c4000\.sdhci/by-name/appslog    u:object_r:appslog_block_device:s0
 /dev/block/platform/soc/c0c4000\.sdhci/by-name/diag       u:object_r:diag_block_device:s0
 /dev/block/platform/soc/c0c4000\.sdhci/by-name/TA         u:object_r:ta_block_device:s0
-/dev/esfp0                                                u:object_r:etsd_device:s0
+/dev/esfp0                                                u:object_r:egistec_device:s0
 /dev/socket/qnsbsd                                        u:object_r:qns_socket:s0
 /dev/socket/secd_credmgr_sock                             u:object_r:secd_credmgr_socket:s0
 /dev/socket/secd_devsec_sock                              u:object_r:secd_devsec_socket:s0
@@ -16,20 +16,21 @@
 /sys/kernel/boot_wlan(/.*)?                                                             u:object_r:sysfs_wifi:s0
 
 # Data files
-/data/misc/egistec(/.*)?                      u:object_r:etsd_data_file:s0
-/data/vendor/misc/audio(/.*)?                 u:object_r:vendor_audio_data_file:s0
-/data/vendor/location/xtra/socket_xtra        u:object_r:location_socket:s0
 /data/vendor/location/xtra/socket_hal_xtra    u:object_r:location_socket:s0
-/idd                                          u:object_r:idd_root_dir:s0
-/idd(/.*)?                                    u:object_r:idd_data_file:s0
-/idd/crashdata(/.*)?                          u:object_r:idd_crashdata_file:s0
-/idd/fsck(/.*)?                               u:object_r:idd_fsck_file:s0
-/idd/lost\+found(/.*)?                        u:object_r:idd_lostfound_file:s0
-/idd/output(/.*)?                             u:object_r:idd_output_file:s0
-/idd/socket(/.*)?                             u:object_r:idd_socket_file:s0
-/idd/startup-prober(/.*)?                     u:object_r:startupprober_file:s0
+/data/vendor/location/xtra/socket_xtra        u:object_r:location_socket:s0
+/data/vendor/misc/audio(/.*)?                 u:object_r:vendor_audio_data_file:s0
+/data/vendor/misc/egistec(/.*)?               u:object_r:egistec_data_file:s0
+/mnt/idd                                      u:object_r:idd_root_dir:s0
+/mnt/idd(/.*)?                                u:object_r:idd_data_file:s0
+/mnt/idd/crashdata(/.*)?                      u:object_r:idd_crashdata_file:s0
+/mnt/idd/fsck(/.*)?                           u:object_r:idd_fsck_file:s0
+/mnt/idd/lost\+found(/.*)?                    u:object_r:idd_lostfound_file:s0
+/mnt/idd/output(/.*)?                         u:object_r:idd_output_file:s0
+/mnt/idd/socket(/.*)?                         u:object_r:idd_socket_file:s0
+/mnt/idd/startup-prober(/.*)?                 u:object_r:startupprober_file:s0
 /mnt/qns(/.*)?                                u:object_r:qns_file:s0
-/rca(/.*)?                                    u:object_r:idd_rca_file:s0
+/mnt/rca                                      u:object_r:idd_rca_dir:s0
+/mnt/rca(/.*)?                                u:object_r:idd_rca_file:s0
 
 # Configuration files
 /vendor/usr/idc(/.*)?                 u:object_r:idc_file:s0
@@ -40,21 +41,18 @@
 /(vendor|system/vendor)/bin/macaddrsetup           u:object_r:macaddrsetup_exec:s0
 /(vendor|system/vendor)/bin/mlog_qmi_service       u:object_r:mlog_qmi_service_exec:s0
 /(vendor|system/vendor)/bin/qns                    u:object_r:qns_exec:s0
-/(vendor|system/vendor)/bin/secd                   u:object_r:secd_exec:s0
 /(vendor|system/vendor)/bin/ta_qmi_service         u:object_r:ta_qmi_service_exec:s0
-/(vendor|system/vendor)/bin/tad_static             u:object_r:tad_exec:s0
-/(vendor|system/vendor)/bin/updatemiscta           u:object_r:updatemiscta_exec:s0
+/(vendor|system/vendor)/bin/tad                    u:object_r:tad_exec:s0
 /(vendor|system/vendor)/bin/wvkbd                  u:object_r:wvkbd_exec:s0
 
 # HALs
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service_et516    u:object_r:hal_fingerprint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service_et512    u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service_fpc      u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.nile                      u:object_r:hal_light_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.semc\.hardware\.secd@1\.0-service                        u:object_r:hal_secd_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.semc\.system\.idd@1\.0-service                           u:object_r:hal_idd_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.semc\.system\.idd\.fallback@1\.0-service                 u:object_r:hal_idd_fallback_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.somc\.hardware\.miscta@1\.0-service                      u:object_r:hal_miscta_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.somc\.hardware\.wifi@1.0-service                         u:object_r:hal_wifi_hostapd_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.somc\.hardware\.wifi@2.0-service                         u:object_r:hal_wifi_hostapd_default_exec:s0
 
 # Shell scripts
 /(vendor|system/vendor)/bin/init\.qcom\.devstart\.sh    u:object_r:init-qcom-devstart-sh_exec:s0
