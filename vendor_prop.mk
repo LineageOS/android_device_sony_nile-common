@@ -47,7 +47,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     bt.max.hfpclient.connections=1 \
     qcom.bluetooth.soc=cherokee \
-    ro.bt.bdaddr_path=/data/vendor/bluetooth/bluetooth_bdaddr \
+    ro.vendor.bt.bdaddr_path=/data/vendor/bluetooth/bluetooth_bdaddr \
     vendor.bluetooth.soc=cherokee \
     vendor.qcom.bluetooth.soc=cherokee
 
@@ -87,7 +87,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.hw=1 \
-    debug.gralloc.enable_fb_ubwc=1 \
     debug.sf.enable_hwc_vds=1 \
     debug.sf.hw=1 \
     debug.sf.latch_unsignaled=1 \
@@ -97,10 +96,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.wfd.virtual=0 \
     ro.opengles.version=196610 \
     ro.sf.lcd_density=480 \
-    sdm.debug.disable_rotator_split=1 \
-    sdm.debug.disable_skip_validate=1 \
-    sdm.perf_hint_window=50 \
-    vendor.display.enable_default_color_mode=1
+    vendor.display.disable_rotator_split=1 \
+    vendor.display.disable_skip_validate=1 \
+    vendor.display.enable_default_color_mode=1 \
+    vendor.display.perf_hint_window=50 \
+    vendor.gralloc.enable_fb_ubwc=1
 
 # IMS
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -111,8 +111,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.vidc.enc.disable.pq=false \
     vendor.video.disable.ubwc=1 \
-    vidc.enc.dcvs.extra-buff-count=2 \
-    video.disable.ubwc=1
+    vendor.vidc.enc.dcvs.extra-buff-count=2 \
+    vendor.video.disable.ubwc=1
 
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
