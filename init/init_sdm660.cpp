@@ -94,11 +94,11 @@ void vendor_load_properties()
             property_override("ro.vendor.product.name", device->second.c_str());
         }
 
-        property_set("ro.cei_project_id", Trim(cei_project_id).c_str());
+        property_set("ro.vendor.cei_project_id", Trim(cei_project_id).c_str());
     }
 
     if (ReadFileToString("/proc/cei_phase_id", &cei_phase_id)) {
-        property_set("ro.cei_phase_id", Trim(cei_phase_id).c_str());
+        property_set("ro.vendor.cei_phase_id", Trim(cei_phase_id).c_str());
     }
 
     if (ReadFileToString("/proc/cei_simslot_id", &cei_simslot_id)) {
@@ -106,10 +106,10 @@ void vendor_load_properties()
     }
 
     if (ReadFileToString("/proc/cei_mainboard_id", &cei_mainboard_id)) {
-        property_set("ro.cei_mainboard_id", Trim(cei_mainboard_id).c_str());
+        property_set("ro.vendor.cei_mainboard_id", Trim(cei_mainboard_id).c_str());
     }
 
     if (ReadFileToString("/proc/cei_fp_id", &cei_fp_id)) {
-        property_set("ro.hardware.fingerprint", Trim(cei_fp_id).c_str());
+        property_set("vendor.hw.fingerprint", Trim(cei_fp_id).c_str());
     }
 }
