@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61b76b7e_77c0b5ed",
+        "filename": "BoardConfigCommon.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2019-02-23T08:11:08Z",
+      "side": 1,
+      "message": "can be moved to uevent.qcom.rc",
+      "revId": "bf97167a5d097c1419c68afa1fc52269d55d433b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
