@@ -6,6 +6,3 @@ allow init { idd_data_file idd_root_dir idd_rca_file qns_file }:dir mounton;
 
 # Allow init to read proc_cei
 allow init proc_cei:file r_file_perms;
-
-# Allow init to check LD_PRELOAD for secd process
-allow init secd:process noatsecure;
