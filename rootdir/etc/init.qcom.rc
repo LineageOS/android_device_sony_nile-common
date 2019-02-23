@@ -121,7 +121,7 @@ on post-fs
     write /dev/ipa 1
 
     # Wait qseecomd started
-    wait_for_prop sys.listeners.registered true
+    wait_for_prop vendor.sys.listeners.registered true
 
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
@@ -142,29 +142,17 @@ on post-fs-data
     mkdir /data/vendor/media 0770 mediacodec media
 
     # Create directories for Fingerprint
-    mkdir /data/misc/egistec 0771 system system
+    mkdir /data/vendor/misc/egistec 0771 system system
     mkdir /data/vendor/misc/qti_fp 0770 system system
     mkdir /data/vendor/misc/qti_fp/bg_estimation 0770 system system
     mkdir /data/vendor/misc/qti_fp/calib_test 0770 system system
     mkdir /data/vendor/misc/qti_fp/database 0770 system system
 
-    # Create directory for TZ Apps
-    mkdir /data/misc/qsee 0770 system system
-
     # Create directory for apps access via QTEEConnector
     mkdir /data/vendor/qtee 0770 system system
 
-    # Create directory for voiceprint
-    mkdir /data/misc/qvop 0771 system system
-
     # Create folder for mm-qcamera-daemon
-    mkdir /data/misc/camera 0770 camera camera
-
-    # Create directory for seemp
-    mkdir /data/misc/seemp 0700 system system
-
-    # Create directory for tloc
-    mkdir /data/misc/tloc 0700 system drmrpc
+    mkdir /data/vendor/camera 0770 camera camera
 
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
@@ -181,18 +169,10 @@ on post-fs-data
     mkdir /data/vendor/wifi/sockets 0770 wifi wifi
     mkdir /data/vendor/wifi/hostapd 0770 wifi wifi
     mkdir /data/vendor/wifi/hostapd/ctrl 0770 wifi wifi
-    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
-    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa_supplicant 0770 wifi wifi
     mkdir /data/vendor/wifi/wigig_hostapd 0770 wifi wifi
-    mkdir /data/misc/wifi 0770 wifi wifi
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
-    mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
-    mkdir /data/misc/dhcp 0777 dhcp dhcp
-    chown dhcp system /data/misc/dhcp
-
-    mkdir /data/misc/wifi/hostapd 0770 wifi wifi
-    mkdir /data/misc/wifi/hostapd/ctrl 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
 
     # Create port-bridge log dir
     mkdir /data/vendor/port_bridge 0770 radio radio
@@ -216,9 +196,6 @@ on post-fs-data
     # Create directory for audio delta files
     mkdir /data/vendor/misc/audio/acdbdata 0770 media audio
     mkdir /data/vendor/misc/audio/acdbdata/delta 0770 media audio
-
-    # Create directory used by the DASH client
-    mkdir /data/misc/dash 0770 media audio
 
     # Create directory for radio
     mkdir /data/vendor/radio 0770 system radio
@@ -250,9 +227,10 @@ on post-fs-data
     # Create directory for hostapd
     mkdir /data/hostapd 0770 system wifi
 
-    # Create /data/time folder for time-services
-    mkdir /data/time 0700 system system
+    # Create /data/vendor/time folder for time-services
+    mkdir /data/vendor/time 0700 system system
 
+    # Create directory used by audio subsystem
     mkdir /data/vendor/audio 0770 media audio
 
     # Create a folder for audio delta files
@@ -262,8 +240,8 @@ on post-fs-data
     setprop vold.post_fs_data_done 1
 
     # Create FM dir for patchdownloader
-    mkdir /data/misc/fm 0770 system system
-    chmod 0770 /data/misc/fm
+    mkdir /data/vendor/fm 0770 system system
+    chmod 0770 /data/vendor/fm
 
     # Create PERFD deamon related dirs
     mkdir /data/vendor/perfd 0770 root system
@@ -387,7 +365,12 @@ on boot
     mkdir /mnt/vendor/persist/bluetooth 0770 bluetooth bluetooth
     mkdir /mnt/vendor/persist/display 0770 system graphics
     mkdir /mnt/vendor/persist/drm 0770 system system
+    mkdir /mnt/vendor/persist/hlos_rfs 0770 vendor_rfs vendor_rfs_shared
+    mkdir /mnt/vendor/persist/hlos_rfs/shared 0770 vendor_rfs vendor_rfs_shared
     mkdir /mnt/vendor/persist/misc 0770 system system
+    mkdir /mnt/vendor/persist/rfs 0770 vendor_rfs vendor_rfs
+    mkdir /mnt/vendor/persist/rfs/msm 0770 vendor_rfs vendor_rfs
+    mkdir /mnt/vendor/persist/rfs/msm/mpss 0770 vendor_rfs vendor_rfs
     mkdir /mnt/vendor/persist/secnvm 0770 system system
     mkdir /mnt/vendor/persist/time 0770 system system
     mkdir /mnt/vendor/persist/vpp 0770 media media
@@ -555,36 +538,23 @@ service energy-awareness /vendor/bin/energy-awareness
     group system
     oneshot
 
-service fps_hal_ets /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service_et516
+service ets_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service_et512
     class late_start
     user system
     group system input
     disabled
 
-service fps_hal_fpc /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service_fpc
+on property:vendor.hw.fingerprint=et516
+    enable ets_hal
+
+service fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service_fpc
     class late_start
     user system
     group system input
     disabled
 
-on property:ro.hardware.fingerprint=et516 && property:sys.boot_completed=1 && property:persist.test.fp_existed=0
-    stop fps_hal_ets
-
-on property:ro.hardware.fingerprint=et516
-    enable fps_hal_ets
-    start fps_hal_ets
-
-on property:ro.hardware.fingerprint=fpc1035
-    enable fps_hal_fpc
-    start fps_hal_fpc
-
-on property:sys.boot_completed=1 && property:ro.somc.fingerprint=0
-    stop fps_hal_fpc
-    stop fps_hal_ets
-
-on property:sys.boot_completed=1 && property:persist.test.fp_enabled=0
-    stop fps_hal_fpc
-    stop fps_hal_ets
+on property:vendor.hw.fingerprint=fpc1035
+    enable fps_hal
 
 service hvdcp_opti /vendor/bin/hvdcp_opti
     class main
@@ -727,17 +697,12 @@ on property:init.svc.zygote=running
 on property:init.svc.zygote=restarting
     stop ppd
 
-service ril-daemon2 /vendor/bin/hw/rild -c 2
-    class main
-    socket rild2 stream 660 root radio
-    socket rild-debug2 stream 660 radio system
-    user radio
-    disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log drmrpc oem_2993
-    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
+on property:persist.radio.multisim.config=ss
+    enable vendor.qcrild
 
 on property:persist.radio.multisim.config=dsds
-    enable ril-daemon2
+    enable vendor.qcrild
+    enable vendor.qcrild2
 
 service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     class late_start
@@ -769,7 +734,7 @@ service qseecomd /vendor/bin/qseecomd
 service vendor.dataqti /vendor/bin/qti
     class main
     user radio
-    group radio net_raw diag usb net_admin
+    group radio oem_2901 diag usb net_admin
     disabled
 
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f

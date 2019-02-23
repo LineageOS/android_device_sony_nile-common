@@ -4,3 +4,10 @@ binder_call(hal_secd_server, hal_secd_client)
 
 add_hwservice(hal_secd_server, hal_secd_hwservice)
 allow hal_secd_client hal_secd_hwservice:hwservice_manager find;
+
+# Allow binder communication with hal_idd_default
+binder_call(hal_secd_default, hal_idd_default)
+
+# Allow hal_secd_default to find hal_idd_hwservice
+allow hal_secd_default hal_idd_hwservice:hwservice_manager find;
+
