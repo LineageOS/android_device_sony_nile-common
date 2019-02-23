@@ -192,7 +192,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 # RIL
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 TARGET_RIL_VARIANT := caf
-TARGET_USES_OLD_MNC_FORMAT := true
+ENABLE_VENDOR_RIL_SERVICE := true
 
 # Root
 BOARD_ROOT_EXTRA_FOLDERS := idd rca
@@ -203,7 +203,7 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/firmware_mnt:/firmware
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2018-12-01
+VENDOR_SECURITY_PATCH := 2019-08-01
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
