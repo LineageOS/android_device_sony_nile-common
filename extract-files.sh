@@ -30,6 +30,20 @@ if [ ! -f "${HELPER}" ]; then
 fi
 source "${HELPER}"
 
+function blob_fixup() {
+    case "${1}" in
+    vendor/etc/qdcm_calib_data_5.xml)
+        sed -i "s/DefaultMode=\"100\"/DefaultMode=\"0\"/g" "${2}"
+        ;;
+    vendor/etc/qdcm_calib_data_6.xml)
+        sed -i "s/DefaultMode=\"100\"/DefaultMode=\"0\"/g" "${2}"
+        ;;
+    vendor/etc/qdcm_calib_data_default.xml)
+        sed -i "s/DefaultMode=\"100\"/DefaultMode=\"0\"/g" "${2}"
+        ;;
+    esac
+}
+
 # Default to sanitizing the vendor folder before extraction
 CLEAN_VENDOR=true
 
@@ -75,7 +89,5 @@ if [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then
 fi
 
 COMMON_BLOB_ROOT="${LINEAGE_ROOT}/vendor/${VENDOR}/${DEVICE_COMMON}/proprietary"
-
-patchelf --replace-needed "android.hardware.gnss@1.0.so" "android.hardware.gnss@1.0-v27.so" "${COMMON_BLOB_ROOT}/vendor/lib64/vendor.qti.gnss@1.0_vendor.so"
 
 "${MY_DIR}/setup-makefiles.sh"
