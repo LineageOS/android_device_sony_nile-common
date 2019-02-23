@@ -1,17 +1,5 @@
-typeattribute rild data_between_core_and_vendor_violators;
-
-# Allow binder communication with hal_idd_default
-binder_call(rild, hal_idd_default)
-
-# Allow rild to find hal_idd_hwservice
-allow rild hal_idd_hwservice:hwservice_manager find;
+# Allow binder communication with hal_secd_default
+binder_call(rild, hal_secd_default)
 
 # Allow rild to find hal_secd_hwservice
 allow rild hal_secd_hwservice:hwservice_manager find;
-
-# Allow rild to read, write and create files in radio_data_file
-allow rild radio_data_file:dir rw_dir_perms;
-allow rild radio_data_file:file create_file_perms;
-
-# Allow rild to read files in /persist
-r_dir_file(rild, persist_file)
