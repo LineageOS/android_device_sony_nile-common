@@ -2,4 +2,3 @@ type audio_gain_prop, property_type;
 type secd_prop, property_type;
 type semc_version_prop, property_type;
 type tareset_notfirstboot_prop, property_type;
-type vendor_net_radio_prop, property_type;
