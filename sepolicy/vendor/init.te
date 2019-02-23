@@ -1,11 +1,8 @@
 # Allow init to mount /dsp with adsprpcd_file context
 allow init adsprpcd_file:filesystem { mount relabelfrom relabelto };
 
-# Allow init to mount on idd_data_file, idd_root_dir, idd_rca_file, qns_file
-allow init { idd_data_file idd_root_dir idd_rca_file qns_file }:dir mounton;
+# Allow init to mount on idd_rca_dir, idd_root_dir, qns_file
+allow init { idd_rca_dir idd_root_dir qns_file }:dir mounton;
 
 # Allow init to read proc_cei
 allow init proc_cei:file r_file_perms;
-
-# Allow init to check LD_PRELOAD for secd process
-allow init secd:process noatsecure;
