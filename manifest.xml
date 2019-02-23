@@ -1,4 +1,4 @@
-<manifest version="1.0" type="device" target-level="2">
+<manifest version="1.0" type="device" target-level="3">
     <hal format="hidl">
         <name>android.hardware.audio</name>
         <transport>hwbinder</transport>
@@ -78,12 +78,10 @@
         <interface>
             <name>ICryptoFactory</name>
             <instance>default</instance>
-            <instance>widevine</instance>
         </interface>
         <interface>
             <name>IDrmFactory</name>
             <instance>default</instance>
-            <instance>widevine</instance>
         </interface>
         <fqname>@1.1::ICryptoFactory/clearkey</fqname>
         <fqname>@1.1::ICryptoFactory/widevine</fqname>
@@ -206,7 +204,7 @@
     <hal format="hidl">
         <name>android.hardware.radio</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>IRadio</name>
             <instance>slot1</instance>
@@ -219,13 +217,12 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.radio.deprecated</name>
+        <name>android.hardware.radio.config</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IOemHook</name>
-            <instance>slot1</instance>
-            <instance>slot2</instance>
+            <name>IRadioConfig</name>
+            <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -361,15 +358,6 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>com.qualcomm.qti.ant</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IAntHci</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>com.qualcomm.qti.bluetooth_audio</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -390,7 +378,7 @@
     <hal format="hidl">
         <name>com.qualcomm.qti.imscmservice</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>2.1</version>
         <interface>
             <name>IImsCmService</name>
             <instance>qti.ims.connectionmanagerservice</instance>
@@ -399,7 +387,7 @@
     <hal format="hidl">
         <name>com.qualcomm.qti.uceservice</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>2.0</version>
         <interface>
             <name>IUceService</name>
             <instance>com.qualcomm.qti.uceservice</instance>
@@ -515,7 +503,16 @@
     <hal format="hidl">
         <name>vendor.qti.gnss</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.2</version>
+        <interface>
+            <name>ILocHidlGnss</name>
+            <instance>gnss_vendor</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.gnss</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
         <interface>
             <name>ILocHidlGnss</name>
             <instance>gnss_vendor</instance>
@@ -531,39 +528,30 @@
         </interface>
     </hal>
     <hal format="hidl">
+        <name>vendor.qti.hardware.data.latency</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ILinkLatency</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.factory</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IFactory</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.hardware.fm</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IFmHci</name>
             <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.improvetouch.blobmanager</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IBlobManager</name>
-            <instance>BlobManagerService</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.improvetouch.gesturemanager</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IGestureManager</name>
-            <instance>GestureManagerService</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.improvetouch.touchcompanion</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ITouchCompanion</name>
-            <instance>TouchCompanionService</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -608,28 +596,9 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.radio.atcmdfwd</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IAtCmdFwd</name>
-            <instance>AtCmdFwdService</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.radio.config</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IConfig</name>
-            <instance>radioconfig0</instance>
-            <instance>radioconfig1</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>vendor.qti.hardware.radio.ims</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>IImsRadio</name>
             <instance>imsradio0</instance>
@@ -660,6 +629,7 @@
         <name>vendor.qti.hardware.radio.qtiradio</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
+        <version>2.0</version>
         <interface>
             <name>IQtiRadio</name>
             <instance>slot1</instance>
@@ -669,7 +639,7 @@
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.uim</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>IUim</name>
             <instance>Uim0</instance>
@@ -706,11 +676,11 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.wifi.keystore</name>
+        <name>vendor.qti.ims.callinfo</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IKeystoreExt</name>
+            <name>IService</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -723,12 +693,31 @@
             <instance>imsrtpservice</instance>
         </interface>
     </hal>
+
     <hal format="hidl">
-        <name>vendor.semc.hardware.secd</name>
+        <name>vendor.semc.hardware.charger</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IDeviceSecurity</name>
+            <name>ICharger</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.semc.hardware.display</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplay</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.semc.hardware.light</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IExtLight</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -743,11 +732,11 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.semc.system.idd.fallback</name>
+        <name>vendor.somc.hardware.graphics</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IIddFallback</name>
+            <name>ISomcGfx</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -757,6 +746,24 @@
         <version>1.0</version>
         <interface>
             <name>IMisctaGlobal</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.somc.hardware.modemswitcher</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IModemSwitcher</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.somc.hardware.pip</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IPip</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -771,11 +778,38 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.somc.hardware.wifi</name>
+        <name>vendor.somc.hardware.security.secd</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
+            <name>IDeviceSecurity</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.somc.hardware.superstamina</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISuperStamina</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.somc.hardware.wifi</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
             <name>ISomcWifi</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.somc.hardware.wifidriver</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISomcWifiDriver</name>
             <instance>default</instance>
         </interface>
     </hal>
