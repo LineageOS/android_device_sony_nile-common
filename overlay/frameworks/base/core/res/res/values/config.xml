@@ -297,4 +297,8 @@
     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
          autodetected from the Configuration. -->
     <bool name="config_showNavigationBar">true</bool>
+
+    <!-- Allow the gesture power + volume up to change the ringer mode while the device
+         is interactive. -->
+    <bool name="config_volumeHushGestureEnabled">false</bool>
 </resources>
