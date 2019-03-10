@@ -429,7 +429,6 @@ on boot
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
     start rmt_storage
-    start rfs_access
 
     # Regionalization config and prop files
     chmod 0644 /persist/speccfg/spec
