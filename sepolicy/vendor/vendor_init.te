@@ -12,5 +12,8 @@ allow vendor_init {
   wpa_socket
 }:dir { create search getattr open read setattr ioctl write add_name remove_name rmdir relabelfrom };
 
-# Allow init to setattr on ta_block_device
+# Allow vendor_init to setattr on ta_block_device
 allow vendor_init ta_block_device:blk_file setattr;
+
+# Allow vendor_init to create /mnt/qns
+allow vendor_init tmpfs:dir { write add_name relabelfrom };
