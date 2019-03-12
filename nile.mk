@@ -346,6 +346,10 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl:64 \
     android.hardware.sensors@1.0-service
 
+# SimDetect
+PRODUCT_PACKAGES += \
+    SimDetect
+
 # Telephony
 PRODUCT_PACKAGES += \
     telephony-ext
