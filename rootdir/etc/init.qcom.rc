@@ -519,11 +519,6 @@ service charger /charger
     group system graphics
     seclabel u:r:healthd:s0
 
-service vendor.cnd /vendor/bin/cnd
-    class main
-    user system
-    group system wifi inet radio wakelock net_admin
-
 service cnss-daemon /vendor/bin/cnss-daemon -n -l
     class late_start
     user system
@@ -537,11 +532,6 @@ service devstart_sh /vendor/bin/init.qcom.devstart.sh
     user root
     group root
     oneshot
-
-service dpmQmiMgr /vendor/bin/dpmQmiMgr
-    class main
-    user system
-    group system
 
 service energy-awareness /vendor/bin/energy-awareness
     class main
