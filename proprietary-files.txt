@@ -598,26 +598,28 @@ vendor/lib64/libprotobuf-c.so
 vendor/lib64/vendor.semc.system.idd.fallback@1.0_vendor.so
 vendor/lib64/vendor.semc.system.idd@1.0_vendor.so
 
-# Perf - from B2N_sprout
-vendor/bin/energy-awareness|85400bd358530f794fa57f346942a9a7c38df545
+# Perf - from 50.2.A.0.342
+vendor/bin/energy-awareness|c1ad0ec1e4171b59f166e580ef8ce7395ccb41a5
 vendor/bin/msm_irqbalance|117d7c8a8f6f12b3615ec8ab676231df93d277f1
-vendor/bin/hw/vendor.qti.hardware.perf@1.0-service|b1632ad0a65f6acb29971c100e09fc1cea843838
+vendor/bin/hw/vendor.qti.hardware.perf@1.0-service|96ae50117af2210f8db54b9c8090f573d2ee4733
 vendor/etc/msm_irqbalance.conf|83b18f58c3a5bad615972fb5dca4f84dff82787e
 vendor/etc/msm_irqbalance_sdm630.conf|909ff75bf63674341a80859510496b0749728a00
 vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc|b50182aadab2e31409df61c523d0fb914a394e43
-vendor/etc/perf/perfboostsconfig.xml|1a1276ab8e003e0aa3f81f82fc49c44b795a67d2
-vendor/lib/libfeedbackhandler.so|d4bc91a920272e63921482b3fffcd6a5ef2c7a41
-vendor/lib/libperfgluelayer.so|29e04a0aa60f1b1731c1a1030570e015ede883e4
-vendor/lib/libqti-perfd-client.so|1d42cdbbca693a637862d25644108ac0894bab7d
-vendor/lib/libqti-perfd.so|a42443911b5a5213eb1deb10cc7f25dd4c85db55
-vendor/lib/libqti-util.so|c3da1d3749e5a3010cdfecac92c462f5da4cb6cd
-vendor/lib/vendor.qti.hardware.perf@1.0.so|e4d5d3c38defbd72676820d3f73a58396bca4371
-vendor/lib64/libfeedbackhandler.so|0777f880226f565b7f9ac359d969aee7c67d63d5
-vendor/lib64/libperfgluelayer.so|84edb959f5d4dfe9ac545705567f88464b7f06ea
-vendor/lib64/libqti-perfd-client.so|27fb8594f18ef41489b836d23a61eda4739424a7
-vendor/lib64/libqti-perfd.so|8d17323f56a0671ba459a1e9518a10ce7fa13f13
-vendor/lib64/libqti-util.so|0748431ddec60192b582c621ff4e52ccacf2569a
-vendor/lib64/vendor.qti.hardware.perf@1.0.so|de76b041137697356a03fdd28e488b34b6f890e6
+vendor/etc/perf/commonresourceconfigs.xml|73fc37a6fa498a98758b5a91ebacb87ef0ffdcdf
+vendor/etc/perf/perfboostsconfig.xml|5f9adfea87a287e4e82b0ae8befe415fefaa64cb
+vendor/etc/perf/perf-profile0.conf|02204355bf29ceb0460cd53e6716552bb9d9b05f
+vendor/etc/perf/targetconfig.xml|aa2da57bdd369e9b2026db2179379fddbf86a235
+vendor/etc/perf/targetresourceconfigs.xml|7132f1e9ce3bb21b4854b81d6e5d24409251f177
+vendor/lib/libperfgluelayer.so|e595fc8ae62b8dc3affbab6f457297e85aaed9a1
+vendor/lib/libqti-perfd-client.so|85ebe15611a5153a70fb48cce5ddd28ebdd5701c
+vendor/lib/libqti-perfd.so|ea02868353ec155342b31b92becfb1bf91f74835
+vendor/lib/libqti-util.so|d7f4c7588d562a17a379eda7403d487e088769ee
+vendor/lib/vendor.qti.hardware.perf@1.0.so|2b2daa725907933b162e55cafca9525997b1e730
+vendor/lib64/libperfgluelayer.so|8e03a61c0a78e31e1751f9870515638472504567
+vendor/lib64/libqti-perfd-client.so|974abf576e3cbb13774671f8a80be5705063e5c2
+vendor/lib64/libqti-perfd.so|783199c1b8746ead53d493df66870f45fc4a669f
+vendor/lib64/libqti-util.so|bdf3e4bd3ff525c76948230e26829a3999664a02
+vendor/lib64/vendor.qti.hardware.perf@1.0.so|8020d8d4b6c7eba89a18d3f0411457dfc3068f34
 
 # Peripheral manager
 vendor/bin/pm-proxy
