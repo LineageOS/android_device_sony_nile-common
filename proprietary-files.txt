@@ -84,7 +84,7 @@ lib64/com.qualcomm.qti.ant@1.0.so
 vendor/lib/com.qualcomm.qti.ant@1.0_vendor.so
 vendor/lib64/com.qualcomm.qti.ant@1.0_vendor.so
 
-# Bluetooth (aptX) - from 50.2.A.0.342
+# Bluetooth (aptX) - from 50.2.A.0.352
 lib64/libaptX_encoder.so|0cebad28afcf29f931bdc2d24fce2730dc882ecf
 lib64/libaptXHD_encoder.so|90f47f10af28b3ead143200cb4370b847c513127
 
@@ -250,7 +250,7 @@ vendor/lib/libSonyIMX300PdafLibrary.so
 # Charger
 vendor/bin/hvdcp_opti
 
-# CNE - from 50.2.A.0.342
+# CNE - from 50.2.A.0.352
 etc/permissions/cneapiclient.xml|15831adf0e80243042b90c734eea0a68eb8ae9c9
 etc/permissions/com.quicinc.cne.xml|e99e631d8b06ba4680529e9e4004d8d05baf6904
 framework/cneapiclient.jar|af7db889362e562a4c5073bb6aae32947218abf0
@@ -324,7 +324,7 @@ vendor/lib64/vendor.qti.latency@2.0.so|bf9738655d6d3a59e93da9c2b56ae0b3a2428c71
 vendor/etc/qdcm_calib_data_td4322_innolux_fhd_command_mode_dsi_panel.xml
 vendor/etc/qdcm_calib_data_td4322_truly_fhd_command_mode_dsi_panel.xml
 
-# DPM - from 50.2.A.0.342
+# DPM - from 50.2.A.0.352
 vendor/bin/dpmQmiMgr|eabe3e56c87e1de3f4462e85a7ee73fc3e91f726
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|05af4880ad4c633fe60750ff49525e62822585f7
 vendor/lib64/libdpmqmihal.so|fecdfdb7591feec835ed713863a8dbcca141b252
@@ -383,7 +383,7 @@ vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib64/hw/gatekeeper.sdm660.so
 
-# Graphics - from 50.2.A.0.342
+# Graphics - from 50.2.A.0.352
 vendor/lib64/egl/eglSubDriverAndroid.so|0cf3c7717ada28a99036114ff21b97695d136a47
 vendor/lib64/egl/libEGL_adreno.so|687b2e53dc5080c05d84da9ec707cf0c31de4d9b
 vendor/lib64/egl/libGLESv1_CM_adreno.so|95497830d4e08c02a3b6d82bc7623f926d2ef9ed
@@ -421,7 +421,7 @@ vendor/lib/librs_adreno_sha1.so|3a7034b54ee04ff3ae1feefdaf5d1ea53a479cd5
 vendor/lib/librs_adreno.so|41b2a1b35a8a9966728cea607bf5b7a8f568680d
 vendor/lib/libRSDriver_adreno.so|7e6b61cb975de2029ea6debe4fe442852da06e00
 
-# Graphics (HDR) - from 50.2.A.0.342
+# Graphics (HDR) - from 50.2.A.0.352
 vendor/lib/libhdr_tm.so|37ac96055e1fcb2d1a3b4507ba62760ca30915b3
 vendor/lib64/libhdr_tm.so|f4c0fe6a734077666ec5e10f68577f70a26cd2d2
 
@@ -439,16 +439,16 @@ vendor/lib64/libsdm-diag.so|25bab19a8c4453b3d20e3e1a71a0e8d3675b17b4
 vendor/lib64/libsdmextension.so|c4a416cb8c0f5dc87bee8494d70247cf049224b9
 vendor/lib64/libtinyxml2_1.so|9d5179eda8ce70b9a4014b144f9d23d33509fddc
 
-# Graphics (Vulkan) - from 50.2.A.0.342
+# Graphics (Vulkan) - from 50.2.A.0.352
 vendor/lib/hw/vulkan.sdm660.so|b50effe52bc030cdf5b337d18c4d9a07daf94a45
 vendor/lib64/hw/vulkan.sdm660.so|213678394fd6a3ab464841b54064372d3606df8c
 
-# Graphics firmware - from 50.2.A.0.342
+# Graphics firmware - from 50.2.A.0.352
 vendor/firmware/a508_zap.b00|21d74ee137e4096c2ffcd6f2545b5b2f8f384efa
-vendor/firmware/a508_zap.b01|c973513df89b8797eba53b3c48737b504763965d
+vendor/firmware/a508_zap.b01|f3c3fd3b27f7d6e93385d8b77ef61e7890599573
 vendor/firmware/a508_zap.b02|5a3d7a90e8b416d066b73d4fccbf0ec2656dbd1e
 vendor/firmware/a508_zap.elf|aa6bf9e92960760a88456aeded76ba95da1b72c9
-vendor/firmware/a508_zap.mdt|04e5b850955b44b7cef3809209bf936215d2cdeb
+vendor/firmware/a508_zap.mdt|a30fd81276828ede310c57c0645f85ff376ce5ee
 vendor/firmware/a530_gpmu.fw2|706da8d5ee565dcf456341f805ee75a40773f65a
 vendor/firmware/a530_pfp.fw|d027c70fde64241ec13160d09ee1b6c272974a4b
 vendor/firmware/a530_pm4.fw|b1cf625b5552b99839687f479c124ac5daca2ca2
@@ -608,7 +608,7 @@ vendor/lib64/libprotobuf-c.so
 vendor/lib64/vendor.semc.system.idd.fallback@1.0_vendor.so
 vendor/lib64/vendor.semc.system.idd@1.0_vendor.so
 
-# Perf - from 50.2.A.0.342
+# Perf - from 50.2.A.0.352
 vendor/bin/energy-awareness|c1ad0ec1e4171b59f166e580ef8ce7395ccb41a5
 vendor/bin/msm_irqbalance|117d7c8a8f6f12b3615ec8ab676231df93d277f1
 vendor/bin/hw/vendor.qti.hardware.perf@1.0-service|96ae50117af2210f8db54b9c8090f573d2ee4733
@@ -914,7 +914,7 @@ vendor/lib64/libthermalioctl.so
 vendor/bin/time_daemon
 vendor/lib64/libtime_genoff.so
 
-# Widevine DRM - from 50.2.A.0.342
+# Widevine DRM - from 50.2.A.0.352
 vendor/bin/wvkbd|63b4ba40fc7e85cf6aed9627f9390ca0c3ce75d1
 vendor/bin/hw/android.hardware.drm@1.1-service.widevine|62000c39e78a2118a0c9be04f430099c2f1022c9
 vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc|366f63ab5c5e296f81ad357c77f5973563115801
