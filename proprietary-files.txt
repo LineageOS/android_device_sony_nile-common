@@ -861,6 +861,8 @@ vendor/etc/sensors/sensor_def_by2xapdef.conf
 vendor/etc/sensors/sensor_def_by2xapdev.conf
 vendor/etc/sensors/sensor_def_by2xspdef.conf
 vendor/etc/sensors/sensor_def_by2xspdev.conf
+vendor/etc/sensors/sensor_def_by4xspdef.conf
+vendor/etc/sensors/sensor_def_by4xspdev.conf
 vendor/lib/libqmi_common_so.so
 vendor/lib/libsdsprpc.so
 vendor/lib/libsensor1.so
