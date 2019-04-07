@@ -323,6 +323,7 @@ vendor/lib64/vendor.qti.latency@2.0.so|bf9738655d6d3a59e93da9c2b56ae0b3a2428c71
 # Display calibration data
 vendor/etc/qdcm_calib_data_td4322_innolux_fhd_command_mode_dsi_panel.xml
 vendor/etc/qdcm_calib_data_td4322_truly_fhd_command_mode_dsi_panel.xml
+vendor/etc/qdcm_calib_data_td4328_tianma_fhdplus_command_mode_dsi_panel.xml
 
 # DPM - from 50.2.A.0.352
 vendor/bin/dpmQmiMgr|eabe3e56c87e1de3f4462e85a7ee73fc3e91f726
