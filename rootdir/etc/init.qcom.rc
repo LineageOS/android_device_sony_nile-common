@@ -441,7 +441,7 @@ on charger
 
     setprop sys.usb.configfs 1
 
-    start power_off_alarm
+    start vendor.power_off_alarm
 
 # Services begin here
 
@@ -628,7 +628,7 @@ service vendor.port-bridge /vendor/bin/port-bridge
     disabled
     oneshot
 
-service power_off_alarm /vendor/bin/power_off_alarm
+service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
     group system
     disabled
