@@ -3,3 +3,6 @@ allow vendor_init tad_block_device:blk_file setattr;
 
 # Allow vendor_init to create /mnt/qns
 allow vendor_init tmpfs:dir { write add_name relabelfrom };
+
+# Allow vendor_init to relabel unlabeled files and directories
+allow vendor_init unlabeled:{ dir file } { getattr relabelfrom };
