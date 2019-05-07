@@ -65,6 +65,14 @@ TARGET_VENDOR_PROP += $(VENDOR_PATH)/vendor.prop
 # Treble
 BOARD_VNDK_VERSION := current
 
+# A/B
+AB_OTA_UPDATER := true
+
+AB_OTA_PARTITIONS += \
+    boot \
+    system \
+    vendor
+
 # Audio
 AUDIO_FEATURE_ENABLED_3D_AUDIO := false
 AUDIO_FEATURE_ENABLED_A2DP_OFFLOAD := true
