@@ -201,7 +201,7 @@ VENDOR_SECURITY_PATCH := 2020-03-01
 # SELinux
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 
-BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy/vendor
+BOARD_VENDOR_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy/vendor
 
 # Vendor Unification Init
 TARGET_INIT_VENDOR_LIB := //$(VENDOR_PATH):libinit.sony_nile
