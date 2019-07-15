@@ -72,6 +72,9 @@ vendor.voice.path.for.pcm.voip=true
 ro.vendor.bt.bdaddr_path=/data/vendor/bluetooth/bluetooth_bdaddr
 vendor.qcom.bluetooth.soc=cherokee
 
+# Charger
+ro.charger.enable_suspend=true
+
 # CNE
 persist.vendor.cne.feature=1
 
