@@ -6,6 +6,9 @@ bt.max.hfpclient.connections=1
 qcom.bluetooth.soc=cherokee
 vendor.bluetooth.soc=cherokee
 
+# Charger
+ro.charger.enable_suspend=true
+
 # Display
 ro.qualcomm.cabl=0
 
