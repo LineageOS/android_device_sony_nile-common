@@ -786,18 +786,6 @@ service vendor.sensors /vendor/bin/sensors.qcom
     group root
     disabled
 
-service start_hci_filter /vendor/bin/wcnss_filter
-    class late_start
-    user bluetooth
-    group bluetooth diag system wakelock
-    disabled
-
-on property:wc_transport.start_hci=true
-    start start_hci_filter
-
-on property:wc_transport.start_hci=false
-    stop start_hci_filter
-
 service thermal-engine /vendor/bin/thermal-engine
     class main
     user root

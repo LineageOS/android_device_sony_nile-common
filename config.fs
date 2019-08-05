@@ -97,12 +97,6 @@ user: AID_GPS
 group: AID_GPS
 caps: NET_BIND_SERVICE
 
-[vendor/bin/wcnss_filter]
-mode: 0755
-user: AID_BLUETOOTH
-group: AID_BLUETOOTH
-caps: BLOCK_SUSPEND
-
 [vendor/bin/xtwifi-client]
 mode: 0755
 user: AID_GPS
