@@ -388,6 +388,35 @@ on boot
     mkdir /persist/secnvm 0770 system system
     mkdir /persist/time 0770 system system
     mkdir /persist/vpp 0770 media media
+
+    # Additional perms for P -> O compatibility
+    mkdir /persist/hlos_rfs 0770 vendor_rfs vendor_rfs_shared
+    mkdir /persist/hlos_rfs/shared 0770 vendor_rfs vendor_rfs_shared
+    mkdir /persist/rfs 0700 vendor_rfs vendor_rfs
+    mkdir /persist/rfs/shared 0700 vendor_rfs vendor_rfs
+    mkdir /persist/rfs/msm 0700 vendor_rfs vendor_rfs
+    mkdir /persist/rfs/msm/mpss 0700 vendor_rfs vendor_rfs
+    mkdir /persist/rfs/msm/adsp 0700 vendor_rfs vendor_rfs
+    mkdir /persist/rfs/msm/slpi 0700 vendor_rfs vendor_rfs
+    mkdir /persist/rfs/mdm 0700 vendor_rfs vendor_rfs
+    mkdir /persist/rfs/mdm/mpss 0700 vendor_rfs vendor_rfs
+    mkdir /persist/rfs/mdm/adsp 0700 vendor_rfs vendor_rfs
+    mkdir /persist/rfs/mdm/slpi 0700 vendor_rfs vendor_rfs
+    mkdir /persist/rfs/mdm/tn 0700 vendor_rfs vendor_rfs
+    mkdir /persist/rfs/apq 0700 vendor_rfs vendor_rfs
+    mkdir /persist/rfs/apq/gnss 0700 vendor_rfs vendor_rfs
+    mkdir /persist/hlos_rfs 0770 vendor_rfs vendor_rfs_shared
+    mkdir /persist/hlos_rfs/shared 0770 vendor_rfs vendor_rfs_shared
+    mkdir /persist/sensors 0755 root root
+    mkdir /persist/sensors/registry 0700 root root
+    mkdir /persist/sensors/registry/registry 0700 root root
+    chmod 0660 /persist/rfs/shared/server_info.txt
+    chmod 0600 /persist/rfs/msm/mpss/server_check.txt
+    chmod 0644 /persist/sensors/sensors_settings
+    chown root root /persist/sensors/sensors_settings
+    chmod 0700 /persist/sensors/sns.reg
+    chown root root /persist/sensors/sns.reg
+
     restorecon_recursive /persist
 
     # Create NETMGR daemon socket area
