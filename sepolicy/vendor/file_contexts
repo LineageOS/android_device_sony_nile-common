@@ -8,6 +8,10 @@
 /dev/socket/secd_devsec_sock                              u:object_r:secd_devsec_socket:s0
 /dev/socket/tad                                           u:object_r:tad_socket:s0
 
+# Root files
+/bt_firmware(/.*)?    u:object_r:firmware_file:s0
+/firmware(/.*)?       u:object_r:firmware_file:s0
+
 # Sys files
 /sys/class/qns(/.*)?                                                                    u:object_r:qns_sysfs:s0
 /sys/devices/soc/soc:egistec(/.*)?                                                      u:object_r:sysfs_fpc:s0
