@@ -224,10 +224,6 @@ PRODUCT_PACKAGES += \
     android.hidl.base@1.0_system \
     android.hidl.manager@1.0
 
-# IMS
-PRODUCT_PACKAGES += \
-    ims-ext-common
-
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl
@@ -347,13 +343,16 @@ PRODUCT_PACKAGES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)/bootctrl
+    $(LOCAL_PATH)/bootctrl \
+    $(LOCAL_PATH)/ims
 
 # Telephony
 PRODUCT_PACKAGES += \
+    ims-ext-common_system \
     telephony-ext
 
 PRODUCT_BOOT_JARS += \
+    ims-ext-common_system \
     telephony-ext
 
 # TextClassifier
