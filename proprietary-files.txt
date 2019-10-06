@@ -702,7 +702,7 @@ etc/permissions/telephonyservice.xml
 framework/QtiTelephonyServicelibrary.jar
 framework/qcrilhook.jar
 framework/qti-telephony-common.jar|b1953a3599255f08f1785c677d22810f65e0167b
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|cb9d80f42cde08e6620523f8bac0f298ecc79b56
 vendor/bin/hw/qcrild
 vendor/bin/ATFWD-daemon
 vendor/bin/ipacm-diag
