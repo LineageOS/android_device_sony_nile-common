@@ -5,6 +5,7 @@ com.fingerprints.extension::IFingerprintNavigation                              
 com.fingerprints.extension::IFingerprintSensorTest                                          u:object_r:fpc_extension_service:s0
 vendor.egis.fingerprints.inline_hal.hardware.fingerprint::IBiometricsFingerprintCallback    u:object_r:egistec_inline_service:s0
 vendor.egis.fingerprints.inline_hal.hardware.fingerprint::IBiometricsFingerprintEts         u:object_r:egistec_inline_service:s0
+vendor.nxp.nxpese::INxpEse                                                                  u:object_r:hal_secure_element_hwservice:s0
 vendor.nxp.nxpnfc::INxpNfc                                                                  u:object_r:hal_nxpnfc_hwservice:s0
 vendor.semc.system.idd::IIdd                                                                u:object_r:hal_idd_hwservice:s0
 vendor.somc.hardware.miscta::IMisctaGlobal                                                  u:object_r:hal_miscta_hwservice:s0

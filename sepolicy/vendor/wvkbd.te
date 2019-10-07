@@ -6,6 +6,12 @@ init_daemon_domain(wvkbd)
 # Allow wvkbd to use hw-binder service
 hwbinder_use(wvkbd)
 
+# Allow binder communication with hal_secd_default
+binder_call(wvkbd, hal_secd_default)
+
+# Allow wvkbd to find hal_secd_hwservice
+allow wvkbd hal_secd_hwservice:hwservice_manager find;
+
 # Allow wvkbd to read ion_device
 allow wvkbd ion_device:chr_file r_file_perms;
 
