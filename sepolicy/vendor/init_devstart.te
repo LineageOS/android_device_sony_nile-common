@@ -10,7 +10,6 @@ allow init-qcom-devstart-sh vendor_toolbox_exec:file rx_file_perms;
 set_prop(init-qcom-devstart-sh, system_prop)
 
 # Set boot_adsp to 1
-allow init-qcom-devstart-sh sysfs_adsp:dir search;
 allow init-qcom-devstart-sh sysfs_boot_adsp:file w_file_perms;
 
 # Set boot_slpi to 1
