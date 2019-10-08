@@ -72,7 +72,7 @@ void property_override(char const prop[], char const value[])
 
 void vendor_load_properties()
 {
-    if (access("/sbin/recovery", F_OK) == 0) {
+    if (access("/system/bin/recovery", F_OK) == 0) {
         return;
     }
 
