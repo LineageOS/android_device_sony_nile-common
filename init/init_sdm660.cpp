@@ -58,13 +58,24 @@ std::map<std::string, std::string> devices_map = {
     {"BY25", "H3223"},
 };
 
-void property_override(char const prop[], char const value[])
+// copied from build/tools/releasetools/ota_from_target_files.py
+// but with "." at the end and empty entry
+std::vector<std::string> ro_product_props_default_source_order = {
+    ".",
+    "product.",
+    "product_services.",
+    "odm.",
+    "vendor.",
+    "system.",
+};
+
+void property_override(char const prop[], char const value[], bool add = true)
 {
     auto pi = (prop_info *) __system_property_find(prop);
 
     if (pi != nullptr) {
         __system_property_update(pi, value, strlen(value));
-    } else {
+    } else if (add) {
         __system_property_add(prop, strlen(prop), value, strlen(value));
     }
 }
@@ -81,12 +92,17 @@ void vendor_load_properties()
         auto device = devices_map.find(Trim(cei_project_id));
 
         if (device != devices_map.end()) {
-            property_override("ro.product.device", device->second.c_str());
-            property_override("ro.product.model", device->second.c_str());
-            property_override("ro.product.name", device->second.c_str());
-            property_override("ro.vendor.product.device", device->second.c_str());
-            property_override("ro.vendor.product.model", device->second.c_str());
-            property_override("ro.vendor.product.name", device->second.c_str());
+            const auto set_ro_product_prop = [](const std::string &source,
+                    const std::string &prop, const std::string &value) {
+                auto prop_name = "ro.product." + source + prop;
+                property_override(prop_name.c_str(), value.c_str(), false);
+            };
+
+            for (const auto &source : ro_product_props_default_source_order) {
+                set_ro_product_prop(source, "device", device->second);
+                set_ro_product_prop(source, "model", device->second);
+                set_ro_product_prop(source, "value", device->second);
+            }
         }
     }
 }
