@@ -499,6 +499,12 @@ on property:persist.vendor.radio.atfwd.start=false
 on property:vendor.radio.atfwd.start=false
     stop vendor.atfwd
 
+service cei_sh /vendor/bin/init.qcom.cei.sh
+    class core
+    user root
+    group root
+    oneshot
+
 service charger /charger
     class charger
     group system graphics

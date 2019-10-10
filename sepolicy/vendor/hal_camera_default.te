@@ -1,0 +1,2 @@
+# Allow hal_camera_default to get cei_prop
+set_prop(hal_camera_default, cei_prop)

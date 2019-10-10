@@ -55,4 +55,5 @@
 /(vendor|system/vendor)/bin/hw/vendor\.somc\.hardware\.wifi@2.0-service                         u:object_r:hal_wifi_hostapd_default_exec:s0
 
 # Shell scripts
+/(vendor|system/vendor)/bin/init\.qcom\.cei\.sh         u:object_r:init-qcom-cei-sh_exec:s0
 /(vendor|system/vendor)/bin/init\.qcom\.devstart\.sh    u:object_r:init-qcom-devstart-sh_exec:s0
