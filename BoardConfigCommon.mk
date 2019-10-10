@@ -197,13 +197,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
-# Root
-BOARD_ROOT_EXTRA_SYMLINKS := \
-    /mnt/vendor/persist:/persist \
-    /vendor/bt_firmware:/bt_firmware \
-    /vendor/dsp:/dsp \
-    /vendor/firmware_mnt:/firmware
-
 # Security patch level
 VENDOR_SECURITY_PATCH := 2019-08-01
 
