@@ -198,14 +198,6 @@ on post-fs-data
     # Create directory for radio
     mkdir /data/vendor/radio 0770 system radio
 
-    # Create directory for cta
-    mkdir /data/system/cta 0700 root root
-
-    # Create directories for preloads
-    mkdir /data/preloads 0775 system system
-    mkdir /data/preloads/file_cache 0775 system system
-    mkdir /data/preloads/file_cache/deletable-app 0775 system system
-
     # Create directories for Location services
     mkdir /data/vendor/location 0770 gps gps
     mkdir /data/vendor/location/mq 0770 gps gps
