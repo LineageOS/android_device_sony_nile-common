@@ -165,7 +165,6 @@ PRODUCT_PACKAGES += \
 # Common init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.charge.mode.sh \
     init.qcom.cei.sh \
     init.qcom.devstart.sh \
     init.qcom.post_boot.sh \

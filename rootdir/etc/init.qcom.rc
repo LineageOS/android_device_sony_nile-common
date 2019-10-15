@@ -478,7 +478,6 @@ on charger
     setprop persist.sys.usb.config mass_storage
     load_system_props
 
-    start charge-mode-sh
     start qcom-post-boot
     start hvdcp_opti
 
@@ -538,10 +537,6 @@ service charger /charger
     class charger
     group system graphics
     seclabel u:r:healthd:s0
-
-service charge-mode-sh /vendor/bin/init.charge.mode.sh
-    user root
-    oneshot
 
 service cnd /vendor/bin/cnd
     class main
