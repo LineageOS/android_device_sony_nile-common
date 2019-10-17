@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7be4353f_cd1b0e47",
+        "filename": "nile.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2019-10-17T16:53:05Z",
+      "side": 1,
+      "message": "missing \\ ^.^",
+      "range": {
+        "startLine": 425,
+        "startChar": 59,
+        "endLine": 425,
+        "endChar": 63
+      },
+      "revId": "ecaf7bf2baa3835f4b412905227fb8d0506e979a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
