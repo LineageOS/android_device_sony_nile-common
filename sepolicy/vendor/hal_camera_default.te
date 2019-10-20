@@ -1,2 +1,5 @@
+# Allow hal_camera_default to read sysfs
+allow hal_camera_default sysfs:file r_file_perms;
+
 # Allow hal_camera_default to get cei_prop
 set_prop(hal_camera_default, cei_prop)
