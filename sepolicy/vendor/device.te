@@ -1,4 +1,4 @@
 type appslog_block_device, dev_type;
 type diag_block_device, dev_type;
 type egistec_device, dev_type;
-type ta_block_device, dev_type;
+type tad_block_device, dev_type;
