@@ -778,7 +778,7 @@ vendor/lib64/vendor.somc.hardware.radio@1.0.so
 vendor/radio/qcril_database/qcril.db
 
 # RIL (IMS)
--app/uceShimService/uceShimService.apk
+-app/uceShimService/uceShimService.apk|8f1dfe0c0867f2879110f4063c130dffa74a84dd
 lib/com.qualcomm.qti.imscmservice@1.0.so
 lib/com.qualcomm.qti.imscmservice@2.0.so
 lib/com.qualcomm.qti.imscmservice@2.1.so
