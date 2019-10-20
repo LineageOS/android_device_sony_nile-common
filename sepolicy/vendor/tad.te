@@ -6,3 +6,6 @@ init_daemon_domain(tad)
 # Allow tad to read and write to tad_block_device
 allow tad block_device:dir search;
 allow tad tad_block_device:blk_file rw_file_perms;
+
+# Allow tad to send ioctl 0x1260 to tad_block_device
+allowxperm tad tad_block_device:blk_file ioctl 0x1260;
