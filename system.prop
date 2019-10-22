@@ -18,6 +18,7 @@ ro.nfc.port=I2C
 
 # Radio
 DEVICE_PROVISIONED=1
+persist.sys.fflag.override.settings_network_and_internet_v2=true
 ril.subscription.types=NV,RUIM
 
 # TimeService
