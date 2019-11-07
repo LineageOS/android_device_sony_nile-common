@@ -28,35 +28,16 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <map>
-#include <string>
 #include <fstream>
+#include <string>
+#include <unistd.h>
+
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
-#include <android-base/file.h>
-#include <android-base/logging.h>
-#include <android-base/properties.h>
-#include <android-base/strings.h>
-
 #include "vendor_init.h"
-#include "property_service.h"
 
-using android::base::GetProperty;
-using android::base::ReadFileToString;
-using android::base::Trim;
-
-std::map<std::string, std::string> devices_map = {
-    {"BY12", "H3113"},
-    {"BY13", "H4113"},
-    {"BY14", "H3133"},
-    {"BY15", "H4133"},
-    {"BY16", "H3123"},
-    {"BY22", "H3213"},
-    {"BY23", "H4213"},
-    {"BY24", "H4233"},
-    {"BY25", "H3223"},
-};
+constexpr auto LTALABEL_PATH = "/dev/block/bootdevice/by-name/LTALabel";
 
 void property_override(char const prop[], char const value[])
 {
@@ -75,18 +56,19 @@ void vendor_load_properties()
         return;
     }
 
-    std::string cei_project_id{};
+    if (std::ifstream file = std::ifstream(LTALABEL_PATH, std::ios::binary)) {
+        std::string str((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+        size_t offset = str.find("Model: ");
 
-    if (ReadFileToString("/proc/cei_project_id", &cei_project_id)) {
-        auto device = devices_map.find(Trim(cei_project_id));
+        if (offset != std::string::npos) {
+            std::string model = str.substr(offset + strlen("Model: "), 5);
 
-        if (device != devices_map.end()) {
-            property_override("ro.product.device", device->second.c_str());
-            property_override("ro.product.model", device->second.c_str());
-            property_override("ro.product.name", device->second.c_str());
-            property_override("ro.vendor.product.device", device->second.c_str());
-            property_override("ro.vendor.product.model", device->second.c_str());
-            property_override("ro.vendor.product.name", device->second.c_str());
+            property_override("ro.product.device", model.c_str());
+            property_override("ro.product.model", model.c_str());
+            property_override("ro.product.name", model.c_str());
+            property_override("ro.vendor.product.device", model.c_str());
+            property_override("ro.vendor.product.model", model.c_str());
+            property_override("ro.vendor.product.name", model.c_str());
         }
     }
 }
