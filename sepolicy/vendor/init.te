@@ -3,6 +3,3 @@ allow init adsprpcd_file:filesystem { mount relabelfrom relabelto };
 
 # Allow init to mount on idd_rca_dir, idd_root_dir, qns_file
 allow init { idd_rca_dir idd_root_dir qns_file }:dir mounton;
-
-# Allow init to read proc_cei
-allow init proc_cei:file r_file_perms;
