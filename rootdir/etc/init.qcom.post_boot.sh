@@ -2943,14 +2943,24 @@ case "$target" in
             hw_platform=`cat /sys/devices/system/soc/soc0/hw_platform`
         fi
 
+        if [ -f /sys/devices/soc0/platform_subtype_id ]; then
+            platform_subtype_id=`cat /sys/devices/soc0/platform_subtype_id`
+        fi
+
         case "$soc_id" in
             "336" | "337" | "347" | "360" | "393" | "370" | "371" )
 
             # Start Host based Touch processing
             case "$hw_platform" in
-              "MTP" | "Surf" | "RCM" | "QRD" | "HDK" )
+              "Surf" | "RCM" | "QRD" | "HDK" )
+                start_hbtp
+                ;;
+              "MTP" )
+                #platform_subtype_id 10 is VR project Sheldon, do not start up touch deamon
+                if [ $platform_subtype_id != 10 ]; then
                   start_hbtp
-                  ;;
+                fi
+                ;;
             esac
 
       # Core control parameters on silver
