@@ -39,7 +39,7 @@
 
 #include "vendor_init.h"
 
-constexpr auto LTALABEL_PATH = "/dev/block/bootdevice/by-name/LTALabel";
+constexpr auto LTALABEL_PATH = "/lta-label/pages/menu.htm";
 
 // copied from build/tools/releasetools/ota_from_target_files.py
 // but with "." at the end and empty entry

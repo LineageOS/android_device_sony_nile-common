@@ -20,6 +20,7 @@
 /data/vendor/location/xtra/socket_xtra        u:object_r:location_socket:s0
 /data/vendor/misc/audio(/.*)?                 u:object_r:vendor_audio_data_file:s0
 /data/vendor/misc/egistec(/.*)?               u:object_r:egistec_data_file:s0
+/lta-label                                    u:object_r:rootfs:s0
 /mnt/idd                                      u:object_r:idd_root_dir:s0
 /mnt/idd(/.*)?                                u:object_r:idd_data_file:s0
 /mnt/idd/crashdata(/.*)?                      u:object_r:idd_crashdata_file:s0
