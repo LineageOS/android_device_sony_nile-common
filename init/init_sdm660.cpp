@@ -37,7 +37,7 @@
 
 #include "vendor_init.h"
 
-constexpr auto LTALABEL_PATH = "/dev/block/bootdevice/by-name/LTALabel";
+constexpr auto LTALABEL_PATH = "/lta-label/pages/menu.htm";
 
 void property_override(char const prop[], char const value[])
 {

@@ -12,6 +12,7 @@ type idd_rca_file, file_type;
 type idd_root_dir, file_type;
 type idd_socket_file, file_type;
 type keylayout_file, file_type, vendor_file_type;
+type lta_label, fs_type;
 type proc_cei, proc_type, fs_type;
 type qns_file, file_type;
 type qns_socket, file_type;
