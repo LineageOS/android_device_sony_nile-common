@@ -128,13 +128,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     DEVICE_PROVISIONED=1 \
-    vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
-    ril.subscription.types=NV,RUIM \
-    ro.telephony.default_network=9,1 \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.rat_on=combine \
-    persist.vendor.radio.sib16_support=1
+    persist.vendor.radio.sib16_support=1 \
+    ril.subscription.types=NV,RUIM \
+    ro.telephony.default_network=9,1 \
+    vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
