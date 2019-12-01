@@ -704,10 +704,13 @@ on property:init.svc.zygote=running
 on property:init.svc.zygote=restarting
     stop ppd
 
-on property:persist.radio.multisim.config=ss
+on property:ro.vendor.radio.multisim.config=*
+    setprop persist.radio.multisim.config ${ro.vendor.radio.multisim.config}
+
+on property:ro.vendor.radio.multisim.config=ss
     enable vendor.qcrild
 
-on property:persist.radio.multisim.config=dsds
+on property:ro.vendor.radio.multisim.config=dsds
     enable vendor.qcrild
     enable vendor.qcrild2
 
