@@ -183,6 +183,9 @@ vendor.usb.rndis.func.name=rndis_bam
 vendor.usb.use_ffs_mtp=1
 vendor.usb.use_gadget_hal=1
 
+# Verity
+ro.apk_verity.mode=2
+
 # Wifi
 ro.vendor.wifi.addr_path=/data/vendor/wifi/wlan_mac.bin
 wifi.interface=wlan0
