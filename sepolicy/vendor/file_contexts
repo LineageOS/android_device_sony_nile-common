@@ -1,12 +1,13 @@
 # Devices
-/dev/block/platform/soc/c0c4000\.sdhci/by-name/appslog    u:object_r:appslog_block_device:s0
-/dev/block/platform/soc/c0c4000\.sdhci/by-name/diag       u:object_r:diag_block_device:s0
-/dev/block/platform/soc/c0c4000\.sdhci/by-name/TA         u:object_r:tad_block_device:s0
-/dev/esfp0                                                u:object_r:egistec_device:s0
-/dev/socket/qnsbsd                                        u:object_r:qns_socket:s0
-/dev/socket/secd_credmgr_sock                             u:object_r:secd_credmgr_socket:s0
-/dev/socket/secd_devsec_sock                              u:object_r:secd_devsec_socket:s0
-/dev/socket/tad                                           u:object_r:tad_socket:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/appslog     u:object_r:appslog_block_device:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/diag        u:object_r:diag_block_device:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/LTALabel    u:object_r:ltalabel_block_device:s0
+/dev/block/platform/soc/c0c4000\.sdhci/by-name/TA          u:object_r:tad_block_device:s0
+/dev/esfp0                                                 u:object_r:egistec_device:s0
+/dev/socket/qnsbsd                                         u:object_r:qns_socket:s0
+/dev/socket/secd_credmgr_sock                              u:object_r:secd_credmgr_socket:s0
+/dev/socket/secd_devsec_sock                               u:object_r:secd_devsec_socket:s0
+/dev/socket/tad                                            u:object_r:tad_socket:s0
 
 # Sys files
 /sys/class/qns(/.*)?                                                                    u:object_r:qns_sysfs:s0
@@ -58,3 +59,4 @@
 # Shell scripts
 /(vendor|system/vendor)/bin/init\.qcom\.cei\.sh         u:object_r:init-qcom-cei-sh_exec:s0
 /(vendor|system/vendor)/bin/init\.qcom\.devstart\.sh    u:object_r:init-qcom-devstart-sh_exec:s0
+/(vendor|system/vendor)/bin/init\.qcom\.msim\.sh        u:object_r:init-qcom-msim-sh_exec:s0

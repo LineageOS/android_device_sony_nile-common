@@ -168,6 +168,7 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.cei.sh \
     init.qcom.devstart.sh \
+    init.qcom.msim.sh \
     init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.sensors.sh \
