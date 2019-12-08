@@ -57,6 +57,7 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno508
 
 # Properties
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+TARGET_SYSTEM_PROP += $(VENDOR_PATH)/system.prop
 
 # Treble
 BOARD_VNDK_VERSION := current
