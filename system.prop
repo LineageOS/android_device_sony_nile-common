@@ -1,0 +1,28 @@
+# Audio
+audio.offload.min.duration.secs=30
+
+# Bluetooth
+bt.max.hfpclient.connections=1
+qcom.bluetooth.soc=cherokee
+vendor.bluetooth.soc=cherokee
+
+# Display
+ro.qualcomm.cabl=0
+
+# Graphics
+persist.demo.hdmirotationlock=false
+persist.hwc.enable_vds=1
+
+# NFC
+ro.nfc.port=I2C
+
+# Radio
+DEVICE_PROVISIONED=1
+ril.subscription.types=NV,RUIM
+
+# TimeService
+persist.timed.enable=true
+
+# Wireless display
+persist.debug.wfd.enable=1
+persist.sys.wfd.virtual=0
