@@ -14,6 +14,3 @@ allow init-qcom-cei-sh proc_cei:file r_file_perms;
 
 # Allow init-qcom-cei-sh to set cei_prop
 set_prop(init-qcom-cei-sh, cei_prop)
-
-# Allow init-qcom-cei-sh to set vendor_radio_prop
-set_prop(init-qcom-cei-sh, vendor_radio_prop)

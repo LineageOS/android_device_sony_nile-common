@@ -636,6 +636,12 @@ service mlog_qmi_service /vendor/bin/mlog_qmi_service
     user root
     disabled
 
+service msim_sh /vendor/bin/init.qcom.msim.sh
+    class core
+    user root
+    group root
+    oneshot
+
 service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqbalance.conf
     class core
     user root
