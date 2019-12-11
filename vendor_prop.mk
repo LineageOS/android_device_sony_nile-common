@@ -179,5 +179,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.wifi.addr_path=/data/vendor/wifi/wlan_mac.bin \
+    ro.vendor.wifi.addr_path=/data/vendor/wifi/wlan_mac.bin \
     wifi.interface=wlan0

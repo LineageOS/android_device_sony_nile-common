@@ -7,7 +7,6 @@ ro.vendor.cei_mainboard_id       u:object_r:cei_prop:s0
 ro.vendor.cei_phase_id           u:object_r:cei_prop:s0
 ro.vendor.cei_project_id         u:object_r:cei_prop:s0
 ro.vendor.cei_sku_id             u:object_r:cei_prop:s0
-ro.wifi.addr_path                u:object_r:exported3_default_prop:s0
 semc.version.                    u:object_r:semc_version_prop:s0
 vendor.hw.fingerprint            u:object_r:cei_prop:s0
 vendor.qcom.devup                u:object_r:vendor_device_prop:s0
