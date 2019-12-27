@@ -1,7 +1,6 @@
 #! /vendor/bin/sh
 
 # Copyright (c) 2009-2016, The Linux Foundation. All rights reserved.
-# Copyright (C) 2016 Sony Mobile Communications Inc.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -26,9 +25,6 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
-# NOTE: This file has been modified by Sony Mobile Communications Inc.
-# Modifications are licensed under the License.
 #
 
 target=`getprop ro.board.platform`
@@ -96,18 +92,11 @@ start_msm_irqbalance_8939()
 	fi
 }
 
-start_msm_irqbalance_8952()
+start_msm_irqbalance_msmnile()
 {
-        if [ -f /system/vendor/bin/msm_irqbalance ]; then
-                case "$platformid" in
-                     "241" | "263" | "264" | "268" | "269" | "270" | "271")
-                        start vendor.msm_irqbalance;;
-                esac
-                case "$platformid" in
-                     "266" | "274" | "277" | "278")
-                        start vendor.msm_irqbal_lb;;
-                esac
-	fi
+         if [ -f /vendor/bin/msm_irqbalance ]; then
+                start vendor.msm_irqbalance
+         fi
 }
 
 start_msm_irqbalance660()
@@ -116,16 +105,9 @@ start_msm_irqbalance660()
 		case "$platformid" in
 		    "317" | "324" | "325" | "326" | "345" | "346")
 			start vendor.msm_irqbalance;;
-		    "318" | "327")
+		    "318" | "327" | "385")
 			start vendor.msm_irqbl_sdm630;;
 		esac
-	fi
-}
-
-start_msm_irqbalance_msmnile()
-{
-	if [ -f /vendor/bin/msm_irqbalance ]; then
-		start vendor.msm_irqbalance
 	fi
 }
 
@@ -312,60 +294,6 @@ case "$target" in
     "msm8909")
         start_vm_bms
         ;;
-    "msm8952")
-        start_msm_irqbalance_8952
-	 if [ -f /sys/devices/soc0/soc_id ]; then
-             soc_id=`cat /sys/devices/soc0/soc_id`
-         else
-             soc_id=`cat /sys/devices/system/soc/soc0/id`
-         fi
-
-	 if [ -f /sys/devices/soc0/platform_subtype_id ]; then
-	      platform_subtype_id=`cat /sys/devices/soc0/platform_subtype_id`
-	 fi
-	 if [ -f /sys/devices/soc0/hw_platform ]; then
-	       hw_platform=`cat /sys/devices/soc0/hw_platform`
-	 fi
-	 case "$soc_id" in
-	      "264")
-	           case "$hw_platform" in
-			    "Surf")
-			         case "$platform_subtype_id" in
-			              "1" | "2")
-			                  setprop qemu.hw.mainkeys 0
-			                  ;;
-				  esac
-			          ;;
-			    "MTP")
-			         case "$platform_subtype_id" in
-			              "3")
-			                  setprop qemu.hw.mainkeys 0
-			                  ;;
-				  esac
-			          ;;
-			    "QRD")
-			         case "$platform_subtype_id" in
-			              "0")
-			                  setprop qemu.hw.mainkeys 0
-			                  ;;
-				  esac
-				  ;;
-		     esac
-		     ;;
-		 "266" | "274" | "277" | "278")
-	              case "$hw_platform" in
-			       "Surf" | "RCM")
-                                    if [ $panel_xres -eq 1440 ]; then
-				       setprop qemu.hw.mainkeys 0
-				    fi
-				    ;;
-				"MTP" | "QRD")
-				       setprop qemu.hw.mainkeys 0
-				       ;;
-		      esac
-		      ;;
-	esac
-	;;
     "msmnile")
         start_msm_irqbalance_msmnile
         ;;
@@ -498,7 +426,7 @@ buildvariant=`getprop ro.build.type`
 case "$buildvariant" in
     "userdebug" | "eng")
         #set default loglevel to KERN_INFO
-        echo "7 6 1 7" > /proc/sys/kernel/printk
+        echo "6 6 1 7" > /proc/sys/kernel/printk
         ;;
     *)
         #set default loglevel to KERN_WARNING
