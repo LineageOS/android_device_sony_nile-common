@@ -68,7 +68,7 @@ vendor/lib64/libbtnv.so
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/hw/com.qualcomm.qti.bluetooth_audio@1.0-impl.so
 
-# Bluetootk (ANT+)
+# Bluetooth (ANT+)
 lib/com.qualcomm.qti.ant@1.0.so
 lib64/com.qualcomm.qti.ant@1.0.so
 
