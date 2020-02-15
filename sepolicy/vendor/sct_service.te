@@ -1,0 +1,6 @@
+type sct_service, domain;
+type sct_service_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(sct_service)
+
+permissive sct_service;
