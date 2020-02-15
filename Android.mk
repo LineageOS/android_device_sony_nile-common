@@ -116,13 +116,4 @@ $(WCNSS_MAC_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_INI_SYMLINK) $(WCNSS_MAC_SYMLINK)
 
-KEYMASTER_IMPL_SYMLINK := $(TARGET_OUT_VENDOR)/lib64/android.hardware.keymaster@3.0-impl-qti.so
-$(KEYMASTER_IMPL_SYMLINK): $(LOCAL_INSTALLED_MODULE)
-	@echo "Creating keymaster impl symlink: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf hw/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(KEYMASTER_IMPL_SYMLINK)
-
 endif
