@@ -284,32 +284,9 @@ on post-fs-data
     # Create vpp directory
     mkdir /data/vendor/vpp 0770 media media
 
-    # Qnovo
-    mkdir /mnt/qns 0750 oem_2985 oem_2985
-    wait /dev/block/platform/soc/${ro.boot.bootdevice}/by-name/Qnovo
-    mount ext4 /dev/block/platform/soc/${ro.boot.bootdevice}/by-name/Qnovo /mnt/qns nosuid nodev noatime noexec barrier=1
-    chown oem_2985 oem_2985 /mnt/qns
-    chmod 0750 /mnt/qns
-    restorecon_recursive /mnt/qns
-
-    chown oem_2985 oem_2985 /sys/class/qns
-    chown oem_2985 oem_2985 /sys/class/qns/alarm
-    chown oem_2985 oem_2985 /sys/class/qns/charge_current
-    chown oem_2985 oem_2985 /sys/class/qns/charge_voltage
-    chown oem_2985 oem_2985 /sys/class/qns/charging_state
-    chown oem_2985 oem_2985 /sys/class/qns/current_now
-    chown oem_2985 oem_2985 /sys/class/qns/design
-    chown oem_2985 oem_2985 /sys/class/qns/fcc
-    chown oem_2985 oem_2985 /sys/class/qns/options
-    chown oem_2985 oem_2985 /sys/class/qns/soc
-    chown oem_2985 oem_2985 /sys/class/qns/temp
-    chown oem_2985 oem_2985 /sys/class/qns/voltage
-    chown oem_2985 oem_2985 /sys/class/qns/battery_type
-
     start vendor.dataqti
     start vendor.netmgrd
     start vendor.port-bridge
-    start qns
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -465,30 +442,6 @@ on charger
     setprop sys.usb.configfs 1
 
     start power_off_alarm
-
-    # Qnovo
-    mkdir /mnt/qns 0750 oem_2985 oem_2985
-    wait /dev/block/platform/soc/${ro.boot.bootdevice}/by-name/Qnovo
-    mount ext4 /dev/block/platform/soc/${ro.boot.bootdevice}/by-name/Qnovo /mnt/qns nosuid nodev noatime noexec barrier=1
-    chown oem_2985 oem_2985 /mnt/qns
-    chmod 0750 /mnt/qns
-    restorecon_recursive /mnt/qns
-
-    chown oem_2985 oem_2985 /sys/class/qns
-    chown oem_2985 oem_2985 /sys/class/qns/alarm
-    chown oem_2985 oem_2985 /sys/class/qns/charge_current
-    chown oem_2985 oem_2985 /sys/class/qns/charge_voltage
-    chown oem_2985 oem_2985 /sys/class/qns/charging_state
-    chown oem_2985 oem_2985 /sys/class/qns/current_now
-    chown oem_2985 oem_2985 /sys/class/qns/design
-    chown oem_2985 oem_2985 /sys/class/qns/fcc
-    chown oem_2985 oem_2985 /sys/class/qns/options
-    chown oem_2985 oem_2985 /sys/class/qns/soc
-    chown oem_2985 oem_2985 /sys/class/qns/temp
-    chown oem_2985 oem_2985 /sys/class/qns/voltage
-    chown oem_2985 oem_2985 /sys/class/qns/battery_type
-
-    start qns
 
 # Services begin here
 
@@ -731,12 +684,6 @@ service qcom-sh /vendor/bin/init.qcom.sh
 
 on property:ro.vendor.ril.mbn_copy_completed=1
     write /data/vendor/radio/copy_complete 1
-
-service qns /vendor/bin/qns -d /mnt/qns -l /mnt/qns
-    user oem_2985
-    group oem_2985
-    socket qnsbsd stream 660 oem_2985 system
-    disabled
 
 service vendor.qseecomd /vendor/bin/qseecomd
     class core
