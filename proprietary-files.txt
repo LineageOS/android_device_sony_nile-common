@@ -951,7 +951,6 @@ vendor/firmware/tzwvcpybuf.b07
 vendor/firmware/tzwvcpybuf.mdt
 
 # WiFi
-vendor/bin/cnss-daemon
 vendor/bin/hw/vendor.somc.hardware.wifi@2.0-service
 vendor/etc/init/vendor.somc.hardware.wifi@2.0-service.rc
 vendor/lib64/vendor.somc.hardware.wifi@2.0.so
