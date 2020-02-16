@@ -1,2 +1,2 @@
 # Allow hal_sensors_default to get cei_prop
-set_prop(hal_sensors_default, cei_prop)
+get_prop(hal_sensors_default, cei_prop)
