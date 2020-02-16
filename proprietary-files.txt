@@ -506,10 +506,6 @@ vendor/lib64/vendor.qti.gnss@2.1.so
 vendor/lib64/hw/keystore.sdm660.so
 vendor/lib/hw/keystore.sdm660.so
 
-# Keyprov
-vendor/bin/keyprovd
-vendor/etc/init/init.keyprovd.rc
-
 # Listen
 vendor/lib64/hw/sound_trigger.primary.sdm660.so
 vendor/lib/hw/sound_trigger.primary.sdm660.so
