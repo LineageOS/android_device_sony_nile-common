@@ -492,6 +492,11 @@ on charger
 
 # Services begin here
 
+service adsprpcd_root /vendor/bin/adsprpcd
+   class main
+   user media
+   group media
+
 service adsprpcd /vendor/bin/adsprpcd audiopd
     class main
     user media
