@@ -929,6 +929,7 @@ vendor/lib/libhdcprx_module.so
 vendor/lib/libhdcptx_module.so
 vendor/lib/libstagefright_hdcp.so
 vendor/lib/libwvhidl.so
+vendor/lib/libwvtee.so
 vendor/lib64/libhdcprx_module.so
 vendor/lib64/libhdcptx_module.so
 vendor/lib64/libstagefright_hdcp.so
