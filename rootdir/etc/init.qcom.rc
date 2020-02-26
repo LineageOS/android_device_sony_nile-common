@@ -74,6 +74,24 @@ on fs
 
     mount_all /vendor/etc/fstab.qcom --early
 
+    # Setup /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/alarm 0770 system system
+    mkdir /mnt/vendor/persist/audio 0770 audio audio
+    mkdir /mnt/vendor/persist/bluetooth 0770 bluetooth bluetooth
+    mkdir /mnt/vendor/persist/display 0770 system graphics
+    mkdir /mnt/vendor/persist/drm 0770 system system
+    mkdir /mnt/vendor/persist/hlos_rfs 0770 vendor_rfs vendor_rfs_shared
+    mkdir /mnt/vendor/persist/hlos_rfs/shared 0770 vendor_rfs vendor_rfs_shared
+    mkdir /mnt/vendor/persist/misc 0770 system system
+    mkdir /mnt/vendor/persist/rfs 0770 vendor_rfs vendor_rfs
+    mkdir /mnt/vendor/persist/rfs/msm 0770 vendor_rfs vendor_rfs
+    mkdir /mnt/vendor/persist/rfs/msm/mpss 0770 vendor_rfs vendor_rfs
+    mkdir /mnt/vendor/persist/secnvm 0770 system system
+    mkdir /mnt/vendor/persist/time 0770 system system
+    mkdir /mnt/vendor/persist/vpp 0770 media media
+    exec u:r:vendor_toolbox:s0 root audio bluetooth graphics media net_raw system vendor_rfs vendor_rfs_shared -- /vendor/bin/toybox_vendor find /mnt/vendor/persist -type d -exec /vendor/bin/toybox_vendor setfattr -x security.restorecon_last {} \;
+    restorecon_recursive /mnt/vendor/persist
+
     # Start tad
     wait /dev/block/mmcblk0p1
     chown oem_2997 oem_2997 /dev/block/mmcblk0p1
@@ -369,23 +387,6 @@ on boot
     chmod 2770 /dev/socket/qmux_bluetooth
     mkdir /dev/socket/qmux_gps 0770 gps gps
     chmod 2770 /dev/socket/qmux_gps
-
-    mkdir /mnt/vendor/persist/alarm 0770 system system
-    mkdir /mnt/vendor/persist/audio 0770 audio audio
-    mkdir /mnt/vendor/persist/bluetooth 0770 bluetooth bluetooth
-    mkdir /mnt/vendor/persist/display 0770 system graphics
-    mkdir /mnt/vendor/persist/drm 0770 system system
-    mkdir /mnt/vendor/persist/hlos_rfs 0770 vendor_rfs vendor_rfs_shared
-    mkdir /mnt/vendor/persist/hlos_rfs/shared 0770 vendor_rfs vendor_rfs_shared
-    mkdir /mnt/vendor/persist/misc 0770 system system
-    mkdir /mnt/vendor/persist/rfs 0770 vendor_rfs vendor_rfs
-    mkdir /mnt/vendor/persist/rfs/msm 0770 vendor_rfs vendor_rfs
-    mkdir /mnt/vendor/persist/rfs/msm/mpss 0770 vendor_rfs vendor_rfs
-    mkdir /mnt/vendor/persist/secnvm 0770 system system
-    mkdir /mnt/vendor/persist/time 0770 system system
-    mkdir /mnt/vendor/persist/vpp 0770 media media
-    exec u:r:vendor_toolbox:s0 root audio bluetooth graphics media net_raw system vendor_rfs vendor_rfs_shared -- /vendor/bin/toybox_vendor find /mnt/vendor/persist -type d -exec /vendor/bin/toybox_vendor setfattr -x security.restorecon_last {} \;
-    restorecon_recursive /mnt/vendor/persist
 
     # Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
