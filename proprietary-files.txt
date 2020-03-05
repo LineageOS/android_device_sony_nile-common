@@ -937,6 +937,15 @@ vendor/lib64/libwvhidl.so
 vendor/lib64/libwvtee.so
 
 # Widevine DRM firmware
+vendor/firmware/tzhdcp.b00
+vendor/firmware/tzhdcp.b01
+vendor/firmware/tzhdcp.b02
+vendor/firmware/tzhdcp.b03
+vendor/firmware/tzhdcp.b04
+vendor/firmware/tzhdcp.b05
+vendor/firmware/tzhdcp.b06
+vendor/firmware/tzhdcp.b07
+vendor/firmware/tzhdcp.mdt
 vendor/firmware/tzwidevine.b00
 vendor/firmware/tzwidevine.b01
 vendor/firmware/tzwidevine.b02
