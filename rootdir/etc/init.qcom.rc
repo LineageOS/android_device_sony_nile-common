@@ -430,8 +430,6 @@ on boot
     chmod 0666 /sys/devices/soc/soc:fpc1020/device_prepare
     chmod 0666 /sys/devices/soc/soc:egistec/device_prepare
 
-    setprop persist.test.fp_existed 5
-
 on charger
     setprop persist.sys.usb.config mass_storage
     load_system_props
