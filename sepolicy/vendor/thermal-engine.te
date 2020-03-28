@@ -1,1 +1,5 @@
+# Allow thermal-engine to read files in /sys
+r_dir_file(thermal-engine, sysfs)
+
+# Allow thermal-engine to get hwservicemanager_prop
 get_prop(thermal-engine, hwservicemanager_prop)
