@@ -359,8 +359,6 @@ on early-boot
     chown system system /mnt/vendor/persist/sensors/registry/config
     chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
 
-    setprop ro.alarm_boot false
-
 on boot
     # Access permission for Bluetooth
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
