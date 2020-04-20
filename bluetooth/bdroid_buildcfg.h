@@ -36,6 +36,8 @@ static inline const char* BtmGetDefaultName()
         return "Sony Xperia XA2 Ultra";
     if (strstr(product_device, "pioneer"))
         return "Sony Xperia XA2";
+    if (strstr(product_device, "voyager"))
+        return "Sony Xperia XA2 Plus";
     if (strstr(product_device, "kirin"))
         return "Sony Xperia 10";
     if (strstr(product_device, "mermaid"))
