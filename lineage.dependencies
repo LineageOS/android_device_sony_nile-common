@@ -10,5 +10,9 @@
   {
     "repository": "android_hardware_sony_simdetect",
     "target_path": "hardware/sony/simdetect"
+  },
+  {
+    "repository": "android_hardware_sony_SonyOpenTelephony",
+    "target_path": "hardware/sony/SonyOpenTelephony"
   }
 ]
