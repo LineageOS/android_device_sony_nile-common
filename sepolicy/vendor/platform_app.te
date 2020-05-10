@@ -1,0 +1,2 @@
+# Allow platform_app to set cust_system_prop
+set_prop(platform_app, cust_system_prop)
