@@ -32,6 +32,7 @@
 /mnt/qns(/.*)?                                u:object_r:qns_file:s0
 /mnt/rca                                      u:object_r:idd_rca_dir:s0
 /mnt/rca(/.*)?                                u:object_r:idd_rca_file:s0
+/vendor/oem(/.*)?                             u:object_r:vendor_oem_file:s0
 
 # Binaries
 /system/bin/sony-modem-switcher                    u:object_r:modem-switcher_exec:s0
