@@ -279,6 +279,15 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
 
+# Modem switcher
+ifneq ($(filter %_kirin %_mermaid,$(TARGET_PRODUCT)),)
+PRODUCT_PACKAGES += \
+    ModemConfig
+
+PRODUCT_COPY_FILES += \
+    $(shell find $(LOCAL_PATH)/rootdir/vendor/oem -type f -printf '%p:$(TARGET_COPY_OUT_VENDOR)/oem/%P\n')
+endif
+
 # Net
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.0 \
