@@ -11,4 +11,3 @@ vendor.semc.system.idd::IIdd                                                    
 vendor.somc.hardware.miscta::IMisctaGlobal                                                  u:object_r:hal_miscta_hwservice:s0
 vendor.somc.hardware.radio::ISomcHook                                                       u:object_r:somc_hw_radio_hwservice:s0
 vendor.somc.hardware.security.secd::IDeviceSecurity                                         u:object_r:hal_secd_hwservice:s0
-vendor.somc.hardware.wifi::ISomcWifi                                                        u:object_r:hal_wifi_hostapd_hwservice:s0
