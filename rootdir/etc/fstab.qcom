@@ -16,5 +16,7 @@
 /dev/block/bootdevice/by-name/frp            /frp                   emmc    defaults                                                    defaults
 /dev/block/bootdevice/by-name/misc           /misc                  emmc    defaults                                                    defaults
 
+/vendor/oem                                  /oem                   none    bind                                                        nofail
+
 /devices/soc/c084000.sdhci/mmc_host*                     auto       auto    nosuid,nodev                                                wait,voldmanaged=sdcard1:auto
 /devices/soc/a800000.ssusb/a800000.dwc3/xhci-hcd.0.auto* auto       auto    nosuid,nodev                                                wait,voldmanaged=usb:auto
