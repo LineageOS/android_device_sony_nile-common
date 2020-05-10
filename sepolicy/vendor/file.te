@@ -22,3 +22,4 @@ type sysfs_fpc, sysfs_type, fs_type;
 type sysfs_msm_subsys, sysfs_type, fs_type;
 type sysfs_wifi, sysfs_type, fs_type;
 type tad_socket, file_type;
+type vendor_oem_file, file_type, vendor_file_type;
