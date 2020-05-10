@@ -215,6 +215,9 @@ PRODUCT_PACKAGES += \
     fs_config_files
 
 # GPS
+PRODUCT_PACKAGES += \
+    libwifi-hal-ctrl
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/apdr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/apdr.conf \
     $(LOCAL_PATH)/gps/etc/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
