@@ -1,0 +1,5 @@
+<policy>
+    <signer signature="@MODEMCONFIG" >
+        <seinfo value="modemconfigapp" />
+    </signer>
+</policy>
