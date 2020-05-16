@@ -13,16 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 #ifndef ANDROID_HARDWARE_LIGHT_V2_0_LIGHT_H
 #define ANDROID_HARDWARE_LIGHT_V2_0_LIGHT_H
 
 #include <android/hardware/light/2.0/ILight.h>
+#include <hardware/lights.h>
 #include <hidl/Status.h>
-
-#include <fstream>
-#include <mutex>
 #include <unordered_map>
+#include <mutex>
 
 namespace android {
 namespace hardware {
@@ -30,59 +28,28 @@ namespace light {
 namespace V2_0 {
 namespace implementation {
 
-struct Light : public ILight {
-    Light(std::pair<std::ofstream, uint32_t>&& lcd_backlight,
-          std::ofstream&& red_led, std::ofstream&& green_led, std::ofstream&& blue_led,
-          std::ofstream&& red_duty_pcts, std::ofstream&& green_duty_pcts, std::ofstream&& blue_duty_pcts,
-          std::ofstream&& red_start_idx, std::ofstream&& green_start_idx, std::ofstream&& blue_start_idx,
-          std::ofstream&& red_pause_lo, std::ofstream&& green_pause_lo, std::ofstream&& blue_pause_lo,
-          std::ofstream&& red_pause_hi, std::ofstream&& green_pause_hi, std::ofstream&& blue_pause_hi,
-          std::ofstream&& red_ramp_step_ms, std::ofstream&& green_ramp_step_ms, std::ofstream&& blue_ramp_step_ms,
-          std::ofstream&& red_blink, std::ofstream&& green_blink, std::ofstream&& blue_blink,
-          std::ofstream&& rgb_blink);
+using ::android::hardware::Return;
+using ::android::hardware::Void;
+using ::android::hardware::hidl_vec;
+using ::android::hardware::light::V2_0::ILight;
+using ::android::hardware::light::V2_0::LightState;
+using ::android::hardware::light::V2_0::Status;
+using ::android::hardware::light::V2_0::Type;
 
-    // Methods from ::android::hardware::light::V2_0::ILight follow.
+class Light : public ILight {
+  public:
+    Light();
+
     Return<Status> setLight(Type type, const LightState& state) override;
     Return<void> getSupportedTypes(getSupportedTypes_cb _hidl_cb) override;
 
   private:
-    void setAttentionLight(const LightState& state);
-    void setBatteryLight(const LightState& state);
-    void setLcdBacklight(const LightState& state);
-    void setNotificationLight(const LightState& state);
-    void setSpeakerBatteryLightLocked();
-    void setSpeakerLightLocked(const LightState& state);
+    void handleBacklight(const LightState& state);
+    void handleRgb(const LightState& state, size_t index);
 
-    std::pair<std::ofstream, uint32_t> mLcdBacklight;
-    std::ofstream mRedLed;
-    std::ofstream mGreenLed;
-    std::ofstream mBlueLed;
-    std::ofstream mRedDutyPcts;
-    std::ofstream mGreenDutyPcts;
-    std::ofstream mBlueDutyPcts;
-    std::ofstream mRedStartIdx;
-    std::ofstream mGreenStartIdx;
-    std::ofstream mBlueStartIdx;
-    std::ofstream mRedPauseLo;
-    std::ofstream mGreenPauseLo;
-    std::ofstream mBluePauseLo;
-    std::ofstream mRedPauseHi;
-    std::ofstream mGreenPauseHi;
-    std::ofstream mBluePauseHi;
-    std::ofstream mRedRampStepMs;
-    std::ofstream mGreenRampStepMs;
-    std::ofstream mBlueRampStepMs;
-    std::ofstream mRedBlink;
-    std::ofstream mGreenBlink;
-    std::ofstream mBlueBlink;
-    std::ofstream mRgbBlink;
-
-    LightState mAttentionState;
-    LightState mBatteryState;
-    LightState mNotificationState;
-
-    std::unordered_map<Type, std::function<void(const LightState&)>> mLights;
     std::mutex mLock;
+    std::unordered_map<Type, std::function<void(const LightState&)>> mLights;
+    std::array<LightState, 3> mLightStates;
 };
 
 }  // namespace implementation
