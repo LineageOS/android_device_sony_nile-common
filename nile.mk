@@ -109,6 +109,7 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaudio-resampler \
     libaudioroute \
+    libdynproc \
     libhdmiedid \
     libhfp \
     libqcompostprocbundle \

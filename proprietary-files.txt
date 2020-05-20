@@ -36,6 +36,7 @@ vendor/lib/soundfx/libasphere.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
+vendor/lib/soundfx/libznrwrapper.so
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
@@ -45,8 +46,10 @@ vendor/lib/libaudcal.so
 vendor/lib/libaudioalsa.so
 vendor/lib/libdrc.so
 vendor/lib/libqtigef.so
+vendor/lib/librebuffering.so
 vendor/lib/libsmwrapper.so
 vendor/lib/libsurround_3mic_proc.so
+vendor/lib/libznr.so
 vendor/lib64/libacdb-fts.so
 vendor/lib64/libacdbloader.so
 vendor/lib64/libacdbrtac.so
