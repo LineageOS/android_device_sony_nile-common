@@ -1,5 +1,7 @@
 persist.audio.gain.version       u:object_r:audio_gain_prop:s0
 persist.keyprovd.suntory.prov    u:object_r:secd_prop:s0
+persist.somc.cust.               u:object_r:cust_system_prop:s0
+persist.somc.modemswitcher.      u:object_r:sony_modemswitcher_prop:s0
 persist.tareset.notfirstboot     u:object_r:tareset_notfirstboot_prop:s0
 persist.vendor.camera.           u:object_r:camera_prop:s0
 ro.semc.                         u:object_r:exported_default_prop:s0
@@ -8,5 +10,7 @@ ro.vendor.cei_phase_id           u:object_r:cei_prop:s0
 ro.vendor.cei_project_id         u:object_r:cei_prop:s0
 ro.vendor.cei_sku_id             u:object_r:cei_prop:s0
 semc.version.                    u:object_r:semc_version_prop:s0
+somc.cust.                       u:object_r:cust_debug_system_prop:s0
+sony.modemswitcher.              u:object_r:sony_modemswitcher_prop:s0
 vendor.hw.fingerprint            u:object_r:cei_prop:s0
 vendor.qcom.devup                u:object_r:vendor_device_prop:s0
