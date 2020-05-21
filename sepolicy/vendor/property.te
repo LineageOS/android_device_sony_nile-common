@@ -1,6 +1,9 @@
 type audio_gain_prop, property_type;
 type cei_prop, property_type;
+type cust_debug_system_prop, property_type;
+type cust_system_prop, property_type;
 type secd_prop, property_type;
 type semc_version_prop, property_type;
+type sony_modemswitcher_prop, property_type;
 type tareset_notfirstboot_prop, property_type;
 type vendor_device_prop, property_type;
