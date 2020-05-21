@@ -16,6 +16,7 @@
 /sys/kernel/boot_wlan(/.*)?                                                             u:object_r:sysfs_wifi:s0
 
 # Data files
+/data/customization(/.*)?                     u:object_r:customization_target_file:s0
 /data/vendor/location/xtra/socket_hal_xtra    u:object_r:location_socket:s0
 /data/vendor/location/xtra/socket_xtra        u:object_r:location_socket:s0
 /data/vendor/misc/egistec(/.*)?               u:object_r:egistec_data_file:s0
@@ -33,6 +34,7 @@
 /mnt/rca(/.*)?                                u:object_r:idd_rca_file:s0
 
 # Binaries
+/system/bin/sony-modem-switcher                    u:object_r:modem-switcher_exec:s0
 /(vendor|system/vendor)/bin/keyprovd               u:object_r:keyprovd_exec:s0
 /(vendor|system/vendor)/bin/macaddrsetup           u:object_r:macaddrsetup_exec:s0
 /(vendor|system/vendor)/bin/mlog_qmi_service       u:object_r:mlog_qmi_service_exec:s0
@@ -50,6 +52,7 @@
 /(vendor|system/vendor)/bin/hw/vendor\.semc\.hardware\.secd@1\.0-service                        u:object_r:hal_secd_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.semc\.system\.idd@1\.0-service                           u:object_r:hal_idd_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.somc\.hardware\.miscta@1\.0-service                      u:object_r:hal_miscta_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.somc\.hardware\.modemswitcher@1\.0-service               u:object_r:hal_modemswitcher_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.somc\.hardware\.wifi@2.0-service                         u:object_r:hal_wifi_hostapd_default_exec:s0
 
 # Shell scripts
