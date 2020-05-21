@@ -1,3 +1,6 @@
+# Allow rild to access tad
+unix_socket_connect(rild, tad, tad)
+
 # Allow binder communication with hal_secd_default
 binder_call(rild, hal_secd_default)
 
@@ -6,3 +9,6 @@ allow rild somc_hw_radio_hwservice:hwservice_manager add;
 
 # Allow rild to find hal_secd_hwservice
 allow rild hal_secd_hwservice:hwservice_manager find;
+
+# Allow rild to communicate with qtidataservices_app
+allow rild qtidataservices_app:binder call;
