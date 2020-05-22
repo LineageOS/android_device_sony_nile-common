@@ -285,7 +285,7 @@ PRODUCT_PACKAGES += \
     ModemConfig
 
 PRODUCT_COPY_FILES += \
-    $(shell find $(LOCAL_PATH)/rootdir/vendor/oem -type f -printf '%p:$(TARGET_COPY_OUT_VENDOR)/oem/%P\n')
+    $(shell find $(LOCAL_PATH)/rootdir/vendor/oem/modem-config -type f -printf '%p:$(TARGET_COPY_OUT_ODM)/etc/modemcfg/%P\n')
 
 # Net
 PRODUCT_PACKAGES += \
