@@ -9,3 +9,6 @@ allow vendor_init unlabeled:{ dir file } { getattr relabelfrom };
 
 # Allow vendor init to set camera_prop
 set_prop(vendor_init, camera_prop)
+
+# Allow vendor init to set cust_system_prop
+set_prop(vendor_init, cust_system_prop)
