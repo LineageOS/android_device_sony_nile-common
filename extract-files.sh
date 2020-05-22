@@ -32,6 +32,14 @@ source "${HELPER}"
 
 function blob_fixup() {
     case "${1}" in
+    vendor/bin/sony-modem-switcher)
+        sed -i "s/\/oem\/modem-config\/%s\/modem.conf/\/vendor\/modemconf\/%s\/modem.conf/" "${2}"
+        sed -i "s/\/oem\/modem-config\/modem.conf/\/vendor\/modemconf\/modem.conf/" "${2}"
+        sed -i "s/persist.radio.multisim.config/vendor.radio.multisim.config\x00/" "${2}"
+        ;;
+    vendor/etc/init/init.sony-modem-switcher.rc)
+        sed -i "s/\/system\/bin\/sony-modem-switcher/\/vendor\/bin\/sony-modem-switcher/" "${2}"
+        ;;
     vendor/lib/libbtnv.so)
         sed -i "s/.bt_nv.bin/.bt_nv.noo/" "${2}"
         ;;
