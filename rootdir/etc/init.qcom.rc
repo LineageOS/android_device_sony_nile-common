@@ -72,7 +72,13 @@ on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
-    mount_all /vendor/etc/fstab.qcom --early
+    mount_all /vendor/etc/fstab.qcom
+
+    # Start tad
+    wait /dev/block/mmcblk0p1
+    chown oem_2997 oem_2997 /dev/block/mmcblk0p1
+    chmod 0770 /dev/block/mmcblk0p1
+    start tad
 
     # Setup /mnt/vendor/persist
     mkdir /mnt/vendor/persist/alarm 0770 system system
@@ -92,12 +98,6 @@ on fs
     exec u:r:vendor_toolbox:s0 root audio bluetooth graphics media net_raw system vendor_rfs vendor_rfs_shared -- /vendor/bin/toybox_vendor find /mnt/vendor/persist -type d -exec /vendor/bin/toybox_vendor setfattr -x security.sehash {} \;
     restorecon_recursive /mnt/vendor/persist
 
-    # Start tad
-    wait /dev/block/mmcblk0p1
-    chown oem_2997 oem_2997 /dev/block/mmcblk0p1
-    chmod 0770 /dev/block/mmcblk0p1
-    start tad
-
     # Change the compression algorithm for zRAM
     write /sys/block/zram0/comp_algorithm lz4
 
@@ -116,30 +116,11 @@ on fs
     # vold needs keymaster that needs qseecomd
     start vendor.qseecomd
 
-on late-fs
-    # Start devices by sysfs trigger
-    start devstart_sh
-
-    # Start services for bootanim
-    start surfaceflinger
-    start bootanim
-    start vendor.hwcomposer-2-1
-    start vendor.configstore-hal
-    start vendor.gralloc-2-0
-
-    # Wait for hwservicemanager ready since fsck might be triggered in mount_all --late
-    # In such case, init won't responce the property_set from hwservicemanager and then
-    # cause services for bootanim not running.
-    wait_for_prop hwservicemanager.ready true
-
-    # Mount RW partitions which need run fsck
-    mount_all /vendor/etc/fstab.qcom --late
+    # Wait qseecomd started
+    wait_for_prop vendor.sys.listeners.registered true
 
 on post-fs
     write /dev/ipa 1
-
-    # Wait qseecomd started
-    wait_for_prop vendor.sys.listeners.registered true
 
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
