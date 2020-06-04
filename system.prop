@@ -9,6 +9,9 @@ vendor.bluetooth.soc=cherokee
 # Display
 ro.qualcomm.cabl=0
 
+# DPM
+persist.vendor.dpm.feature=1
+
 # Graphics
 persist.demo.hdmirotationlock=false
 persist.hwc.enable_vds=1
