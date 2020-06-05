@@ -579,9 +579,11 @@ on property:vendor.radio.multisim.config=*
     setprop persist.radio.multisim.config ${vendor.radio.multisim.config}
 
 on property:vendor.radio.multisim.config=ss
+    setprop persist.vendor.radio.block_allow_data 1
     enable vendor.qcrild
 
 on property:vendor.radio.multisim.config=dsds
+    setprop persist.vendor.radio.block_allow_data 0
     enable vendor.qcrild
     enable vendor.qcrild2
 
