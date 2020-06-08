@@ -140,7 +140,6 @@ persist.vendor.radio.unicode_op_names=true
 persist.vendor.radio.vdp_on_ims_cap=1
 persist.vendor.radio.wait_for_pbm=1
 ro.telephony.default_network=9,1
-ro.telephony.use_old_mnc_mcc_format=true
 vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 
 # Sensors
