@@ -132,6 +132,9 @@ on late-fs
     # cause services for bootanim not running.
     wait_for_prop hwservicemanager.ready true
 
+    # Wait for keymaster
+    exec_start wait_for_keymaster
+
     # Mount RW partitions which need run fsck
     mount_all /vendor/etc/fstab.qcom --late
 
