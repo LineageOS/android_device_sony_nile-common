@@ -25,6 +25,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import /vendor/etc/init/hw/init.qcom.modem_switcher.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 
@@ -567,12 +568,6 @@ on property:vendor.radio.multisim.config=dsds
     setprop persist.vendor.radio.block_allow_data 0
     enable vendor.qcrild
     enable vendor.qcrild2
-
-on property:persist.vendor.somc.cust.modem0=*
-    setprop persist.somc.cust.modem0 ${persist.vendor.somc.cust.modem0}
-
-on property:persist.vendor.somc.cust.modem1=*
-    setprop persist.somc.cust.modem1 ${persist.vendor.somc.cust.modem1}
 
 service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     class late_start

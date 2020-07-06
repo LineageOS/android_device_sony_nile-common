@@ -285,6 +285,7 @@ PRODUCT_COPY_FILES += \
 # Modem switcher
 ifneq ($(filter %_kirin %_mermaid,$(TARGET_PRODUCT)),)
 PRODUCT_PACKAGES += \
+    init.qcom.modem_switcher.rc \
     ModemConfig
 
 PRODUCT_COPY_FILES += \
