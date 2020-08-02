@@ -104,6 +104,7 @@
         <int name="maxMessageSize" value="307200" />
         <int name="recipientLimit" value="50" />
         <int name="smsToMmsTextThreshold" value="20" />
+        <boolean name="world_phone_bool" value="true" />
     </carrier_config>
     <carrier_config>
         <boolean name="hide_ask_every_time_for_sms_preferred_sub_settings" value="true" />
