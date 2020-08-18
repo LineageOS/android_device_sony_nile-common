@@ -1,9 +1,9 @@
-type audio_gain_prop, property_type;
-type cei_prop, property_type;
-type cust_debug_system_prop, property_type;
-type cust_system_prop, property_type;
-type secd_prop, property_type;
-type semc_version_prop, property_type;
-type sony_modemswitcher_prop, property_type;
-type tareset_notfirstboot_prop, property_type;
-type vendor_device_prop, property_type;
+vendor_internal_prop(audio_gain_prop)
+vendor_internal_prop(cei_prop)
+vendor_internal_prop(cust_debug_system_prop)
+vendor_internal_prop(cust_system_prop)
+vendor_internal_prop(secd_prop)
+vendor_internal_prop(semc_version_prop)
+vendor_internal_prop(sony_modemswitcher_prop)
+vendor_internal_prop(tareset_notfirstboot_prop)
+vendor_internal_prop(vendor_device_prop)
