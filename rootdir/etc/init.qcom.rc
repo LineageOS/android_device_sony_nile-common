@@ -389,7 +389,6 @@ on boot
 
 on charger
     setprop persist.sys.usb.config mass_storage
-    load_system_props
 
     start qcom-post-boot
     start vendor.hvdcp_opti
