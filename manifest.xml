@@ -83,9 +83,7 @@
             <name>IDrmFactory</name>
             <instance>default</instance>
         </interface>
-        <fqname>@1.2::ICryptoFactory/clearkey</fqname>
         <fqname>@1.1::ICryptoFactory/widevine</fqname>
-        <fqname>@1.2::IDrmFactory/clearkey</fqname>
         <fqname>@1.1::IDrmFactory/widevine</fqname>
     </hal>
     <hal format="hidl">
@@ -270,15 +268,6 @@
         <version>1.0</version>
         <interface>
             <name>IThermal</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.usb</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IUsb</name>
             <instance>default</instance>
         </interface>
     </hal>
