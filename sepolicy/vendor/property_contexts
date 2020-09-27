@@ -15,3 +15,4 @@ somc.cust.                       u:object_r:cust_debug_system_prop:s0
 sony.modemswitcher.              u:object_r:sony_modemswitcher_prop:s0
 vendor.hw.fingerprint            u:object_r:cei_prop:s0
 vendor.qcom.devup                u:object_r:vendor_device_prop:s0
+vendor.somc.cust.                u:object_r:cust_system_prop:s0
