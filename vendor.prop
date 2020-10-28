@@ -173,3 +173,6 @@ sys.usb.controller=a800000.dwc3
 # Wifi
 ro.vendor.wifi.addr_path=/data/vendor/wifi/wlan_mac.bin
 wifi.interface=wlan0
+
+# Zygote
+zygote.critical_window.minute=10
