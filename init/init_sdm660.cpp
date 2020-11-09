@@ -50,6 +50,7 @@ std::vector<std::string> ro_product_props_default_source_order = {
     "odm.",
     "vendor.",
     "system.",
+    "system_ext.",
 };
 
 void property_override(char const prop[], char const value[], bool add = true)
