@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from I3113_Customized ZA_1317-9072_53.1.A.2.2_R2C
+# All unpinned blobs below are extracted from I3113_Customized UK_1317-9617_53.1.A.3.85_R9C
 
 # ADSP
 vendor/bin/adsprpcd
