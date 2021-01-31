@@ -28,6 +28,7 @@ ro.nfc.port=I2C
 # Radio
 DEVICE_PROVISIONED=1
 ril.subscription.types=NV,RUIM
+ro.telephony.ril.config=simdisable
 
 # TimeService
 persist.timed.enable=true
