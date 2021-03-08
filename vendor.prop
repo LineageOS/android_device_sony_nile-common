@@ -115,6 +115,9 @@ ro.fastbootd.available=true
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
+# FUSE passthrough
+persist.sys.fuse.passthrough.enable=true
+
 # Encryption
 ro.crypto.dm_default_key.options_format.version=2
 ro.crypto.volume.contents_mode=aes-256-xts
