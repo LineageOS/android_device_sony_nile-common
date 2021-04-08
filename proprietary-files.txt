@@ -47,7 +47,6 @@ vendor/lib/libaudioalsa.so
 vendor/lib/libdrc.so
 vendor/lib/libqtigef.so
 vendor/lib/librebuffering.so
-vendor/lib/libsmwrapper.so
 vendor/lib/libsurround_3mic_proc.so
 vendor/lib/libznr.so
 vendor/lib64/libacdb-fts.so
@@ -171,7 +170,6 @@ vendor/lib64/libdpmqmihal.so
 
 # DRM and SEE
 vendor/bin/qseecomd
-vendor/lib/libdiag.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
 vendor/lib/libGPreqcancel.so
@@ -183,7 +181,6 @@ vendor/lib/libsecureui.so
 vendor/lib/libsecureui_svcsock.so
 vendor/lib/libssd.so
 vendor/lib/libStDrvInt.so
-vendor/lib64/libdiag.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
 vendor/lib64/libGPreqcancel.so
@@ -380,6 +377,7 @@ lib/libOmxMux.so
 lib/libmmosal.so
 lib/libmmparser_lite.so
 lib64/libmmosal.so
+lib64/libmmparser_lite.so
 vendor/lib/libAlacSwDec.so
 vendor/lib/libApeSwDec.so
 vendor/lib/libFlacSwDec.so
@@ -668,7 +666,6 @@ product/lib/lib-imscamera.so
 product/lib/lib-imsvideocodec.so
 product/lib/lib-imsvtextutils.so
 product/lib/lib-imsvtutils.so
-product/lib/libdiag_system.so
 product/lib/libimscamera_jni.so
 product/lib/libimsmedia_jni.so
 product/lib/vendor.qti.imsrtpservice@2.0.so
@@ -682,7 +679,6 @@ product/lib64/lib-imsvideocodec.so
 product/lib64/lib-imsvt.so
 product/lib64/lib-imsvtextutils.so
 product/lib64/lib-imsvtutils.so
-product/lib64/libdiag_system.so
 product/lib64/libimscamera_jni.so
 product/lib64/libimsmedia_jni.so
 product/lib64/vendor.qti.imsrtpservice@2.0.so
@@ -713,7 +709,6 @@ vendor/lib/lib-rtpcommon.so
 vendor/lib/lib-rtpcore.so
 vendor/lib/lib-rtpsl.so
 vendor/lib/librcc.so
-vendor/lib/vendor.qti.hardware.radio.ims@1.0.so
 vendor/lib/vendor.qti.ims.callinfo@1.0.so
 vendor/lib/vendor.qti.imsrtpservice@2.0.so
 vendor/lib/vendor.qti.imsrtpservice@2.1-service-Impl.so
@@ -737,7 +732,6 @@ vendor/lib64/lib-rtpsl.so
 vendor/lib64/lib-siputility.so
 vendor/lib64/lib-uceservice.so
 vendor/lib64/librcc.so
-vendor/lib64/vendor.qti.hardware.radio.ims@1.0.so
 vendor/lib64/vendor.qti.ims.callinfo@1.0.so
 vendor/lib64/vendor.qti.imsrtpservice@2.0.so
 vendor/lib64/vendor.qti.imsrtpservice@2.1-service-Impl.so
@@ -750,13 +744,11 @@ product/framework/qti-telephony-common.jar|b4d187700f279cdbd40e74b4c3be4504f10d8
 vendor/bin/sensors.qti
 vendor/etc/sap.conf
 vendor/etc/sensors/hals.conf
-vendor/lib/libqmi_common_so.so
 vendor/lib/libsdsprpc.so
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
 vendor/lib/sensor_calibrate.so
 vendor/lib/sensors.ssc.so
-vendor/lib64/libqmi_common_so.so
 vendor/lib64/libsdsprpc.so
 vendor/lib64/libsensor1.so
 vendor/lib64/libsensor_reg.so
@@ -860,12 +852,8 @@ etc/init/wfdservice.rc
 etc/wfdconfig.xml
 -framework/WfdCommon.jar
 lib/com.qualcomm.qti.wifidisplayhal@1.0.so
-lib/libFileMux.so
-lib/libmmosal.so
-lib/libmmparser_lite.so
 lib/libmmrtpdecoder.so
 lib/libmmrtpencoder.so
-lib/libOmxMux.so
 lib/libwfdavenhancements.so
 lib/libwfdcodecv4l2.so
 lib/libwfdcommonutils.so
@@ -882,8 +870,6 @@ lib/libwfduibcsinkinterface.so
 lib/libwfduibcsrc.so
 lib/libwfduibcsrcinterface.so
 lib64/libFileMux.so
-lib64/libmmosal.so
-lib64/libmmparser_lite.so
 vendor/bin/wifidisplayhalservice
 vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
 vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so
