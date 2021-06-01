@@ -92,9 +92,9 @@ vendor/firmware/cpp_firmware_v1_8_0.fw
 vendor/bin/hvdcp_opti
 
 # CNE
-etc/cne/Nexus/ATT/ATT_profiles.xml
-etc/cne/Nexus/ROW/ROW_profiles.xml
-etc/cne/Nexus/VZW/VZW_profiles.xml
+system/etc/cne/Nexus/ATT/ATT_profiles.xml
+system/etc/cne/Nexus/ROW/ROW_profiles.xml
+system/etc/cne/Nexus/VZW/VZW_profiles.xml
 vendor/app/CneApp/CneApp.apk
 vendor/app/IWlanService/IWlanService.apk
 vendor/bin/cnd
@@ -190,10 +190,10 @@ vendor/lib64/libssd.so
 vendor/lib64/libStDrvInt.so
 
 # FM
-lib/fm_helium.so
-lib/libfm-hci.so
-lib64/fm_helium.so
-lib64/libfm-hci.so
+system/lib/fm_helium.so
+system/lib/libfm-hci.so
+system/lib64/fm_helium.so
+system/lib64/libfm-hci.so
 -product/lib/vendor.qti.hardware.fm@1.0.so
 -product/lib64/vendor.qti.hardware.fm@1.0.so
 vendor/lib/vendor.qti.hardware.fm@1.0.so
@@ -367,13 +367,13 @@ vendor/lib/libadpcmdec.so
 vendor/lib/libsmwrapper.so
 
 # Media
-lib/extractors/libmmparserextractor.so
-lib/libFileMux.so
-lib/libOmxMux.so
-lib/libmmosal.so
-lib/libmmparser_lite.so
-lib64/libmmosal.so
-lib64/libmmparser_lite.so
+system/lib/extractors/libmmparserextractor.so
+system/lib/libFileMux.so
+system/lib/libOmxMux.so
+system/lib/libmmosal.so
+system/lib/libmmparser_lite.so
+system/lib64/libmmosal.so
+system/lib64/libmmparser_lite.so
 vendor/lib/libAlacSwDec.so
 vendor/lib/libApeSwDec.so
 vendor/lib/libFlacSwDec.so
@@ -419,9 +419,9 @@ vendor/lib64/libvpplibrary.so
 -vendor/lib64/libgpustats.so
 
 # Modem switcher
-bin/sony-modem-switcher:vendor/bin/sony-modem-switcher
-etc/init/init.sony-modem-switcher.rc:vendor/etc/init/init.sony-modem-switcher.rc
-lib64/libMiscTaWrapper.so:vendor/lib64/libMiscTaWrapper.so
+system/bin/sony-modem-switcher:vendor/bin/sony-modem-switcher
+system/etc/init/init.sony-modem-switcher.rc:vendor/etc/init/init.sony-modem-switcher.rc
+system/lib64/libMiscTaWrapper.so:vendor/lib64/libMiscTaWrapper.so
 vendor/bin/hw/vendor.somc.hardware.modemswitcher@1.0-service
 vendor/etc/init/vendor.somc.hardware.modemswitcher@1.0-service.rc
 
@@ -432,8 +432,8 @@ vendor/lib64/vendor.somc.hardware.modemswitcher@1.0.so|981a107e38343e091b9ff5696
 vendor/firmware/libpn553_fw.so:vendor/lib/libpn553_fw.so
 
 # Idd
-lib/vendor.semc.system.idd@1.0.so
-lib64/vendor.semc.system.idd@1.0.so
+system/lib/vendor.semc.system.idd@1.0.so
+system/lib64/vendor.semc.system.idd@1.0.so
 vendor/bin/hw/vendor.semc.system.idd@1.0-service
 vendor/etc/idd.fstab
 vendor/etc/init/init.sony.idd.rc
@@ -477,8 +477,8 @@ vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
 # Postprocessing
-etc/permissions/com.qti.snapdragon.sdk.display.xml
-framework/com.qti.snapdragon.sdk.display.jar
+system/etc/permissions/com.qti.snapdragon.sdk.display.xml
+system/framework/com.qti.snapdragon.sdk.display.jar
 product/lib/vendor.display.color@1.0.so
 product/lib/vendor.display.postproc@1.0.so
 product/lib64/vendor.display.color@1.0.so
@@ -493,10 +493,10 @@ vendor/lib64/vendor.display.color@1.2.so
 vendor/lib64/vendor.display.postproc@1.0.so
 
 # QMI
-etc/permissions/qti_libpermissions.xml
-etc/permissions/qti_permissions.xml
-lib/libqmi_cci_system.so
-lib64/libqmi_cci_system.so
+system/etc/permissions/qti_libpermissions.xml
+system/etc/permissions/qti_permissions.xml
+system/lib/libqmi_cci_system.so
+system/lib64/libqmi_cci_system.so
 product/etc/permissions/telephony_product_privapp-permissions-qti.xml
 product/lib/libdiag_system.so
 product/lib64/libdiag_system.so
@@ -749,8 +749,8 @@ vendor/lib64/sensor_calibrate.so
 vendor/lib64/sensors.ssc.so
 
 # TA
-lib/vendor.somc.hardware.miscta@1.0.so
-lib64/vendor.somc.hardware.miscta@1.0.so
+system/lib/vendor.somc.hardware.miscta@1.0.so
+system/lib64/vendor.somc.hardware.miscta@1.0.so
 vendor/bin/hw/vendor.somc.hardware.miscta@1.0-service
 vendor/bin/ta_qmi_service
 vendor/bin/tad
