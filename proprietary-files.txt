@@ -781,7 +781,6 @@ vendor/lib64/vendor.somc.hardware.miscta@1.0.so
 
 # Thermal
 vendor/bin/thermal-engine
-vendor/etc/thermal-engine.conf
 -vendor/lib/libthermalclient.so
 -vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
