@@ -66,10 +66,6 @@ void property_override(char const prop[], char const value[], bool add = true)
 
 void vendor_load_properties()
 {
-    if (access("/system/bin/recovery", F_OK) == 0) {
-        return;
-    }
-
     if (std::ifstream file = std::ifstream(LTALABEL_PATH, std::ios::binary)) {
         std::string str((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
         size_t offset = str.find("Model: ");

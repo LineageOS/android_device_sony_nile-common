@@ -213,7 +213,6 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy/vendor
 
 # Vendor Unification Init
 TARGET_INIT_VENDOR_LIB := //$(VENDOR_PATH):libinit.sony_nile
-TARGET_RECOVERY_DEVICE_MODULES := libinit.sony.nile
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
