@@ -170,9 +170,17 @@ ro.vendor.sensors.pmd=true
 ro.vendor.sensors.sta_detect=true
 
 # USB
-persist.sys.usb.config.extra=none
+persist.vendor.usb.config.extra=none
 vendor.usb.controller=a800000.dwc3
 vendor.usb.device=a800000.ssusb
+vendor.usb.diag.func.name=diag
+vendor.usb.dpl.inst.name=dpl
+vendor.usb.qdss.inst.name=qdss
+vendor.usb.rmnet.func.name=rmnet_bam
+vendor.usb.rmnet.inst.name=rmnet
+vendor.usb.rndis.func.name=rndis_bam
+vendor.usb.use_ffs_mtp=0
+vendor.usb.use_gadget_hal=0
 
 # Wifi
 ro.vendor.wifi.addr_path=/data/vendor/wifi/wlan_mac.bin
