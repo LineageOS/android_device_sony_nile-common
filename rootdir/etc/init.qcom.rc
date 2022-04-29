@@ -413,7 +413,7 @@ on property:vendor.radio.atfwd.start=false
     stop vendor.atfwd
 
 service cei_sh /vendor/bin/init.qcom.cei.sh
-    class core
+    class main
     user root
     group root
     oneshot
@@ -569,21 +569,21 @@ on property:vendor.radio.multisim.config=ss
     setprop persist.vendor.radio.block_allow_data 1
 
 on property:vendor.radio.multisim.config=ss && property:ro.product.first_api_level=26
-    enable vendor.ril-daemon
+    start vendor.ril-daemon
 
 on property:vendor.radio.multisim.config=ss && property:ro.product.first_api_level=28
-    enable vendor.qcrild
+    start vendor.qcrild
 
 on property:vendor.radio.multisim.config=dsds
     setprop persist.vendor.radio.block_allow_data 0
 
 on property:vendor.radio.multisim.config=dsds && property:ro.product.first_api_level=26
-    enable vendor.ril-daemon
-    enable vendor.ril-daemon2
+    start vendor.ril-daemon
+    start vendor.ril-daemon2
 
 on property:vendor.radio.multisim.config=dsds && property:ro.product.first_api_level=28
-    enable vendor.qcrild
-    enable vendor.qcrild2
+    start vendor.qcrild
+    start vendor.qcrild2
 
 on property:persist.vendor.somc.cust.modem0=*
     setprop persist.somc.cust.modem0 ${persist.vendor.somc.cust.modem0}
