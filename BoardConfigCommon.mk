@@ -49,6 +49,7 @@ TARGET_KERNEL_CLANG_COMPILE := true
 
 # Platform
 TARGET_BOARD_PLATFORM := sdm660
+TARGET_ENFORCES_QSSI := true
 
 # Properties
 TARGET_ODM_PROP += $(VENDOR_PATH)/odm.prop
