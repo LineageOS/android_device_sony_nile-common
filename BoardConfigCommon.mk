@@ -216,6 +216,9 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy/vendor
 # Vendor Unification Init
 TARGET_INIT_VENDOR_LIB := //$(VENDOR_PATH):libinit.sony_nile
 
+# Verified Boot
+BOARD_AVB_ENABLE := false
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true
