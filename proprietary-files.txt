@@ -75,10 +75,6 @@ product/lib64/com.qualcomm.qti.ant@1.0.so
 vendor/lib/com.qualcomm.qti.ant@1.0.so
 vendor/lib64/com.qualcomm.qti.ant@1.0.so
 
-# Bluetooth (aptX)
-lib64/libaptX_encoder.so
-lib64/libaptXHD_encoder.so
-
 # Camera firmware
 vendor/firmware/cpp_firmware_v1_10_0.fw
 vendor/firmware/cpp_firmware_v1_12_0.fw
