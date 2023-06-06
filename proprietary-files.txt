@@ -58,9 +58,7 @@ vendor/lib64/com.qualcomm.qti.ant@1.0.so
 
 # Camera
 vendor/lib/libcdsprpc.so;DUMMY_SHARED_LIB
-vendor/lib/libhal_dbg.so;DUMMY_SHARED_LIB
 vendor/lib/libmmcamera_dbg.so;DUMMY_SHARED_LIB
-vendor/lib/libmmcamera_interface.so;DUMMY_SHARED_LIB
 
 # Camera firmware
 vendor/firmware/cpp_firmware_v1_10_0.fw
