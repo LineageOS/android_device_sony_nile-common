@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c88aa5ae_c809c54e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32976
+      },
+      "writtenOn": "2023-09-17T18:48:15Z",
+      "side": 1,
+      "message": "Minimal patches to get LineageOS 20 buiding for nile.\nThis is inspired by other chains like https://review.lineageos.org/c/LineageOS/android_device_zuk_msm8996-common/+/363210\nThis is for LineageOS 20 ONLY.\nI may be missing/misunderstanding a lot of things here. Thanks for the review.",
+      "revId": "2de99cefa71320abf5f6d1a13d94c53ff521787e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
