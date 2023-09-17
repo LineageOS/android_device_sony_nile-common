@@ -159,13 +159,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
     android.hardware.camera.provider@2.5 \
-    Snap \
-    vendor.qti.hardware.camera.device@1.0 \
-    vendor.qti.hardware.camera.device@1.0_vendor
-
-# CNE
-PRODUCT_PACKAGES += \
-    libcnefeatureconfig
+    vendor.qti.hardware.camera.device@1.0
 
 # Common init scripts
 PRODUCT_PACKAGES += \
@@ -189,17 +183,14 @@ PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0.vendor \
     android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.composer@2.1-impl:64 \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.mapper@2.0-impl \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    copybit.sdm660 \
     gralloc.sdm660 \
     hwcomposer.sdm660 \
     memtrack.sdm660 \
     libdisplayconfig \
-    liboverlay \
     libqdMetaData.system \
     libtinyxml
 
@@ -268,11 +259,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
-# IPv6
-PRODUCT_PACKAGES += \
-    ethertypes \
-    libebtc
-
 # # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.0.vendor
@@ -330,7 +316,6 @@ PRODUCT_PACKAGES += \
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
@@ -420,10 +405,6 @@ PRODUCT_BOOT_JARS += \
 # Tethering
 PRODUCT_PACKAGES += \
     TetheringConfigOverlay
-
-# TextClassifier
-PRODUCT_PACKAGES += \
-    textclassifier.bundle1
 
 # Update engine
 PRODUCT_PACKAGES += \
