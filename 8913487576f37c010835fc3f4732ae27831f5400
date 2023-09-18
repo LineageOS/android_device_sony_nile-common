@@ -34,6 +34,24 @@
       "parentUuid": "94944fc6_6939dc48",
       "revId": "8913487576f37c010835fc3f4732ae27831f5400",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eb62db0_a0ca60f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-09-18T08:34:18Z",
+      "side": 1,
+      "message": "If that\u0027s why, then I\u0027d prefer a cherry-pick of that change ^^",
+      "parentUuid": "b1242f39_e44eb804",
+      "revId": "8913487576f37c010835fc3f4732ae27831f5400",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
