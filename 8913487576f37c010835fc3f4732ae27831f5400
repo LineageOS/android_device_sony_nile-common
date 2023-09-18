@@ -52,6 +52,24 @@
       "parentUuid": "b1242f39_e44eb804",
       "revId": "8913487576f37c010835fc3f4732ae27831f5400",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fba3b84d_eac46a20",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 32976
+      },
+      "writtenOn": "2023-09-18T15:49:23Z",
+      "side": 1,
+      "message": "Here https://review.lineageos.org/c/LineageOS/android_device_sony_nile-common/+/366583",
+      "parentUuid": "2eb62db0_a0ca60f9",
+      "revId": "8913487576f37c010835fc3f4732ae27831f5400",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
