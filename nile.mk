@@ -345,7 +345,7 @@ PRODUCT_PACKAGES += \
 
 # QNS
 PRODUCT_PACKAGES += \
-    libstdc++.vendor
+    libstdc++_vendor
 
 # RCS
 PRODUCT_PACKAGES += \
