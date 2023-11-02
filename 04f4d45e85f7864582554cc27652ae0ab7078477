@@ -46,6 +46,30 @@
       },
       "revId": "04f4d45e85f7864582554cc27652ae0ab7078477",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54889acb_af7aa408",
+        "filename": "nile.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 19282
+      },
+      "writtenOn": "2023-11-02T08:39:59Z",
+      "side": 1,
+      "message": "\u003e Shouldn\u0027t this be the 32 bit version of the file at `arm/arch-arm-armv7-a-neon/shared/vndk-sp/libhidlbase.so`?\n\nAh, sorry. I did not see you are using `arch-arm-armv8-a`.",
+      "parentUuid": "93336bec_b7c6b665",
+      "range": {
+        "startLine": 441,
+        "startChar": 23,
+        "endLine": 441,
+        "endChar": 75
+      },
+      "revId": "04f4d45e85f7864582554cc27652ae0ab7078477",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
