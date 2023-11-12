@@ -190,6 +190,10 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system \
     libtinyxml
 
+# DPM
+PRODUCT_PACKAGES += \
+    libcutils_shim
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl:64 \
@@ -436,8 +440,6 @@ PRODUCT_PACKAGES += \
     libhidlbase_shim
 
 PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v29/arm64/arch-arm-armv8-a/shared/vndk-sp/libcutils.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libcutils-v29.so \
-    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-sp/libcutils.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libcutils-v29.so \
     prebuilts/vndk/v33/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v33.so
 
 # WiFi
