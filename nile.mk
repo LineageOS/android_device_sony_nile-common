@@ -333,6 +333,10 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+# Peripheral manager
+PRODUCT_PACKAGES += \
+    libutils_refbase_shim
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
@@ -438,9 +442,6 @@ PRODUCT_PACKAGES += \
 # VNDK
 PRODUCT_PACKAGES += \
     libhidlbase_shim
-
-PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v33/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v33.so
 
 # WiFi
 PRODUCT_PACKAGES += \

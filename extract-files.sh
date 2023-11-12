@@ -64,7 +64,7 @@ function blob_fixup() {
             sed -i "s/libhidltransport.so/libcutils_shim.so\x00\x00/" "${2}"
             ;;
         vendor/bin/pm-service)
-            grep -q libutils-v33.so "${2}" || "${PATCHELF}" --add-needed "libutils-v33.so" "${2}"
+            grep -q libutils_refbase_shim.so "${2}" || "${PATCHELF}" --add-needed "libutils_refbase_shim.so" "${2}"
             ;;
         vendor/bin/qns|vendor/lib/libSonyIMX300PdafLibrary.so)
             "${PATCHELF}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
