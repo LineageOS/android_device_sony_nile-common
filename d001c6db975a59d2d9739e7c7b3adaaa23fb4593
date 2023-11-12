@@ -16,6 +16,24 @@
       "message": "Can\u0027t you move the binary to system_ext?",
       "revId": "d001c6db975a59d2d9739e7c7b3adaaa23fb4593",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c443ce80_60b5ded4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-11-12T21:16:19Z",
+      "side": 1,
+      "message": "i could, but i don\u0027t really mind having 1 line in sepolicy.",
+      "parentUuid": "50634bf9_e195a94f",
+      "revId": "d001c6db975a59d2d9739e7c7b3adaaa23fb4593",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
