@@ -87,7 +87,7 @@ function blob_fixup() {
             sed -i "s/.bt_nv.bin/.bt_nv.noo/" "${2}"
             ;;
         vendor/lib*/vendor.somc.hardware.security.secd@1.0.so)
-            "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v32.so" "${2}"
+            grep -q libhidlbase_shim.so "{$2}" || "${PATCHELF}" --add-needed "libhidlbase_shim.so" "${2}"
             ;;
     esac
 }
