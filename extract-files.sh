@@ -80,10 +80,7 @@ function blob_fixup() {
         vendor/etc/init/init.sony-modem-switcher.rc)
             sed -i "s/\/system\/bin\/sony-modem-switcher/\/vendor\/bin\/sony-modem-switcher/" "${2}"
             ;;
-        vendor/lib/libbtnv.so)
-            sed -i "s/.bt_nv.bin/.bt_nv.noo/" "${2}"
-            ;;
-        vendor/lib64/libbtnv.so)
+        vendor/lib*/libbtnv.so)
             sed -i "s/.bt_nv.bin/.bt_nv.noo/" "${2}"
             ;;
         vendor/lib*/vendor.somc.hardware.security.secd@1.0.so)
