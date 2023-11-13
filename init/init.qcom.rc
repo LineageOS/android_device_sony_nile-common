@@ -409,13 +409,6 @@ service cei_sh /vendor/bin/init.qcom.cei.sh
     group root
     oneshot
 
-service charger /system/bin/charger
-    class charger
-    user system
-    group system graphics input
-    capabilities SYS_BOOT
-    seclabel u:r:charger:s0
-
 service cnss-daemon /vendor/bin/cnss-daemon -n -l
     class late_start
     user system
