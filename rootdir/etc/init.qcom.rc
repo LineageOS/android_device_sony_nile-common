@@ -567,21 +567,10 @@ on property:vendor.radio.multisim.config=*
 
 on property:vendor.radio.multisim.config=ss
     setprop persist.vendor.radio.block_allow_data 1
-
-on property:vendor.radio.multisim.config=ss && property:ro.product.first_api_level=26
-    start vendor.ril-daemon
-
-on property:vendor.radio.multisim.config=ss && property:ro.product.first_api_level=28
     start vendor.qcrild
 
 on property:vendor.radio.multisim.config=dsds
     setprop persist.vendor.radio.block_allow_data 0
-
-on property:vendor.radio.multisim.config=dsds && property:ro.product.first_api_level=26
-    start vendor.ril-daemon
-    start vendor.ril-daemon2
-
-on property:vendor.radio.multisim.config=dsds && property:ro.product.first_api_level=28
     start vendor.qcrild
     start vendor.qcrild2
 
