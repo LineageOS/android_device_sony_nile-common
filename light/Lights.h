@@ -20,6 +20,7 @@
 #include <aidl/android/hardware/light/BnLights.h>
 
 #include <fstream>
+#include <functional>
 #include <mutex>
 #include <unordered_map>
 
