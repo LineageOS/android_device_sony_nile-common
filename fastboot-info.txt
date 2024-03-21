@@ -1,0 +1,5 @@
+version 1
+flash boot
+flash system
+flash vendor
+if-wipe erase userdata
