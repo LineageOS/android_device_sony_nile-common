@@ -4,9 +4,6 @@ unix_socket_connect(rild, tad, tad)
 # Allow binder communication with hal_secd_default
 binder_call(rild, hal_secd_default)
 
-# Allow binder communication with qtidataservices_app
-binder_call(rild, qtidataservices_app)
-
 # Allow rild to add somc_hw_radio_hwservice
 allow rild somc_hw_radio_hwservice:hwservice_manager add;
 
