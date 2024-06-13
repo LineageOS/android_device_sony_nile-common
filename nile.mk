@@ -268,7 +268,8 @@ PRODUCT_COPY_FILES += \
 
 # # Keymaster
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.0.vendor
+    android.hardware.keymaster@4.0.vendor \
+    libion.vendor:64
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -309,7 +310,8 @@ endif
 # Net
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.0 \
-    libandroid_net
+    libandroid_net \
+    libnetutils.vendor:64
 
 # Netd
 PRODUCT_PACKAGES += \
@@ -353,6 +355,7 @@ PRODUCT_COPY_FILES += \
 # QMI
 PRODUCT_PACKAGES += \
     libjson \
+    libsqlite.vendor:64 \
     libqti_vndfwk_detect.vendor
 
 # QNS
