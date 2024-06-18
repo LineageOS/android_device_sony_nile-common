@@ -35,7 +35,8 @@ on init
     chmod 660 /sys/class/leds/blue/start_idx
     chmod 660 /sys/class/leds/rgb/rgb_blink
 
-service vendor.light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.nile
+service vendor.light-default /vendor/bin/hw/android.hardware.light-service.nile
     class hal
     user system
     group system
+    shutdown critical

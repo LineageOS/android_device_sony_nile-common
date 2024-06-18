@@ -16,26 +16,24 @@
 
 #define LOG_TAG "LightService"
 
-#include "Light.h"
+#include "Lights.h"
 
 #include <android-base/logging.h>
 
 namespace {
-using android::hardware::light::V2_0::LightState;
-
 static constexpr int RAMP_SIZE = 8;
 static constexpr int RAMP_STEP_DURATION = 50;
 
 static constexpr int BRIGHTNESS_RAMP[RAMP_SIZE] = {0, 12, 25, 37, 50, 72, 85, 100};
 static constexpr int DEFAULT_MAX_BRIGHTNESS = 255;
 
-static uint32_t rgbToBrightness(const LightState& state) {
+static uint32_t rgbToBrightness(const HwLightState& state) {
     uint32_t color = state.color & 0x00ffffff;
     return ((77 * ((color >> 16) & 0xff)) + (150 * ((color >> 8) & 0xff)) +
             (29 * (color & 0xff))) >> 8;
 }
 
-static bool isLit(const LightState& state) {
+static bool isLit(const HwLightState& state) {
     return (state.color & 0x00ffffff);
 }
 
@@ -52,21 +50,20 @@ static std::string getScaledDutyPcts(int brightness) {
 }
 }  // anonymous namespace
 
+namespace aidl {
 namespace android {
 namespace hardware {
 namespace light {
-namespace V2_0 {
-namespace implementation {
 
-Light::Light(std::pair<std::ofstream, uint32_t>&& lcd_backlight,
-             std::ofstream&& red_led, std::ofstream&& green_led, std::ofstream&& blue_led,
-             std::ofstream&& red_duty_pcts, std::ofstream&& green_duty_pcts, std::ofstream&& blue_duty_pcts,
-             std::ofstream&& red_start_idx, std::ofstream&& green_start_idx, std::ofstream&& blue_start_idx,
-             std::ofstream&& red_pause_lo, std::ofstream&& green_pause_lo, std::ofstream&& blue_pause_lo,
-             std::ofstream&& red_pause_hi, std::ofstream&& green_pause_hi, std::ofstream&& blue_pause_hi,
-             std::ofstream&& red_ramp_step_ms, std::ofstream&& green_ramp_step_ms, std::ofstream&& blue_ramp_step_ms,
-             std::ofstream&& red_blink, std::ofstream&& green_blink, std::ofstream&& blue_blink,
-             std::ofstream&& rgb_blink)
+Lights::Lights(std::pair<std::ofstream, uint32_t>&& lcd_backlight,
+               std::ofstream&& red_led, std::ofstream&& green_led, std::ofstream&& blue_led,
+               std::ofstream&& red_duty_pcts, std::ofstream&& green_duty_pcts, std::ofstream&& blue_duty_pcts,
+               std::ofstream&& red_start_idx, std::ofstream&& green_start_idx, std::ofstream&& blue_start_idx,
+               std::ofstream&& red_pause_lo, std::ofstream&& green_pause_lo, std::ofstream&& blue_pause_lo,
+               std::ofstream&& red_pause_hi, std::ofstream&& green_pause_hi, std::ofstream&& blue_pause_hi,
+               std::ofstream&& red_ramp_step_ms, std::ofstream&& green_ramp_step_ms, std::ofstream&& blue_ramp_step_ms,
+               std::ofstream&& red_blink, std::ofstream&& green_blink, std::ofstream&& blue_blink,
+               std::ofstream&& rgb_blink)
     : mLcdBacklight(std::move(lcd_backlight)),
       mRedLed(std::move(red_led)),
       mGreenLed(std::move(green_led)),
@@ -90,48 +87,46 @@ Light::Light(std::pair<std::ofstream, uint32_t>&& lcd_backlight,
       mGreenBlink(std::move(green_blink)),
       mBlueBlink(std::move(blue_blink)),
       mRgbBlink(std::move(rgb_blink)) {
-    auto attnFn(std::bind(&Light::setAttentionLight, this, std::placeholders::_1));
-    auto backlightFn(std::bind(&Light::setLcdBacklight, this, std::placeholders::_1));
-    auto batteryFn(std::bind(&Light::setBatteryLight, this, std::placeholders::_1));
-    auto notifFn(std::bind(&Light::setNotificationLight, this, std::placeholders::_1));
-    mLights.emplace(std::make_pair(Type::ATTENTION, attnFn));
-    mLights.emplace(std::make_pair(Type::BACKLIGHT, backlightFn));
-    mLights.emplace(std::make_pair(Type::BATTERY, batteryFn));
-    mLights.emplace(std::make_pair(Type::NOTIFICATIONS, notifFn));
+    auto attnFn(std::bind(&Lights::setAttentionLight, this, std::placeholders::_1));
+    auto backlightFn(std::bind(&Lights::setLcdBacklight, this, std::placeholders::_1));
+    auto batteryFn(std::bind(&Lights::setBatteryLight, this, std::placeholders::_1));
+    auto notifFn(std::bind(&Lights::setNotificationLight, this, std::placeholders::_1));
+    mLights.emplace(std::make_pair(LightType::ATTENTION, attnFn));
+    mLights.emplace(std::make_pair(LightType::BACKLIGHT, backlightFn));
+    mLights.emplace(std::make_pair(LightType::BATTERY, batteryFn));
+    mLights.emplace(std::make_pair(LightType::NOTIFICATIONS, notifFn));
 }
 
-// Methods from ::android::hardware::light::V2_0::ILight follow.
-Return<Status> Light::setLight(Type type, const LightState& state) {
-    auto it = mLights.find(type);
+// Methods from ::aidl::android::hardware::light::BnLights follow.
+ndk::ScopedAStatus Lights::setLightState(int32_t id, const HwLightState& state) {
+    auto it = mLights.find(static_cast<LightType>(id));
 
     if (it == mLights.end()) {
-        return Status::LIGHT_NOT_SUPPORTED;
+        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
 
     it->second(state);
 
-    return Status::SUCCESS;
+    return ndk::ScopedAStatus::ok();
 }
 
-Return<void> Light::getSupportedTypes(getSupportedTypes_cb _hidl_cb) {
-    std::vector<Type> types;
+#define AutoHwLight(light) {.id = (int32_t)light, .type = light, .ordinal = 0}
 
+ndk::ScopedAStatus Lights::getLights(std::vector<HwLight> *_aidl_return) {
     for (auto const& light : mLights) {
-        types.push_back(light.first);
+        _aidl_return->push_back(AutoHwLight(light.first));
     }
 
-    _hidl_cb(types);
-
-    return Void();
+    return ndk::ScopedAStatus::ok();
 }
 
-void Light::setAttentionLight(const LightState& state) {
+void Lights::setAttentionLight(const HwLightState& state) {
     std::lock_guard<std::mutex> lock(mLock);
     mAttentionState = state;
     setSpeakerBatteryLightLocked();
 }
 
-void Light::setLcdBacklight(const LightState& state) {
+void Lights::setLcdBacklight(const HwLightState& state) {
     std::lock_guard<std::mutex> lock(mLock);
 
     uint32_t brightness = rgbToBrightness(state);
@@ -147,19 +142,19 @@ void Light::setLcdBacklight(const LightState& state) {
     mLcdBacklight.first << brightness << std::endl;
 }
 
-void Light::setBatteryLight(const LightState& state) {
+void Lights::setBatteryLight(const HwLightState& state) {
     std::lock_guard<std::mutex> lock(mLock);
     mBatteryState = state;
     setSpeakerBatteryLightLocked();
 }
 
-void Light::setNotificationLight(const LightState& state) {
+void Lights::setNotificationLight(const HwLightState& state) {
     std::lock_guard<std::mutex> lock(mLock);
     mNotificationState = state;
     setSpeakerBatteryLightLocked();
 }
 
-void Light::setSpeakerBatteryLightLocked() {
+void Lights::setSpeakerBatteryLightLocked() {
     if (isLit(mNotificationState)) {
         setSpeakerLightLocked(mNotificationState);
     } else if (isLit(mAttentionState)) {
@@ -177,7 +172,7 @@ void Light::setSpeakerBatteryLightLocked() {
     }
 }
 
-void Light::setSpeakerLightLocked(const LightState& state) {
+void Lights::setSpeakerLightLocked(const HwLightState& state) {
     int red, green, blue, blink;
     int onMs, offMs, stepDuration, pauseHi;
     uint32_t alpha;
@@ -191,18 +186,18 @@ void Light::setSpeakerLightLocked(const LightState& state) {
     blue = state.color & 0xff;
 
     // Scale RGB colors if a brightness has been applied by the user
-    if (alpha != 0xff) {
+    if (alpha > 0 && alpha < 255) {
         red = (red * alpha) / 0xff;
         green = (green * alpha) / 0xff;
         blue = (blue * alpha) / 0xff;
     }
 
     switch (state.flashMode) {
-        case Flash::TIMED:
+        case FlashMode::TIMED:
             onMs = state.flashOnMs;
             offMs = state.flashOffMs;
             break;
-        case Flash::NONE:
+        case FlashMode::NONE:
         default:
             onMs = 0;
             offMs = 0;
@@ -257,8 +252,7 @@ void Light::setSpeakerLightLocked(const LightState& state) {
     }
 }
 
-}  // namespace implementation
-}  // namespace V2_0
 }  // namespace light
 }  // namespace hardware
 }  // namespace android
+}  // namespace aidl
