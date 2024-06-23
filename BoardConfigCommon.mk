@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
-
 BOARD_VENDOR := sony
 
 VENDOR_PATH := device/sony/nile-common
