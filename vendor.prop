@@ -171,6 +171,7 @@ ro.vendor.sensors.sta_detect=true
 
 # USB
 persist.vendor.usb.config.extra=none
+sys.usb.mtp.batchcancel=1
 vendor.usb.controller=a800000.dwc3
 vendor.usb.device=a800000.ssusb
 vendor.usb.diag.func.name=diag
@@ -179,7 +180,7 @@ vendor.usb.qdss.inst.name=qdss
 vendor.usb.rmnet.func.name=rmnet_bam
 vendor.usb.rmnet.inst.name=rmnet
 vendor.usb.rndis.func.name=rndis_bam
-vendor.usb.use_ffs_mtp=0
+vendor.usb.use_ffs_mtp=1
 vendor.usb.use_gadget_hal=0
 
 # Wifi
