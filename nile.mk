@@ -284,7 +284,8 @@ PRODUCT_PACKAGES += \
     libc2dcolorconvert \
     libOmxVdec \
     libOmxVenc \
-    libstagefrighthw
+    libstagefrighthw \
+    libstagefright_softomx_plugin.vendor
 
 # Partitions
 PRODUCT_PACKAGES += \
