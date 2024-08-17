@@ -99,7 +99,6 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default \
     libaudio-resampler \
-    libaudioroute \
     libdynproc \
     libhdmiedid \
     libhfp \
@@ -138,19 +137,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
 
-# Bluetooth
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0 \
-    android.hardware.bluetooth@1.0.vendor \
-    vendor.qti.hardware.btconfigstore@1.0.vendor
-
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.device@3.5 \
     android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service \
-    android.hardware.camera.provider@2.5 \
-    vendor.qti.hardware.camera.device@1.0
+    android.hardware.camera.provider@2.4-service
 
 # Common init scripts
 PRODUCT_PACKAGES += \
@@ -175,29 +165,19 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    android.frameworks.displayservice@1.0.vendor \
     android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.mapper@2.0-impl \
     gralloc.sdm660 \
     hwcomposer.sdm660 \
-    libdisplayconfig \
-    libqdMetaData.system \
-    libtinyxml \
     vendor.qti.hardware.memtrack-service
-
-# DPM
-PRODUCT_PACKAGES += \
-    libcutils_shim
 
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl:64 \
     android.hardware.drm@1.0-service \
-    android.hardware.drm@1.1.vendor \
-    android.hardware.drm-service.clearkey \
-    libcrypto_shim.vendor
+    android.hardware.drm-service.clearkey
 
 # Fastboot
 TARGET_BOARD_FASTBOOT_INFO_FILE := $(LOCAL_PATH)/fastboot-info.txt
@@ -215,13 +195,8 @@ PRODUCT_PACKAGES += \
     libqcomfm_jni \
     qcom.fmradio
 
-# Gatekeeper
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0.vendor
-
 # GPS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@2.0.vendor \
     libwifi-hal-ctrl
 
 PRODUCT_COPY_FILES += \
@@ -236,16 +211,6 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
 
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.base@1.0.vendor \
-    android.hidl.manager@1.0 \
-    libhidltransport \
-    libhidltransport.vendor \
-    libhwbinder \
-    libhwbinder.vendor
-
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl
@@ -258,11 +223,6 @@ PRODUCT_PACKAGES += \
 # IPC router config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
-
-# Keymaster
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.0.vendor \
-    libion.vendor
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -300,16 +260,6 @@ PRODUCT_COPY_FILES += \
     $(shell find $(LOCAL_PATH)/modem-config -type f -printf '%p:$(TARGET_COPY_OUT_VENDOR)/modemconf/%P\n')
 endif
 
-# Net
-PRODUCT_PACKAGES += \
-    android.system.net.netd@1.0 \
-    libandroid_net \
-    libnetutils.vendor:64
-
-# Netd
-PRODUCT_PACKAGES += \
-    android.system.net.netd@1.1.vendor
-
 # NFC
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.2-service \
@@ -332,28 +282,12 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti \
-    vendor.qti.hardware.perf@2.0.vendor
-
-# Protobuf
-PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full-vendorcompat \
-    libprotobuf-cpp-lite-vendorcompat
+    android.hardware.power-service-qti
 
 # QCOM
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
-
-# QMI
-PRODUCT_PACKAGES += \
-    libjson \
-    libsqlite.vendor:64 \
-    libqti_vndfwk_detect.vendor
-
-# QNS
-PRODUCT_PACKAGES += \
-    libstdc++_vendor
 
 # RCS
 PRODUCT_PACKAGES += \
@@ -365,16 +299,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
-# RIL
-PRODUCT_PACKAGES += \
-    android.hardware.radio@1.2 \
-    android.hardware.radio@1.4.vendor \
-    android.hardware.radio.config@1.2.vendor \
-    android.hardware.secure_element@1.0.vendor \
-    android.hardware.radio.deprecated@1.0.vendor \
-    librmnetctl \
-    libxml2
-
 # Seccomp policy
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
@@ -382,10 +306,8 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.frameworks.sensorservice@1.0.vendor \
     android.hardware.sensors@1.0-impl:64 \
-    android.hardware.sensors@1.0-service \
-    libpower.vendor
+    android.hardware.sensors@1.0-service
 
 # SimDetect
 PRODUCT_PACKAGES += \
@@ -431,11 +353,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service
 
-# VNDK
-PRODUCT_PACKAGES += \
-    libhidlbase_shim \
-    libutils-v33
-
 # WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
@@ -454,11 +371,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
 # WiFi Display
-PRODUCT_PACKAGES += \
-    libaacwrapper \
-    libmediaextractorservice \
-    libnl
-
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
     ro.surface_flinger.max_virtual_display_dimension=4096
