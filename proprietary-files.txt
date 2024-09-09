@@ -368,8 +368,10 @@ vendor/lib64/vendor.qti.gnss@2.1.so
 vendor/lib64/vendor.qti.gnss@3.0.so
 
 # Keymaster
-vendor/lib/libkeymasterdeviceutils.so;DUMMY_SHARED_LIB
-vendor/lib64/libkeymasterdeviceutils.so;DUMMY_SHARED_LIB
+vendor/lib64/libkeymasterdeviceutils.so
+vendor/lib64/libkeymasterprovision.so
+vendor/lib64/libkeymasterutils.so
+vendor/lib64/libqtikeymaster4.so
 
 # Listen
 vendor/lib/hw/sound_trigger.primary.sdm660.so
