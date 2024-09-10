@@ -92,6 +92,9 @@ function blob_fixup() {
         vendor/lib*/libbtnv.so)
             sed -i "s/.bt_nv.bin/.bt_nv.noo/" "${2}"
             ;;
+        vendor/lib*/libwvhidl.so)
+            grep -q libcrypto_shim.so "${2}" || "${PATCHELF}" --add-needed "libcrypto_shim.so" "${2}"
+            ;;
         vendor/lib64/com.fingerprints.extension@1.0.so|vendor/lib*/vendor.somc.hardware.security.secd@1.0.so)
             grep -q libhidlbase_shim.so "{$2}" || "${PATCHELF}" --add-needed "libhidlbase_shim.so" "${2}"
             ;;
