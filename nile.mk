@@ -357,6 +357,9 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/qcom-caf/common/libqti-perfd-client \
     hardware/sony
 
+# Storage
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
 # Telephony
 PRODUCT_PACKAGES += \
     ims-ext-common \
