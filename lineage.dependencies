@@ -4,6 +4,10 @@
     "target_path": "kernel/sony/sdm660"
   },
   {
+    "repository": "android_hardware_sony",
+    "target_path": "hardware/sony"
+  },
+  {
     "repository": "android_hardware_sony_macaddrsetup",
     "target_path": "hardware/sony/macaddrsetup"
   },
