@@ -45,6 +45,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libcrypto_shim.so'),
     'vendor/lib64/com.fingerprints.extension@1.0.so': blob_fixup()
         .add_needed('libhidlbase_shim.so'),
+    'vendor/lib64/fpc_tac.so': blob_fixup()
+        .replace_needed('libprotobuf-c.so', 'libprotobuf-c-idd.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
