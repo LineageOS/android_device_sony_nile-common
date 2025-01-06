@@ -36,7 +36,7 @@ vendor/lib/soundfx/libasphere.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
-vendor/lib/soundfx/libznrwrapper.so
+vendor/lib/soundfx/libznrwrapper.so;FIX_SONAME
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
