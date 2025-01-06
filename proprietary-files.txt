@@ -70,8 +70,6 @@ vendor/lib64/libbtnv.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 
 # Bluetooth (ANT+)
-product/lib/com.qualcomm.qti.ant@1.0.so
-product/lib64/com.qualcomm.qti.ant@1.0.so
 vendor/lib/com.qualcomm.qti.ant@1.0.so
 vendor/lib64/com.qualcomm.qti.ant@1.0.so
 
@@ -367,13 +365,6 @@ vendor/lib/libsmwrapper.so
 vendor/lib64/hw/sound_trigger.primary.sdm660.so
 
 # Media
-system/lib/extractors/libmmparserextractor.so
-system/lib/libFileMux.so
-system/lib/libOmxMux.so
-system/lib/libmmosal.so
-system/lib/libmmparser_lite.so
-system/lib64/libmmosal.so
-system/lib64/libmmparser_lite.so
 vendor/lib/libAlacSwDec.so
 vendor/lib/libApeSwDec.so
 vendor/lib/libFlacSwDec.so
@@ -432,8 +423,6 @@ vendor/lib64/vendor.somc.hardware.modemswitcher@1.0.so|981a107e38343e091b9ff5696
 vendor/firmware/libpn553_fw.so:vendor/lib/libpn553_fw.so
 
 # Idd
-system/lib/vendor.semc.system.idd@1.0.so
-system/lib64/vendor.semc.system.idd@1.0.so
 vendor/bin/hw/vendor.semc.system.idd@1.0-service
 vendor/etc/init/init.sony.idd.rc
 vendor/etc/init/vendor.semc.system.idd@1.0-service.rc
@@ -477,10 +466,6 @@ vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
 # Postprocessing
-product/lib/vendor.display.color@1.0.so
-product/lib/vendor.display.postproc@1.0.so
-product/lib64/vendor.display.color@1.0.so
-product/lib64/vendor.display.postproc@1.0.so
 system/etc/permissions/com.qti.snapdragon.sdk.display.xml
 system/framework/com.qti.snapdragon.sdk.display.jar
 vendor/bin/hw/vendor.display.color@1.0-service
@@ -654,18 +639,6 @@ vendor/radio/qcril_database/qcril.db
 
 # RIL (IMS)
 product/app/uceShimService/uceShimService.apk:system_ext/app/uceShimService/uceShimService.apk
-product/lib/com.qualcomm.qti.imscmservice@1.0.so:system_ext/lib/com.qualcomm.qti.imscmservice@1.0.so
-product/lib/com.qualcomm.qti.imscmservice@2.0.so:system_ext/lib/com.qualcomm.qti.imscmservice@2.0.so
-product/lib/com.qualcomm.qti.imscmservice@2.1.so:system_ext/lib/com.qualcomm.qti.imscmservice@2.1.so
-product/lib/com.qualcomm.qti.imscmservice@2.2.so:system_ext/lib/com.qualcomm.qti.imscmservice@2.2.so
-product/lib/lib-imscamera.so:system_ext/lib/lib-imscamera.so
-product/lib/lib-imsvideocodec.so:system_ext/lib/lib-imsvideocodec.so
-product/lib/lib-imsvtextutils.so:system_ext/lib/lib-imsvtextutils.so
-product/lib/lib-imsvtutils.so:system_ext/lib/lib-imsvtutils.so
-product/lib/libimscamera_jni.so:system_ext/lib/libimscamera_jni.so
-product/lib/libimsmedia_jni.so:system_ext/lib/libimsmedia_jni.so
-product/lib/vendor.qti.imsrtpservice@2.0.so:system_ext/lib/vendor.qti.imsrtpservice@2.0.so
-product/lib/vendor.qti.imsrtpservice@2.1.so:system_ext/lib/vendor.qti.imsrtpservice@2.1.so
 product/lib64/com.qualcomm.qti.imscmservice@1.0.so:system_ext/lib64/com.qualcomm.qti.imscmservice@1.0.so
 product/lib64/com.qualcomm.qti.imscmservice@2.0.so:system_ext/lib64/com.qualcomm.qti.imscmservice@2.0.so
 product/lib64/com.qualcomm.qti.imscmservice@2.1.so:system_ext/lib64/com.qualcomm.qti.imscmservice@2.1.so
@@ -749,8 +722,6 @@ vendor/lib64/sensor_calibrate.so
 vendor/lib64/sensors.ssc.so
 
 # TA
-system/lib/vendor.somc.hardware.miscta@1.0.so
-system/lib64/vendor.somc.hardware.miscta@1.0.so
 vendor/bin/hw/vendor.somc.hardware.miscta@1.0-service
 vendor/bin/ta_qmi_service
 vendor/bin/tad
@@ -785,8 +756,6 @@ vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
 
 # TUI
-product/lib/vendor.qti.hardware.tui_comm@1.0.so
-product/lib64/vendor.qti.hardware.tui_comm@1.0.so
 vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
 vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
 vendor/lib/vendor.qti.hardware.tui_comm@1.0.so
