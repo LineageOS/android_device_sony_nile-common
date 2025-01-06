@@ -212,7 +212,7 @@ vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service_fpc|f1dde9fa0e
 vendor/etc/permissions/com.fingerprints.extension.xml|de711d8827e1d321b22b60fd75a204e8928f9c6d
 vendor/framework/com.fingerprints.extension.jar|560bc65bb9483fd1cd56ec2305c0ee804e3a0120
 vendor/lib64/com.fingerprints.extension@1.0.so|8e1d80d3a7d7a65a683bbb99c681da22cceb9946|b9b9c5e38173a4ef49f823bc03ca2eff876e2847
-vendor/lib64/fpc_tac.so|e0608e99df40ed30bb2bc9ac3fb0829198b84e05
+vendor/lib64/fpc_tac.so|e0608e99df40ed30bb2bc9ac3fb0829198b84e05|62c0e0a6f4b0ba8454e5bdd407ca716a97eeb84e
 
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
