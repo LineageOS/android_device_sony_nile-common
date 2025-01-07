@@ -43,6 +43,10 @@ blob_fixups: blob_fixups_user_type = {
         .binary_regex_replace(b'.bt_nv.bin', b'.bt_nv.noo'),
     ('vendor/lib/libwvhidl.so', 'vendor/lib64/libwvhidl.so'): blob_fixup()
         .add_needed('libcrypto_shim.so'),
+    'vendor/lib/libznr.so': blob_fixup()
+        .clear_symbol_version('__aeabi_memcpy')
+        .clear_symbol_version('__aeabi_memset')
+        .clear_symbol_version('__gnu_Unwind_Find_exidx'),
     'vendor/lib64/com.fingerprints.extension@1.0.so': blob_fixup()
         .add_needed('libhidlbase_shim.so'),
     'vendor/lib64/fpc_tac.so': blob_fixup()
