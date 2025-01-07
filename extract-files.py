@@ -44,6 +44,7 @@ blob_fixups: blob_fixups_user_type = {
     ('vendor/lib/libwvhidl.so', 'vendor/lib64/libwvhidl.so'): blob_fixup()
         .add_needed('libcrypto_shim.so'),
     'vendor/lib/libznr.so': blob_fixup()
+        .add_needed('liblog.so')
         .clear_symbol_version('__aeabi_memcpy')
         .clear_symbol_version('__aeabi_memset')
         .clear_symbol_version('__gnu_Unwind_Find_exidx'),
