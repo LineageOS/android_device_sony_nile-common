@@ -148,14 +148,15 @@ PRODUCT_PACKAGES += \
 # Common init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    fstab.qcom.ramdisk \
     init.qcom.cei.sh \
     init.qcom.devstart.sh \
     init.qcom.post_boot.sh \
     init.qcom.rc \
+    init.qcom.recovery.rc \
     init.qcom.sensors.sh \
     init.qcom.sh \
     init.qcom.usb.rc \
-    init.recovery.qcom.rc \
     ueventd.qcom.rc
 
 # Component overrides
