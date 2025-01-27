@@ -23,3 +23,61 @@ cc_library_static {
         "system/libbase/include"
     ]
 }
+
+prebuilt_etc {
+    name: "fstab.qcom",
+    src: "fstab.qcom",
+    soc_specific: true,
+    ramdisk_available: true,
+}
+
+prebuilt_etc {
+    name: "init.qcom.rc",
+    src: "init.qcom.rc",
+    sub_dir: "init/hw",
+    soc_specific: true,
+}
+
+prebuilt_etc {
+    name: "init.qcom.usb.rc",
+    src: "init.qcom.usb.rc",
+    sub_dir: "init/hw",
+    soc_specific: true,
+}
+
+prebuilt_etc {
+    name: "ueventd.qcom.rc",
+    filename: "ueventd.rc",
+    src: "ueventd.qcom.rc",
+    soc_specific: true,
+}
+
+sh_binary {
+    name: "init.qcom.cei.sh",
+    src: "init.qcom.cei.sh",
+    soc_specific: true,
+}
+
+sh_binary {
+    name: "init.qcom.devstart.sh",
+    src: "init.qcom.devstart.sh",
+    soc_specific: true,
+}
+
+sh_binary {
+    name: "init.qcom.post_boot.sh",
+    src: "init.qcom.post_boot.sh",
+    soc_specific: true,
+}
+
+sh_binary {
+    name: "init.qcom.sensors.sh",
+    src: "init.qcom.sensors.sh",
+    soc_specific: true,
+}
+
+sh_binary {
+    name: "init.qcom.sh",
+    src: "init.qcom.sh",
+    soc_specific: true,
+}

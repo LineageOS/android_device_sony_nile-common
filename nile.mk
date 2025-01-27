@@ -148,6 +148,7 @@ PRODUCT_PACKAGES += \
 # Common init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    fstab.qcom.ramdisk \
     init.qcom.cei.sh \
     init.qcom.devstart.sh \
     init.qcom.post_boot.sh \
