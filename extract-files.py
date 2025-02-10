@@ -44,7 +44,6 @@ lib_fixups: lib_fixups_user_type = {
     ): lib_fixup_vendor_suffix,
     (
         'libmm-omxcore',
-        'libOmxCore',
         'libwifi-hal-ctrl',
         'libwpa_client',
     ): lib_fixup_remove,

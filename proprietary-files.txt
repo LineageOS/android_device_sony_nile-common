@@ -380,7 +380,7 @@ vendor/lib64/hw/sound_trigger.primary.sdm660.so
 
 # Media
 vendor/lib/libI420colorconvert.so
-vendor/lib/libOmxVideoDSMode.so;DISABLE_CHECKELF
+vendor/lib/libOmxVideoDSMode.so
 vendor/lib/libOmxVpp.so;DISABLE_CHECKELF
 vendor/lib/libgpustats.so
 vendor/lib/libmm-color-convertor.so
