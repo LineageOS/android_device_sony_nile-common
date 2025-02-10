@@ -43,7 +43,6 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.qti.imsrtpservice@2.1',
     ): lib_fixup_vendor_suffix,
     (
-        'libmm-omxcore',
         'libwifi-hal-ctrl',
         'libwpa_client',
     ): lib_fixup_remove,
