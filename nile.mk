@@ -353,6 +353,9 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.3-service.dual_role_usb
 
+# Vendor init
+$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit.sony_nile)
+
 # Vibrator
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service

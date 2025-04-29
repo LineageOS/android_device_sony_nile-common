@@ -209,9 +209,6 @@ include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 
 BOARD_VENDOR_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy/vendor
 
-# Vendor Unification Init
-TARGET_INIT_VENDOR_LIB := //$(VENDOR_PATH):libinit.sony_nile
-
 # Verified Boot
 BOARD_AVB_ENABLE := false
 
