@@ -223,7 +223,6 @@ vendor/lib64/fpc_tac.so|e0608e99df40ed30bb2bc9ac3fb0829198b84e05|62c0e0a6f4b0ba8
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
-vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
 # Graphics
