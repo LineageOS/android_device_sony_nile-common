@@ -369,8 +369,6 @@ vendor/bin/pm-service
 vendor/lib64/libperipheral_client.so
 
 # Postprocessing
-system/etc/permissions/com.qti.snapdragon.sdk.display.xml
-system/framework/com.qti.snapdragon.sdk.display.jar
 vendor/bin/hw/vendor.display.color@1.0-service
 vendor/bin/mm-pp-dpps
 vendor/etc/init/vendor.display.color@1.0-service.rc
