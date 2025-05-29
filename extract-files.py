@@ -34,7 +34,6 @@ lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     (
         'com.qualcomm.qti.dpm.api@1.0',
-        'com.qualcomm.qti.imscmservice@1.0',
         'com.qualcomm.qti.imscmservice@2.0',
         'com.qualcomm.qti.imscmservice@2.1',
         'com.qualcomm.qti.imscmservice@2.2',
