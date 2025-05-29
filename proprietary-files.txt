@@ -378,11 +378,9 @@ vendor/lib64/vendor.display.postproc@1.0.so
 
 # QMI
 product/etc/permissions/telephony_product_privapp-permissions-qti.xml:system_ext/etc/permissions/telephony_product_privapp-permissions-qti.xml
-product/lib/libdiag_system.so:system_ext/lib/libdiag_system.so
 product/lib64/libdiag_system.so:system_ext/lib64/libdiag_system.so
 system/etc/permissions/qti_libpermissions.xml:system_ext/etc/permissions/qti_libpermissions.xml
 system/etc/permissions/qti_permissions.xml:system_ext/etc/permissions/qti_permissions.xml
-system/lib/libqmi_cci_system.so:system_ext/lib/libqmi_cci_system.so
 system/lib64/libqmi_cci_system.so:system_ext/lib64/libqmi_cci_system.so
 vendor/bin/irsc_util
 vendor/bin/mlog_qmi_service
