@@ -36,6 +36,12 @@ ifneq (,$(filter msm8996 sdm660 msm8998 apq8098_latv $(TRINKET),$(TARGET_BOARD_P
     LOCAL_CFLAGS += -DUBWC_PRESENT
 endif
 
+ifneq (,$(filter discovery pioneer voyager,$(TARGET_DEVICE)))
+    LOCAL_CFLAGS += -DTARGET_NILE
+else ifneq (,$(filter kirin mermaid,$(TARGET_DEVICE)))
+    LOCAL_CFLAGS += -DTARGET_GANGES
+endif
+
 LOCAL_CFLAGS += -D_ANDROID_ -DQCAMERA_REDEFINE_LOG
 LOCAL_CFLAGS  += -DFDLEAK_FLAG
 LOCAL_CFLAGS  += -DMEMLEAK_FLAG
