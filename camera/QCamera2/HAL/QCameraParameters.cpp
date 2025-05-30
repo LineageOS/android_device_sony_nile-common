@@ -14243,8 +14243,7 @@ int32_t QCameraParameters::setISType()
     bool eisSupported = false, eis3Supported = false;
     for (size_t i = 0; i < m_pCapability->supported_is_types_cnt; i++) {
         if ((m_pCapability->supported_is_types[i] == IS_TYPE_EIS_2_0) ||
-                (m_pCapability->supported_is_types[i] == IS_TYPE_EIS_3_0) ||
-                (m_pCapability->supported_is_types[i] == IS_TYPE_VENDOR_EIS)) {
+                (m_pCapability->supported_is_types[i] == IS_TYPE_EIS_3_0)) {
             eisSupported = true;
         }
         if (m_pCapability->supported_is_types[i] == IS_TYPE_EIS_3_0) {
@@ -15389,8 +15388,7 @@ int32_t QCameraParameters::updatePpFeatureMask(cam_stream_type_t stream_type) {
                 (stream_type == CAM_STREAM_TYPE_PREVIEW)) {
             needPAAF = true;
         } else if (stream_type == CAM_STREAM_TYPE_VIDEO) {
-            if ((getVideoISType() != IS_TYPE_EIS_3_0) &&
-                (getVideoISType() != IS_TYPE_VENDOR_EIS)) {
+            if (getVideoISType() != IS_TYPE_EIS_3_0) {
                 needPAAF = true;
             }
         }
@@ -15411,16 +15409,9 @@ int32_t QCameraParameters::updatePpFeatureMask(cam_stream_type_t stream_type) {
     }
 
     // Enable PPEISCORE for EIS 3.0
-    if (stream_type == CAM_STREAM_TYPE_VIDEO) {
-        if (getVideoISType() == IS_TYPE_EIS_3_0)
+    if ((stream_type == CAM_STREAM_TYPE_VIDEO) &&
+            (getVideoISType() == IS_TYPE_EIS_3_0)) {
         feature_mask |= CAM_QTI_FEATURE_PPEISCORE;
-        else if (getVideoISType() == IS_TYPE_VENDOR_EIS)
-          feature_mask |= CAM_QTI_FEATURE_VENDOR_EIS;
-    }
-
-    if ((stream_type == CAM_STREAM_TYPE_PREVIEW) &&
-            (getPreviewISType() == IS_TYPE_VENDOR_EIS)) {
-          feature_mask |= CAM_QTI_FEATURE_VENDOR_EIS;
     }
 
     if(isDualCamera()) {
