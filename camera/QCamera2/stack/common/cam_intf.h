@@ -370,7 +370,7 @@ typedef struct cam_capability{
     cam_dimension_t zzhdr_sizes_tbl[MAX_SIZES_CNT];         /* Table for ZZHDR supported sizes */
 
     uint32_t is_quadracfa_sensor;
-    // uint32_t is_quadracfa_insensor;
+    uint32_t is_quadracfa_insensor;
     size_t supported_quadra_cfa_dim_cnt;              /* Number of resolutions in Quadra CFA mode */
     cam_dimension_t quadra_cfa_dim[MAX_SIZES_CNT];    /* Table for Quadra CFA supported sizes */
     cam_format_t quadra_cfa_format;                   /* Quadra CFA output format */
@@ -650,7 +650,7 @@ typedef struct cam_capability{
     float      pixel_pitch_um;
 
     /* Meta_RAW capability */
-    // uint8_t meta_raw_channel_count;
+    uint8_t meta_raw_channel_count;
     uint8_t vc[MAX_SIZES_CNT];
     uint8_t dt[MAX_SIZES_CNT];
     cam_format_t supported_meta_raw_fmts[CAM_FORMAT_MAX];
@@ -1124,7 +1124,7 @@ typedef struct {
     INCLUDE(CAM_INTF_META_RAW,                          cam_dimension_t,             1);
     INCLUDE(CAM_INTF_META_STREAM_INFO_FOR_PIC_RES,      cam_stream_size_info_t,      1);
     INCLUDE(CAM_INTF_PARM_VFE1_RESERVED_RDI,            int32_t,                     1);
-    INCLUDE(CAM_INTF_CEI_BS_4,                          uint8_t,                     76);
+    INCLUDE(CAM_INTF_CEI_BS_4,                          uint8_t,                     76 + 40);
     INCLUDE(CAM_INTF_PARM_SKIP_FINE_SCAN,               int32_t,                     1);
     INCLUDE(CAM_INTF_CEI_BS_5,                          uint8_t,                     8);
 

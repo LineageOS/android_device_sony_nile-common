@@ -89,7 +89,7 @@
 #define MAX_AF_STATS_DATA_SIZE  1000
 #define MAX_ASD_STATS_DATA_SIZE 1000
 
-#define MAX_CAPTURE_BATCH_NUM 32
+#define MAX_CAPTURE_BATCH_NUM 120
 
 #define TUNING_DATA_VERSION        6
 #define TUNING_SENSOR_DATA_MAX     0x10000 /*(need value from sensor team)*/
@@ -848,6 +848,10 @@ typedef enum {
     CAM_SCENE_CEI_8,
     CAM_SCENE_CEI_9,
 
+    CAM_SCENE_CEI_10,
+    CAM_SCENE_CEI_11,
+    CAM_SCENE_CEI_12,
+
     CAM_SCENE_MODE_MAX
 } cam_scene_mode_type;
 
@@ -997,7 +1001,7 @@ typedef enum {
     CAM_SENSOR_HDR_IN_SENSOR = 1,
     CAM_SENSOR_HDR_ZIGZAG,
     CAM_SENSOR_HDR_STAGGERED,
-    // CAM_SENSOR_3EXP_HDR_IN_SENSOR,
+    CAM_SENSOR_3EXP_HDR_IN_SENSOR,
     CAM_SENSOR_HDR_MAX,
 } cam_sensor_hdr_type_t;
 
@@ -1720,6 +1724,7 @@ typedef struct {
 
     uint32_t flash_needed;
     uint32_t unk;
+    uint32_t unk2;
 } cam_3a_params_t;
 
 typedef struct {
@@ -3202,7 +3207,7 @@ typedef enum {
 typedef struct {
     int32_t width;
     int32_t height;
-    // int32_t opClock;
+    int32_t opClock;
 } cam_sensor_config_t;
 
 typedef struct {
