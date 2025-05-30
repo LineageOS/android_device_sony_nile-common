@@ -597,9 +597,11 @@ QCamera3HardwareInterface::QCamera3HardwareInterface(uint32_t cameraId,
     if (gCamCapability[cameraId]->is_quadracfa_sensor) {
         m_bQuadraCfaSensor = true;
 
+#ifndef TARGET_NILE
         if (gCamCapability[cameraId]->is_quadracfa_insensor) {
             m_bInSensorQCFA = true;
         }
+#endif
 
         char prop[PROPERTY_VALUE_MAX];
         memset(prop, 0, sizeof(prop));
@@ -2889,7 +2891,9 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
                 {
                     padding_info.width_padding = CAM_PAD_TO_512;
                     padding_info.height_padding = CAM_PAD_TO_512;
+#ifndef TARGET_NILE
                     padding_info.usage = newStream->usage;
+#endif
                     mStreamConfigInfo[index].type[stream_index] = CAM_STREAM_TYPE_CALLBACK;
                     if ((m_bIs4KVideo && !isZsl) || (bSmallJpegSize && !isZsl)) {
                         mStreamConfigInfo[index].postprocess_mask[stream_index] =
@@ -11632,7 +11636,11 @@ int QCamera3HardwareInterface::initCapabilities(uint32_t cameraId)
     }
 
     if (gCamCapability[cameraId]->is_remosaic_lib_present ||
+#ifdef TARGET_NILE
+            false) {
+#else
             gCamCapability[cameraId]->is_quadracfa_insensor) {
+#endif
         gCamCapability[cameraId]->is_quadracfa_sensor = TRUE;
     }
 
@@ -12759,7 +12767,13 @@ int QCamera3HardwareInterface::initStaticMetadata(uint32_t cameraId)
         available_capabilities.add(ANDROID_REQUEST_AVAILABLE_CAPABILITIES_DEPTH_OUTPUT);
     }
 
+    bool supportsRaw = CAM_SENSOR_YUV != gCamCapability[cameraId]->sensor_type.sens_type;
+
+#ifdef TARGET_NILE
+    if (cameraId > 0 && CAM_SENSOR_YUV != gCamCapability[cameraId]->sensor_type.sens_type) {
+#else
     if (CAM_SENSOR_YUV != gCamCapability[cameraId]->sensor_type.sens_type) {
+#endif
         available_capabilities.add(ANDROID_REQUEST_AVAILABLE_CAPABILITIES_RAW);
     }
 #ifdef USE_HAL_3_5
