@@ -185,6 +185,12 @@ ifneq (,$(filter msm8996,$(TARGET_BOARD_PLATFORM)))
     LOCAL_CFLAGS += -DTARGET_MSM8996
 endif
 
+ifneq (,$(filter pioneer discovery voyager,$(TARGET_DEVICE)))
+    LOCAL_CFLAGS += -DTARGET_NILE
+else ifneq (,$(filter kirin mermaid,$(TARGET_DEVICE)))
+    LOCAL_CFLAGS += -DTARGET_GANGES
+endif
+
 LOCAL_CFLAGS += -DUSE_CAMERA_METABUFFER_UTILS
 
 #LOCAL_STATIC_LIBRARIES := libqcamera2_util
