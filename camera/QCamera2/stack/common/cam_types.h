@@ -56,10 +56,10 @@
 #define IS_VALID_PTR(P) (P != NULL)
 #define IS_EQUAL(X,Y) (X == Y)
 
-#define MAX_ZOOMS_CNT 91
+#define MAX_ZOOMS_CNT 41
 #define ZOOM_MIN 4096        // min zoom value: 1x
 #define ZOOM_MAX 4096 * 8 // max zoom value: 8x
-#define MAX_SIZES_CNT 40
+#define MAX_SIZES_CNT 128
 #define MAX_EXP_BRACKETING_LENGTH 32
 #define MAX_ROI 10
 #define MAX_STREAM_NUM_IN_BUNDLE 8
@@ -89,7 +89,11 @@
 #define MAX_AF_STATS_DATA_SIZE  1000
 #define MAX_ASD_STATS_DATA_SIZE 1000
 
+#ifdef TARGET_NILE
+#define MAX_CAPTURE_BATCH_NUM 32
+#else
 #define MAX_CAPTURE_BATCH_NUM 120
+#endif
 
 #define TUNING_DATA_VERSION        6
 #define TUNING_SENSOR_DATA_MAX     0x10000 /*(need value from sensor team)*/
@@ -205,8 +209,12 @@
 #define MAX_SECURE_BUFFERS  3
 
 #define CAM_GRALLOC_USAGE_PRIVATE_HEIF (UINT32_C(1) << 27)
+#if defined(TARGET_NILE) || defined(TARGET_GANGES)
+#define IS_USAGE_HEIF(usage) (false)
+#else
 #define IS_USAGE_HEIF(usage) (((usage) & (CAM_GRALLOC_USAGE_PRIVATE_HEIF)) \
         == (CAM_GRALLOC_USAGE_PRIVATE_HEIF))
+#endif
 
 #define FRAME_META_INCORRECT 2
 
@@ -610,7 +618,9 @@ typedef struct {
     uint32_t min_stride;
     uint32_t min_scanline;
     cam_offset_info_t offset_info;
+#if !defined(TARGET_NILE) && !defined(TARGET_GANGES)
     uint32_t usage;
+#endif
 } cam_padding_info_t;
 
 typedef struct {
@@ -729,6 +739,7 @@ typedef enum {
     CAM_AEC_MODE_USER_METERING,
     CAM_AEC_MODE_SPOT_METERING_ADV,
     CAM_AEC_MODE_CENTER_WEIGHTED_ADV,
+    CAM_AEC_MODE_UNKNOWN,
     CAM_AEC_MODE_MAX
 } cam_auto_exposure_mode_type;
 
@@ -833,6 +844,23 @@ typedef enum {
     CAM_SCENE_MODE_BARCODE,
     CAM_SCENE_MODE_HDR,
     CAM_SCENE_MODE_AQUA,
+
+    CAM_SCENE_CEI_1,
+    CAM_SCENE_CEI_2,
+    CAM_SCENE_CEI_3,
+    CAM_SCENE_CEI_4,
+    CAM_SCENE_CEI_5,
+    CAM_SCENE_CEI_6,
+    CAM_SCENE_CEI_7,
+    CAM_SCENE_CEI_8,
+    CAM_SCENE_CEI_9,
+
+#ifdef TARGET_GANGES
+    CAM_SCENE_CEI_10,
+    CAM_SCENE_CEI_11,
+    CAM_SCENE_CEI_12,
+#endif
+
     CAM_SCENE_MODE_MAX
 } cam_scene_mode_type;
 
@@ -982,7 +1010,9 @@ typedef enum {
     CAM_SENSOR_HDR_IN_SENSOR = 1,
     CAM_SENSOR_HDR_ZIGZAG,
     CAM_SENSOR_HDR_STAGGERED,
+#ifndef TARGET_NILE
     CAM_SENSOR_3EXP_HDR_IN_SENSOR,
+#endif
     CAM_SENSOR_HDR_MAX,
 } cam_sensor_hdr_type_t;
 
@@ -1702,6 +1732,11 @@ typedef struct {
     int32_t est_snap_iso_value;
     uint32_t est_snap_luma;
     uint32_t est_snap_target;
+#if defined(TARGET_NILE)
+    uint8_t pad[4];
+#elif defined(TARGET_GANGES)
+    uint8_t pad[8];
+#endif
 } cam_3a_params_t;
 
 typedef struct {
@@ -2161,6 +2196,8 @@ typedef enum {
     CAM_INTF_PARM_ROTATION,
     CAM_INTF_PARM_SCALE,
     CAM_INTF_PARM_VT, /* indicating if it's a Video Call Apllication */
+    CAM_INTF_CEI_BS_1,
+    CAM_INTF_CEI_BS_2,
     CAM_INTF_META_CROP_DATA,
     CAM_INTF_META_PREP_SNAPSHOT_DONE, /* 60 */
     CAM_INTF_META_GOOD_FRAME_IDX_RANGE,
@@ -2525,6 +2562,12 @@ typedef enum {
     CAM_INTF_META_RTB_DATA,
     /* Notify capture request for Dual Camera */
     CAM_INTF_META_DC_CAPTURE,
+
+    CAM_INTF_CEI_BS_3,
+    CAM_INTF_CEI_BS_4,
+    CAM_INTF_CEI_BS_5,
+    CAM_INTF_CEI_BS_6,
+
     /* Enable/Disable AF fine scan */
     CAM_INTF_PARM_SKIP_FINE_SCAN,
     CAM_INTF_PARM_BOKEH_MODE,
@@ -3175,7 +3218,9 @@ typedef enum {
 typedef struct {
     int32_t width;
     int32_t height;
+#ifndef TARGET_NILE
     int32_t opClock;
+#endif
 } cam_sensor_config_t;
 
 typedef struct {
