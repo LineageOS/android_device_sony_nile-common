@@ -51,6 +51,13 @@ LOCAL_CFLAGS += -DFDLEAK_FLAG
 LOCAL_CFLAGS += -DMEMLEAK_FLAG
 #HAL 1.0 source
 
+ifneq (,$(filter pioneer discovery voyager,$(TARGET_DEVICE)))
+    LOCAL_CFLAGS += -DTARGET_NILE
+else ifneq (,$(filter kirin mermaid,$(TARGET_DEVICE)))
+    LOCAL_CFLAGS += -DTARGET_GANGES
+    TARGET_SUPPORT_HAL1 := false
+endif
+
 ifeq ($(TARGET_SUPPORT_HAL1),false)
 LOCAL_CFLAGS += -DQCAMERA_HAL3_SUPPORT
 LOCAL_SRC_FILES += \
