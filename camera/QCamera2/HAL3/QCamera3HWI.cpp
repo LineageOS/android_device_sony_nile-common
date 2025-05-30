@@ -597,9 +597,9 @@ QCamera3HardwareInterface::QCamera3HardwareInterface(uint32_t cameraId,
     if (gCamCapability[cameraId]->is_quadracfa_sensor) {
         m_bQuadraCfaSensor = true;
 
-        if (gCamCapability[cameraId]->is_quadracfa_insensor) {
-            m_bInSensorQCFA = true;
-        }
+        // if (gCamCapability[cameraId]->is_quadracfa_insensor) {
+        //     m_bInSensorQCFA = true;
+        // }
 
         char prop[PROPERTY_VALUE_MAX];
         memset(prop, 0, sizeof(prop));
@@ -2363,8 +2363,8 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
     count = MIN(gCamCapability[mCameraId]->supported_is_types_cnt, count);
     for (size_t i = 0; i < count; i++) {
         if ((gCamCapability[mCameraId]->supported_is_types[i] == IS_TYPE_EIS_2_0) ||
-            (gCamCapability[mCameraId]->supported_is_types[i] == IS_TYPE_EIS_3_0) ||
-            (gCamCapability[mCameraId]->supported_is_types[i] == IS_TYPE_VENDOR_EIS)) {
+            (gCamCapability[mCameraId]->supported_is_types[i] == IS_TYPE_EIS_3_0)) {
+            // (gCamCapability[mCameraId]->supported_is_types[i] == IS_TYPE_VENDOR_EIS)) {
             m_bEisSupported = true;
             break;
         }
@@ -2889,7 +2889,7 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
                 {
                     padding_info.width_padding = CAM_PAD_TO_512;
                     padding_info.height_padding = CAM_PAD_TO_512;
-                    padding_info.usage = newStream->usage;
+                    //padding_info.usage = newStream->usage;
                     mStreamConfigInfo[index].type[stream_index] = CAM_STREAM_TYPE_CALLBACK;
                     if ((m_bIs4KVideo && !isZsl) || (bSmallJpegSize && !isZsl)) {
                         mStreamConfigInfo[index].postprocess_mask[stream_index] =
@@ -2924,10 +2924,10 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
                     if (isTypeVideo == IS_TYPE_EIS_3_0 /* hint for EIS 3 needed here */) {
                         mStreamConfigInfo[index].postprocess_mask[stream_index] |=
                             CAM_QTI_FEATURE_PPEISCORE;
-                    } else if (isTypeVideo == IS_TYPE_VENDOR_EIS) {
+                    }/* else if (isTypeVideo == IS_TYPE_VENDOR_EIS) {
                         mStreamConfigInfo[index].postprocess_mask[stream_index] |=
                             CAM_QTI_FEATURE_VENDOR_EIS;
-                    }
+                    }*/
                 } else {
                         mStreamConfigInfo[index].type[stream_index] =
                             CAM_STREAM_TYPE_PREVIEW;
@@ -2946,10 +2946,10 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
                     padding_info.height_padding = CAM_PAD_TO_2;
                     previewSize.width = (int32_t)newStream->width;
                     previewSize.height = (int32_t)newStream->height;
-                    if (isTypePreview == IS_TYPE_VENDOR_EIS /* hint for VENDOR EIS needed here */) {
-                        mStreamConfigInfo[index].postprocess_mask[stream_index] |=
-                            CAM_QTI_FEATURE_VENDOR_EIS;
-                    }
+                    // if (isTypePreview == IS_TYPE_VENDOR_EIS /* hint for VENDOR EIS needed here */) {
+                    //     mStreamConfigInfo[index].postprocess_mask[stream_index] |=
+                    //         CAM_QTI_FEATURE_VENDOR_EIS;
+                    // }
                 }
                 if ((newStream->rotation == CAMERA3_STREAM_ROTATION_90) ||
                         (newStream->rotation == CAMERA3_STREAM_ROTATION_270)) {
@@ -3253,9 +3253,9 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
                             channel->setUBWCEnabled(true);
                         }
                         newStream->max_buffers = channel->getNumBuffers();
-                        if (isTypeVideo == IS_TYPE_VENDOR_EIS) {
-                            newStream->max_buffers = MAX_VIDEO_VENDOR_EIS_BUFFERS;
-                        }
+                        // if (isTypeVideo == IS_TYPE_VENDOR_EIS) {
+                        //     newStream->max_buffers = MAX_VIDEO_VENDOR_EIS_BUFFERS;
+                        // }
                         newStream->priv = channel;
                     }
                     break;
@@ -7149,9 +7149,9 @@ int QCamera3HardwareInterface::processCaptureRequest(
             if (setEis && eis3Supported && (isTypeVideo == IS_TYPE_EIS_3_0)) {
                 mMaxInFlightRequests = MAX_INFLIGHT_EIS_REQUESTS;
             }
-            else if (setEis && (isTypeVideo == IS_TYPE_VENDOR_EIS)) {
-                mMaxInFlightRequests = MAX_INFLIGHT_EIS_REQUESTS;
-            }
+            // else if (setEis && (isTypeVideo == IS_TYPE_VENDOR_EIS)) {
+            //     mMaxInFlightRequests = MAX_INFLIGHT_EIS_REQUESTS;
+            // }
 
             // This DC info is required for setting the actual sync type instead of value
             // set in confgure streams
@@ -8425,16 +8425,16 @@ no_error:
                     return BAD_VALUE;
                 }
             }
-            if ((isTypePreview == IS_TYPE_VENDOR_EIS) &&
-               (((1U << CAM_STREAM_TYPE_PREVIEW) == channel->getStreamTypeMask()))) {
-                //Trigger Perf Flush event to back-end
-                QCamera3Stream *stream = channel->getStreamByIndex(0);
-                rc = stream->setParameter(param);
-                if (rc != NO_ERROR) {
-                    LOGE("stream setParameter failed for CAM_STREAM_PARAM_TYPE_FLUSH_FRAME");
-                    return BAD_VALUE;
-                }
-            }
+            // if ((isTypePreview == IS_TYPE_VENDOR_EIS) &&
+            //    (((1U << CAM_STREAM_TYPE_PREVIEW) == channel->getStreamTypeMask()))) {
+            //     //Trigger Perf Flush event to back-end
+            //     QCamera3Stream *stream = channel->getStreamByIndex(0);
+            //     rc = stream->setParameter(param);
+            //     if (rc != NO_ERROR) {
+            //         LOGE("stream setParameter failed for CAM_STREAM_PARAM_TYPE_FLUSH_FRAME");
+            //         return BAD_VALUE;
+            //     }
+            // }
         }
     }
 
@@ -11631,10 +11631,10 @@ int QCamera3HardwareInterface::initCapabilities(uint32_t cameraId)
                 sizeof(cam_capability_t));
     }
 
-    if (gCamCapability[cameraId]->is_remosaic_lib_present ||
-            gCamCapability[cameraId]->is_quadracfa_insensor) {
-        gCamCapability[cameraId]->is_quadracfa_sensor = TRUE;
-    }
+    // if (gCamCapability[cameraId]->is_remosaic_lib_present ||
+    //         gCamCapability[cameraId]->is_quadracfa_insensor) {
+    //     gCamCapability[cameraId]->is_quadracfa_sensor = TRUE;
+    // }
 
     char prop[PROPERTY_VALUE_MAX];
     memset(prop, 0, sizeof(prop));
@@ -12214,8 +12214,8 @@ int QCamera3HardwareInterface::initStaticMetadata(uint32_t cameraId)
     count = MIN(gCamCapability[cameraId]->supported_is_types_cnt, count);
     for (size_t i = 0; i < count; i++) {
         if ((gCamCapability[cameraId]->supported_is_types[i] == IS_TYPE_EIS_2_0) ||
-            (gCamCapability[cameraId]->supported_is_types[i] == IS_TYPE_EIS_3_0) ||
-            (gCamCapability[cameraId]->supported_is_types[i] == IS_TYPE_VENDOR_EIS)) {
+            (gCamCapability[cameraId]->supported_is_types[i] == IS_TYPE_EIS_3_0)) {
+            // (gCamCapability[cameraId]->supported_is_types[i] == IS_TYPE_VENDOR_EIS)) {
             eisSupported = true;
             break;
         }

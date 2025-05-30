@@ -370,7 +370,7 @@ typedef struct cam_capability{
     cam_dimension_t zzhdr_sizes_tbl[MAX_SIZES_CNT];         /* Table for ZZHDR supported sizes */
 
     uint32_t is_quadracfa_sensor;
-    uint32_t is_quadracfa_insensor;
+    // uint32_t is_quadracfa_insensor;
     size_t supported_quadra_cfa_dim_cnt;              /* Number of resolutions in Quadra CFA mode */
     cam_dimension_t quadra_cfa_dim[MAX_SIZES_CNT];    /* Table for Quadra CFA supported sizes */
     cam_format_t quadra_cfa_format;                   /* Quadra CFA output format */
@@ -650,7 +650,7 @@ typedef struct cam_capability{
     float      pixel_pitch_um;
 
     /* Meta_RAW capability */
-    uint8_t meta_raw_channel_count;
+    // uint8_t meta_raw_channel_count;
     uint8_t vc[MAX_SIZES_CNT];
     uint8_t dt[MAX_SIZES_CNT];
     cam_format_t supported_meta_raw_fmts[CAM_FORMAT_MAX];
@@ -1087,6 +1087,9 @@ typedef struct {
     INCLUDE(CAM_INTF_PARM_REDEYE_REDUCTION,             int32_t,                     1);
     INCLUDE(CAM_INTF_PARM_WAVELET_DENOISE,              cam_denoise_param_t,         1);
     INCLUDE(CAM_INTF_PARM_TEMPORAL_DENOISE,             cam_denoise_param_t,         1);
+
+    INCLUDE(CAM_INTF_CEI_BS_1,                          uint8_t,                     108);
+
     INCLUDE(CAM_INTF_PARM_HISTOGRAM,                    int32_t,                     1);
     INCLUDE(CAM_INTF_PARM_ASD_ENABLE,                   int32_t,                     1);
     INCLUDE(CAM_INTF_PARM_RECORDING_HINT,               int32_t,                     1);
@@ -1121,7 +1124,9 @@ typedef struct {
     INCLUDE(CAM_INTF_META_RAW,                          cam_dimension_t,             1);
     INCLUDE(CAM_INTF_META_STREAM_INFO_FOR_PIC_RES,      cam_stream_size_info_t,      1);
     INCLUDE(CAM_INTF_PARM_VFE1_RESERVED_RDI,            int32_t,                     1);
+    INCLUDE(CAM_INTF_CEI_BS_4,                          uint8_t,                     76);
     INCLUDE(CAM_INTF_PARM_SKIP_FINE_SCAN,               int32_t,                     1);
+    INCLUDE(CAM_INTF_CEI_BS_5,                          uint8_t,                     8);
 
     /* HAL3 specific */
     INCLUDE(CAM_INTF_META_STREAM_INFO,                  cam_stream_size_info_t,      1);
@@ -1195,6 +1200,7 @@ typedef struct {
     INCLUDE(CAM_INTF_PARAM_BOKEH_BLUR_LEVEL,            cam_rtb_blur_info_t,         1);
     INCLUDE(CAM_INTF_META_RTB_DATA,                     cam_rtb_msg_type_t,          1);
     INCLUDE(CAM_INTF_META_DC_CAPTURE,                   uint8_t,                     1);
+    INCLUDE(CAM_INTF_CEI_BS_6,                          uint8_t,                     47);
     INCLUDE(CAM_INTF_PARM_BOKEH_MODE,                   uint8_t,                     1);
     INCLUDE(CAM_INTF_META_USERZOOM,                     cam_zoom_info_t,             1);
     INCLUDE(CAM_INTF_META_TUNING_PARAMS,                tuning_params_t,             1);
