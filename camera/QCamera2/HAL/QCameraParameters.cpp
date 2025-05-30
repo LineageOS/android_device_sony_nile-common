@@ -7668,19 +7668,19 @@ int32_t QCameraParameters::setSensorSnapshotHDR(const char *snapshotHDR)
             property_get("persist.vendor.camera.zzhdr.enable", zz_prop, "0");
             uint8_t zzhdr_enable = (uint8_t)atoi(zz_prop);
 
-            char exp3_hdr_prop[PROPERTY_VALUE_MAX];
-            memset(exp3_hdr_prop, 0, sizeof(exp3_hdr_prop));
-            property_get("persist.camera.3hdr.enable", exp3_hdr_prop, "0");
-            uint8_t exp3_hdr_enable = (uint8_t)atoi(exp3_hdr_prop);
+            // char exp3_hdr_prop[PROPERTY_VALUE_MAX];
+            // memset(exp3_hdr_prop, 0, sizeof(exp3_hdr_prop));
+            // property_get("persist.camera.3hdr.enable", exp3_hdr_prop, "0");
+            // uint8_t exp3_hdr_enable = (uint8_t)atoi(exp3_hdr_prop);
 
 
             if (zzhdr_enable && (value != CAM_SENSOR_HDR_OFF)) {
                 value = CAM_SENSOR_HDR_ZIGZAG;
                 LOGH("Overriding to ZZ HDR Mode");
-            }else if (exp3_hdr_enable && (value != CAM_SENSOR_HDR_OFF)) {
+            }/*else if (exp3_hdr_enable && (value != CAM_SENSOR_HDR_OFF)) {
                 value = CAM_SENSOR_3EXP_HDR_IN_SENSOR;
                 LOGH("Overriding to 3EXP HDR IN SENSOR Mode");
-            }
+            }*/
 
             if (ADD_SET_PARAM_ENTRY_TO_BATCH(m_pParamBuf, CAM_INTF_PARM_SENSOR_HDR, (cam_sensor_hdr_type_t)value)) {
                 return BAD_VALUE;
@@ -14243,8 +14243,8 @@ int32_t QCameraParameters::setISType()
     bool eisSupported = false, eis3Supported = false;
     for (size_t i = 0; i < m_pCapability->supported_is_types_cnt; i++) {
         if ((m_pCapability->supported_is_types[i] == IS_TYPE_EIS_2_0) ||
-                (m_pCapability->supported_is_types[i] == IS_TYPE_EIS_3_0) ||
-                (m_pCapability->supported_is_types[i] == IS_TYPE_VENDOR_EIS)) {
+                (m_pCapability->supported_is_types[i] == IS_TYPE_EIS_3_0)) {
+                // (m_pCapability->supported_is_types[i] == IS_TYPE_VENDOR_EIS)) {
             eisSupported = true;
         }
         if (m_pCapability->supported_is_types[i] == IS_TYPE_EIS_3_0) {
@@ -14437,8 +14437,8 @@ uint8_t QCameraParameters::getMobicatMask()
  *==========================================================================*/
 bool QCameraParameters::sendStreamConfigInfo(cam_stream_size_info_t &stream_config_info) {
     int32_t rc = NO_ERROR;
-    cam_sensor_config_t sensor_dim_main = {0,0,0};
-    cam_sensor_config_t sensor_dim_aux  = {0,0,0};
+    cam_sensor_config_t sensor_dim_main = {0,0};
+    cam_sensor_config_t sensor_dim_aux  = {0,0};
 
     if (isDualCamera()) {
         // Get the sensor output dimensions for main and aux cameras.
@@ -15389,8 +15389,8 @@ int32_t QCameraParameters::updatePpFeatureMask(cam_stream_type_t stream_type) {
                 (stream_type == CAM_STREAM_TYPE_PREVIEW)) {
             needPAAF = true;
         } else if (stream_type == CAM_STREAM_TYPE_VIDEO) {
-            if ((getVideoISType() != IS_TYPE_EIS_3_0) &&
-                (getVideoISType() != IS_TYPE_VENDOR_EIS)) {
+            if ((getVideoISType() != IS_TYPE_EIS_3_0)) {
+                // (getVideoISType() != IS_TYPE_VENDOR_EIS)) {
                 needPAAF = true;
             }
         }
@@ -15414,14 +15414,14 @@ int32_t QCameraParameters::updatePpFeatureMask(cam_stream_type_t stream_type) {
     if (stream_type == CAM_STREAM_TYPE_VIDEO) {
         if (getVideoISType() == IS_TYPE_EIS_3_0)
         feature_mask |= CAM_QTI_FEATURE_PPEISCORE;
-        else if (getVideoISType() == IS_TYPE_VENDOR_EIS)
-          feature_mask |= CAM_QTI_FEATURE_VENDOR_EIS;
+        /*else if (getVideoISType() == IS_TYPE_VENDOR_EIS)
+          feature_mask |= CAM_QTI_FEATURE_VENDOR_EIS;*/
     }
 
-    if ((stream_type == CAM_STREAM_TYPE_PREVIEW) &&
-            (getPreviewISType() == IS_TYPE_VENDOR_EIS)) {
-          feature_mask |= CAM_QTI_FEATURE_VENDOR_EIS;
-    }
+    // if ((stream_type == CAM_STREAM_TYPE_PREVIEW) &&
+    //         (getPreviewISType() == IS_TYPE_VENDOR_EIS)) {
+    //       feature_mask |= CAM_QTI_FEATURE_VENDOR_EIS;
+    // }
 
     if(isDualCamera()) {
         char prop[PROPERTY_VALUE_MAX];
