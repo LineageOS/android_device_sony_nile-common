@@ -1,4 +1,28 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c31559d_617e0795",
+        "filename": "BoardConfigCommon.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-05-31T10:40:43Z",
+      "side": 1,
+      "message": "https://review.lineageos.org/q/I8ec420d6264fee70a1602eecdbb4f34f2e5db3dc",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 29
+      },
+      "revId": "e97e440c4399cf3ac9f8d06998d986350260a842",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": []
 }
