@@ -81,6 +81,8 @@ extern "C" {
 #define CAMERA_INITIAL_MAPPABLE_PREVIEW_BUFFERS 5
 #define CAMERA_MAX_PARAM_APPLY_DELAY 3
 
+#define CAMERA_MSG_META_DATA 0x2000
+
 namespace qcamera {
 
 extern cam_capability_t *gCamCapability[MM_CAMERA_MAX_NUM_SENSORS];
