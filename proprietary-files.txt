@@ -46,15 +46,17 @@ vendor/lib/librebuffering.so
 vendor/lib/libsurround_3mic_proc.so
 vendor/lib/libznr.so
 
-# Bluetooth
-vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
-vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
-vendor/lib64/libbtnv.so
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
+# Bluetooth - from HON660-T-95.00.04-(0061)
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|b71c7f346797921a8142d02906b33ef4ac4896da
+vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|f4ee3b2da2b08647447869ade86ec63f7340accc
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|d9b7c823ab303186a8ca7771e85335ae57226bed
+vendor/lib64/libbtnv.so|181c2bc5605e74549b9117c6af27ab43775ddf32|82d4c713421ba56f5de154f67eb2e24349b2b08a
+vendor/lib64/libsoc_helper.so|f3409f83686e376f9eb02b0ab1be1e45d7d3140b
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|d8a580bb23d1204b5bacbeefb801c37c3933c895
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|c75ec590209c7f598ee81d445fe6570a18845e67
 
-# Bluetooth (ANT+)
-vendor/lib64/com.qualcomm.qti.ant@1.0.so
+# Bluetooth (ANT+) - from HON660-T-95.00.04-(0061)
+vendor/lib64/hw/com.dsi.ant@1.0-impl.so|935d0013fa11dff956cfaf876a63266d81f8706a
 
 # Camera
 vendor/lib/libcdsprpc.so;DUMMY_SHARED_LIB
@@ -73,8 +75,8 @@ vendor/firmware/cpp_firmware_v1_5_2.fw
 vendor/firmware/cpp_firmware_v1_6_0.fw
 vendor/firmware/cpp_firmware_v1_8_0.fw
 
-# Charger
-vendor/bin/hvdcp_opti
+# Charger - from HON660-T-95.00.04-(0061)
+vendor/bin/hvdcp_opti|672bdd8302a94249a9d220e793201d4448ff3df7
 
 # CNE
 system/etc/cne/Nexus/ATT/ATT_profiles.xml
@@ -148,27 +150,28 @@ vendor/etc/init/dpmQmiMgr.rc
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libdpmqmihal.so
 
-# DRM and SEE
-vendor/bin/qseecomd
-vendor/lib/libQSEEComAPI.so
-vendor/lib64/libGPreqcancel.so
-vendor/lib64/libGPreqcancel_svc.so
-vendor/lib64/libQSEEComAPI.so
-vendor/lib64/libStDrvInt.so
-vendor/lib64/libdrmfs.so
-vendor/lib64/libdrmtime.so
-vendor/lib64/libqisl.so
-vendor/lib64/librpmb.so
-vendor/lib64/libsecureui.so
-vendor/lib64/libsecureui_svcsock.so
-vendor/lib64/libssd.so
+# DRM and SEE - from HON660-T-95.00.04-(0061)
+vendor/bin/qseecomd|1ebf6ff17b21c5374fa0192a9bea1f89ac8fd19d
+vendor/etc/init/qseecomd.rc|3857a18de07bcbf8296c280f02c40e9674e522ec
+vendor/lib/libQSEEComAPI.so|9b9da7d1ad2465cf5411f59b2a2f9413a1694b58
+vendor/lib64/libGPreqcancel.so|b4540426976608f8e72e863a34fbee03a08f8fc3
+vendor/lib64/libGPreqcancel_svc.so|fdeb8d658b8817ed921d7197b2f6326e56de0ffc
+vendor/lib64/libQSEEComAPI.so|cdc34a4e48a34ee4e70c5d7a90060f102ce18183
+vendor/lib64/libStDrvInt.so|e221db12c6988911d0d626217f8b156a2e1841aa
+vendor/lib64/libdrmfs.so|40e0ea780e85a17a6f9f1a184828c2e8f2283b87
+vendor/lib64/libdrmtime.so|5876ac16062d1d97e38a061adb93b2a56f1699b9
+vendor/lib64/libqisl.so|4b6cb5542193e758067a3b5819cc4a6b76bf87cf
+vendor/lib64/librpmb.so|f0c24388e57432f43fbeb2cce492fc9f2be9ba26
+vendor/lib64/libsecureui.so|f83a88c11e35b3e373034faa44dc0ce36608a3fe
+vendor/lib64/libsecureui_svcsock.so|f3f13a8d9426359b921960167978f241367ae6ff
+vendor/lib64/libssd.so|9f00c129db72613ab46acf2627425ab99fbdfb84
 
-# FM
-product/lib64/vendor.qti.hardware.fm@1.0.so:system_ext/lib64/vendor.qti.hardware.fm@1.0.so
-system/lib64/fm_helium.so:system_ext/lib64/fm_helium.so
-system/lib64/libfm-hci.so:system_ext/lib64/libfm-hci.so
-vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.fm@1.0.so;MODULE_SUFFIX=_vendor
+# FM - from HON660-T-95.00.04-(0061)
+system_ext/lib64/fm_helium.so|d13301df0e10df117d6b2d419601e96fdac14bbe
+system_ext/lib64/libfm-hci.so|fbb43a22e22ba02e6abb763c20018091da17750a
+system_ext/lib64/vendor.qti.hardware.fm@1.0.so|d2c202840291741e640d076c0db9144643a5c390
+vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so|5452688754349f98837bcf645c02c2689a55c2e8
+vendor/lib64/vendor.qti.hardware.fm@1.0.so;MODULE_SUFFIX=_vendor|9fcd16c2b517e0940d36a17e63c16ba98b50bc1a
 
 # Fingerprint (ETS)
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service_et512
@@ -181,63 +184,61 @@ vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service_fpc|f1dde9fa0e
 vendor/lib64/com.fingerprints.extension@1.0.so|8e1d80d3a7d7a65a683bbb99c681da22cceb9946|b9b9c5e38173a4ef49f823bc03ca2eff876e2847
 vendor/lib64/fpc_tac.so|e0608e99df40ed30bb2bc9ac3fb0829198b84e05|62c0e0a6f4b0ba8454e5bdd407ca716a97eeb84e
 
-# Gatekeeper
-vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
-vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
-vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
+# Gatekeeper - from HON660-T-95.00.04-(0061)
+vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti|73bb4f63cd79ad30341c0e27c951ec771973401a
+vendor/lib64/hw/gatekeeper-impl-qti.so:vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so|83663e2fb647a8203dcfb34cf83b62dcc0e890e1
 
-# Graphics
-vendor/lib/egl/eglSubDriverAndroid.so
-vendor/lib/egl/libEGL_adreno.so
-vendor/lib/egl/libGLESv1_CM_adreno.so;DISABLE_CHECKELF
-vendor/lib/egl/libGLESv2_adreno.so
-vendor/lib/egl/libQTapGLES.so
-vendor/lib/egl/libq3dtools_adreno.so;DISABLE_CHECKELF
-vendor/lib/libC2D2.so
-vendor/lib/libCB.so;DISABLE_CHECKELF
-vendor/lib/libOpenCL.so
-vendor/lib/libRSDriver_adreno.so
-vendor/lib/libadreno_utils.so
-vendor/lib/libbccQTI.so
-vendor/lib/libc2d30_bltlib.so
-vendor/lib/libgsl.so;DISABLE_CHECKELF
-vendor/lib/libllvm-glnext.so
-vendor/lib/libllvm-qcom.so
-vendor/lib/librs_adreno.so;DISABLE_CHECKELF
-vendor/lib/librs_adreno_sha1.so
-vendor/lib64/egl/eglSubDriverAndroid.so
-vendor/lib64/egl/libEGL_adreno.so
-vendor/lib64/egl/libGLESv1_CM_adreno.so
-vendor/lib64/egl/libGLESv2_adreno.so
-vendor/lib64/egl/libQTapGLES.so
-vendor/lib64/egl/libq3dtools_adreno.so
-vendor/lib64/libC2D2.so
-vendor/lib64/libCB.so
-vendor/lib64/libOpenCL.so
-vendor/lib64/libRSDriver_adreno.so
-vendor/lib64/libadreno_utils.so
-vendor/lib64/libbccQTI.so
-vendor/lib64/libc2d30_bltlib.so
-vendor/lib64/libgsl.so
-vendor/lib64/libllvm-glnext.so
-vendor/lib64/libllvm-qcom.so
-vendor/lib64/librs_adreno.so
-vendor/lib64/librs_adreno_sha1.so
+# Graphics - from HON660-T-95.00.04-(0061)
+vendor/lib/egl/eglSubDriverAndroid.so|060dba8d1f7bdfb2a2a5cabc6fb7fbfe48473bce
+vendor/lib/egl/libEGL_adreno.so|88e2304085953b5ae669c7ce6faf2badebd68e19
+vendor/lib/egl/libGLESv1_CM_adreno.so|7054722c4681ebd2606919b910acf7227e020f41
+vendor/lib/egl/libGLESv2_adreno.so|f91e7e76aed7bd1d955a94f5f0522daf8b8d98bb
+vendor/lib/egl/libq3dtools_adreno.so|6019ae8a364cd02495aaab20eaa8447d7c6bb765
+vendor/lib/egl/libq3dtools_esx.so|5fcf1cd7aef6ae78c3d10cd2500446a8fed051a3
+vendor/lib/libC2D2.so|b7a6d2743e48d614f4915c76bca74068de129a66
+vendor/lib/libCB.so|baf55bcf8cf894b4fbbcaa1c5b8421d6a4b6d749
+vendor/lib/libOpenCL.so|a1e2335088cd01efdbc56b27f311afaaad18d87d
+vendor/lib/libVkLayer_q3dtools.so|1faf98c2a2b69e30b1fb1dfffd376c79fdf9122c
+vendor/lib/libadreno_utils.so|ee1f3ef7ce3a165247f6ef80ead8c0c2da1e5459
+vendor/lib/libc2d30_bltlib.so|41952af1727dfa131d81a0f77297d26c86adf002
+vendor/lib/libgpudataproducer.so|459763a17cc919392b32e644f24573262bbac79d
+vendor/lib/libgsl.so|39099b6a4d062b00ac657d38c797a703d208726c
+vendor/lib/libllvm-glnext.so|17844b81e93a61fbe81cb04df30a7309b7a7bb8f
+vendor/lib/libllvm-qcom.so|395da6ea6af2d9ad0a719e34b0379b0062a1b99d
+vendor/lib/librs_adreno.so|5bf85e1f671444105323c9f61799c6cf3a0ea075
+vendor/lib/libtinyxml2_1.so|850841dcda03fc62bbc8c0eb67bcceb05232cca8
+vendor/lib64/egl/eglSubDriverAndroid.so|7f60db4fb7f5bb4376c7c43e6c0e95fcd4cfe9b5
+vendor/lib64/egl/libEGL_adreno.so|6496d03bc5fc937d263bd6d120d4a6f3a5ca259e
+vendor/lib64/egl/libGLESv1_CM_adreno.so|cdef8527468889d1972020d7af5e901a0d07247d
+vendor/lib64/egl/libGLESv2_adreno.so|46f1936f421f46cd71b79ec3cff42d46bf14d16a
+vendor/lib64/egl/libq3dtools_adreno.so|9b7cf24c07b69e13245c796fd17e83daca3c8fad
+vendor/lib64/egl/libq3dtools_esx.so|0488e722339b2cafaf7efc2a001609762b3cc90b
+vendor/lib64/libC2D2.so|6279d212cfbec1129278d966b3064beab1249a71
+vendor/lib64/libCB.so|c4434396cb6c2ac5a6d35fa9a04dcc4b3d4b6a91
+vendor/lib64/libOpenCL.so|df73d6045873350b3ef49a8eaaa0c6e5fd958a4c
+vendor/lib64/libVkLayer_q3dtools.so|2c2d01cbfd99c62c044ee544089a51f9028f4095
+vendor/lib64/libadreno_utils.so|c4b0e9cf9924f13f8c156e7e7a83823ca5dc34cf
+vendor/lib64/libc2d30_bltlib.so|2ef436038e8acd4fc5547f9f4136f701c6a8064f
+vendor/lib64/libgpudataproducer.so|0adf0de8b32f53b27dd4893f24983defc1414de9
+vendor/lib64/libgsl.so|d73442ebbe41f9deb1b58b35a962f12c1abf3c69
+vendor/lib64/libllvm-glnext.so|d315c9af3af613da5fb78c9fd60bde93bf01f98c
+vendor/lib64/libllvm-qcom.so|62500997b4526ae07e5ea302300498a39a10e2ad
+vendor/lib64/librs_adreno.so|e1e8c1db5fd06d55498bc235618acb2792174411
 
-# Graphics (HDR)
-vendor/lib64/libhdr_tm.so
+# Graphics (HDR) - from HON660-T-95.00.04-(0061)
+vendor/lib64/libhdr_tm.so|28117de78d64d15d1454a13b50c17b168170e456
 
-# Graphics (SDM)
-vendor/lib64/libqseed3.so
-vendor/lib64/libsdm-color.so
-vendor/lib64/libsdm-diag.so
-vendor/lib64/libsdm-disp-vndapis.so
-vendor/lib64/libsdmextension.so
-vendor/lib64/libtinyxml2_1.so
+# Graphics (SDM) - from HON660-T-95.00.04-(0061)
+vendor/lib64/libqseed3.so|43119af1a229c256bb1d9af6338b77cbcd5baae7
+vendor/lib64/libsdm-color.so|d0c5d3287256c034437eeb007be068cf67742805
+vendor/lib64/libsdm-diag.so|cfcd838d9ca203e70a5e284b36a274e6b479f485
+vendor/lib64/libsdm-disp-vndapis.so|a5a1ebf08f7c1f4104cbf8ac69d5f42523fdb0fa
+vendor/lib64/libsdmextension.so|9baf67fa56d5c7bb296bf6c4942c253522638dd2
+vendor/lib64/libtinyxml2_1.so|6d602dfd9df770ee6ecdbe0e9d98b8951dd8483d
 
-# Graphics (Vulkan)
-vendor/lib/hw/vulkan.sdm660.so
-vendor/lib64/hw/vulkan.sdm660.so
+# Graphics (Vulkan) - from HON660-T-95.00.04-(0061)
+vendor/lib/hw/vulkan.adreno.so|51a2fa29d87260d90f28704f90601092644660e5
+vendor/lib64/hw/vulkan.adreno.so|be43f039293051cea09fd634ca872545e882175c
 
 # Graphics firmware
 vendor/firmware/a508_zap.b00
@@ -254,54 +255,67 @@ vendor/firmware/a530v2_seq.fw2
 vendor/firmware/a530v3_gpmu.fw2
 vendor/firmware/a530v3_seq.fw2
 
-# GPS
-vendor/bin/hw/android.hardware.gnss@2.0-service-qti
-vendor/bin/loc_launcher
-vendor/bin/lowi-server;DISABLE_CHECKELF
-vendor/bin/mlid
-vendor/bin/slim_daemon
-vendor/bin/xtra-daemon
-vendor/bin/xtwifi-client
-vendor/bin/xtwifi-inet-agent
-vendor/etc/init/android.hardware.gnss@2.0-service-qti.rc
-vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml
-vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml
-vendor/lib64/hw/android.hardware.gnss@2.0-impl-qti.so
-vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so
-vendor/lib64/libbatching.so
-vendor/lib64/libdataitems.so
-vendor/lib64/libgdtap.so
-vendor/lib64/libgeofencing.so
-vendor/lib64/libgnss.so
-vendor/lib64/libgps.utils.so
-vendor/lib64/libizat_client_api.so
-vendor/lib64/libizat_core.so
-vendor/lib64/liblbs_core.so
-vendor/lib64/libloc_api_v02.so
-vendor/lib64/libloc_core.so
-vendor/lib64/liblocation_api.so
-vendor/lib64/liblocationservice.so
-vendor/lib64/liblocationservice_glue.so
-vendor/lib64/liblowi_client.so
-vendor/lib64/libqdma_file_agent.so
-vendor/lib64/libxtadapter.so
-vendor/lib64/vendor.qti.gnss@1.0.so
-vendor/lib64/vendor.qti.gnss@1.1.so
-vendor/lib64/vendor.qti.gnss@1.2.so
-vendor/lib64/vendor.qti.gnss@2.0.so
-vendor/lib64/vendor.qti.gnss@2.1.so
-vendor/lib64/vendor.qti.gnss@3.0.so
+# GPS - from HON660-T-95.00.04-(0061)
+vendor/bin/hw/android.hardware.gnss@2.1-service-qti|def06fb7cf14f59de50e199e0c73d38aeac6f7ec
+vendor/bin/loc_launcher|cd7c682ee79e0dca4bb53d989940ce371a293f03
+vendor/bin/lowi-server|4e04400709a3ec1f8e5b7b88b420b95e0eed89cc
+vendor/bin/mlid|d8317c2f7f7442366ab680fcc625d93752e86004
+vendor/bin/slim_daemon|fa7e34c102b41d5a8d631ba6b71231f7496dd40f
+vendor/bin/xtra-daemon|9637757efefe2c4e87340f682386d00ce7582a75
+vendor/bin/xtwifi-client|91877765cdee97259d69007dd022a32db79a7624
+vendor/bin/xtwifi-inet-agent|10f16bc92e7a1e4d790c4234c05807f2fe125212
+vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc|1958728521e9532f3f8a24ba8840a04232230130|f9da8e9cfe53925acfe6d6c365ee72dd5a2330f7
+vendor/etc/vintf/manifest/vendor.qti.gnss@4.2-service.xml|bb46e35d0224e9f53610e4cad8581c0da2c5e6e6
+vendor/lib64/hw/android.hardware.gnss@2.1-impl-qti.so|7ed8ee048713bc9b20b9f44def8da57aad5dccbd
+vendor/lib64/hw/vendor.qti.gnss@4.2-impl.so|3ed40e4eeaf6afe3005f084fe6a4d9bf3df6efb8
+vendor/lib64/libasn1cper.so|79f8155e2d0a7241eb23dc923b97feed76ebd19e
+vendor/lib64/libasn1crt.so|3fe827ad2a5ca3cf6665eec9476499c409b02cec
+vendor/lib64/libasn1crtx.so|5c4a0bf130a1f4d1961233974a3281f6e100e644
+vendor/lib64/libbatching.so|a39692b216223fccf63d9a1a42f70dadd49ef3f1
+vendor/lib64/libcdfw_remote_api.so|12771b575afb6e2d9bfedc0ee7589845070939cf
+vendor/lib64/libdataitems.so|d82b99fd177134a4e60cfa6cf3f47723935a5516
+vendor/lib64/libgdtap.so|db622010aa026b9ba1e227f3988a8d29a8461edb
+vendor/lib64/libgeofencing.so|addd85292155915921149a95c60d660f51f8e45c
+vendor/lib64/libgnss.so|41d85ad1ba13b257db34950ae2d33ca5be7ee82c
+vendor/lib64/libgps.utils.so|344b39afeb21123c8c0c4dc109905f975b5c9b52
+vendor/lib64/libizat_client_api.so|f2cca9f2e3ec27b4d4086d6579d801b501312d42
+vendor/lib64/libizat_core.so|39c0b8878e6b99fc46b923a2e0be395646fd6141
+vendor/lib64/liblbs_core.so|e980b98ce18f6a66cc723eab1ad0d7f5b842473a
+vendor/lib64/libloc_api_v02.so|7978c91f1d985344aace903159a7329d2dbd46d1
+vendor/lib64/libloc_core.so|5f73b11564ea494a90f48f737aae6335cdd8d019
+vendor/lib64/liblocation_api.so|367ad3fc556388f434717e429b7074ea7f26b63d
+vendor/lib64/liblocationservice.so|2255fd109abde92d0872fd5d7a1e7ee7fe780b3f
+vendor/lib64/liblocationservice_glue.so|1fef7b50f13a918fcf941921cea0df6177f92856
+vendor/lib64/liblowi_client.so|d67121d1c52609967411ff07321a30c1093c011c
+vendor/lib64/libminksocket.so|47684690664c180d087678802702743cd4a54e91
+vendor/lib64/libqcc_file_agent.so|9bf240588da2d78f5fc37cd5432dc02e692629d8
+vendor/lib64/libqdma_file_agent.so|a42dba7760130e70a7a9993c27a90a3fd72a2f9d
+vendor/lib64/libxtadapter.so|eedd2a2ca6cdaabeeebfbd92f57d49c03783f098
+vendor/lib64/libxtwifi_server_protocol.so|737e7a07dbac18dc87bae01de37bdd6dec2af0a2
+vendor/lib64/libxtwifi_server_protocol_uri_v3.so|e13910164ef62a35278128ad478d7a8ee4ba8f68
+vendor/lib64/vendor.qti.gnss@1.0.so|24a7f5e1dfba01bf5346a429f6de60d805d8d72e
+vendor/lib64/vendor.qti.gnss@1.1.so|fbf67c9a4dab5e2eaae9f5c888e1d5b413ae9d93
+vendor/lib64/vendor.qti.gnss@1.2.so|272746789aa6039058bd82be5b27c31becd7eae2
+vendor/lib64/vendor.qti.gnss@2.0.so|6699fd2aec1701bed864e8ffc3fdf46c2ec8c8bc
+vendor/lib64/vendor.qti.gnss@2.1.so|92dac37faf30e036015d500951b5f886776f8ac5
+vendor/lib64/vendor.qti.gnss@3.0.so|7d85e535389c8c72d5839daff1526c31286da858
+vendor/lib64/vendor.qti.gnss@4.0.so|a392996dde7af7fb6ce8ac8e355d8a5bb4600e8c
+vendor/lib64/vendor.qti.gnss@4.1.so|060f43353e44cac293f9a882b09aa158b9f8c69c
+vendor/lib64/vendor.qti.gnss@4.2-service.so|025e3770b4fb1e49185a5bfeebaa1be91ae6773f
+vendor/lib64/vendor.qti.gnss@4.2.so|c96b5717ef336e00f9b134b6a3256607a1441cf6
+vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so|c2fb5905cebc17708b56b7220f053ad8848034ef
 
-# Keymaster
-vendor/lib64/libkeymasterdeviceutils.so
-vendor/lib64/libkeymasterprovision.so
-vendor/lib64/libkeymasterutils.so
-vendor/lib64/libqtikeymaster4.so
+# Keymaster - from HON660-T-95.00.04-(0061)
+vendor/lib64/libkeymasterdeviceutils.so|3c3e460fd305cb80c1b55619ecc764ce31de2374
+vendor/lib64/libkeymasterprovision.so|b24d82a37bc30875faf3149c0ecfd15a0528cd15
+vendor/lib64/libkeymasterutils.so|395f755efdfa2d4a945a89cee307996ab86222a6
+vendor/lib64/libqcbor.so|bb32684536eb00f0ae35f3bc900aeb8cc349ccef
+vendor/lib64/libqtikeymaster4.so|663c888c60afa25f903d41a5842bbaee36776340
 
-# Listen
-vendor/lib/hw/sound_trigger.primary.sdm660.so
-vendor/lib/libadpcmdec.so
-vendor/lib/libsmwrapper.so
+# Listen - from HON660-T-95.00.04-(0061)
+vendor/lib/hw/sound_trigger.primary.sdm660.so|e0c7fc70c7441f56e4eba9d592bfad510811a568
+vendor/lib/libadpcmdec.so|b00906c55b867c894372318343c4d9a62ed0b291
+vendor/lib/libsmwrapper.so|494d80215e72e5e428ad71d709cdc4c0d44b3215
 
 # Media
 vendor/lib/libOmxVideoDSMode.so
@@ -342,18 +356,18 @@ vendor/lib64/libidd.so
 vendor/lib64/libprotobuf-c-idd.so
 vendor/lib64/vendor.semc.system.idd@1.0.so
 
-# Peripheral manager
-vendor/bin/pm-proxy
-vendor/bin/pm-service
-vendor/lib64/libperipheral_client.so
+# Peripheral manager - from HON660-T-95.00.04-(0061)
+vendor/bin/pm-proxy|96c50d1dae229c9438db043b9a912af87e2a7e16
+vendor/bin/pm-service|d6503051e0ae7a1bb418e6050867c5e01624487f
+vendor/lib64/libperipheral_client.so|95f7a7d72825708d307e3d2322523dc3aed67363
 
-# Postprocessing
-vendor/bin/hw/vendor.display.color@1.0-service
-vendor/bin/mm-pp-dpps
-vendor/etc/init/vendor.display.color@1.0-service.rc
-vendor/lib64/libdisp-aba.so
-vendor/lib64/vendor.display.color@1.0.so
-vendor/lib64/vendor.display.postproc@1.0.so
+# Postprocessing - from HON660-T-95.00.04-(0061)
+vendor/bin/hw/vendor.display.color@1.0-service|f21f110b890278b94616b40a83277426c07bfcef
+vendor/bin/mm-pp-dpps|8a3c5968edaf259a982e99455ffd9b34168237a6
+vendor/etc/init/vendor.display.color@1.0-service.rc|5ad673f879b3685a0e79b5633437e5499cb94f48
+vendor/lib64/libdisp-aba.so|9ce877f02ff7fd2b429aebe7c8e95a0c969c395d
+vendor/lib64/vendor.display.color@1.0.so|b502506db34c16d613dc1bcd6d1c5a4098435e21
+vendor/lib64/vendor.display.postproc@1.0.so|408b4edd234e9da45ab55d64950af8b58ca5e6bf
 
 # QMI
 product/etc/permissions/telephony_product_privapp-permissions-qti.xml:system_ext/etc/permissions/telephony_product_privapp-permissions-qti.xml
@@ -387,17 +401,17 @@ vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
 vendor/lib64/libqmiservices.so
 
-# QRTR
-vendor/bin/qrtr-cfg
-vendor/bin/qrtr-lookup
-vendor/bin/qrtr-ns
-vendor/lib64/libqrtr.so
+# QRTR - from HON660-T-95.00.04-(0061)
+vendor/bin/qrtr-cfg|8ec6c9002d247dc4daee040cdeed4bf62ac198f5
+vendor/bin/qrtr-lookup|3e5fa64bbede6a2ebcea1e1ad819f6d5f4e872c4
+vendor/bin/qrtr-ns|a24f4fabc16fbbb55a667043060da7bea35cf595
+vendor/lib64/libqrtr.so|948619679d57ca85512ddef90684468df1b23d70
 
-# Qteeconnector
-vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
-vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
+# Qteeconnector - from HON660-T-95.00.04-(0061)
+vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service|f291f50f5c28bd2b240253ea4105c2e9aee60304
+vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc|c966350ee67d3a7c73ca7184e3725264025d16f5
+vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so|d7b4c4b3ed51bf8da576a306eb66d09195821afb
+vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so|fab8de6637f2af981a071706e5bf1ff64a3338ad
 
 # RIL
 product/app/QtiTelephonyService/QtiTelephonyService.apk:system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
@@ -556,16 +570,16 @@ vendor/lib/libthermalclient.so
 vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 
-# Time services
-vendor/app/TimeService/TimeService.apk
-vendor/bin/time_daemon
-vendor/etc/init/init.time_daemon.rc
-vendor/lib64/libtime_genoff.so
+# Time services - from HON660-T-95.00.04-(0061)
+vendor/app/TimeService/TimeService.apk|984121f00ab083bfea126da7242c700f1be2d6ab
+vendor/bin/time_daemon|a313e2419cd77d99ff4a40a88defe77088a4bc8f
+vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
+vendor/lib64/libtime_genoff.so|1665709ab77112c33fa84a6dd45913e1d3adb4ce
 
-# TUI
-vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
-vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
-vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
+# TUI - from HON660-T-95.00.04-(0061)
+vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti|e631174faaaa43f5376440828c4ec25ff95eb3d6
+vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc|2cfc563d7e1579374f001c94588fae7835a12ffc
+vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|cfd777100db61dd183e7e4ba644150f7066db389
 
 # Widevine DRM
 vendor/bin/hw/android.hardware.drm@1.1-service.widevine
