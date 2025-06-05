@@ -20,9 +20,11 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/sony/nile-common',
-    'hardware/qcom-caf/msm8998',
+    'hardware/qcom-caf/sdm660',
     'hardware/qcom-caf/wlan',
+    'vendor/qcom/opensource/commonsys/display',
     'vendor/qcom/opensource/dataservices',
+    'vendor/qcom/opensource/display',
 ]
 
 
@@ -41,9 +43,6 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.qti.imsrtpservice@2.0',
         'vendor.qti.imsrtpservice@2.1',
     ): lib_fixup_vendor_suffix,
-    (
-        'libwifi-hal-ctrl',
-    ): lib_fixup_remove,
 }
 
 blob_fixups: blob_fixups_user_type = {
@@ -62,12 +61,12 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/bin/hw/android.hardware.drm@1.1-service.widevine': blob_fixup()
         .replace_needed('libhidltransport.so', 'libhidlbase.so')
         .remove_needed('libhwbinder.so'),
-    'vendor/bin/pm-service': blob_fixup()
-        .add_needed('libutils-v33.so'),
     'vendor/bin/sony-modem-switcher': blob_fixup()
         .binary_regex_replace(b'/oem/modem-config/%s/modem.conf', b'/vendor/modemconf/%s/modem.conf')
         .binary_regex_replace(b'/oem/modem-config/modem.conf', b'/vendor/modemconf/modem.conf')
         .binary_regex_replace(b'persist.radio.multisim.config', b'vendor.radio.multisim.config\x00'),
+    'vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc': blob_fixup()
+        .regex_replace('    disabled', '    #disabled'),
     'vendor/etc/init/init.sony.idd.rc': blob_fixup()
         .regex_replace('restorecon_recursive --force', 'restorecon_recursive'),
     'vendor/etc/init/init.sony-modem-switcher.rc': blob_fixup()
