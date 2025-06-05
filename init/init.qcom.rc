@@ -65,6 +65,10 @@ on init
     write /sys/bus/msm_subsys/devices/subsys2/restart_level RELATED
     write /sys/bus/msm_subsys/devices/subsys3/restart_level RELATED
 
+    # qseecomd needs /dev/block/bootdevice
+    # vold needs keymaster that needs qseecomd
+    start vendor.qseecomd
+
 on fs
     # Start HW service manager early
     start hwservicemanager
@@ -111,10 +115,6 @@ on fs
 
     # Change permission for IUSB suspend node
     chmod 0666 /sys/class/power_supply/battery/input_suspend
-
-    # qseecomd needs /dev/block/bootdevice
-    # vold needs keymaster that needs qseecomd
-    start vendor.qseecomd
 
     # Wait qseecomd started
     wait_for_prop vendor.sys.listeners.registered true
@@ -595,6 +595,10 @@ service qcom-sh /vendor/bin/init.qcom.sh
 
 on property:ro.vendor.ril.mbn_copy_completed=1
     write /data/vendor/radio/copy_complete 1
+
+on property:vendor.keymaster.quickboot=true
+   stop vendor.qseecomd
+   start vendor.qseecomd
 
 service vendor.qseecomd /vendor/bin/qseecomd
     class core
