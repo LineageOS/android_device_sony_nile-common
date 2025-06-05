@@ -23,6 +23,7 @@ namespace_imports = [
     'hardware/qcom-caf/msm8998',
     'hardware/qcom-caf/wlan',
     'vendor/qcom/opensource/dataservices',
+    'vendor/qcom/opensource/display',
 ]
 
 
