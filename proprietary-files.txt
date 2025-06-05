@@ -46,15 +46,17 @@ vendor/lib/librebuffering.so
 vendor/lib/libsurround_3mic_proc.so
 vendor/lib/libznr.so
 
-# Bluetooth
-vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
-vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
-vendor/lib64/libbtnv.so
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
+# Bluetooth - from HON660-T-95.00.03-(0054)
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|b71c7f346797921a8142d02906b33ef4ac4896da
+vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|f4ee3b2da2b08647447869ade86ec63f7340accc
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|d9b7c823ab303186a8ca7771e85335ae57226bed
+vendor/lib64/libbtnv.so|181c2bc5605e74549b9117c6af27ab43775ddf32|82d4c713421ba56f5de154f67eb2e24349b2b08a
+vendor/lib64/libsoc_helper.so|f3409f83686e376f9eb02b0ab1be1e45d7d3140b
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|d8a580bb23d1204b5bacbeefb801c37c3933c895
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|c75ec590209c7f598ee81d445fe6570a18845e67
 
-# Bluetooth (ANT+)
-vendor/lib64/com.qualcomm.qti.ant@1.0.so
+# Bluetooth (ANT+) - from HON660-T-95.00.03-(0054)
+vendor/lib64/hw/com.dsi.ant@1.0-impl.so|935d0013fa11dff956cfaf876a63266d81f8706a
 
 # Camera
 vendor/lib/libcdsprpc.so;DUMMY_SHARED_LIB
@@ -148,27 +150,27 @@ vendor/etc/init/dpmQmiMgr.rc
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libdpmqmihal.so
 
-# DRM and SEE
-vendor/bin/qseecomd
-vendor/lib/libQSEEComAPI.so
-vendor/lib64/libGPreqcancel.so
-vendor/lib64/libGPreqcancel_svc.so
-vendor/lib64/libQSEEComAPI.so
-vendor/lib64/libStDrvInt.so
-vendor/lib64/libdrmfs.so
-vendor/lib64/libdrmtime.so
-vendor/lib64/libqisl.so
-vendor/lib64/librpmb.so
-vendor/lib64/libsecureui.so
-vendor/lib64/libsecureui_svcsock.so
-vendor/lib64/libssd.so
+# DRM and SEE - from HON660-T-95.00.03-(0054)
+vendor/bin/qseecomd|1ebf6ff17b21c5374fa0192a9bea1f89ac8fd19d
+vendor/lib/libQSEEComAPI.so|9b9da7d1ad2465cf5411f59b2a2f9413a1694b58
+vendor/lib64/libGPreqcancel.so|b4540426976608f8e72e863a34fbee03a08f8fc3
+vendor/lib64/libGPreqcancel_svc.so|fdeb8d658b8817ed921d7197b2f6326e56de0ffc
+vendor/lib64/libQSEEComAPI.so|cdc34a4e48a34ee4e70c5d7a90060f102ce18183
+vendor/lib64/libStDrvInt.so|e221db12c6988911d0d626217f8b156a2e1841aa
+vendor/lib64/libdrmfs.so|40e0ea780e85a17a6f9f1a184828c2e8f2283b87
+vendor/lib64/libdrmtime.so|5876ac16062d1d97e38a061adb93b2a56f1699b9
+vendor/lib64/libqisl.so|4b6cb5542193e758067a3b5819cc4a6b76bf87cf
+vendor/lib64/librpmb.so|f0c24388e57432f43fbeb2cce492fc9f2be9ba26
+vendor/lib64/libsecureui.so|f83a88c11e35b3e373034faa44dc0ce36608a3fe
+vendor/lib64/libsecureui_svcsock.so|f3f13a8d9426359b921960167978f241367ae6ff
+vendor/lib64/libssd.so|9f00c129db72613ab46acf2627425ab99fbdfb84
 
-# FM
-product/lib64/vendor.qti.hardware.fm@1.0.so:system_ext/lib64/vendor.qti.hardware.fm@1.0.so
-system/lib64/fm_helium.so:system_ext/lib64/fm_helium.so
-system/lib64/libfm-hci.so:system_ext/lib64/libfm-hci.so
-vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.fm@1.0.so;MODULE_SUFFIX=_vendor
+# FM - from HON660-T-95.00.03-(0054)
+system_ext/lib64/fm_helium.so|d13301df0e10df117d6b2d419601e96fdac14bbe
+system_ext/lib64/libfm-hci.so|fbb43a22e22ba02e6abb763c20018091da17750a
+system_ext/lib64/vendor.qti.hardware.fm@1.0.so|d2c202840291741e640d076c0db9144643a5c390
+vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so|5452688754349f98837bcf645c02c2689a55c2e8
+vendor/lib64/vendor.qti.hardware.fm@1.0.so;MODULE_SUFFIX=_vendor|9fcd16c2b517e0940d36a17e63c16ba98b50bc1a
 
 # Fingerprint (ETS)
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service_et512
@@ -186,58 +188,57 @@ vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
-# Graphics
-vendor/lib/egl/eglSubDriverAndroid.so
-vendor/lib/egl/libEGL_adreno.so
-vendor/lib/egl/libGLESv1_CM_adreno.so;DISABLE_CHECKELF
-vendor/lib/egl/libGLESv2_adreno.so
-vendor/lib/egl/libQTapGLES.so
-vendor/lib/egl/libq3dtools_adreno.so;DISABLE_CHECKELF
-vendor/lib/libC2D2.so
-vendor/lib/libCB.so;DISABLE_CHECKELF
-vendor/lib/libOpenCL.so
-vendor/lib/libRSDriver_adreno.so
-vendor/lib/libadreno_utils.so
-vendor/lib/libbccQTI.so
-vendor/lib/libc2d30_bltlib.so
-vendor/lib/libgsl.so;DISABLE_CHECKELF
-vendor/lib/libllvm-glnext.so
-vendor/lib/libllvm-qcom.so
-vendor/lib/librs_adreno.so;DISABLE_CHECKELF
-vendor/lib/librs_adreno_sha1.so
-vendor/lib64/egl/eglSubDriverAndroid.so
-vendor/lib64/egl/libEGL_adreno.so
-vendor/lib64/egl/libGLESv1_CM_adreno.so
-vendor/lib64/egl/libGLESv2_adreno.so
-vendor/lib64/egl/libQTapGLES.so
-vendor/lib64/egl/libq3dtools_adreno.so
-vendor/lib64/libC2D2.so
-vendor/lib64/libCB.so
-vendor/lib64/libOpenCL.so
-vendor/lib64/libRSDriver_adreno.so
-vendor/lib64/libadreno_utils.so
-vendor/lib64/libbccQTI.so
-vendor/lib64/libc2d30_bltlib.so
-vendor/lib64/libgsl.so
-vendor/lib64/libllvm-glnext.so
-vendor/lib64/libllvm-qcom.so
-vendor/lib64/librs_adreno.so
-vendor/lib64/librs_adreno_sha1.so
+# Graphics - from HON660-T-95.00.03-(0054)
+vendor/lib/egl/eglSubDriverAndroid.so|060dba8d1f7bdfb2a2a5cabc6fb7fbfe48473bce
+vendor/lib/egl/libEGL_adreno.so|88e2304085953b5ae669c7ce6faf2badebd68e19
+vendor/lib/egl/libGLESv1_CM_adreno.so|7054722c4681ebd2606919b910acf7227e020f41
+vendor/lib/egl/libGLESv2_adreno.so|f91e7e76aed7bd1d955a94f5f0522daf8b8d98bb
+vendor/lib/egl/libq3dtools_adreno.so|6019ae8a364cd02495aaab20eaa8447d7c6bb765
+vendor/lib/egl/libq3dtools_esx.so|5fcf1cd7aef6ae78c3d10cd2500446a8fed051a3
+vendor/lib/libC2D2.so|b7a6d2743e48d614f4915c76bca74068de129a66
+vendor/lib/libCB.so|baf55bcf8cf894b4fbbcaa1c5b8421d6a4b6d749
+vendor/lib/libOpenCL.so|a1e2335088cd01efdbc56b27f311afaaad18d87d
+vendor/lib/libVkLayer_q3dtools.so|1faf98c2a2b69e30b1fb1dfffd376c79fdf9122c
+vendor/lib/libadreno_utils.so|ee1f3ef7ce3a165247f6ef80ead8c0c2da1e5459
+vendor/lib/libc2d30_bltlib.so|41952af1727dfa131d81a0f77297d26c86adf002
+vendor/lib/libgpudataproducer.so|459763a17cc919392b32e644f24573262bbac79d
+vendor/lib/libgsl.so|39099b6a4d062b00ac657d38c797a703d208726c
+vendor/lib/libllvm-glnext.so|17844b81e93a61fbe81cb04df30a7309b7a7bb8f
+vendor/lib/libllvm-qcom.so|395da6ea6af2d9ad0a719e34b0379b0062a1b99d
+vendor/lib/librs_adreno.so|5bf85e1f671444105323c9f61799c6cf3a0ea075
+vendor/lib/libtinyxml2_1.so|850841dcda03fc62bbc8c0eb67bcceb05232cca8
+vendor/lib64/egl/eglSubDriverAndroid.so|7f60db4fb7f5bb4376c7c43e6c0e95fcd4cfe9b5
+vendor/lib64/egl/libEGL_adreno.so|6496d03bc5fc937d263bd6d120d4a6f3a5ca259e
+vendor/lib64/egl/libGLESv1_CM_adreno.so|cdef8527468889d1972020d7af5e901a0d07247d
+vendor/lib64/egl/libGLESv2_adreno.so|46f1936f421f46cd71b79ec3cff42d46bf14d16a
+vendor/lib64/egl/libq3dtools_adreno.so|9b7cf24c07b69e13245c796fd17e83daca3c8fad
+vendor/lib64/egl/libq3dtools_esx.so|0488e722339b2cafaf7efc2a001609762b3cc90b
+vendor/lib64/libC2D2.so|6279d212cfbec1129278d966b3064beab1249a71
+vendor/lib64/libCB.so|c4434396cb6c2ac5a6d35fa9a04dcc4b3d4b6a91
+vendor/lib64/libOpenCL.so|df73d6045873350b3ef49a8eaaa0c6e5fd958a4c
+vendor/lib64/libVkLayer_q3dtools.so|2c2d01cbfd99c62c044ee544089a51f9028f4095
+vendor/lib64/libadreno_utils.so|c4b0e9cf9924f13f8c156e7e7a83823ca5dc34cf
+vendor/lib64/libc2d30_bltlib.so|2ef436038e8acd4fc5547f9f4136f701c6a8064f
+vendor/lib64/libgpudataproducer.so|0adf0de8b32f53b27dd4893f24983defc1414de9
+vendor/lib64/libgsl.so|d73442ebbe41f9deb1b58b35a962f12c1abf3c69
+vendor/lib64/libllvm-glnext.so|d315c9af3af613da5fb78c9fd60bde93bf01f98c
+vendor/lib64/libllvm-qcom.so|62500997b4526ae07e5ea302300498a39a10e2ad
+vendor/lib64/librs_adreno.so|e1e8c1db5fd06d55498bc235618acb2792174411
 
-# Graphics (HDR)
-vendor/lib64/libhdr_tm.so
+# Graphics (HDR) - from HON660-T-95.00.03-(0054)
+vendor/lib64/libhdr_tm.so|28117de78d64d15d1454a13b50c17b168170e456
 
-# Graphics (SDM)
-vendor/lib64/libqseed3.so
-vendor/lib64/libsdm-color.so
-vendor/lib64/libsdm-diag.so
-vendor/lib64/libsdm-disp-vndapis.so
-vendor/lib64/libsdmextension.so
-vendor/lib64/libtinyxml2_1.so
+# Graphics (SDM) - from HON660-T-95.00.03-(0054)
+vendor/lib64/libqseed3.so|43119af1a229c256bb1d9af6338b77cbcd5baae7
+vendor/lib64/libsdm-color.so|d0c5d3287256c034437eeb007be068cf67742805
+vendor/lib64/libsdm-diag.so|cfcd838d9ca203e70a5e284b36a274e6b479f485
+vendor/lib64/libsdm-disp-vndapis.so|a5a1ebf08f7c1f4104cbf8ac69d5f42523fdb0fa
+vendor/lib64/libsdmextension.so|9baf67fa56d5c7bb296bf6c4942c253522638dd2
+vendor/lib64/libtinyxml2_1.so|6d602dfd9df770ee6ecdbe0e9d98b8951dd8483d
 
-# Graphics (Vulkan)
-vendor/lib/hw/vulkan.sdm660.so
-vendor/lib64/hw/vulkan.sdm660.so
+# Graphics (Vulkan) - from HON660-T-95.00.03-(0054)
+vendor/lib/hw/vulkan.adreno.so|51a2fa29d87260d90f28704f90601092644660e5
+vendor/lib64/hw/vulkan.adreno.so|be43f039293051cea09fd634ca872545e882175c
 
 # Graphics firmware
 vendor/firmware/a508_zap.b00
@@ -298,10 +299,10 @@ vendor/lib64/libkeymasterprovision.so
 vendor/lib64/libkeymasterutils.so
 vendor/lib64/libqtikeymaster4.so
 
-# Listen
-vendor/lib/hw/sound_trigger.primary.sdm660.so
-vendor/lib/libadpcmdec.so
-vendor/lib/libsmwrapper.so
+# Listen - from HON660-T-95.00.03-(0054)
+vendor/lib/hw/sound_trigger.primary.sdm660.so|e0c7fc70c7441f56e4eba9d592bfad510811a568
+vendor/lib/libadpcmdec.so|b00906c55b867c894372318343c4d9a62ed0b291
+vendor/lib/libsmwrapper.so|494d80215e72e5e428ad71d709cdc4c0d44b3215
 
 # Media
 vendor/lib/libOmxVideoDSMode.so
@@ -393,11 +394,11 @@ vendor/bin/qrtr-lookup
 vendor/bin/qrtr-ns
 vendor/lib64/libqrtr.so
 
-# Qteeconnector
-vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
-vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
+# Qteeconnector - from HON660-T-95.00.03-(0054)
+vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service|f291f50f5c28bd2b240253ea4105c2e9aee60304
+vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc|c966350ee67d3a7c73ca7184e3725264025d16f5
+vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so|d7b4c4b3ed51bf8da576a306eb66d09195821afb
+vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so|fab8de6637f2af981a071706e5bf1ff64a3338ad
 
 # RIL
 product/app/QtiTelephonyService/QtiTelephonyService.apk:system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
