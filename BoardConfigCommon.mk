@@ -69,6 +69,9 @@ AB_OTA_PARTITIONS += \
     system \
     vendor
 
+# ANT+
+BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
+
 # Audio
 AUDIO_FEATURE_ENABLED_3D_AUDIO := false
 AUDIO_FEATURE_ENABLED_A2DP_OFFLOAD := true
