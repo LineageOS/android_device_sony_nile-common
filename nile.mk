@@ -245,6 +245,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     macaddrsetup
 
+$(call soong_config_set,sony_macaddrsetup,wifi_driver,qca_cld3)
+
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
