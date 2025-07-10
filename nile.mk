@@ -242,6 +242,8 @@ PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.0-service-sdm
 
 # Mac address setup
+$(call soong_config_set,sony_macaddrsetup,wifi_driver,qca_cld3)
+
 PRODUCT_PACKAGES += \
     macaddrsetup
 
