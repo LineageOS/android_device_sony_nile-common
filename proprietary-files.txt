@@ -150,20 +150,20 @@ vendor/etc/init/dpmQmiMgr.rc
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libdpmqmihal.so
 
-# DRM and SEE
-vendor/bin/qseecomd
-vendor/lib/libQSEEComAPI.so
-vendor/lib64/libGPreqcancel.so
-vendor/lib64/libGPreqcancel_svc.so
-vendor/lib64/libQSEEComAPI.so
-vendor/lib64/libStDrvInt.so
-vendor/lib64/libdrmfs.so
-vendor/lib64/libdrmtime.so
-vendor/lib64/libqisl.so
-vendor/lib64/librpmb.so
-vendor/lib64/libsecureui.so
-vendor/lib64/libsecureui_svcsock.so
-vendor/lib64/libssd.so
+# DRM and SEE - from HON660-T-95.00.03-(0054)
+vendor/bin/qseecomd|1ebf6ff17b21c5374fa0192a9bea1f89ac8fd19d
+vendor/lib/libQSEEComAPI.so|9b9da7d1ad2465cf5411f59b2a2f9413a1694b58
+vendor/lib64/libGPreqcancel.so|b4540426976608f8e72e863a34fbee03a08f8fc3
+vendor/lib64/libGPreqcancel_svc.so|fdeb8d658b8817ed921d7197b2f6326e56de0ffc
+vendor/lib64/libQSEEComAPI.so|cdc34a4e48a34ee4e70c5d7a90060f102ce18183
+vendor/lib64/libStDrvInt.so|e221db12c6988911d0d626217f8b156a2e1841aa
+vendor/lib64/libdrmfs.so|40e0ea780e85a17a6f9f1a184828c2e8f2283b87
+vendor/lib64/libdrmtime.so|5876ac16062d1d97e38a061adb93b2a56f1699b9
+vendor/lib64/libqisl.so|4b6cb5542193e758067a3b5819cc4a6b76bf87cf
+vendor/lib64/librpmb.so|f0c24388e57432f43fbeb2cce492fc9f2be9ba26
+vendor/lib64/libsecureui.so|f83a88c11e35b3e373034faa44dc0ce36608a3fe
+vendor/lib64/libsecureui_svcsock.so|f3f13a8d9426359b921960167978f241367ae6ff
+vendor/lib64/libssd.so|9f00c129db72613ab46acf2627425ab99fbdfb84
 
 # FM - from HON660-T-95.00.03-(0054)
 system_ext/lib64/fm_helium.so|d13301df0e10df117d6b2d419601e96fdac14bbe
@@ -416,11 +416,11 @@ vendor/bin/qrtr-lookup
 vendor/bin/qrtr-ns
 vendor/lib64/libqrtr.so
 
-# Qteeconnector
-vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
-vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
+# Qteeconnector - from HON660-T-95.00.03-(0054)
+vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service|f291f50f5c28bd2b240253ea4105c2e9aee60304
+vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc|c966350ee67d3a7c73ca7184e3725264025d16f5
+vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so|d7b4c4b3ed51bf8da576a306eb66d09195821afb
+vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so|fab8de6637f2af981a071706e5bf1ff64a3338ad
 
 # RIL
 product/app/QtiTelephonyService/QtiTelephonyService.apk:system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
