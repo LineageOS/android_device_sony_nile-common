@@ -377,7 +377,7 @@ $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit.sony_nil
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service
+    android.hardware.vibrator-service.legacy
 
 # WiFi
 PRODUCT_PACKAGES += \
