@@ -1,0 +1,74 @@
+cc_library_headers {
+    name: "libmmcamera_interface_headers",
+    export_include_dirs: ["inc"],
+}
+
+cc_library_shared {
+    name: "libmmcamera_interface",
+
+    srcs: [
+        "src/mm_camera_channel.c",
+        "src/mm_camera_interface.c",
+        "src/mm_camera_muxer.c",
+        "src/mm_camera_sock.c",
+        "src/mm_camera_stream.c",
+        "src/mm_camera_thread.c",
+        "src/mm_camera.c",
+    ],
+
+    header_libs: [
+        "camera_common_headers",
+        "generated_kernel_headers",
+        "libhardware_headers",
+    ],
+
+    shared_libs: [
+        "libcutils",
+        "libdl",
+        "libhal_dbg",
+        "liblog",
+        "libutils",
+    ],
+
+    cflags: [
+        "-DSYSTEM_HEADER_PREFIX=sys",
+        "-DUSE_ION",
+        "-DUSE_KERNEL_VERSION_GE_4_4_DEFS",
+        "-DVENUS_PRESENT",
+        "-DUBWC_PRESENT",
+        "-D_ANDROID_",
+        "-DQCAMERA_REDEFINE_LOG",
+        "-DFDLEAK_FLAG",
+        "-DMEMLEAK_FLAG",
+        "-DCAMERA_ION_HEAP_ID=ION_IOMMU_HEAP_ID",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-compound-token-split-by-macro",
+    ] + select(soong_config_variable("qcom_camera_hal", "target"), {
+        "ganges": ["-DTARGET_GANGES"],
+        "nile": ["-DTARGET_NILE"],
+        default: [],
+    }),
+
+    ldflags: [
+        "-Wl,--wrap=open",
+        "-Wl,--wrap=close",
+        "-Wl,--wrap=socket",
+        "-Wl,--wrap=pipe",
+        "-Wl,--wrap=mmap",
+        "-Wl,--wrap=__open_2",
+        "-Wl,--wrap=malloc",
+        "-Wl,--wrap=free",
+        "-Wl,--wrap=realloc",
+        "-Wl,--wrap=calloc",
+    ],
+
+    export_include_dirs: ["inc"],
+
+    include_dirs: [
+        "system/media/camera/include",
+    ],
+
+    vendor: true,
+}

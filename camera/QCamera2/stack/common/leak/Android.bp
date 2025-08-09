@@ -1,0 +1,31 @@
+cc_library_shared {
+    name: "libhal_dbg",
+
+    srcs: [
+        "fdleak.cpp",
+        "memleak.cpp",
+    ],
+
+    header_libs: [
+        "libmmcamera_interface_headers",
+        "libutils_headers",
+    ],
+
+    shared_libs: [
+        "libcutils",
+        "libdl",
+        "liblog",
+    ],
+
+    cflags: [
+        "-D_ANDROID",
+        "-Werror",
+        "-Wunused-parameter",
+    ],
+
+    export_include_dirs: [
+        ".",
+    ],
+
+    vendor: true,
+}
