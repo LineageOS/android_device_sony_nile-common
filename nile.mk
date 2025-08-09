@@ -145,7 +145,13 @@ $(call soong_config_set,QTI_GPT_UTILS,USE_BSG_FRAMEWORK,false)
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
-    camera.sdm660
+    camera.sdm660:32
+
+ifneq ($(filter %_kirin %_mermaid,$(TARGET_PRODUCT)),)
+$(call soong_config_set,qcom_camera_hal,target,ganges)
+else ifneq ($(filter %_discovery %_pioneer %_voyager,$(TARGET_PRODUCT)),)
+$(call soong_config_set,qcom_camera_hal,target,nile)
+endif
 
 # Common init scripts
 PRODUCT_PACKAGES += \

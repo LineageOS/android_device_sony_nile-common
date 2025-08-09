@@ -1,0 +1,7 @@
+prebuilt_etc {
+    name: "cameraconfig.txt",
+    src: "cameraconfig.txt",
+    relative_install_path: "camera",
+    filename_from_src: true,
+    vendor: true,
+}
