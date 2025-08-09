@@ -1,0 +1,31 @@
+cc_library_shared {
+    name: "libqomx_core",
+
+    srcs: [
+        "qomx_core.c",
+    ],
+
+    header_libs: [
+        "libqexif_headers",
+        "media_plugin_headers",
+    ],
+
+    shared_libs: [
+        "libdl",
+        "liblog",
+        "libutils",
+    ],
+
+    cflags: [
+        "-Werror",
+        "-Wno-compound-token-split-by-macro",
+        "-g",
+        "-O0",
+    ],
+
+    export_include_dirs: [
+        ".",
+    ],
+
+    vendor: true,
+}
