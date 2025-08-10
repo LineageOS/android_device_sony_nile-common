@@ -110,6 +110,8 @@ cc_library_shared {
         "-DVENUS_PRESENT",
         "-DUBWC_PRESENT",
         "-DUSE_CAMERA_METABUFFER_UTILS",
+        "-DVIDEO_EXPLICIT_UBWC",
+        "-DSUPPORT_POWER_HINT_XML",
     ] + select(soong_config_variable("qcom_camera_hal", "target"), {
         "ganges": ["-DTARGET_GANGES"],
         "nile": ["-DTARGET_NILE"],

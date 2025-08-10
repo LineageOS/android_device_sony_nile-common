@@ -1,6 +1,7 @@
 soong_namespace {
     imports: [
-        "hardware/qcom-caf/msm8998",
+        "hardware/qcom-caf/sdm660",
+        "vendor/qcom/opensource/display",
     ],
 }
 
