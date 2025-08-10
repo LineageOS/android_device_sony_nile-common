@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bf7336f_4a5f5905",
+        "filename": "camera/QCamera2/stack/mm-camera-interface/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-08-10T10:42:00Z",
+      "side": 0,
+      "message": "hmm:\n\nifeq ($(shell expr $(TARGET_KERNEL_VERSION) \\\u003e\u003d 4.4), 1)\nLOCAL_CFLAGS +\u003d -DUSE_KERNEL_VERSION_GE_4_4_DEFS\nendif\n\ncurious if it\u0027s actually wrong...",
+      "revId": "d2a687c5723a7cdae0eff7cd0815ddc2e6ba3840",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
