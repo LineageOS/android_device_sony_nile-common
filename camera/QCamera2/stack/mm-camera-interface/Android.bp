@@ -34,7 +34,6 @@ cc_library_shared {
     cflags: [
         "-DSYSTEM_HEADER_PREFIX=sys",
         "-DUSE_ION",
-        "-DUSE_KERNEL_VERSION_GE_4_4_DEFS",
         "-DVENUS_PRESENT",
         "-DUBWC_PRESENT",
         "-D_ANDROID_",
