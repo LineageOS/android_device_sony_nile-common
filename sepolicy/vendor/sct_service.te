@@ -9,3 +9,7 @@ allow sct_service self:capability net_raw;
 # Allow sct_service to create self:socket
 allow sct_service self:socket create_socket_perms;
 allowxperm sct_service self:socket ioctl msm_sock_ipc_ioctls;
+
+# Allow sct_service to create self:qipcrtr_socket
+allow sct_service self:qipcrtr_socket create_socket_perms;
+allowxperm sct_service self:qipcrtr_socket ioctl msm_sock_ipc_ioctls;
