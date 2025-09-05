@@ -680,3 +680,6 @@ on property:sys.boot_completed=1
     chown media audio /sys/kernel/wcd_cpe0/fw_name
 
     start qcom-post-boot
+
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1
