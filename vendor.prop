@@ -115,6 +115,11 @@ ro.fastbootd.available=true
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
+# Encryption
+ro.crypto.dm_default_key.options_format.version=2
+ro.crypto.volume.contents_mode=aes-256-xts
+ro.crypto.volume.filenames_mode=aes-256-cts
+
 # Graphics
 debug.egl.hw=1
 debug.sf.enable_hwc_vds=1
