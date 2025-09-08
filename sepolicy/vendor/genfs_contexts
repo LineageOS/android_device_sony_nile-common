@@ -5,6 +5,10 @@ genfscon proc /cei_project_id      u:object_r:proc_cei:s0
 genfscon proc /cei_simslot_id      u:object_r:proc_cei:s0
 genfscon proc /cei_sku_id          u:object_r:proc_cei:s0
 
+genfscon sysfs /class/qns                  u:object_r:qns_sysfs:s0
+genfscon sysfs /devices/soc/soc:egistec    u:object_r:sysfs_fpc:s0
+genfscon sysfs /devices/soc/soc:fpc1020    u:object_r:sysfs_fpc:s0
+
 genfscon sysfs /kernel/boot_adsp/boot    u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /kernel/boot_cdsp/boot    u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /kernel/boot_slpi/boot    u:object_r:sysfs_msm_subsys:s0
