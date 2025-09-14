@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from I3113_Customized UK_1317-9617_53.1.A.3.85_R9C
+# All unpinned blobs below are extracted from I3113_Customized UK_1317-9617_53.1.A.5.13_R11C
 
 # ADSP
 vendor/bin/adsprpcd
@@ -176,10 +176,10 @@ vendor/lib64/libets_fp.so
 vendor/lib64/libets_teeclient_v2.so
 vendor/lib64/vendor.egis.fingerprints.inline_hal.hardware.fingerprint@2.0.so
 
-# Fingerprint (FPC) - from H3113_Customized CE1_1312-1452_50.2.A.3.22_R1B
-vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service_fpc|f1dde9fa0e78d5db3a2a7c7d79a95b373ff2e010
+# Fingerprint (FPC) - from H3113_Customized CE1_1312-1452_50.2.A.3.77_R1B
+vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service_fpc|c2bb0b2e0e925259cefba14ecfdae415c261fa6c
 vendor/lib64/com.fingerprints.extension@1.0.so|8e1d80d3a7d7a65a683bbb99c681da22cceb9946|b9b9c5e38173a4ef49f823bc03ca2eff876e2847
-vendor/lib64/fpc_tac.so|e0608e99df40ed30bb2bc9ac3fb0829198b84e05|62c0e0a6f4b0ba8454e5bdd407ca716a97eeb84e
+vendor/lib64/fpc_tac.so|eca0b3a400eb04c148b14e5c7e7ffb0569c5b520|e6560c4ba6f54e4a0157a329388eccb0355f2e41
 
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
