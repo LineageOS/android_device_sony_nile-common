@@ -538,11 +538,10 @@ vendor/lib64/libsuntory.so;DUMMY_SHARED_LIB
 
 # Sensors
 vendor/bin/sensors.qti
-vendor/etc/sensors/hals.conf
 vendor/lib/libsensor1.so
 vendor/lib64/libsensor1.so
 vendor/lib64/libsensor_reg.so
-vendor/lib64/sensors.ssc.so
+vendor/lib64/sensors.ssc.so:vendor/lib64/hw/sensors.sdm660.so;FIX_SONAME
 
 # TA
 vendor/bin/hw/vendor.somc.hardware.miscta@1.0-service
