@@ -16,6 +16,24 @@
       "message": "Doesn\u0027t have to be changed",
       "revId": "12445c71fad84acc85e89d6d047d36251582ea20",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e8e4699_967d194e",
+        "filename": "init/init.qcom.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-09-27T13:41:03Z",
+      "side": 1,
+      "message": "restored.",
+      "parentUuid": "a2f6046e_c1a7e3e6",
+      "revId": "12445c71fad84acc85e89d6d047d36251582ea20",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
