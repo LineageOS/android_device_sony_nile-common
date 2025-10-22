@@ -1,2 +1,0 @@
-# Allow hal_power_default to read and write sysfs_devices_system_cpu
-rw_dir_file(hal_power_default, sysfs_devices_system_cpu)
