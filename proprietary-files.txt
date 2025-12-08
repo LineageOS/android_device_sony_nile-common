@@ -356,6 +356,11 @@ vendor/lib64/libidd.so
 vendor/lib64/libprotobuf-c-idd.so
 vendor/lib64/vendor.semc.system.idd@1.0.so
 
+# IRQ balance - from HON660-T-95.00.04-(0061)
+vendor/bin/msm_irqbalance|9e39bffcabe1dfd1d1a4d004171c7b01179f3ca8
+vendor/etc/msm_irqbalance.conf|83b18f58c3a5bad615972fb5dca4f84dff82787e
+vendor/etc/msm_irqbalance_sdm630.conf|909ff75bf63674341a80859510496b0749728a00
+
 # Peripheral manager - from HON660-T-95.00.04-(0061)
 vendor/bin/pm-proxy|96c50d1dae229c9438db043b9a912af87e2a7e16
 vendor/bin/pm-service|d6503051e0ae7a1bb418e6050867c5e01624487f
