@@ -71,7 +71,8 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/etc/init/init.sony-modem-switcher.rc': blob_fixup()
         .regex_replace('/system/bin/sony-modem-switcher', '/vendor/bin/sony-modem-switcher'),
     ('vendor/etc/msm_irqbalance.conf', 'vendor/etc/msm_irqbalance_sdm630.conf'): blob_fixup()
-        .regex_replace('IGNORED_IRQ=19,22,39,200,203$', 'IGNORED_IRQ=19,22,39,115,200,203,332'),
+        .regex_replace('IGNORED_IRQ=19,22,39,200,203$', 'IGNORED_IRQ=19,22,39,115,200,203,332')
+        .regex_replace('BLACKLIST_IRQ=446,455,456$', 'BLACKLIST_IRQ=445,446,447,448,449,450,452,453,454,455,456,457'),
     ('vendor/lib/libbtnv.so', 'vendor/lib64/libbtnv.so'): blob_fixup()
         .binary_regex_replace(b'.bt_nv.bin', b'.bt_nv.noo'),
     ('vendor/lib/libwvhidl.so', 'vendor/lib64/libwvhidl.so'): blob_fixup()
