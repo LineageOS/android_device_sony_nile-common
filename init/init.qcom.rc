@@ -670,3 +670,10 @@ on property:sys.boot_completed=1
 
     # Enable PowerHAL hint processing
     setprop vendor.powerhal.init 1
+
+on property:vendor.post_boot.parsed=1
+    # IRQ Tuning
+    # IRQ 156: msm_drm
+    # IRQ 49: kgsl_3d0_irq
+    write /proc/irq/167/smp_affinity_list 2
+    write /proc/irq/32/smp_affinity_list 1
