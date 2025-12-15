@@ -45,6 +45,7 @@ cc_library_shared {
         "-Wextra",
         "-Werror",
         "-Wno-compound-token-split-by-macro",
+        "-Wno-unused-but-set-variable",
     ] + select(soong_config_variable("qcom_camera_hal", "target"), {
         "ganges": ["-DTARGET_GANGES"],
         "nile": ["-DTARGET_NILE"],
