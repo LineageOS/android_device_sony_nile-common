@@ -40,5 +40,5 @@ corresponding change should be done in the above macros and vice versa
 to prevent format mismatch between Gralloc and Camera HAL for stream
 buffers */
 
-#define PREVIEW_STREAM_FORMAT CAM_FORMAT_YUV_420_NV21
+#define PREVIEW_STREAM_FORMAT CAM_FORMAT_YUV_420_NV12_VENUS
 #define CALLBACK_STREAM_FORMAT CAM_FORMAT_YUV_420_NV21
