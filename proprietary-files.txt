@@ -266,6 +266,9 @@ vendor/bin/xtwifi-client|91877765cdee97259d69007dd022a32db79a7624
 vendor/bin/xtwifi-inet-agent|10f16bc92e7a1e4d790c4234c05807f2fe125212
 vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc|1958728521e9532f3f8a24ba8840a04232230130|f9da8e9cfe53925acfe6d6c365ee72dd5a2330f7
 vendor/etc/vintf/manifest/vendor.qti.gnss@4.2-service.xml|bb46e35d0224e9f53610e4cad8581c0da2c5e6e6
+vendor/etc/lowi.conf|b8774138f3b856883528608e19275d050ab7d263
+vendor/etc/xtra_root_cert.pem|f55a31ec4d9cf8ce2724acadecf00c779f8767db
+vendor/etc/xtwifi.conf|ac2189707c0016c31846ccec73e8857d7f566605
 vendor/lib64/hw/android.hardware.gnss@2.1-impl-qti.so|7ed8ee048713bc9b20b9f44def8da57aad5dccbd
 vendor/lib64/hw/vendor.qti.gnss@4.2-impl.so|3ed40e4eeaf6afe3005f084fe6a4d9bf3df6efb8
 vendor/lib64/libasn1cper.so|79f8155e2d0a7241eb23dc923b97feed76ebd19e
