@@ -15,6 +15,8 @@ genfscon sysfs /devices/platform/soc/800f000.qcom,spmi/spmi-0/spmi0-01/800f000.q
 genfscon sysfs /devices/platform/soc/soc:fpc1020/wakeup    u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:s5712/wakeup      u:object_r:sysfs_wakeup:s0
 
+genfscon sysfs /devices/platform/soc/soc:sim_detect/extcon    u:object_r:sysfs_extcon:s0
+
 genfscon sysfs /kernel/boot_adsp/boot    u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /kernel/boot_cdsp/boot    u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /kernel/boot_slpi/boot    u:object_r:sysfs_msm_subsys:s0
