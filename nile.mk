@@ -191,9 +191,6 @@ PRODUCT_PACKAGES += \
 # Fastboot
 TARGET_BOARD_FASTBOOT_INFO_FILE := $(LOCAL_PATH)/fastboot-info.txt
 
-PRODUCT_PACKAGES += \
-    fastbootd
-
 # FM
 PRODUCT_PACKAGES += \
     FM2 \

@@ -109,9 +109,6 @@ debug.gralloc.gfx_ubwc_disable=0
 # DRM
 drm.service.enabled=true
 
-# fastbootd
-ro.fastbootd.available=true
-
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
