@@ -12936,11 +12936,7 @@ int QCamera3HardwareInterface::initStaticMetadata(uint32_t cameraId)
         available_capabilities.add(ANDROID_REQUEST_AVAILABLE_CAPABILITIES_DEPTH_OUTPUT);
     }
 
-#ifdef TARGET_NILE
-    if (cameraId > 0 && CAM_SENSOR_YUV != gCamCapability[cameraId]->sensor_type.sens_type) {
-#else
     if (CAM_SENSOR_YUV != gCamCapability[cameraId]->sensor_type.sens_type) {
-#endif
         available_capabilities.add(ANDROID_REQUEST_AVAILABLE_CAPABILITIES_RAW);
     }
 #ifdef USE_HAL_3_5
