@@ -62,7 +62,6 @@ cc_library_shared {
     ],
 
     shared_libs: [
-        "android.frameworks.displayservice@1.0",
         "libbinder",
         "libcamera_metadata",
         "libcutils",
@@ -101,7 +100,6 @@ cc_library_shared {
         "-D_ANDROID",
         "-DUSE_HAL_3_5",
         "-DUSE_MEDIA_EXTENSIONS",
-        "-DUSE_DISPLAY_SERVICE",
         "-std=c++14",
         "-std=gnu++1z",
         "-DUSE_VENDOR_PROP",
