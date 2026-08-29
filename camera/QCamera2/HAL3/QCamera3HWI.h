@@ -243,6 +243,8 @@ public:
     static int getCamInfo(uint32_t cameraId, struct camera_info *info);
     static cam_capability_t *getCapabilities(mm_camera_ops_t *ops,
             uint32_t cam_handle);
+    static void fixupRawDimension(cam_capability_t *cap, mm_camera_ops_t *ops,
+            uint32_t cam_handle);
     static int initCapabilities(uint32_t cameraId);
     static int initStaticMetadata(uint32_t cameraId);
      static uint8_t convertIdToUTF8(uint32_t id);

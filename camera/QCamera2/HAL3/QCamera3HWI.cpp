@@ -11582,6 +11582,159 @@ allocate_failed:
 }
 
 /*===========================================================================
+ * FUNCTION   : fixupRawDimension
+ *
+ * DESCRIPTION: trim the raw related capabilities down to the frame the sensor
+ *              really streams out.
+ *
+ *              The sensor driver reports the full pixel array as the raw
+ *              (CAMIF/RDI dump) dimension, which can be wider than the window
+ *              the sensor is actually programmed to read out. A RAW stream is
+ *              a plain pass through of that read out window, so when the two
+ *              disagree the HAL computes a MIPI RAW10 line stride that the ISP
+ *              never wrote with and convertMipiToRaw16() shears the image
+ *              (imx300 on nile reports 5984x4160 but streams 5520x4160).
+ *
+ * PARAMETERS :
+ *   @cap        : capability structure to fix up
+ *   @ops        : mm-interface ops structure
+ *   @cam_handle : camera handle the capability was queried with
+ *
+ * RETURN     : none
+ *==========================================================================*/
+void QCamera3HardwareInterface::fixupRawDimension(cam_capability_t *cap,
+        mm_camera_ops_t *ops, uint32_t cam_handle)
+{
+    QCamera3HeapMemory *paramHeap = NULL;
+    metadata_buffer_t *params = NULL;
+    cam_sensor_config_t sensor_dim;
+    cam_dimension_t max_dim;
+    size_t count = 0;
+    size_t i = 0;
+    size_t j = 0;
+    bool mapped = false;
+
+    if ((NULL == cap) || (NULL == ops) || (0 == cap->supported_raw_dim_cnt)) {
+        return;
+    }
+
+    memset(&sensor_dim, 0, sizeof(sensor_dim));
+    count = MIN(cap->supported_raw_dim_cnt, (size_t)MAX_SIZES_CNT);
+
+    /* Ask the back end for the largest dimension we advertise, so that it
+     * picks the biggest sensor mode it has to offer. */
+    max_dim = cap->raw_dim[0];
+    for (i = 1; i < count; i++) {
+        if (cap->raw_dim[i].width > max_dim.width)
+            max_dim.width = cap->raw_dim[i].width;
+        if (cap->raw_dim[i].height > max_dim.height)
+            max_dim.height = cap->raw_dim[i].height;
+    }
+
+    paramHeap = new QCamera3HeapMemory(1);
+    if (paramHeap == NULL) {
+        LOGE("creation of paramHeap failed");
+        return;
+    }
+    if (paramHeap->allocate(sizeof(metadata_buffer_t)) != OK) {
+        LOGE("No memory for parameters");
+        goto done;
+    }
+
+    params = (metadata_buffer_t *)paramHeap->getPtr(0);
+    if (ops->map_buf(cam_handle, CAM_MAPPING_BUF_TYPE_PARM_BUF,
+            paramHeap->getFd(0), sizeof(metadata_buffer_t), params) < 0) {
+        LOGE("failed to map parameters buffer");
+        goto done;
+    }
+    mapped = true;
+
+    clear_metadata_buffer(params);
+    if (ADD_SET_PARAM_ENTRY_TO_BATCH(params, CAM_INTF_PARM_MAX_DIMENSION,
+            max_dim) != NO_ERROR) {
+        LOGE("Failed to update table for CAM_INTF_PARM_MAX_DIMENSION");
+        goto done;
+    }
+    if (ops->set_parms(cam_handle, params) != NO_ERROR) {
+        LOGE("Failed to set CAM_INTF_PARM_MAX_DIMENSION");
+        goto done;
+    }
+
+    clear_metadata_buffer(params);
+    ADD_GET_PARAM_ENTRY_TO_BATCH(params, CAM_INTF_PARM_RAW_DIMENSION);
+    if (ops->get_parms(cam_handle, params) != NO_ERROR) {
+        LOGE("Failed to get CAM_INTF_PARM_RAW_DIMENSION");
+        goto done;
+    }
+    READ_PARAM_ENTRY(params, CAM_INTF_PARM_RAW_DIMENSION, sensor_dim);
+
+    if ((sensor_dim.width <= 0) || (sensor_dim.height <= 0)) {
+        LOGW("Invalid sensor output dimension %dx%d",
+                sensor_dim.width, sensor_dim.height);
+        goto done;
+    }
+    if ((sensor_dim.width >= max_dim.width) &&
+            (sensor_dim.height >= max_dim.height)) {
+        /* Sensor covers everything we advertise, nothing to do. */
+        goto done;
+    }
+
+    LOGI("Sensor only outputs %dx%d, trimming raw dimension %dx%d down to it",
+            sensor_dim.width, sensor_dim.height, max_dim.width, max_dim.height);
+
+    for (i = 0; i < count; i++) {
+        if (cap->raw_dim[i].width > sensor_dim.width)
+            cap->raw_dim[i].width = sensor_dim.width;
+        if (cap->raw_dim[i].height > sensor_dim.height)
+            cap->raw_dim[i].height = sensor_dim.height;
+    }
+
+    /* Trimming may have collapsed entries into each other, drop the
+     * duplicates so that we don't advertise the same size twice. */
+    for (i = 1, j = 1; i < count; i++) {
+        size_t k;
+        for (k = 0; k < j; k++) {
+            if ((cap->raw_dim[k].width == cap->raw_dim[i].width) &&
+                    (cap->raw_dim[k].height == cap->raw_dim[i].height)) {
+                break;
+            }
+        }
+        if (k < j) {
+            continue;
+        }
+        cap->raw_dim[j] = cap->raw_dim[i];
+        cap->raw_min_duration[j] = cap->raw_min_duration[i];
+        j++;
+    }
+    cap->supported_raw_dim_cnt = j;
+
+    /* RAW streams are advertised with the pixel array size, keep the two in
+     * sync and make sure the active array still fits inside the array. */
+    if (cap->pixel_array_size.width > sensor_dim.width)
+        cap->pixel_array_size.width = sensor_dim.width;
+    if (cap->pixel_array_size.height > sensor_dim.height)
+        cap->pixel_array_size.height = sensor_dim.height;
+
+    if ((cap->active_array_size.left + cap->active_array_size.width) >
+            cap->pixel_array_size.width) {
+        cap->active_array_size.width =
+                cap->pixel_array_size.width - cap->active_array_size.left;
+    }
+    if ((cap->active_array_size.top + cap->active_array_size.height) >
+            cap->pixel_array_size.height) {
+        cap->active_array_size.height =
+                cap->pixel_array_size.height - cap->active_array_size.top;
+    }
+
+done:
+    if (mapped) {
+        ops->unmap_buf(cam_handle, CAM_MAPPING_BUF_TYPE_PARM_BUF);
+    }
+    paramHeap->deallocate();
+    delete paramHeap;
+}
+
+/*===========================================================================
  * FUNCTION   : initCapabilities
  *
  * DESCRIPTION: initialize camera capabilities in static data struct
@@ -11617,6 +11770,8 @@ int QCamera3HardwareInterface::initCapabilities(uint32_t cameraId)
     }
 
     gCamCapability[cameraId]->camera_index = cameraId;
+    fixupRawDimension(gCamCapability[cameraId], cameraHandle->ops, handle);
+
     if (is_dual_camera_by_idx(cameraId)) {
         handle = get_aux_camera_handle(cameraHandle->camera_handle);
         gCamCapability[cameraId]->aux_cam_cap =
@@ -11626,6 +11781,8 @@ int QCamera3HardwareInterface::initCapabilities(uint32_t cameraId)
             free(gCamCapability[cameraId]);
             goto failed_op;
         }
+        fixupRawDimension(gCamCapability[cameraId]->aux_cam_cap,
+                cameraHandle->ops, handle);
 
         // Copy the main camera capability to main_cam_cap struct
         gCamCapability[cameraId]->main_cam_cap =
