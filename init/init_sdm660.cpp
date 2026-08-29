@@ -45,10 +45,12 @@ constexpr auto LTALABEL_PATH = "/lta-label/pages/menu.htm";
 // but with "." at the end and empty entry
 std::vector<std::string> ro_product_props_default_source_order = {
     "",
+    "bootimage.",
     "product.",
     "product_services.",
     "odm.",
     "vendor.",
+    "vendor_dlkm.",
     "system.",
     "system_ext.",
 };
