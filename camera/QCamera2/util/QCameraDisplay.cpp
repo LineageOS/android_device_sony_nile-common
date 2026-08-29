@@ -82,7 +82,7 @@ int QCameraDisplay::vsyncEventReceiverCamera(__unused int fd,
     while ((n = pQCameraDisplay->mDisplayEventReceiver.getEvents(buffer,
             DISPLAY_EVENT_RECEIVER_ARRAY_SIZE)) > 0) {
         for (int i = 0 ; i < n ; i++) {
-            if (buffer[i].header.type == android::DisplayEventReceiver::DISPLAY_EVENT_VSYNC) {
+            if (buffer[i].header.type == android::DisplayEventType::DISPLAY_EVENT_VSYNC) {
                 pQCameraDisplay->computeAverageVsyncInterval(buffer[i].header.timestamp);
             }
         }

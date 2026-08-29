@@ -29,11 +29,11 @@
 
 #ifndef __QCAMERADISPLAY_H__
 #define __QCAMERADISPLAY_H__
-#ifdef USE_DISPLAY_SERVICE
 #ifdef LIKELY
 #undef LIKELY
 #undef UNLIKELY
 #endif //LIKELY
+#ifdef USE_DISPLAY_SERVICE
 #include <android/frameworks/displayservice/1.0/IDisplayService.h>
 #include <android/frameworks/displayservice/1.0/IEventCallback.h>
 #include <android/frameworks/displayservice/1.0/IDisplayEventReceiver.h>
