@@ -3016,8 +3016,8 @@ case "$target" in
             echo 15 > /proc/sys/kernel/sched_init_task_load
 
             # cpuset settings
-            echo 0-3 > /dev/cpuset/background/cpus
-            echo 0-3 > /dev/cpuset/system-background/cpus
+            echo 4-7 > /dev/cpuset/background/cpus
+            echo 4-7 > /dev/cpuset/system-background/cpus
 
             #if the kernel version >=4.14,use the schedutil governor
             if [ $KernelVersionA -ge 4 ] && [ $KernelVersionB -ge 14 ]; then
